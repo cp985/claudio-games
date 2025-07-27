@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "app.[contenthash].js",
-    publicPath: "/",
+    publicPath: "/claudio-games/",
     clean: true,
   },
 
