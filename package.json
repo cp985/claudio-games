@@ -1,0 +1,30 @@
+{
+  "name": "claudio-games",
+  "version": "1.0.0",
+  "description": "cv portfolio games developer",
+  "main": "./src/main.js",
+  "scripts": {
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production --config webpack.prod.js"
+  },
+  "author": "ClaudioP",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@eslint/js": "^9.32.0",
+    "babel-loader": "^10.0.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.32.0",
+    "globals": "^16.3.0",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.100.2",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "dependencies": {
+    "cross-env": "^10.0.0",
+    "webpack-cli": "^6.0.1"
+  }
+}
