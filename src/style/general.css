@@ -1,3 +1,33 @@
-h1{
-    color: red;
+body {
+     --colore-sfondo: #000000;         /* sfondo profondo, quasi nero */
+  --colore-accento: #00CFFF;        /* azzurro neon per animazioni / evidenziazioni */
+  --colore-secondario: #ddff00;     /* fucsia acceso per bordi o call to action */
+  --colore-testo: #EAEAEA;          /* testo chiaro leggibile su sfondo scuro */
+  --colore-blur: rgba(0, 207, 255, 0.1);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+div.cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+    width: 90%;
+    height: 90%;
+    max-width: 1280px;
+    max-height: 800px;
+    border: 5px solid var(--colore-secondario);
+}
+
+h1 {
+    color: var(--colore-testo);
+    font-size: larger;
+
+
 }
