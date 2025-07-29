@@ -7,8 +7,30 @@ import "./style/body.background.css";
 if (module.hot) {
   module.hot.accept();
 }
-function log(n) {
-  console.log(n);
+
+
+//#region dom const
+
+const slide = document.querySelectorAll(".slide");
+
+//#endregion dom const
+
+//#region dom handler
+let slideActive = 0;
+
+slide[0].classList.add("active");
+
+function nextSlide() {
+ slide[slideActive].classList.remove("active");
+slideActive++;
+if (slideActive >= slide.length) {
+    slideActive = 0;
+  }
+slide[slideActive].classList.add("active");
+
 }
 
-log("hola111");
+
+setInterval(nextSlide, 5000);
+
+//#endregion dom handler
