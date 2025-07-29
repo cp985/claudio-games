@@ -43,7 +43,6 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
-      // Regola per immagini con ottimizzazione
       {
         test: /\.(png|jpg|jpeg|gif|svg|webp)$/i,
         type: "asset/resource",

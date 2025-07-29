@@ -63,7 +63,7 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
-      // Regola per immagini con ottimizzazione
+
       {
         test: /\.(png|jpg|jpeg|gif|svg|webp)$/i,
         type: "asset/resource",
@@ -95,7 +95,7 @@ module.exports = {
           },
         ],
       },
-      // Regola per audio
+
       {
         test: /\.(mp3|wav|ogg)$/i,
         type: "asset/resource",
@@ -103,7 +103,7 @@ module.exports = {
           filename: "assets/audio/[name].[hash][ext]",
         },
       },
-      // Regola per video
+
       {
         test: /\.(mp4|webm)$/i,
         type: "asset/resource",
@@ -111,7 +111,7 @@ module.exports = {
           filename: "assets/video/[name].[hash][ext]",
         },
       },
-      // Regola per font
+
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: "asset/resource",
@@ -145,8 +145,8 @@ module.exports = {
       patterns: [
         { from: "assets/img", to: "img" },
         {
-          from: path.resolve(__dirname, "assets/favicon/icofav.ico"),
-          to: path.resolve(__dirname, "dist"),
+          from: "assets/favicon",
+          to: path.resolve(__dirname, "dist/favicon"),
         },
       ],
     }),
