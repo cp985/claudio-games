@@ -35,8 +35,9 @@ div.cont {
     flex-direction: column;
     z-index: 5;
     width: 90%;
-    height: 90%;
+    height: 93%;
     border: 3px solid var(--colore-secondario);
+
 }
 
 main {
