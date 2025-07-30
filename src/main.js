@@ -4,7 +4,7 @@ import "./services/api.js";
 import "./style/resetcss.css";
 import "./style/body.background.css";
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   console.log(
     "Finestra completamente caricata, inclusi tutti gli stili e le immagini"
   );
