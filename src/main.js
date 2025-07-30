@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
       .catch((error) => {
         console.error("Errore nel caricamento del carosello:", error);
       });
-  }, 100);
+  }, 1000);
 });
 
 if (module.hot) {
