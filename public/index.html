@@ -41,7 +41,7 @@
 
   <!-- Style -->
   <!-- <link rel="stylesheet" href="../src/style/general.css"> -->
-  <script>
+  <!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
       var links = document.querySelectorAll('link[rel="stylesheet"]');
       var loadedStyles = 0;
@@ -52,10 +52,8 @@
       }
       
       if (links.length === 0) {
-        // Nessun foglio di stile esterno, marca subito come pronto
         window.addEventListener('load', markCssReady);
       } else {
-        // Controlla quando ogni foglio di stile è caricato
         links.forEach(function(link) {
           if (link.sheet) {
             loadedStyles++;
@@ -68,11 +66,10 @@
           }
         });
         
-        // Fallback: se dopo 3 secondi non sono stati caricati, segna comunque come pronto
         setTimeout(markCssReady, 3000);
       }
     });
-  </script>
+  </script> -->
 </head>
 
 <body>

@@ -5,9 +5,7 @@
 //#region dom handler
 
 export default function nextSlide() {
-  console.log("ggg");
-
-  const slide = document.querySelectorAll(".slide");
+ const slide = document.querySelectorAll(".slide");
   let slideActive = 0;
   slide[0].classList.add("active");
 
