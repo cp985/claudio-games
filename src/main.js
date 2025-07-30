@@ -2,7 +2,7 @@ import "./style/general.css";
 import "./style/normalizeCss.css";
 import "./style/resetcss.css";
 import "./style/body.background.css";
-
+import "./services/logo-h1.js";
 window.onload = async function loadCarousel() {
   try {
     const modulo = await import("../src/services/carousel-hero.js");
