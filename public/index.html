@@ -16,7 +16,7 @@
   <meta property="og:image" content="">
   <meta property="og:url" content="">
   <meta property="og:type" content="website">
-  <!-- Favicon -->
+ 
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
@@ -41,7 +41,38 @@
 
   <!-- Style -->
   <!-- <link rel="stylesheet" href="../src/style/general.css"> -->
-
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var links = document.querySelectorAll('link[rel="stylesheet"]');
+      var loadedStyles = 0;
+      
+      function markCssReady() {
+        document.body.setAttribute('data-css-loaded', 'true');
+        console.log('CSS completamente caricati');
+      }
+      
+      if (links.length === 0) {
+        // Nessun foglio di stile esterno, marca subito come pronto
+        window.addEventListener('load', markCssReady);
+      } else {
+        // Controlla quando ogni foglio di stile è caricato
+        links.forEach(function(link) {
+          if (link.sheet) {
+            loadedStyles++;
+            if (loadedStyles === links.length) markCssReady();
+          } else {
+            link.onload = function() {
+              loadedStyles++;
+              if (loadedStyles === links.length) markCssReady();
+            };
+          }
+        });
+        
+        // Fallback: se dopo 3 secondi non sono stati caricati, segna comunque come pronto
+        setTimeout(markCssReady, 3000);
+      }
+    });
+  </script>
 </head>
 
 <body>
