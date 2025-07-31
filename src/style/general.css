@@ -23,6 +23,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+ 
 
 }
 
@@ -32,21 +34,20 @@ body {
 /* #region nav */
 header {
     width: 100%;
-    display: flex;
+    display:flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
+    margin-bottom: auto;
 }
 
 nav {
-    padding: 5px;
-    width: 70%;
-    border-bottom: solid var(--v);
+    /* padding: 5px; */
+    width: 60%;
+    border-bottom: 3px solid var(--v);
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-
 }
 
 ul.list {
@@ -70,10 +71,7 @@ li.menu {
     display: flex;
     justify-content: center;
     align-items: center;
-
-
-    padding: 10px;
-
+    padding: 5px;
 }
 
 
@@ -90,13 +88,23 @@ li a.link:hover {
 
 /* #region logo */
 
+div.logo{
+
+    width: 100%;
+    max-height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
 h1#animated-logo {
 
+padding-bottom: 0.5em;
     font-family: 'Bitcount', sans-serif;
 font-size: clamp(1rem, 2.7vw + 0.7rem, 6rem);    color: var(--colore-testo);
     letter-spacing: 0.2em;
-    max-height: 2.4em;
-    margin: 15px;
+    max-height: 2.4em; 
+    /* margin: 15px; */
     z-index: 10;
 }
 
@@ -105,13 +113,14 @@ font-size: clamp(1rem, 2.7vw + 0.7rem, 6rem);    color: var(--colore-testo);
 
 /* #region main */
 div.cont {
+    margin-top: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     z-index: 5;
     width: 90%;
-    height: 94%;
+    height: 80%;
     border: 3px solid var(--colore-secondario);
 
 }
@@ -119,7 +128,7 @@ div.cont {
 main {
     /* margin-top: 20px; */
     width: 90%;
-    height: 65%;
+    height: 75%;
     min-height: 20%;
     display: flex;
     align-items: center;
@@ -178,14 +187,15 @@ div.cont main.swiper div.swiper-pagination {
 
 /* #region footer */
 footer {
+    object-position: bottom;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-left: 10px;
-    margin-top: 10px;
+ margin-top: auto;
     width: 100%;
 
-    /* align-self: flex-start; */
+    
 }
 
 i {
@@ -201,7 +211,6 @@ i:hover{
 
 footer p{
  width: 100%;
-
-    margin-right: 30% ;
+ margin-right: 30% ;
 }
 /* #endregion footer */
