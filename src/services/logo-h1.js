@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 
 
 const logo = document.getElementById("animated-logo");
-const cleanText = "..PLAY DIFFERENT.."; 
+const cleanText = "☺.PLAY DIFFERENT.☺"; 
 logo.innerHTML = "";
 
 cleanText.split("").forEach(char => {

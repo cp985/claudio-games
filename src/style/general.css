@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&display=swap');
 /* #region html/body */
 html {
     --c: #009bbe;
@@ -90,9 +91,9 @@ li a.link:hover {
 /* #region logo */
 
 h1#animated-logo {
-    font-size: 2.5em;
-    font-weight: 900;
-    color: var(--colore-testo);
+
+    font-family: 'Bitcount', sans-serif;
+font-size: clamp(1rem, 2.7vw + 0.7rem, 6rem);    color: var(--colore-testo);
     letter-spacing: 0.2em;
     max-height: 2.4em;
     margin: 15px;
@@ -119,7 +120,7 @@ main {
     /* margin-top: 20px; */
     width: 90%;
     height: 65%;
-    min-height: 270px;
+    min-height: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -177,9 +178,30 @@ div.cont main.swiper div.swiper-pagination {
 
 /* #region footer */
 footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-left: 10px;
-    margin-top: auto;
-    align-self: flex-start;
+    margin-top: 10px;
+    width: 100%;
+
+    /* align-self: flex-start; */
 }
 
+i {
+   margin: 5px 5px;
+    width: auto;
+    z-index: 10;
+    font-size: 1.2em;
+}
+i:hover{
+    color: var(--v);
+    cursor: pointer;
+}
+
+footer p{
+ width: 100%;
+
+    margin-right: 30% ;
+}
 /* #endregion footer */
