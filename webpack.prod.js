@@ -12,7 +12,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "js/[name].[contenthash].js",
     chunkFilename: "js/[name].[contenthash].chunk.js",
-    publicPath: "/claudio-games/",
+    publicPath: "/",
     clean: true,
   },
   optimization: {
@@ -124,6 +124,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+      filename: 'index.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -136,6 +137,23 @@ module.exports = {
         minifyCSS: true,
         minifyURLs: true,
       },
+      
+    }),
+        new HtmlWebpackPlugin({ // Aggiungi questa nuova istanza
+      template: "./public/index.html", // Usa lo stesso template
+      filename: '404.html', // Ma chiamalo 404.html
+      minify: { 
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+    },
     }),
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash].css",
