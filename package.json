@@ -5,7 +5,7 @@
   "main": "./src/main.js",
   "homepage": "https://cp985.github.io/claudio-games/",
   "scripts": {
-    "start": "webpack serve --mode development --open",
+    "start": "webpack serve --mode development --config webpack.config.js --open",
     "build": "webpack --mode production --config webpack.prod.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
