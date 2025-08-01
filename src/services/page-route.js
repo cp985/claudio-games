@@ -13,12 +13,12 @@ const pageList = {
         </div>
         <main class="swiper">
           <section class="hero-carousel swiper-wrapper">
-            <figure class="slide swiper-slide"><img src="/claudio-games/img/sassocartaforbice.webp" alt="sasso carta e forbice"><figcaption>Prova a battere il gioco..</figcaption></figure>
-            <figure class="slide swiper-slide"><img src="/claudio-games/img/coming-soon-2.webp" alt="Grosse novità in arrivo"><figcaption>Novità in arrivo..</figcaption></figure>
-            <figure class="slide swiper-slide"><img src="/claudio-games/img/ordina-le-parole.webp" alt="gioco ordina le parole"><figcaption>Combatti fino all'ultima sillaba..</figcaption></figure>
-            <figure class="slide swiper-slide"><img src="/claudio-games/img/trovailcodice.webp" alt="gioco trova la combinazione"><figcaption>Indovina la combinazione ed apri il baule..</figcaption></figure>
-            <figure class="slide swiper-slide"><img src="/claudio-games/img/coming-soon.webp" alt="presto in arrivo nuovi giochi"><figcaption>Rimanete aggiornati per nuovi arrivi</figcaption></figure>
-          </section>
+            <figure class="slide swiper-slide"><img src="/img/sassocartaforbice.webp" alt="sasso carta e forbice"><figcaption>Prova a battere il gioco..</figcaption></figure>
+            <figure class="slide swiper-slide"><img src="/img/coming-soon-2.webp" alt="Grosse novità in arrivo"><figcaption>Novità in arrivo..</figcaption></figure>
+            <figure class="slide swiper-slide"><img src="/img/ordina-le-parole.webp" alt="gioco ordina le parole"><figcaption>Combatti fino all'ultima sillaba..</figcaption></figure>
+            <figure class="slide swiper-slide"><img src="/img/trovailcodice.webp" alt="gioco trova la combinazione"><figcaption>Indovina la combinazione ed apri il baule..</figcaption></figure>
+            <figure class="slide swiper-slide"><img src="/img/coming-soon.webp" alt="presto in arrivo nuovi giochi"><figcaption>Rimanete aggiornati per nuovi arrivi</figcaption></figure>
+          </section
           <input type="checkbox" name="left" id="left"><label for="left" id="leftL" class="swiper-button-prev"></label>
           <input type="checkbox" name="right" id="right"><label for="right" id="rightL" class="swiper-button-next"></label>
           <div class="swiper-pagination" id="bulletHeroBanner"></div>
