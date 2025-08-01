@@ -18,7 +18,7 @@ module.exports = {
     historyApiFallback: true,
     watchFiles: ["src/**/*", "public/**/*", "index.html"],
   },
-  devtool: "eval-cheap-module-source-map",
+  devtool: "cheap-module-source-map",
   module: {
     rules: [
       {
