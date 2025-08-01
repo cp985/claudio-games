@@ -64,37 +64,6 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
 
-      {
-        test: /\.(png|jpg|jpeg|gif|svg|webp)$/i,
-        type: "asset/resource",
-        generator: {
-          filename: "assets/images/[name].[hash][ext]",
-        },
-        use: [
-          {
-            loader: "image-webpack-loader",
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65,
-              },
-              optipng: {
-                enabled: true,
-              },
-              pngquant: {
-                quality: [0.65, 0.9],
-                speed: 4,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              webp: {
-                quality: 75,
-              },
-            },
-          },
-        ],
-      },
 
       {
         test: /\.(mp3|wav|ogg)$/i,

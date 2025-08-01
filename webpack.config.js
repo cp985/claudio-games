@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -43,21 +44,6 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
-      {
-        test: /\.(png|jpg|jpeg|gif|svg|webp)$/i,
-        type: "asset/resource",
-        generator: {
-          filename: "assets/images/[name][ext]",
-        },
-        use: [
-          {
-            loader: "image-webpack-loader",
-            options: {
-              disable: true,
-            },
-          },
-        ],
-      },
 
       {
         test: /\.(mp3|wav|ogg)$/i,
@@ -87,6 +73,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
+    new CopyWebpackPlugin({ // <-- MODIFICA: AGGIUNTO COPYWEBPACKPLUGIN QUI PER LO SVILUPPO
+      patterns: [
+        { from: "assets/img", to: "img" }, // Copia le immagini anche in sviluppo
+        { from: "assets/favicon", to: "favicon" }, // Copia i favicon anche in sviluppo
+      ],
+    }),
+  
   ],
   resolve: {
     extensions: [".js"],
