@@ -72,16 +72,20 @@ page("/", () => {
   });
 });
 
+
 page("/news", () => renderPage("news"));
 page("/games", () => renderPage("games"));
 page("/contact", () => renderPage("contact"));
 page("/ggg", () => renderPage("ggg"));
+page('*', () => page.redirect('/'));
 
-/**
- * Avvia il router.
- * page.start() gestisce automaticamente il caricamento della pagina corrente
- * all'avvio e al refresh.
- */
+
+// In services/page-route.js
 export function startRouter() {
+  const redirectPath = sessionStorage.redirect;
+  if (redirectPath) {
+    delete sessionStorage.redirect;
+    window.history.replaceState(null, '', redirectPath);
+  }
   page.start();
 }
