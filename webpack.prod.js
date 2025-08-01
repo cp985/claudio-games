@@ -12,7 +12,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "js/[name].[contenthash].js",
     chunkFilename: "js/[name].[contenthash].chunk.js",
-    publicPath: "/",
+    publicPath: "/claudio-games/",
     clean: true,
   },
   optimization: {
@@ -139,9 +139,9 @@ module.exports = {
       },
       
     }),
-        new HtmlWebpackPlugin({ // Aggiungi questa nuova istanza
-      template: "./public/index.html", // Usa lo stesso template
-      filename: '404.html', // Ma chiamalo 404.html
+        new HtmlWebpackPlugin({ 
+      template: "./public/index.html", 
+      filename: '404.html',
       minify: { 
         removeComments: true,
         collapseWhitespace: true,
