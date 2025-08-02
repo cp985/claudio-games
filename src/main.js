@@ -4,21 +4,30 @@ import "./style/normalizeCss.css";
 import "./style/resetcss.css";
 import "./style/body.background.css";
 
+// File: src/index.js (o il tuo file di entry point)
+
+// --- INIZIO BLOCCO CORRETTO ---
+// Definiamo il nome del repository qui per coerenza
+const repoName = '/claudio-games';
 
 // Controlla se c'è un reindirizzamento salvato dal 404.html
 const redirect = sessionStorage.getItem('redirect');
+
 // Se c'è, lo rimuoviamo per non usarlo più al prossimo refresh
 if (redirect) {
   sessionStorage.removeItem('redirect');
-  // E usiamo l'History API per cambiare l'URL nella barra degli indirizzi
-  // senza ricaricare la pagina. Il tuo router vedrà questo nuovo percorso.
-  history.replaceState(null, null, redirect);
-}
-// --- FINE BLOCCO DA AGGIUNGERE ---
 
-// Qui sotto ci sarà il resto del tuo codice, ad esempio:
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<App />);
+  // CORREZIONE: Ricostruiamo l'URL COMPLETO prima di passarlo a history.
+  // Uniamo il nome del repo con il percorso salvato.
+  // Esempio: repoName ("/claudio-games") + redirect ("/news") = "/claudio-games/news"
+  const fullPath = repoName + redirect;
+  
+  // Ora l'URL viene cambiato correttamente senza ricaricare la pagina
+  history.replaceState(null, null, fullPath);
+}
+
+
+
 // 2. Importa la funzione per avviare il nostro router
 import { startRouter } from "./services/page-route.js";
 
