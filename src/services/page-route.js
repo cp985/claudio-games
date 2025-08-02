@@ -13,11 +13,11 @@ import { initCarousel, destroyCarousel } from "./carousel-hero.js";
 //    o '../assets/img/...' se 'assets' è fuori da 'src'.
 //    **CONTROLLA QUESTO PERCORSO CON ATTENZIONE!**
 
-import imgSassoCartaForbice from "../assets/img/sassocartaforbice.webp";
-import imgComingSoon2 from "../assets/img/coming-soon-2.webp";
-import imgOrdinaLeParole from "../assets/img/ordina-le-parole.webp";
-import imgTrovaIlCodice from "../assets/img/trovailcodice.webp";
-import imgComingSoon from "../assets/img/coming-soon.webp";
+import imgSassoCartaForbice from "../../assets/img/sassocartaforbice.webp";
+import imgComingSoon2 from "../../assets/img/coming-soon-2.webp";
+import imgOrdinaLeParole from "../../assets/img/ordina-le-parole.webp";
+import imgTrovaIlCodice from "../../assets/img/trovailcodice.webp";
+import imgComingSoon from "../../assets/img/coming-soon.webp";
 
 // =========================================================================
 // ===================== FINE MODIFICHE FONDAMENTALI =======================
@@ -99,4 +99,4 @@ export function startRouter() {
   // Non hai più bisogno della logica di redirect qui,
   // il sistema 404.html -> main.js -> page.js è ora sufficiente.
   page.start();
-}
+}../
