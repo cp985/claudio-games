@@ -3,6 +3,7 @@ import page from "page";
 import { animateLogo, killLogoAnimations } from "./logo-h1.js"; 
 import { initCarousel, destroyCarousel } from "./carousel-hero.js";
 
+page.base('/claudio-games');
 const content = document.querySelector("#content");
 
 // L'HTML delle tue pagine
