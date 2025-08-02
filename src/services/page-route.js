@@ -99,4 +99,4 @@ export function startRouter() {
   // Non hai più bisogno della logica di redirect qui,
   // il sistema 404.html -> main.js -> page.js è ora sufficiente.
   page.start();
-}../
+}
