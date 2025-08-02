@@ -44,7 +44,13 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
-
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'img/[name].[hash][ext]'
+        }
+      },
       {
         test: /\.(mp3|wav|ogg)$/i,
         type: "asset/resource",

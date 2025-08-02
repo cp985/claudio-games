@@ -38,7 +38,13 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
-      // Le regole per gli assets vanno bene, ma è meglio gestirle con CopyPlugin se sono in /public o /assets
+            {
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'img/[name].[hash][ext]'
+        }
+      },
       {
         test: /\.(mp3|wav|ogg|mp4|webm|woff|woff2|eot|ttf|otf)$/i,
         type: "asset/resource",
@@ -55,14 +61,8 @@ module.exports = {
       filename: "css/[name].[contenthash].css",
     }),
 
-    // ===================================================================
-    // =========== BLOCCO CORRETTO PER COPY-WEBPACK-PLUGIN ===============
-    // ===================================================================
     new CopyWebpackPlugin({
       patterns: [
-        // Copia tutto il contenuto della cartella 'public' nella 'dist',
-        // tranne il file index.html che è già gestito da HtmlWebpackPlugin.
-        // Questo copierà automaticamente 404.html, redirect.js, e qualsiasi altra cosa (es. favicon, immagini).
         {
           from: "public",
           to: ".", // Copia nella radice di 'dist'
@@ -70,12 +70,8 @@ module.exports = {
             ignore: ["**/index.html"], // Fondamentale per non avere un conflitto
           },
         },
-        // Se hai una cartella 'assets' separata fuori da 'public', puoi aggiungerla qui.
-        // Esempio: { from: "assets", to: "assets" }
       ],
     }),
-    // ===================================================================
-    // ===================================================================
   ],
   resolve: {
     extensions: [".js"],
