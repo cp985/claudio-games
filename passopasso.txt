@@ -1,110 +1,122 @@
-Perfetto, grazie mille! Questo file HTML ci dice tutto. Abbiamo trovato il colpevole per lo script e abbiamo la lista completa delle favicon.
-Mistero Risolto: Lo Script Inline Nascosto
+Ok. Questo è il punto in cui ci rendiamo conto che il problema non è più nel tuo codice, né nella tua configurazione Webpack, ma nel metodo di deploy stesso. Abbiamo provato ogni singola configurazione logica e l'errore persiste, indicando un problema "invisibile" che non riusciamo a controllare.
 
-L'errore CSP non è causato da un tag <script> visibile, ma da qualcosa di molto più subdolo che fa parte del processo di build di page.js o di una delle tue dipendenze. Il fatto che l'errore sia utils.js:42:10 e FaviconLoader.sys.mjs suggerisce che questi script, una volta caricati, tentano di eseguire operazioni che la policy di sicurezza blocca.
+La libreria gh-pages, sebbene comoda, a volte può avere comportamenti strani o cache nascoste. È ora di abbandonarla e passare al metodo di deploy ufficiale, moderno e più affidabile: GitHub Actions.
 
-Tuttavia, dopo aver esaminato attentamente l'HTML, non c'è nessuno script inline scritto da te. Questo rende ancora più probabile che l'errore sia generato dinamicamente o da un'estensione.
+Questo approccio è più trasparente (potrai vedere ogni passo del deploy nel tab "Actions" del tuo repo) e quasi sempre risolve questo tipo di problemi ostinati.
+Soluzione Finale: Deploy con GitHub Actions
 
-La cosa più importante è che l'HTML in sé è pulito. Quindi, il piano d'azione rimane valido.
-Piano d'Azione Definitivo (Codice e Istruzioni Precise)
+Non ti preoccupare, ti guiderò passo dopo passo. È più semplice di quanto sembri.
+Passaggio 1: Pulisci il package.json
 
-Segui questi passaggi nell'ordine.
-PASSO 1: Risolvere gli Errori CSP (Favicon e Script)
+Non useremo più la libreria gh-pages, quindi puliamo tutto.
 
-La soluzione è dire al browser, tramite un meta tag, quali sono le policy di sicurezza corrette per il tuo sito, sovrascrivendo quelle di default di GitHub Pages.
+    Apri package.json.
+    Rimuovi le seguenti righe dalla sezione "scripts":
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist"
+    Rimuovi la dipendenza. Esegui questo comando nel terminale:
 
-    Apri public/index.html.
-    Sostituisci l'intero blocco delle favicon (dal primo apple-touch-icon fino a msapplication-TileImage) con questo blocco di codice corretto. Ho già convertito le immagini principali in data:URI per te (usando placeholder, dovrai generarli tu) e ho creato una policy CSP su misura.
+Bash
 
-Sostituisci questo blocco nel tuo <head>:
+    npm uninstall gh-pages
 
-HTML
+    Assicurati che non ci sia più la riga "homepage".
+    Il tuo package.json ora sarà più pulito e corretto per il nuovo metodo.
 
-<!-- ### INIZIO BLOCCO DA SOSTITUIRE ### -->
+Passaggio 2: Crea il file del Workflow di GitHub Actions
 
-<!-- Open Graph -->
-<meta property="og:title" content="Claud&Games">
-<meta property="og:description" content="IndieGames Devoloper">
-<meta property="og:image" content="">
-<meta property="og:url" content="">
-<meta property="og:type" content="website">
+    Nella cartella principale del tuo progetto, crea una nuova cartella chiamata .github.
 
-<!-- =================================================================== -->
-<!-- ======================= NUOVA CONFIGURAZIONE ====================== -->
-<!-- =================================================================== -->
+    Dentro la cartella .github, crea un'altra cartella chiamata workflows.
 
-<!-- 1. Content Security Policy (CSP) Personalizzata -->
-<!-- Questa riga è FONDAMENTALE. Risolve entrambi gli errori (favicon e script) -->
-<meta http-equiv="Content-Security-Policy" 
-      content="default-src 'self'; 
-               script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; 
-               style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; 
-               img-src 'self' data:; 
-               font-src 'self' https://cdnjs.cloudflare.com;
-               connect-src 'self';">
+    Dentro la cartella .github/workflows, crea un nuovo file chiamato deploy.yml.
 
-<!-- 2. Favicon e Icone -->
-<!-- Nota: devi generare i veri data:URI per i tuoi file .png -->
-<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,TUO_CODICE_BASE64_PER_apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,TUO_CODICE_BASE64_PER_android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,TUO_CODICE_BASE64_PER_favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,TUO_CODICE_BASE64_PER_favicon-16x16.png">
-<link rel="manifest" href="/favicon/manifest.json"> <!-- Questo rimane un file -->
-<meta name="msapplication-TileImage" content="data:image/png;base64,TUO_CODICE_BASE64_PER_ms-icon-144x144.png">
+    La struttura sarà: .github/workflows/deploy.yml
 
-<meta name="theme-color" content="#000000">
+    Incolla questo esatto codice nel file deploy.yml:
 
-<!-- 3. Stile da CDN (Font Awesome) -->
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css' 
-      integrity='sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==' 
-      crossorigin='anonymous' />
+YAML
 
-<!-- ### FINE BLOCCO DA SOSTITUIRE ### -->
+# File: .github/workflows/deploy.yml
 
-Cosa fa questo codice:
+name: Deploy to GitHub Pages
 
-    meta http-equiv="Content-Security-Policy":
-        default-src 'self': Permette di caricare risorse solo dal tuo dominio.
-        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com: Permette script dal tuo dominio, script inline (per risolvere il problema misterioso) e da Cloudflare (per Font Awesome).
-        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com: Permette stili dal tuo dominio, stili inline e da Cloudflare.
-        img-src 'self' data:: Permette immagini dal tuo dominio e quelle in formato data:URI.
-        font-src 'self' https://cdnjs.cloudflare.com: Permette i font dal tuo dominio e da Cloudflare (necessario per Font Awesome).
-    Favicon: Ho ridotto il numero di icone a quelle essenziali e le ho preparate per il formato data:URI. Il manifest.json rimane un file esterno.
+# Esegui questo workflow a ogni push sul ramo 'main'
+on:
+  push:
+    branches: [ main ]
+  # Permette di eseguire il workflow manualmente dalla pagina Actions di GitHub
+  workflow_dispatch:
 
-Azione per te:
+# Imposta i permessi per permettere al workflow di fare il deploy
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-    Vai su Base64 Image Encoder.
-    Carica i tuoi 5 file .png delle favicon, uno alla volta (apple-icon-180x180.png, android-icon-192x192.png, favicon-32x32.png, favicon-16x16.png, ms-icon-144x144.png).
-    Copia la stringa base64 generata per ciascuno e incollala al posto dei placeholder TUO_CODICE_BASE64_PER... nel codice che ti ho dato.
+# Imposta la concorrenza per evitare deploy multipli simultanei
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
-PASSO 2: Pulisci webpack.config.prod.js
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-Ora che gestiamo le icone direttamente nell'HTML, dobbiamo dire a Webpack di non copiarle più.
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18 # Puoi usare la versione di Node che preferisci
 
-    Apri webpack.config.prod.js.
+      - name: Install dependencies
+        run: npm ci
 
-    Modifica CopyWebpackPlugin per copiare solo il file manifest.json.
+      - name: Build project
+        run: npm run build
 
-JavaScript
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-    // In webpack.config.prod.js
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: "assets/img", to: "img" },
-        // Copia solo il manifest.json, nient'altro dalla cartella favicon
-        { from: "assets/favicon/manifest.json", to: "favicon/manifest.json" } 
-      ],
-    }),
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Carica il contenuto della cartella 'dist'
+          path: './dist'
 
-Riepilogo Finale
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
-    Sostituisci il blocco <head> nel tuo public/index.html con quello che ti ho fornito.
-    Popola i data:URI delle favicon con le stringhe base64 corrette.
-    Modifica CopyWebpackPlugin nel tuo webpack.config.prod.js per copiare solo il manifest.json.
-    Esegui il build: npm run build.
-    Fai il commit e il push: git add ., git commit -m "Fix CSP and favicon loading", git push.
-    Attendi il deploy e svuota la cache del browser (Ctrl+Shift+R).
+Passaggio 3: Configura il tuo Repository su GitHub
 
-Questa soluzione è completa e robusta. Affronta tutti i problemi che abbiamo identificato: il routing della SPA (con il 404.html), il publicPath corretto e, infine, tutte le policy di sicurezza che bloccavano il rendering.
+Questo è il passaggio più importante. Dobbiamo dire a GitHub di non usare più il ramo gh-pages, ma di aspettarsi il deploy da GitHub Actions.
 
-Dopo questi passaggi, il sito DEVE funzionare.
+    Vai nelle Impostazioni (Settings) del tuo repository claudio-games.
+    Nel menu a sinistra, clicca su Pages.
+    Sotto "Build and deployment", alla voce "Source", seleziona GitHub Actions.
+
+Passaggio 4: Fai il Deploy
+
+Ora il processo di deploy è diverso e molto più semplice:
+
+    Assicurati che tutte le tue configurazioni siano corrette per /claudio-games/:
+        webpack.prod.js -> output.publicPath: "/claudio-games/"
+        public/404.html -> location.replace('/claudio-games/');
+        I percorsi delle immagini in page-route.js devono avere il prefisso.
+    Fai il commit e il push di tutte le modifiche che hai fatto (il nuovo file .github/workflows/deploy.yml e il package.json aggiornato) sul tuo ramo main.
+
+Bash
+
+    git add .
+    git commit -m "Configure GitHub Actions for deployment"
+    git push origin main
+
+Questo è tutto. Appena fai il push, puoi andare nel tab "Actions" del tuo repository. Vedrai il nuovo workflow "Deploy to GitHub Pages" in esecuzione. Se tutto diventa verde, il tuo sito è stato pubblicato correttamente.
+
+Questo metodo è lo standard moderno, è più robusto e ci dà visibilità su ogni singolo passo del processo. Ho la massima fiducia che questo risolverà il problema una volta per tutte.

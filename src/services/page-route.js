@@ -81,11 +81,18 @@ page('*', () => page.redirect('/'));
 
 
 // In services/page-route.js
+// in services/page-route.js
 export function startRouter() {
+  console.log("startRouter EXECUTED!"); // <-- LOG 1
   const redirectPath = sessionStorage.redirect;
+  console.log("Found redirectPath in sessionStorage:", redirectPath); // <-- LOG 2
+
   if (redirectPath) {
+    console.log("Applying redirect to:", redirectPath); // <-- LOG 3
     delete sessionStorage.redirect;
     window.history.replaceState(null, '', redirectPath);
   }
+  
+  console.log("Calling page.start()"); // <-- LOG 4
   page.start();
 }

@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "cv portfolio games developer",
   "main": "./src/main.js",
-  "homepage": "https://cp985.github.io/claudio-games/",
   "scripts": {
     "start": "webpack serve --mode development --config webpack.config.js --open",
     "build": "webpack --mode production --config webpack.prod.js",
