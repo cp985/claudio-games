@@ -1,0 +1,33 @@
+div.loader-container{
+        --c: #009bbe;
+    --v: #ff01ff;
+    --colore-sfondo: #000000;
+    --colore-accento: #00CFFF;
+    --colore-secondario: #ddff00;
+    --colore-testo: #EAEAEA;
+    --colore-blur: rgba(0, 207, 255, 0.1);
+display: flex;
+    justify-content: center;
+    align-items: center;
+width: 100vw;
+height: 100vh;
+transition: vanish 5s ease-in-out;
+}
+
+@keyframes vanish{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+div.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    border: 3px solid var(--colore-secondario);
+}
+

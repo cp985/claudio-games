@@ -106,7 +106,6 @@ padding-bottom: 0.5em;
 font-size: clamp(1rem, 2.7vw + 0.7rem, 6rem);    color: var(--colore-testo);
     letter-spacing: 0.2em;
     max-height: 2.4em; 
-    /* margin: 15px; */
     z-index: 10;
 }
 
@@ -127,7 +126,7 @@ div.cont {
 
 }
 
-main {
+main.swiper {
     /* margin-top: 20px; */
     width: 90%;
     height: 75%;
@@ -147,7 +146,6 @@ section.hero-carousel {
     min-width: 300px;
 }
 
-/* Stili personalizzati per i bottoni Swiper */
 div.cont main.swiper label.swiper-button-prev::after,
 div.cont main.swiper label.swiper-button-next::after {
     font-size: 3em;
@@ -164,7 +162,6 @@ div.cont main.swiper label.swiper-button-next::after {
 
 }
 
-/* Stili per le immagini nelle slide */
 .swiper-slide img {
     width: 100%;
     height: 100%;

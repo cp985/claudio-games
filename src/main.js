@@ -3,8 +3,11 @@ import "./style/general.css";
 import "./style/normalizeCss.css";
 import "./style/resetcss.css";
 import "./style/body.background.css";
+import "./style/news.css";
+import "./style/first-loader.css";
+import "./style/loader.css";
 import { startRouter } from "./services/page-route.js";
-
+import { handleInitialLoad } from "./services/initial-loader.js";
 import { createNavigation } from "./services/navigation.js";
 
 createNavigation();
@@ -20,7 +23,7 @@ if (redirect) {
 
   history.replaceState(null, null, fullPath);
 }
-
+handleInitialLoad();
 startRouter();
 
 console.log("Application initialized.");

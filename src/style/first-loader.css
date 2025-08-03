@@ -1,0 +1,60 @@
+div.wrapLoader{
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+div.first-loader-container{
+            --c: #009bbe;
+    --v: #ff01ff;
+    --colore-sfondo: #000000;
+    --colore-accento: #00CFFF;
+    --colore-secondario: #ddff00;
+    --colore-testo: #EAEAEA;
+    --colore-blur: rgba(0, 207, 255, 0.1);
+
+
+
+width: 1000px;
+height: 1000px; 
+
+display: flex;
+justify-content: center;
+align-items: center;
+position: absolute;
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  transform-origin: -30% 50%;
+    transition: opacity 1s , visibility 1s ; 
+}
+
+div.loaderCont{
+    transform: rotate(45deg);
+    width: 60%;
+       position: absolute;
+    top:94%;
+    left:1%;
+    inset: 0;
+}
+
+div.first-loader{
+    
+    top:0;
+    left:0;
+width: 100%;
+height: 5em;
+border: 5px solid var(--colore-secondario);
+border-radius: 15px;
+
+}
+
+div.loader.hidden{
+  opacity: 0;
+  visibility: hidden;
+} 
+  
