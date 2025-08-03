@@ -4,8 +4,8 @@
   "description": "cv portfolio games developer",
   "main": "./src/main.js",
 "scripts": {
-  "start": "cross-env BASE_URL=/ webpack serve --config webpack.config.js",
-  "build": "cross-env BASE_URL=/claudio-games/ webpack --config webpack.prod.js"
+  "start": "cross-env BASE_URL= webpack serve --config webpack.config.js",
+  "build": "cross-env BASE_URL=/claudio-games webpack --config webpack.prod.js"
 },
   "browserslist": [
     ">0.25%",

@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const webpack = require('webpack'); 
 
-const BASE_URL = process.env.BASE_URL || '/'; // Legge la variabile o usa '/'
+const BASE_URL = process.env.BASE_URL || ''; // Legge la variabile o usa '/'
 
 module.exports = {
   mode: "development",

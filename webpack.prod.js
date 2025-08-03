@@ -7,7 +7,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 const webpack = require('webpack'); 
 
-const BASE_URL = process.env.BASE_URL || '/'; 
+const BASE_URL = process.env.BASE_URL || ''; 
 
 module.exports = {
   mode: "production",
@@ -16,7 +16,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "js/[name].[contenthash].js",
     chunkFilename: "js/[name].[contenthash].chunk.js",
-    publicPath: BASE_URL,
+    publicPath: (BASE_URL ? `${BASE_URL}/` : '/'),
     clean: true,
   },
   optimization: {
