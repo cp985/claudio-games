@@ -30,7 +30,7 @@ const pageList = {
       <div class="swiper-button-next"></div>
     </main>
     `,
-  news: `<h1 class="news-title">Ecco le ultime news dal mondo games..</h1>`,
+  news: `<h1>Ecco le ultime news dal mondo games..</h1>`,
   games: `<h1>Games</h1>`,
   contact: `<h1>Contatti</h1>`,
   ggg: `<h1>???</h1>`,

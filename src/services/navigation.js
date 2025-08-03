@@ -25,10 +25,10 @@ export function createNavigation() {
     // Caso speciale per la home
     if (path === '/') {
         // L'URL per la home è semplicemente la base, o '/' se la base è vuota
-        return `<li><a href="${baseUrl || '/'}">${link.text}</a></li>`;
+        return `<li class="menu"><a class="nav-link link" href="${baseUrl || '/'}">${link.text}</a></li>`;
     }
 
-    return `<li><a href="${baseUrl}${path}">${link.text}</a></li>`;
+    return `<li class=" menu"><a class="nav-link link" href="${baseUrl}${path}">${link.text}</a></li>`;
   }).join('');
 
   header.innerHTML = `<nav><ul class="list">${linksHTML}</ul></nav>`;
