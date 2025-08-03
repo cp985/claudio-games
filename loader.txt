@@ -1,0 +1,190 @@
+Ottima idea! Aggiungere dei loader è un tocco di professionalità che migliora tantissimo l'esperienza dell'utente (UX), facendogli capire che l'applicazione sta lavorando.
+
+La tua intuizione di distinguere tra i due tipi di caricamento è perfetta, perché richiedono due soluzioni leggermente diverse.
+
+La tua proposta: "aggiungo un div direttamente nell'html di pages in ogni main?"
+È un'idea che potrebbe funzionare, ma c'è un modo più pulito, efficiente e centralizzato che ti eviterà di ripetere codice.
+
+Ecco la soluzione che ti consiglio, divisa in due passaggi.
+Soluzione Consigliata
+
+Creeremo un unico stile per il loader e lo useremo in due contesti diversi.
+Prerequisito: Lo Stile del Loader
+
+Per prima cosa, creiamo lo stile per un semplice loader a rotellina (spinner) fatto solo con CSS, così non dobbiamo caricare immagini extra.
+
+    Crea un nuovo file CSS, ad esempio in src/style/loader.css.
+
+    Incolla questo codice:
+
+CSS
+
+/* File: src/style/loader.css */
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 200px; /* Dà un po' di spazio verticale */
+}
+
+.loader {
+  border: 6px solid #f3f3f3; /* Grigio chiaro del cerchio */
+  border-top: 6px solid #3498db; /* Blu della parte che gira */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Stile per il loader iniziale a schermo intero */
+#initial-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* Sfondo bianco per coprire il sito */
+  z-index: 9999;
+}
+
+Apri src/main.js e importa questo nuovo file all'inizio, insieme agli altri CSS:
+
+JavaScript
+
+    import "./style/loader.css";
+
+Ora passiamo alle due implementazioni.
+Passaggio 1: Il Loader Iniziale (quando il sito si apre per la prima volta)
+
+Questo loader deve essere visibile immediatamente, prima ancora che il JavaScript venga eseguito. Quindi va messo direttamente nel file public/index.html.
+
+    Apri public/index.html.
+
+    Subito dopo l'apertura del tag <body>, inserisci questo HTML:
+
+HTML
+
+<!-- File: public/index.html -->
+
+<body>
+  <!-- LOADER INIZIALE -->
+  <div id="initial-loader" class="loader-container">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Il resto del tuo body, incluso il div #root o #content -->
+  <div id="root">
+    <header>...</header>
+    <div id="content"></div>
+    <footer>...</footer>
+  </div>
+  
+  <!-- I tuoi script verranno iniettati qui da Webpack -->
+</body>
+
+Ora, dobbiamo nasconderlo quando l'app è pronta. Apri src/main.js e aggiungi una riga alla fine del file, dopo aver avviato il router.
+
+JavaScript
+
+    // File: src/main.js
+
+    // ...tutto il tuo codice...
+
+    // Avvia l'applicazione chiamando il router
+    startRouter();
+
+    // Nascondi il loader iniziale perché l'app è pronta
+    document.getElementById('initial-loader').style.display = 'none';
+
+    console.log("Application initialized.");
+
+Fatto! Ora, quando un utente apre il sito, vedrà subito lo spinner a schermo intero, che sparirà non appena il tuo JavaScript avrà finito di caricare.
+Passaggio 2: Il Loader di Transizione (quando cambi pagina)
+
+Qui modificheremo page-route.js per mostrare lo spinner dentro al #content mentre si passa da una pagina all'altra.
+
+    Apri src/services/page-route.js.
+
+    In cima al file, definisci una costante con l'HTML del loader. Questo evita di riscriverlo ogni volta.
+
+JavaScript
+
+// File: src/services/page-route.js
+
+// ... i tuoi import ...
+
+const content = document.querySelector("#content");
+const loaderHTML = `
+  <div class="loader-container">
+    <div class="loader"></div>
+  </div>
+`;
+
+// ... il resto del codice ...
+
+Ora modifica le tue rotte. Invece di renderizzare subito la pagina, prima mostrerai il loader e poi, con un piccolo ritardo (che in futuro potresti usare per fare chiamate a un server), mostrerai il contenuto vero e proprio.
+
+JavaScript
+
+    // ...
+
+    // ROUTING
+    page('*', cleanup);
+
+    page("/", () => {
+      // La home è speciale e la lasciamo così perché ha già le sue animazioni
+      renderPage("home", () => {
+        isHomePage = true;
+        animateLogo();
+        activeSwiper = initCarousel();
+      });
+    });
+
+    // Modifica le altre rotte in questo modo
+    page("/news", () => {
+      content.innerHTML = loaderHTML; // 1. Mostra subito il loader
+      setTimeout(() => {
+        renderPage("news"); // 2. Dopo un breve ritardo, mostra il contenuto
+      }, 300); // 300ms, puoi aggiustare questo valore
+    });
+
+    page("/games", () => {
+      content.innerHTML = loaderHTML;
+      setTimeout(() => {
+        renderPage("games");
+      }, 300);
+    });
+
+    page("/contact", () => {
+      content.innerHTML = loaderHTML;
+      setTimeout(() => {
+        renderPage("contact");
+      }, 300);
+    });
+
+    page("/ggg", () => {
+      content.innerHTML = loaderHTML;
+      setTimeout(() => {
+        renderPage("ggg");
+      }, 300);
+    });
+
+    // ...
+
+Perché setTimeout?
+Serve a far sì che il browser abbia il tempo di mostrare il loader prima di essere "bloccato" dal rendering del contenuto successivo. Se un giorno dovessi caricare dati da un server, sostituiresti setTimeout con la tua chiamata fetch, e il loader verrebbe mostrato mentre aspetti la risposta.
+Riepilogo Azioni
+
+    Crea src/style/loader.css e importalo in main.js.
+    Aggiungi il div #initial-loader in public/index.html.
+    Aggiungi la riga per nasconderlo alla fine di main.js.
+    Modifica src/services/page-route.js per definire loaderHTML e aggiornare le rotte affinché lo usino prima di renderizzare il contenuto finale.
+
+Questo approccio è pulito, riutilizzabile e ti dà una base solida per gestire i caricamenti in modo professionale. Buona implementazione

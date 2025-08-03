@@ -2,6 +2,10 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
+const webpack = require('webpack'); 
+
+const BASE_URL = process.env.BASE_URL || '/'; // Legge la variabile o usa '/'
+
 module.exports = {
   mode: "development",
   entry: "./src/main.js",
@@ -85,6 +89,9 @@ module.exports = {
         { from: "assets/favicon", to: "favicon" }, // Copia i favicon anche in sviluppo
       ],
     }),
+      new webpack.DefinePlugin({
+    '__BASE_URL__': JSON.stringify(BASE_URL)
+  })
   
   ],
   resolve: {

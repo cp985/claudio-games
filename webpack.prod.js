@@ -1,11 +1,13 @@
-// File: webpack.prod.js (versione finale e corretta)
-
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin"); // Già presente, ottimo!
+const CopyWebpackPlugin = require("copy-webpack-plugin"); 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+
+const webpack = require('webpack'); 
+
+const BASE_URL = process.env.BASE_URL || '/'; 
 
 module.exports = {
   mode: "production",
@@ -14,7 +16,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "js/[name].[contenthash].js",
     chunkFilename: "js/[name].[contenthash].chunk.js",
-    publicPath: "/claudio-games/",
+    publicPath: BASE_URL,
     clean: true,
   },
   optimization: {
@@ -72,6 +74,9 @@ module.exports = {
         },
       ],
     }),
+      new webpack.DefinePlugin({
+    '__BASE_URL__': JSON.stringify(BASE_URL)
+  })
   ],
   resolve: {
     extensions: [".js"],

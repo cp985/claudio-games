@@ -2,28 +2,15 @@ import page from "page";
 import { animateLogo, killLogoAnimations } from "./logo-h1.js";
 import { initCarousel, destroyCarousel } from "./carousel-hero.js";
 
-// =========================================================================
-// ==================== INIZIO MODIFICHE FONDAMENTALI ======================
-// =========================================================================
-
-// 1. IMPORTA TUTTE LE IMMAGINI NECESSARIE DALLA LORO POSIZIONE REALE
-//    Assicurati che il percorso relativo '../assets/img/...' sia corretto.
-//    Se questo file è in /src e le immagini in /assets, questo percorso è sbagliato.
-//    Probabilmente devi usare './assets/img/...' se 'assets' è dentro 'src',
-//    o '../assets/img/...' se 'assets' è fuori da 'src'.
-//    **CONTROLLA QUESTO PERCORSO CON ATTENZIONE!**
 
 import imgSassoCartaForbice from "../../assets/img/sassocartaforbice.webp";
 import imgComingSoon2 from "../../assets/img/coming-soon-2.webp";
 import imgOrdinaLeParole from "../../assets/img/ordina-le-parole.webp";
 import imgTrovaIlCodice from "../../assets/img/trovailcodice.webp";
 import imgComingSoon from "../../assets/img/coming-soon.webp";
+import { _ } from "core-js";
 
-// =========================================================================
-// ===================== FINE MODIFICHE FONDAMENTALI =======================
-// =========================================================================
-
-page.base("/claudio-games");
+page.base(__BASE_URL__);
 const content = document.querySelector("#content");
 
 // L'HTML delle tue pagine
@@ -34,11 +21,10 @@ const pageList = {
         </div>
         <main class="swiper">
           <section class="hero-carousel swiper-wrapper">
-            <!-- 2. USA LE VARIABILI IMPORTATE NEI PERCORSI DELLE IMMAGINI -->
-            <figure class="slide swiper-slide"><a href="/claudio-games/sasso-carta-forbice"><img src="${imgSassoCartaForbice}" alt="sasso carta e forbice"><figcaption>Prova a battere il gioco..</figcaption></a></figure>
+            <figure class="slide swiper-slide"><a href="${__BASE_URL__}sasso-carta-forbice"><img src="${imgSassoCartaForbice}" alt="sasso carta e forbice"><figcaption>Prova a battere il gioco..</figcaption></a></figure>
             <figure class="slide swiper-slide"><a href="#"><img src="${imgComingSoon2}" alt="Grosse novità in arrivo"><figcaption>Novità in arrivo..</figcaption></a></figure>
-            <figure class="slide swiper-slide"><a href="/claudio-games/ordina-le-parole"><img src="${imgOrdinaLeParole}" alt="gioco ordina le parole"><figcaption>Combatti fino all'ultima sillaba..</figcaption></a></figure>
-            <figure class="slide swiper-slide"><a href="/claudio-games/trova-il-codice"><img src="${imgTrovaIlCodice}" alt="gioco trova la combinazione"><figcaption>Indovina la combinazione ed apri il baule..</figcaption></a></figure>
+            <figure class="slide swiper-slide"><a href="${__BASE_URL__}ordina-le-parole"><img src="${imgOrdinaLeParole}" alt="gioco ordina le parole"><figcaption>Combatti fino all'ultima sillaba..</figcaption></a></figure>
+            <figure class="slide swiper-slide"><a href="${__BASE_URL__}trova-il-codice"><img src="${imgTrovaIlCodice}" alt="gioco trova la combinazione"><figcaption>Indovina la combinazione ed apri il baule..</figcaption></a></figure>
             <figure class="slide swiper-slide"><a href="#"><img src="${imgComingSoon}" alt="presto in arrivo nuovi giochi"><figcaption>Rimanete aggiornati per nuovi arrivi</figcaption></a></figure>
           </section>
           <div class="swiper-pagination" id="bulletHeroBanner"></div>
