@@ -1,7 +1,7 @@
 // File: src/services/initial-loader.js (Versione con delay garantito)
 
 export function handleInitialLoad() {
-  const loader = document.querySelector('.loader');
+  const loader = document.querySelector('.load');
 
   if (!loader) {
     console.warn('Initial loader element not found.');
