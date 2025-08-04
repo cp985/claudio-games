@@ -107,8 +107,8 @@ function showLoaderAndRender(pageId, onRenderedCallback) {
 
 export function startRouter() {
   // Imposta la base URL, se necessario
-  // page.base(__BASE_URL__);
-
+  page.base(__BASE_URL__);
+  // page.base('/claudio-games');
   // Middleware globale per la pulizia, eseguito ad ogni cambio di rotta
   page("*", cleanup);
 
