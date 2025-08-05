@@ -10,7 +10,7 @@ import imgOrdinaLeParole from "../../assets/img/ordina-le-parole.webp";
 import imgTrovaIlCodice from "../../assets/img/trovailcodice.webp";
 import imgComingSoon from "../../assets/img/coming-soon.webp";
 import imgProva from "../../assets/img/foto_panorami_06.jpg";
-
+import { newsApiCall } from '../services/news.js'
 // --- 2. SELETTORI E TEMPLATE GLOBALI ---
 
 // Il contenitore principale dove verranno renderizzate le pagine
@@ -40,7 +40,7 @@ const pageList = {
     <h1 class="h1News">Ecco le ultime news dal mondo games..</h1>
     <main class="mNews">
       <article class="aNews">
-        <p class="pNews">Testo di esempio per il primo articolo...</p>
+        <p class="pNews">...</p>
         <figure class="figNews"><a href="#"><img class="imgNews" src="${imgProva}" alt="img prova"><figcaption>img prova</figcaption></a></figure>
       </article>
       <article class="aNews">
@@ -122,7 +122,7 @@ export function startRouter() {
     });
   });
 
-  page("/news",    () => showLoaderAndRender("news"));
+  page("/news",    () => showLoaderAndRender("news", newsApiCall()));
   page("/games",   () => showLoaderAndRender("games"));
   page("/contact", () => showLoaderAndRender("contact"));
   page("/ggg",      () => showLoaderAndRender("ggg"));

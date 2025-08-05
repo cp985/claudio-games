@@ -1,4 +1,3 @@
-// 1. Importa tutti gli stili necessari
 import "./style/general.css";
 import "./style/normalizeCss.css";
 import "./style/resetcss.css";
@@ -9,6 +8,8 @@ import "./style/loader.css";
 import { startRouter } from "./services/page-route.js";
 import { handleInitialLoad } from "./services/initial-loader.js";
 import { createNavigation } from "./services/navigation.js";
+import { newsApiCall } from "./services/news.js";
+
 
 createNavigation();
 
@@ -27,6 +28,12 @@ handleInitialLoad();
 startRouter();
 
 console.log("Application initialized.");
+
+
+ 
+newsApiCall();
+
+
 
 if (module.hot) {
   module.hot.accept();
