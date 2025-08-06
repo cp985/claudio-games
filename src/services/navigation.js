@@ -1,5 +1,3 @@
-// File: src/components/navigation.js (Versione super-sicura)
-
 export function createNavigation() {
   const navLinks = [
     { path: '/', text: 'Home' },

@@ -42,21 +42,25 @@ header {
 }
 
 nav {
-    /* padding: 5px; */
+   
     width: 60%;
     border-bottom: 3px solid var(--v);
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: fit-content;
 }
 
 ul.list {
-    font-size: 1.5em;
+    font-size: clamp(1.2em, 1rem + 0.8vw, 3em);
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    flex-wrap: wrap;
+    min-width: 70%;
+    /* flex-wrap: wrap; */
+
+
 }
 
 li a {
@@ -74,6 +78,7 @@ li.menu {
     align-items: center;
     padding: 5px;
     cursor: pointer;
+    margin-right: 0.3rem;
 }
 
 

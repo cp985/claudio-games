@@ -1,0 +1,171 @@
+/* #region main contact */
+
+div.cont-contact{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 
+    "form map";
+    color: var(--colore-testo);
+    gap: 1em;
+    padding: 0.3em;
+}
+
+main.contact-page {
+width: 100%;
+height: 100%;
+}
+
+/* #endregion main contact */
+
+/* #region contact form */
+section.form-contact-section{
+grid-area: form;
+display: flex;
+flex-direction: column;
+align-items: center;
+
+width: 100%;
+height: 100%;
+
+
+
+}
+
+section.form-contact-section h2{
+    width: 100%;
+    text-align: center;
+    font-size: x-large;
+    margin: 0.3em 0 0.3em 0;
+   
+}
+
+section.form-contact-section form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    caret-color: var(--v);
+}
+
+form[name="form"] fieldset{
+    width: 100%;
+    /* display: flex; */
+    flex-direction: column;
+    caret-color: var(--v);
+    border: 1px solid var(--v);
+    margin-bottom: 0.3em;
+}
+
+legend{
+    font-size: 1.2em;
+    font-weight: 500;
+    color: var(--colore-testo);
+    margin-left: 0.5em;
+}
+
+div.input-wrapper{
+    display: flex;
+    flex-direction: column;
+    
+gap: 0.4em;
+    width: 100%;
+
+}
+
+section.form-contact-section form input{
+background-color: var(--colore-testo);
+color: var(--colore-sfondo) ;
+outline: 1px solid var(--v);
+
+}
+section.form-contact-section form label{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+textarea{
+    overflow: scroll;
+    outline: 1px solid var(--v);
+background-color: var(--colore-testo) ;
+color: var(--colore-sfondo);
+    width: 100%;
+min-height: 6em;
+    resize: none;
+    white-space: normal;
+overflow-wrap: break-word;
+margin: 0.2em 0 0.3em 0;
+}
+
+textarea::placeholder{
+    color: var(--colore-sfondo);
+    font-style: italic;
+}
+
+section.form-contact-section form button#button-submit{
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--colore-accento);
+    color: var(--colore-sfondo);
+    min-width: 30%;
+    max-height: 15%;
+    padding: 0.1em;
+    font-size: 1.2em;
+    font-weight: 700;
+    border: 2px solid var(--v);
+    border-radius: 10px;
+
+}
+
+section.form-contact-section form button#button-submit:hover{
+    background-color: var(--v);
+    color: var(--colore-sfondo);
+    border: 2px solid var(--colore-accento);
+}
+
+
+/* #endregion contact form */
+
+
+/* #region contact info map */
+section.contact-info-section{
+grid-area: map;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+
+gap:0.7em;
+
+}
+
+section.contact-info-section h2{
+  
+    text-align: center;
+    font-size: x-large;
+    margin: 0.3em;
+}
+section.contact-info-section div.map-container{
+  width: 100%;
+    position: relative;
+    min-height: 30%; 
+    padding: 0 0.3em 0 0.3em;
+}
+section.contact-info-section div.address-info{
+    margin-top: 0.3em ;
+    width: 100%;
+    text-align: center;
+    font-size: 1em;
+}
+div.address-info a:hover{
+    color: var(--v);
+    text-decoration: underline;
+
+}
+
+/* #endregion contact info map */

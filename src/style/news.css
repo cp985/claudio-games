@@ -1,60 +1,219 @@
-h1.h1News{
-
-    margin: 10px 0x 10px 0;
+html {
+    --colore-testo: #EAEAEA;
+  --v: #ff01ff;
 }
 
-main.mNews{
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items: center;
-width: 100%;
-height: 100%;
-overflow-y: scroll;
-}
 
-article.aNews{
+main.mNews {
     display: flex;
-    justify-content:center ;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-width: 100%;
-height: 100%;
-margin-bottom: 1.5em;
-}
-main article.aNews:last-child{
-margin-bottom: 0;
-}
-
-
-main article p.pNews{
-  width: 45%;
-  height: 100%;
-    padding: 0 1em 0 1em;
-}
-
-main article figure.figNews{
-    padding-right:1em;
- width: 55%;
- height: 100%;
-
-}
-figure.figNews a{
-    position: relative;
     width: 100%;
     height: 100%;
-     padding-bottom: 55%;
-overflow: hidden;
+    overflow-y: scroll;
+}
+
+article.aNews {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-figure.figNews a img.imgNews{
-    position: absolute;
-top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
- min-width: 200px;
- 
-object-fit: cover;
+    margin-bottom: 1.5em;
+}
+
+main article.aNews:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+main div.divNews{
+    padding: 1%;;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h3.h3News{
+font-size: 2em;
+font-weight: 500;
+color: var(--colore-testo);
+}
+main article p.pNews {
+    width: 90%;
+    height: 100%;
+    padding: 0 1em 0 1em;
+    display: inline-block;
+    margin-top: 2em;
+}
+
+main article figure.figNews {
+    width: 100%;
+    margin: 0; 
+    padding: 1em 1em 0 0;
+}
+
+figure.figNews a {
+    position: relative;
+    width: 100%;
+  padding-bottom: 55%;
+    overflow: hidden;
+    display: block;
+
+}
+
+figure.figNews a img.imgNews {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+   height: 100%;
+    min-width: 200px;
+    object-fit: cover;
+}
+
+h2.h2News {
+    color: var(--colore-testo);
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 2.7vw + 0.7rem, 6rem);
+    font-weight: 500;
+    transform: translateY(150%);
+    display: inline-block;
+
+    
+}
+/* #region loader news ani  */
+
+.h2News span {
+    /* Fondamentale per applicare transform e animazioni */
+    display: inline-block; 
+    
+    /* Assegna l'animazione QUI, alla singola lettera */
+    animation-name: bounce;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+@keyframes bounce {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-40px);
+    }
+}
+
+/* Ritardi per l'effetto a onda */
+.h2News span:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.h2News span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.h2News span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.h2News span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.h2News span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.h2News span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.h2News span:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.h2News span:nth-child(8) {
+    animation-delay: 0.7s;
+}
+
+.h2News span:nth-child(9) {
+    animation-delay: 0.8s;
+}
+
+.h2News span:nth-child(10) {
+    animation-delay: 0.9s;
+}
+.h2News span:nth-child(11) {
+    animation-delay: 1s;
+}
+
+.h2News span:nth-child(12) {
+    animation-delay: 1s;
+}
+
+.h2News span:nth-child(13) {
+    animation-delay: 1s;
+}
+
+.h2News span:nth-child(14) {
+    animation-delay: 1.1s;
+}
+
+.h2News span:nth-child(15) {
+    animation-delay: 1.1s;
+}
+
+.h2News span:nth-child(16) {
+    animation-delay: 1.3s;
+}
+
+.h2News span:nth-child(17) {
+    animation-delay: 1.4s;
+}
+
+.h2News span:nth-child(18) {
+    animation-delay: 1.5s;
+}
+
+.h2News span:nth-child(19) {
+    animation-delay: 1.6s;
+}
+
+.h2News span:nth-child(20) {
+    animation-delay: 1.7s;
+}
+
+.h2News span:nth-child(21) {
+    animation-delay: 1.8s;
+}
+
+.h2News span:nth-child(22) {
+    animation-delay: 1.9s;
+}
+
+.h2News span:nth-child(23) {
+    animation-delay: 2s;
+}
+
+.h2News span:nth-child(24) {
+    animation-delay: 2.1s;
+}
+
+.h2News span:nth-child(25) {
+    animation-delay: 2.25s;
+}
+/* #endregion loader news ani  */
+
+
+.error-message{
+    font-size: clamp(1rem, 2.7vw + 0.7rem, 6rem);
+    margin: 1em;
+  color: var(--v);
 }

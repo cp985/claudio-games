@@ -56,13 +56,14 @@ export function newsApiCall() {
         // Crea la stringa HTML per ogni articolo
         const articleHTML = `
           <article class="aNews">
-            <h2 class="h2News">${game.title}</h2>
+            <div class="divNews">
+            <h3 class="h3News">${game.title}</h3>
             <p class="pNews">${game.short_description}. The game was created by ${game.publisher}.</p>
+            </div>
             <figure class="figNews">
               <a href="${game.game_url}" target="_blank" rel="noopener noreferrer">
                 <img class="imgNews" src="${game.thumbnail}" alt="Thumbnail for ${game.title}">
-                <figcaption>${game.title}</figcaption>
-              </a>
+             </a>
             </figure>
           </article>
         `;
@@ -78,7 +79,7 @@ export function newsApiCall() {
       // Potresti anche mostrare un messaggio di errore all'utente nel DOM
       const cont = document.querySelector(".mNews");
       if(cont) {
-        cont.innerHTML = '<p class="error-message">Spiacenti, non è stato possibile caricare le notizie. Riprova più tardi.</p>';
+        cont.innerHTML = '<h2 class="error-message">Spiacenti, non è stato possibile caricare le notizie.Aggiorna la pagina oppure riprova più tardi.</h2>';
       }
     });
 }
