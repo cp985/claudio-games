@@ -79,7 +79,7 @@ export function newsApiCall() {
       // Potresti anche mostrare un messaggio di errore all'utente nel DOM
       const cont = document.querySelector(".mNews");
       if(cont) {
-        cont.innerHTML = '<h2 class="error-message">Spiacenti, non è stato possibile caricare le notizie.Aggiorna la pagina oppure riprova più tardi.</h2>';
+        cont.innerHTML = '<h2 class="error-message">Please try again later or refresh page.</h2>';
       }
     });
 }

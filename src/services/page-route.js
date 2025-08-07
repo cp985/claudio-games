@@ -36,31 +36,25 @@ const pageList = {
     </main>
     `,
   news: `
+      <h1 class="h1News pulsating-text"><span class="arrowR">&rarr;</span>The best ftp videogames online now<span class="arrowL">&larr;</span></h1>
     <main class="mNews">
-      <h2 class="h2News" >
-      <span>C</span>
+      <h2 class="h2News">
+      <span>L</span>
+      <span>o</span>
       <span>a</span>
-      <span>r</span>
+      <span>d</span>
       <span>i</span>
-      <span>c</span>
-      <span>a</span>
-      <span>m</span>
+      <span>n</span>
+      <span>g</span>
+      <span>&nbsp;</span>
+      <span>n</span>
       <span>e</span>
-      <span>n</span>
-      <span>t</span>
-      <span>o</span>
-      <span>&nbsp;</span>
-      <span>i</span>
-      <span>n</span>
-      <span>&nbsp;</span>
-      <span>c</span>
-      <span>o</span>
-      <span>r</span>
+      <span>w</span>
       <span>s</span>
-      <span>o</span>
       <span>.</span>
       <span>.</span>
-      <span>.</span></h2>
+      <span>.</span>
+      </h2>
     </main>
   `,
   games: `<h1>Pagina dei Giochi</h1>`,

@@ -14,18 +14,80 @@ main.mNews {
     overflow-y: scroll;
 }
 
+h1.h1News{
+    padding: 0;
+    font-size: clamp(0.6rem, 2.5vw + 0.7rem, 1.7rem);
+    font-weight: 500;
+    color: var(--colore-testo);
+   
+}
+
+ .pulsating-text {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 4rem; /* Dimensione del testo */
+            font-weight: 600;
+            color: var(--colore-testo); /* Colore del testo */
+            
+            /* Necessario affinché la proprietà transform funzioni correttamente */
+            display: inline-block; 
+            
+            /* 1. Nome dell'animazione (definito sotto in @keyframes)
+               2. Durata (2 secondi per un ciclo completo)
+               3. Timing-function (accelera e decelera dolcemente)
+               4. Conteggio iterazioni (infinita) */
+            animation: pulsate 2s ease-in-out infinite;
+        }
+
+        /* Definizione dell'animazione "pulsate" */
+        @keyframes pulsate {
+            0% {
+                /* Stato iniziale: dimensione normale */
+                transform: scale(1);
+            }
+            50% {
+                /* A metà animazione: leggermente più grande */
+                transform: scale(1.05);
+            }
+            100% {
+                /* Stato finale: di nuovo a dimensione normale per un loop fluido */
+                transform: scale(1);
+            }
+        }
+
+span.arrowR,
+span.arrowL{
+font-size: clamp(2rem, 2.5vw + 0.8rem, 3rem);;
+font-weight: 1000;
+color: var(--v);
+}
 article.aNews {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
+  
     margin-bottom: 1.5em;
+    border-top:3px solid var(--v);
 }
 
 main article.aNews:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
+}
+
+main article.aNews:last-child h3.h3News{
+margin-top: 1em;;
+}
+
+main article.aNews:last-child figure img{
+
+top:1em;
+}
+
+main article.aNews:first-child{
+border: none;
+
 }
 
 main div.divNews{
@@ -38,20 +100,22 @@ main div.divNews{
     align-items: center;
 }
 h3.h3News{
-font-size: 2em;
+font-size: clamp(0.6rem, 2.5vw + 0.7rem, 1.7rem);
 font-weight: 500;
 color: var(--colore-testo);
 }
 main article p.pNews {
     width: 90%;
     height: 100%;
-    padding: 0 1em 0 1em;
+    padding: 0 0.5em 0 0.5em;
     display: inline-block;
-    margin-top: 2em;
+    margin-top: 4%;
+    font-size: clamp(0.1rem, 2.0vw + 0.3rem, 1.2rem);
 }
 
 main article figure.figNews {
     width: 100%;
+    height: 100%;
     margin: 0; 
     padding: 1em 1em 0 0;
 }
@@ -70,7 +134,7 @@ figure.figNews a img.imgNews {
     top: 0;
     left: 0;
     width: 100%;
-   height: 100%;
+   height: 90%;
     min-width: 200px;
     object-fit: cover;
 }
