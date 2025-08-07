@@ -68,13 +68,13 @@ const pageList = {
            <legend>Compila il modulo</legend>
            <div class="input-wrapper">
        <label for="name">Nome:
-          <input id="name" type="text" required="required">
+          <input name="name" id="name" type="text" required="required">
           </label>
           <label for="last-name">Cognome:
-         <input id="last-name" type="text" required="required">
+         <input name="last-name" id="last-name" type="text" required="required">
           </label>
           <label for="email">E-mail:
-         <input type="email" id="email" required="required">
+         <input name="email" type="email" id="email" required="required">
           </label>
           </div>
           </fieldset>

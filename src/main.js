@@ -10,6 +10,7 @@ import { startRouter } from "./services/page-route.js";
 import { handleInitialLoad } from "./services/initial-loader.js";
 import { createNavigation } from "./services/navigation.js";
 import { newsApiCall } from "./services/news.js";
+import "./services/contact.js";
 
 
 createNavigation();

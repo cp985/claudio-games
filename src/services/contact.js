@@ -1,9 +1,20 @@
-const form = document.getElementById('form');
+function submitHandler(event) {
+  event.preventDefault();
+  let form = event.target;
 
-form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const fData= new FormData(form);
-console.log(fData+' '+'Form submitted');
+  let data = new FormData(form);
+  
 
+  for (let dato of data.entries()) {
+    console.log(dato[0] + ": " + dato[1]);
+     console.log("-------------------------------");
+  }
+  form.reset();
+}
 
-})
+document.addEventListener("submit", function (event) {
+  if (event.target && event.target.id==='form') {
+    submitHandler(event);
+    console.log("Form submitted successfully.");
+  }
+});
