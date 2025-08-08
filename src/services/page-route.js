@@ -109,7 +109,20 @@ const pageList = {
     </div>
   </main>
   `,
-  ggg: `<h1>???</h1>`,
+  ggg: `
+  <div class="contGgg">
+    <ul class="terminalL">
+        <li class="terminalM">> Inizializzazione sistema... OK<span></span></li>
+        <li class="terminalM">> Caricamento moduli... 99%<span></span></li>
+        <li class="terminalM">> ERRORE: File 'index.html' non trovato.<span></span></li>
+        <li class="terminalM">> Tentativo di ricostruzione in corso...<span></span></li>
+        <li class="terminalM">> Compilazione nuovo_sito.jsx...<span></span></li>
+        <li class="terminalM">> Lancio stimato: ??.??.2025<span></span></li>
+        <li class="terminalM">> .(^_^) STAY TUNED (^_^).<span></span></li>
+
+    </ul>
+</div>
+`,
   404: `<h1>404 - Pagina non trovata</h1>`,
 };
 
@@ -157,7 +170,19 @@ function showLoaderAndRender(pageId, onRenderedCallback) {
   }, 500); // Puoi cambiare la durata del loader qui, in un unico posto
 }
 
-// --- 4. LA FUNZIONE PRINCIPALE DEL ROUTER ---
+// --- 4. LA FUNZIONE ANIMAZIONE GGG ---
+
+function animateTerminalLines() {
+  const lines = document.querySelectorAll('.terminalM');
+  const lineDelay = 3000; // Millisecondi di ritardo tra una riga e l'altra
+
+  lines.forEach((line, index) => {
+    setTimeout(() => {
+      line.classList.add('visibleM');
+    }, index * lineDelay);
+  });
+}
+// --- 5. LA FUNZIONE PRINCIPALE DEL ROUTER ---
 
 export function startRouter() {
   // Imposta la base URL, se necessario
@@ -179,7 +204,7 @@ export function startRouter() {
   page("/news", () => showLoaderAndRender("news", () => newsApiCall()));
   page("/games", () => showLoaderAndRender("games"));
   page("/contact", () => showLoaderAndRender("contact"));
-  page("/ggg", () => showLoaderAndRender("ggg"));
+  page("/ggg", () => showLoaderAndRender("ggg", () => animateTerminalLines));
 
   // Rotte segnaposto (puoi integrarle in pageList se diventano complesse)
   page("/sasso-carta-forbice", () =>

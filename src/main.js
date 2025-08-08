@@ -6,6 +6,7 @@ import "./style/news.css";
 import "./style/first-loader.css";
 import "./style/loader.css";
 import "./style/contact.css";
+import "./style/ggg.css";
 import { startRouter } from "./services/page-route.js";
 import { handleInitialLoad } from "./services/initial-loader.js";
 import { createNavigation } from "./services/navigation.js";
