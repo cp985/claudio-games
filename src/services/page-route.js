@@ -10,7 +10,7 @@ import imgTrovaIlCodice from "../../assets/img/trovailcodice.webp";
 import imgComingSoon from "../../assets/img/coming-soon.webp";
 import { newsApiCall } from "../services/news.js";
 
-
+export { page };
 // Il contenitore principale dove verranno renderizzate le pagine
 const content = document.querySelector("#content");
 

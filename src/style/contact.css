@@ -1,64 +1,64 @@
 /* #region main contact */
-html{
-     --colore-blur1: rgba(0, 33, 41, 0.511);
-     --colore-blur2: rgba(0, 106, 133, 0.586);
+html {
+    --colore-blur1: rgba(0, 33, 41, 0.511);
+    --colore-blur2: rgba(0, 106, 133, 0.586);
 }
 
 
-div.cont-contact{
+div.cont-contact {
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-areas: 
-    "form map";
+    grid-template-areas:
+        "form map";
     color: var(--colore-testo);
     gap: 1em;
     padding: 0.3em;
 }
 
 main.contact-page {
-width: 100%;
-height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 /* #endregion main contact */
 
 
 /* #region contact form */
-section.form-contact-section{
-grid-area: form;
-display: flex;
-flex-direction: column;
-align-items: center;
+section.form-contact-section {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-width: 100%;
-height: 100%;
+    width: 100%;
+    height: 100%;
 
 
 
 }
 
-section.form-contact-section h2{
+section.form-contact-section h2 {
     width: 100%;
 
     text-align: center;
-   font-size: clamp(1em, 1.6vw + 0.8em, 2em); 
+    font-size: clamp(1em, 1.6vw + 0.8em, 2em);
     margin: 0.3em 0 0.3em 0;
-   
+
 }
 
-section.form-contact-section form{
+section.form-contact-section form {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
     caret-color: var(--v);
 }
 
-form[name="form"] fieldset{
+form[name="form"] fieldset {
     width: 100%;
     /* display: flex; */
     flex-direction: column;
@@ -67,54 +67,55 @@ form[name="form"] fieldset{
     margin-bottom: 0.3em;
 }
 
-legend{
-  font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em); 
+legend {
+    font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em);
     font-weight: 500;
     color: var(--colore-testo);
     margin-left: 0.5em;
 }
 
-div.input-wrapper{
+div.input-wrapper {
     display: flex;
     flex-direction: column;
-    
-gap: 0.4em;
+
+    gap: 0.4em;
     width: 100%;
 
 }
 
-section.form-contact-section form input{
-background-color: var(--colore-testo);
-color: var(--colore-sfondo) ;
-outline: 1px solid var(--v);
+section.form-contact-section form input {
+    background-color: var(--colore-testo);
+    color: var(--colore-sfondo);
+    outline: 1px solid var(--v);
 
 }
-section.form-contact-section form label{
+
+section.form-contact-section form label {
     display: flex;
     justify-content: space-between;
     width: 100%;
     flex-wrap: wrap;
 }
 
-textarea{
+textarea {
     overflow: scroll;
     outline: 1px solid var(--v);
-background-color: var(--colore-testo) ;
-color: var(--colore-sfondo);
+    background-color: var(--colore-testo);
+    color: var(--colore-sfondo);
     width: 100%;
-min-height: 6em;
+    min-height: 6em;
     resize: none;
     white-space: normal;
-overflow-wrap: break-word;
-margin: 0.2em 0 0.3em 0;
+    overflow-wrap: break-word;
+    margin: 0.2em 0 0.3em 0;
 }
 
-textarea::placeholder{
+textarea::placeholder {
     color: var(--colore-sfondo);
     font-style: italic;
 }
 
-section.form-contact-section form button#button-submit{
+section.form-contact-section form button#button-submit {
     cursor: pointer;
     text-align: center;
     background-color: var(--colore-accento);
@@ -122,14 +123,14 @@ section.form-contact-section form button#button-submit{
     min-width: 30%;
     max-height: 15%;
     padding: 0.1em;
-    font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em); 
+    font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em);
     border: 2px solid var(--v);
     border-radius: 10px;
     font-weight: 700;
 
 }
 
-section.form-contact-section form button#button-submit:hover{
+section.form-contact-section form button#button-submit:hover {
     background-color: var(--v);
     color: var(--colore-sfondo);
     border: 2px solid var(--colore-accento);
@@ -141,36 +142,39 @@ section.form-contact-section form button#button-submit:hover{
 
 /* #region contact info map */
 
-section.contact-info-section{
-grid-area: map;
-display: flex;
-flex-direction: column;
-align-items: center;
-width: 100%;
+section.contact-info-section {
+    grid-area: map;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 
-gap:0.7em;
+    gap: 0.7em;
 
 }
 
-section.contact-info-section h2{
-  
+section.contact-info-section h2 {
+
     text-align: center;
-  font-size: clamp(1em, 1.6vw + 0.8em, 2em); 
+    font-size: clamp(1em, 1.6vw + 0.8em, 2em);
     margin: 0.3em;
 }
-section.contact-info-section div.map-container{
-  width: 100%;
+
+section.contact-info-section div.map-container {
+    width: 100%;
     position: relative;
-    min-height: 30%; 
+    min-height: 30%;
     padding: 0 0.3em 0 0.3em;
 }
-section.contact-info-section div.address-info{
-    margin-top: 0.3em ;
+
+section.contact-info-section div.address-info {
+    margin-top: 0.3em;
     width: 100%;
     text-align: center;
     font-size: 1em;
 }
-div.address-info a:hover{
+
+div.address-info a:hover {
     color: var(--v);
     text-decoration: underline;
 
@@ -180,7 +184,7 @@ div.address-info a:hover{
 
 /* #region submitted  div */
 
-div article.artSubmit{
+div article.artSubmit {
     position: absolute;
     top: 0;
     left: 0;
@@ -193,14 +197,15 @@ div article.artSubmit{
     justify-content: center;
     z-index: 1000;
     backdrop-filter: blur(10px);
-    font-family: 'Bitcount', sans-serif;
-    
+
+
 }
 
 
-div article.artSubmit h2{
+div article.artSubmit h2 {
+    font-family: 'Bitcount', sans-serif;
     max-width: 90%;
-    font-size: clamp(1em, 1.6vw + 0.8em, 2em); 
+    font-size: clamp(1em, 1.6vw + 0.8em, 2em);
     color: var(--v);
     margin: 0.3em;
     background-color: var(--colore-blur2);
@@ -209,19 +214,20 @@ div article.artSubmit h2{
     padding: 0.3em;
 }
 
-div article.artSubmit p{
+div article.artSubmit p {
+    font-family: 'Bitcount', sans-serif;
     border-radius: 10px;
     border: 3px solid var(--v);
     max-width: 80%;
-font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em); 
+    font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em);
     color: var(--colore-testo);
     margin: 0.3em;
-     background-color: var(--colore-blur2);
-     padding: 0.3em;
+    background-color: var(--colore-blur2);
+    padding: 0.3em;
 }
 
-div article.artSubmit button{
-margin-top: 0.5em;
+div article.artSubmit button {
+    margin-top: 0.5em;
     cursor: pointer;
     text-align: center;
     background-color: var(--colore-accento);
@@ -229,25 +235,25 @@ margin-top: 0.5em;
     min-width: 30%;
     max-height: 15%;
     padding: 0.1em;
-    font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em); 
+    font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em);
     border: 2px solid var(--v);
     border-radius: 10px;
-    font-weight: 500;
-    animation: neon infinite 1s    ;
+    font-weight: 700;
+    animation: neon infinite 1s;
 }
 
 @keyframes neon {
     0% {
         box-shadow: 0 0 5px var(--colore-accento), 0 0 10px var(--colore-accento), 0 0 15px var(--colore-accento);
     }
+
     50% {
         box-shadow: 0 0 20px var(--colore-accento), 0 0 30px var(--colore-accento), 0 0 40px var(--colore-accento);
     }
+
     100% {
         box-shadow: 0 0 5px var(--colore-accento), 0 0 10px var(--colore-accento), 0 0 15px var(--colore-accento);
     }
 }
 
 /* #endregion submitted  div */
-
-

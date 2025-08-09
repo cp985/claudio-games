@@ -1,3 +1,5 @@
+import { page } from "./page-route.js";
+
 function submitHandler(event) {
   event.preventDefault();
   let form = event.target;
@@ -28,7 +30,7 @@ document.addEventListener("submit", function (event) {
 const buttonSubmit = divS.querySelector("#buttonSubmit");
  
 buttonSubmit.addEventListener("click", function() {
-    window.location.href = "/";
+  page.show("/"); // Naviga alla home page
 })
 
 
