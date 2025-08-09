@@ -8,7 +8,6 @@ import imgComingSoon2 from "../../assets/img/coming-soon-2.webp";
 import imgOrdinaLeParole from "../../assets/img/ordina-le-parole.webp";
 import imgTrovaIlCodice from "../../assets/img/trovailcodice.webp";
 import imgComingSoon from "../../assets/img/coming-soon.webp";
-import imgProva from "../../assets/img/foto_panorami_06.jpg";
 import { newsApiCall } from "../services/news.js";
 
 
@@ -24,11 +23,11 @@ const pageList = {
     <div class="logo"><h1 id="animated-logo"></h1></div>
     <main class="swiper">
       <section class="hero-carousel swiper-wrapper">
-        <figure class="slide swiper-slide"><a href="#"><img src="${imgSassoCartaForbice}" alt="..."><figcaption>...</figcaption></a></figure>
-        <figure class="slide swiper-slide"><a href="#"><img src="${imgComingSoon2}" alt="..."><figcaption>...</figcaption></a></figure>
-        <figure class="slide swiper-slide"><a href="#"><img src="${imgOrdinaLeParole}" alt="..."><figcaption>...</figcaption></a></figure>
-        <figure class="slide swiper-slide"><a href="#"><img src="${imgTrovaIlCodice}" alt="..."><figcaption>...</figcaption></a></figure>
-        <figure class="slide swiper-slide"><a href="#"><img src="${imgComingSoon}" alt="..."><figcaption>...</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="#"><img src="${imgSassoCartaForbice}" alt="Batti il sistema a sasso carta e forbice"><figcaption>...</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="#"><img src="${imgComingSoon2}" alt="Nuovi giochi in arrivo"><figcaption>...</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="#"><img src="${imgOrdinaLeParole}" alt="Batti il sistema a Ordina la parola"><figcaption>...</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="#"><img src="${imgTrovaIlCodice}" alt="Batti il sistema a Trova il codice"><figcaption>...</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="#"><img src="${imgComingSoon}" alt="Nuovi giochi in arrivo"><figcaption>...</figcaption></a></figure>
       </section>
       <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
@@ -88,6 +87,7 @@ const pageList = {
       <section class="contact-info-section">
         <h2>Dove Siamo</h2>
         <div class="map-container">
+        <div class="glass"></div>
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28185.491249175324!2d86.90476692418683!3d27.98819281230523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e854a215bd9ebd%3A0x576dcf806abbab2!2sMonte%20Everest!5e0!3m2!1sit!2sit!4v1754488279983!5m2!1sit!2sit" 
             style="border:0;" 
@@ -96,7 +96,8 @@ const pageList = {
             allowfullscreen="" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+            </iframe>
+          
         </div>
         <div class="address-info">
           <h3>Il nostro Quartier Generale (Fittizio)</h3>

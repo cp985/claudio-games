@@ -83,12 +83,18 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
-    new CopyWebpackPlugin({ // <-- MODIFICA: AGGIUNTO COPYWEBPACKPLUGIN QUI PER LO SVILUPPO
+        new CopyWebpackPlugin({ // <-- MODIFICA: AGGIUN
       patterns: [
         { from: "assets/img", to: "img" }, // Copia le immagini anche in sviluppo
-        { from: "assets/favicon", to: "favicon" }, // Copia i favicon anche in sviluppo
+        { from: "assets/cursor", to: "cursor" }, // Copia i favicon anche in sviluppo
       ],
     }),
+    // new CopyWebpackPlugin({ // <-- MODIFICA: AGGIUNTO COPYWEBPACKPLUGIN QUI PER LO SVILUPPO
+    //   patterns: [
+    //     { from: "assets/img", to: "img" }, // Copia le immagini anche in sviluppo
+    //     { from: "assets/favicon", to: "favicon" }, // Copia i favicon anche in sviluppo
+    //   ],
+    // }),
       new webpack.DefinePlugin({
     '__BASE_URL__': JSON.stringify(BASE_URL)
   })

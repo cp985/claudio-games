@@ -1,6 +1,7 @@
 /* #region main contact */
 html{
      --colore-blur1: rgba(0, 33, 41, 0.511);
+     --colore-blur2: rgba(0, 106, 133, 0.586);
 }
 
 
@@ -40,6 +41,7 @@ height: 100%;
 
 section.form-contact-section h2{
     width: 100%;
+
     text-align: center;
    font-size: clamp(1em, 1.6vw + 0.8em, 2em); 
     margin: 0.3em 0 0.3em 0;
@@ -191,22 +193,60 @@ div article.artSubmit{
     justify-content: center;
     z-index: 1000;
     backdrop-filter: blur(10px);
+    font-family: 'Bitcount', sans-serif;
+    
 }
 
 
 div article.artSubmit h2{
-    font-size: 1.5em;
-    color: var(--colore-testo);
+    max-width: 90%;
+    font-size: clamp(1em, 1.6vw + 0.8em, 2em); 
+    color: var(--v);
     margin: 0.3em;
+    background-color: var(--colore-blur2);
+    border: 3px solid var(--colore-accento);
+    border-radius: 10px;
+    padding: 0.3em;
 }
 
 div article.artSubmit p{
-    font-size: 1.2em;
+    border-radius: 10px;
+    border: 3px solid var(--v);
+    max-width: 80%;
+font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em); 
     color: var(--colore-testo);
     margin: 0.3em;
+     background-color: var(--colore-blur2);
+     padding: 0.3em;
 }
 
+div article.artSubmit button{
+margin-top: 0.5em;
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--colore-accento);
+    color: var(--colore-sfondo);
+    min-width: 30%;
+    max-height: 15%;
+    padding: 0.1em;
+    font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em); 
+    border: 2px solid var(--v);
+    border-radius: 10px;
+    font-weight: 500;
+    animation: neon infinite 1s    ;
+}
 
+@keyframes neon {
+    0% {
+        box-shadow: 0 0 5px var(--colore-accento), 0 0 10px var(--colore-accento), 0 0 15px var(--colore-accento);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--colore-accento), 0 0 30px var(--colore-accento), 0 0 40px var(--colore-accento);
+    }
+    100% {
+        box-shadow: 0 0 5px var(--colore-accento), 0 0 10px var(--colore-accento), 0 0 15px var(--colore-accento);
+    }
+}
 
 /* #endregion submitted  div */
 

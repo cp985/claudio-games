@@ -25,9 +25,15 @@ document.addEventListener("submit", function (event) {
     <button class="buttonSubmit" id="buttonSubmit">Torna alla Home</button
     </article>
     `;
+const buttonSubmit = divS.querySelector("#buttonSubmit");
+ 
+buttonSubmit.addEventListener("click", function() {
+    window.location.href = "/";
+})
 
-    main.appendChild(divS);
-    console.log('appesooo');
+
+main.appendChild(divS);
+
     
   }
 });
