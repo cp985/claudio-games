@@ -33,13 +33,7 @@ body {
 
 }
 
-div.glass{
-    position: absolute;
-    width: 100%;
-    height: 100%;
 
-    z-index: 2;
-}
 
 
 
@@ -70,7 +64,7 @@ div.swiper-button-next,
 
 
 /* #region nav */
-header {
+header#main-header {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -79,7 +73,7 @@ header {
     margin-bottom: auto;
 }
 
-nav {
+nav.main-nav {
 
     width: 60%;
     border-bottom: 3px solid var(--v);

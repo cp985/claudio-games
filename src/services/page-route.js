@@ -1,6 +1,5 @@
 import page from "page";
 
-
 import { animateLogo, killLogoAnimations } from "./logo-h1.js";
 import { initCarousel, destroyCarousel } from "./carousel-hero.js";
 import imgSassoCartaForbice from "../../assets/img/sassocartaforbice.webp";
@@ -56,7 +55,31 @@ const pageList = {
       </h2>
     </main>
   `,
-  games: `<h1>Pagina dei Giochi</h1>`,
+  games: `
+<main class="game-main">
+    <header class="game-header">
+        <nav class="game-nav">
+            <ul class="gamesList">
+                <li class="game"><input type="radio" name="game" id="sassoCartaForbice"><label
+                        for="sassoCartaForbice">sassoCartaForbice</label></li>
+                <li class="game"><input type="radio" name="game" id="risolviCodice"><label
+                        for="risolviCodice">risolviCodice</label></li>
+                <li class="game"><input type="radio" name="game" id="trovaLaParola"><label
+                        for="trovaLaParola">trovaLaParola</label></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="gamePage">
+    <article class="game-article"
+        <h1>Game Page</h1>
+        <p>Welcome to the game page! Here you can find various games to play.</p>
+        </article>
+        
+    </section>
+    <section class="game-img">
+<figure><img src="" alt=""></figure>
+</section>
+</main>  `,
   contact: `
   <main class="contact-page">
     <div class="cont-contact">
@@ -87,7 +110,7 @@ const pageList = {
       <section class="contact-info-section">
         <h2>Dove Siamo</h2>
         <div class="map-container">
-        <div class="glass"></div>
+        <div id="glass" class="glass"></div>
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28185.491249175324!2d86.90476692418683!3d27.98819281230523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e854a215bd9ebd%3A0x576dcf806abbab2!2sMonte%20Everest!5e0!3m2!1sit!2sit!4v1754488279983!5m2!1sit!2sit" 
             style="border:0;" 
@@ -174,12 +197,12 @@ function showLoaderAndRender(pageId, onRenderedCallback) {
 // --- 4. LA FUNZIONE ANIMAZIONE GGG ---
 
 function animateTerminalLines() {
-  const lines = document.querySelectorAll('.terminalM');
+  const lines = document.querySelectorAll(".terminalM");
   const lineDelay = 3000; // Millisecondi di ritardo tra una riga e l'altra
 
   lines.forEach((line, index) => {
     setTimeout(() => {
-      line.classList.add('visibleM');
+      line.classList.add("visibleM");
     }, index * lineDelay);
   });
 }

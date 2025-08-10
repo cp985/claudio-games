@@ -29,5 +29,5 @@ export function createNavigation() {
     return `<li class=" menu"><a class="nav-link link" href="${baseUrl}${path}">${link.text}</a></li>`;
   }).join('');
 
-  header.innerHTML = `<nav><ul class="list">${linksHTML}</ul></nav>`;
+  header.innerHTML = `<nav class="main-nav"><ul class="list">${linksHTML}</ul></nav>`;
 }

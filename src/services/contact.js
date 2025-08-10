@@ -1,5 +1,6 @@
 import { page } from "./page-route.js";
 
+// Funzione per gestire l'invio del modulo
 function submitHandler(event) {
   event.preventDefault();
   let form = event.target;
@@ -39,3 +40,6 @@ main.appendChild(divS);
     
   }
 });
+
+
+
