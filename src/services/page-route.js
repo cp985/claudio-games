@@ -8,7 +8,7 @@ import imgOrdinaLeParole from "../../assets/img/ordina-le-parole.webp";
 import imgTrovaIlCodice from "../../assets/img/trovailcodice.webp";
 import imgComingSoon from "../../assets/img/coming-soon.webp";
 import { newsApiCall } from "../services/news.js";
-
+import { gamesHandlerPage } from "../services/games.js"
 export { page };
 // Il contenitore principale dove verranno renderizzate le pagine
 const content = document.querySelector("#content");
@@ -60,12 +60,12 @@ const pageList = {
     <header class="game-header">
         <nav class="game-nav">
             <ul class="gamesList">
-                <li class="game"><input type="radio" name="game" id="sassoCartaForbice"><label
-                        for="sassoCartaForbice">sassoCartaForbice</label></li>
-                <li class="game"><input type="radio" name="game" id="risolviCodice"><label
-                        for="risolviCodice">risolviCodice</label></li>
-                <li class="game"><input type="radio" name="game" id="trovaLaParola"><label
-                        for="trovaLaParola">trovaLaParola</label></li>
+                <li class="game"><input type="radio" name="game" id="sasso-carta-forbice"><label
+                        for="sasso-carta-forbice">sassoCartaForbice</label></li>
+                <li class="game"><input type="radio" name="game" id="trova-il-codice"><label
+                        for="trova-il-codice">risolviCodice</label></li>
+                <li class="game"><input type="radio" name="game" id="ordina-le-parole"><label
+                        for="ordina-le-parole">ordinaLeParole</label></li>
             </ul>
         </nav>
     </header>
@@ -80,6 +80,15 @@ const pageList = {
 <figure><img src="" alt=""></figure>
 </section>
 </main>  `,
+['sasso-carta-forbice']:`
+<div><h1>SASSO CARTA FORBICE</h1></div>
+`,
+['trova-il-codice']:`
+<div><h1>TROVA IL CODICE DEL CONTO ALLE CAYMAN DEL BARBE</h1></div>
+`,
+['ordina-le-parole']:`
+<div><h1>TROVA  LA PAROLA</h1></div>
+`,
   contact: `
   <main class="contact-page">
     <div class="cont-contact">
@@ -226,7 +235,7 @@ export function startRouter() {
   });
 
   page("/news", () => showLoaderAndRender("news", () => newsApiCall()));
-  page("/games", () => showLoaderAndRender("games"));
+  page("/games", () => showLoaderAndRender("games",gamesHandlerPage));
   page("/contact", () => showLoaderAndRender("contact"));
   page("/ggg", () => showLoaderAndRender("ggg", () => animateTerminalLines));
 

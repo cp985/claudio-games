@@ -4,7 +4,6 @@
 html {
     --cursor1: url('../../assets/cursor/cursor1.cur'), auto;
     --cursor2: url('../../assets/cursor/cursor2.cur'), pointer;
-
     --c: #009bbe;
     --v: #ff01ff;
     --colore-sfondo: #000000;
@@ -34,10 +33,9 @@ body {
 }
 
 
-
-
-
 a:hover,
+button#buttonSubmit:hover,
+button:hover,
 main.contact-page section.form-contact-section form#form button#button-submit:hover,
 main.contact-page section.contact-info-section div.map-container div.glass:hover,
 input:hover,
@@ -49,8 +47,9 @@ div.swiper-button-next:hover {
 }
 
 a,
-main.contact-page section.contact-info-section div.map-container div.glass,
 button,
+button#buttonSubmit,
+main.contact-page section.contact-info-section div.map-container div.glass,
 main.contact-page section.form-contact-section form#form button#button-submit,
 input,
 select,
