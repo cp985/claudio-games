@@ -34,6 +34,7 @@ body {
 
 
 a:hover,
+li.game:hover,
 button#buttonSubmit:hover,
 button:hover,
 main.contact-page section.form-contact-section form#form button#button-submit:hover,
@@ -48,6 +49,7 @@ div.swiper-button-next:hover {
 
 a,
 button,
+li.game,
 button#buttonSubmit,
 main.contact-page section.contact-info-section div.map-container div.glass,
 main.contact-page section.form-contact-section form#form button#button-submit,

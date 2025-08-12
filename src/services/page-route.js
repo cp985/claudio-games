@@ -8,7 +8,8 @@ import imgOrdinaLeParole from "../../assets/img/ordina-le-parole.webp";
 import imgTrovaIlCodice from "../../assets/img/trovailcodice.webp";
 import imgComingSoon from "../../assets/img/coming-soon.webp";
 import { newsApiCall } from "../services/news.js";
-import { gamesHandlerPage } from "../services/games.js"
+import { gamesHandlerPage, previewGameHandlerPage } from "../services/games.js"
+import { validateForm } from "./contact.js";
 export { page };
 // Il contenitore principale dove verranno renderizzate le pagine
 const content = document.querySelector("#content");
@@ -70,49 +71,50 @@ const pageList = {
         </nav>
     </header>
     <section class="gamePage">
-    <article class="game-article"
+    <article class="game-article">
         <h1>Game Page</h1>
-        <p>Welcome to the game page! Here you can find various games to play.</p>
+        <p>Benvenuto nella pagina dei nostri giochi!. Seleziona un gioco nella lista a destra e buon divertimento!!!.</p>
         </article>
         
     </section>
     <section class="game-img">
-<figure><img src="" alt=""></figure>
+<figure><img src="${imgComingSoon}" alt=""></figure>
 </section>
 </main>  `,
 ['sasso-carta-forbice']:`
 <div><h1>SASSO CARTA FORBICE</h1></div>
 `,
 ['trova-il-codice']:`
-<div><h1>TROVA IL CODICE DEL CONTO ALLE CAYMAN DEL BARBE</h1></div>
+<div><h1>TROVA IL CODICE SEGRETO </h1></div>
 `,
 ['ordina-le-parole']:`
-<div><h1>TROVA  LA PAROLA</h1></div>
+<div><h1>ORDINA LE PAROLE</h1></div>
 `,
   contact: `
   <main class="contact-page">
     <div class="cont-contact">
      <section class="form-contact-section">
        <h2>Contattaci</h2>
-       <form name="form" id="form" action="/">
+       <form name="form" id="form" action="/" no-validate>
          <fieldset>
            <legend>Compila il modulo</legend>
+           <h3 class="invalidH3" >Per favore, correggi tutti i campi evidenziati.</h3>
            <div class="input-wrapper">
        <label for="name">Nome:
-          <input name="name" id="name" type="text" required="required">
+          <span id="spanName" class="invalid">*</span><input name="name" id="name" type="text" pattern="^[a-zA-Z\\s]+$" required placeholder="Inserisci un dato valido">
           </label>
-          <label for="last-name">Cognome:
-         <input name="last-name" id="last-name" type="text" required="required">
+          <label for="last-name">Cognome:<span id="spanLast-name" class="invalid">*</span>
+         <input name="last-name" id="last-name" type="text" pattern="^[a-zA-Z\\s]+$" placeholder="Inserisci un dato valido" required>
           </label>
-          <label for="email">E-mail:
-         <input name="email" type="email" id="email" required="required">
+          <label for="email">E-mail:<span id="spanEmail" class="invalid">*</span>
+         <input name="email" type="email" id="email" pattern="^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$" placeholder="Inserisci un dato valida" required >
           </label>
           </div>
           </fieldset>
         <label for="textarea" >Inserisci il tuo messaggio:
-          <textarea name="textarea" id="textarea" placeholder="Scrivi qui..." required="required"></textarea>
+          <textarea name="textarea" id="textarea" placeholder="Scrivi qui..." required></textarea>
         </label>
-          <button type="submit" id="button-submit">Invia</button>
+          <button type="button" id="button-submit">Invia</button>
        </form>
       </section>
        
@@ -235,8 +237,8 @@ export function startRouter() {
   });
 
   page("/news", () => showLoaderAndRender("news", () => newsApiCall()));
-  page("/games", () => showLoaderAndRender("games",gamesHandlerPage));
-  page("/contact", () => showLoaderAndRender("contact"));
+  page("/games", () => showLoaderAndRender("games",()=>{gamesHandlerPage();previewGameHandlerPage()}));
+  page("/contact", () => showLoaderAndRender("contact",validateForm));
   page("/ggg", () => showLoaderAndRender("ggg", () => animateTerminalLines));
 
   // Rotte segnaposto (puoi integrarle in pageList se diventano complesse)
