@@ -1,3 +1,14 @@
+html{
+    --c: #009bbe;
+    --v: #ff01ff;
+    --colore-sfondo: #000000;
+    --colore-accento: #00CFFF;
+    --colore-secondario: #ddff00;
+    --colore-testo: #EAEAEA;
+
+}
+
+
 main.game-main {
     display: grid;
     grid-template-columns: 2fr 2fr 1fr;
@@ -7,7 +18,6 @@ main.game-main {
     justify-content: center;
     width: 100%;
     height: 100%;
-    border: 3px solid rgb(255, 25, 0);
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -24,7 +34,6 @@ nav.game-nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid rgb(51, 0, 255);
     width: 100%;
     height: 100%;
 
@@ -40,7 +49,6 @@ ul.gamesList {
     margin: 0;
     width: 100%;
     height: 100%;
-    border: 3px solid rgb(6, 252, 236);
 
 }
 
@@ -57,26 +65,47 @@ li.game {
 }
 
 li.game label {
-    border: 3px solid rgb(0, 255, 0);
-
+    border: 3px solid var(--v);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
-    font-size: clamp(1em, 1.4vw + 0.5em, 1.3em);
+    font-size: clamp(0.8em, 1.4vw + 0.5em, 1.2em);
     font-weight: bold;
     text-align: center;
     padding: 0.5em;
     border-radius: 6px;
     transition: all 0.4s ease-in-out;
+   animation: neon-pulse 1.5s infinite alternate ease-in-out;
 
 }
 
 li.game:hover label {
     transform: scale(1.1);
-    background-color: rgba(0, 249, 0, 0.976);
+    background-color: var(--colore-accento);
     color: black;
+   animation: none; /* Disattiva l'animazione pulsante */
+    box-shadow: inset 0 0 15px var(--v); /* Applica un'ombra fissa per l'hover */
+
+}
+.label-selected {
+    transform: scale(1.1);
+    background-color: var(--colore-accento);
+    color: black;
+   animation: none; /* Disattiva l'animazione pulsante */
+    box-shadow: inset 0 0 15px var(--v); /* Applica un'ombra fissa per l'hover */
+
+}
+
+
+@keyframes neon-pulse {
+  0% {
+    box-shadow:inset 0 0 7px var(--v),inset 0 0 10px var(--v);
+  }
+  100% {
+    box-shadow:inset 0 0 14px var(--v),inset 0 0 20px var(--colore-accento);
+  }
 }
 
 /* #endregion nav game */
@@ -89,8 +118,7 @@ section.gamePage {
     justify-content: center;
     width: 100%;
     height: 100%;
-    border: 3px solid rgb(0, 255, 0);
-
+border-right: 3px solid var(--colore-secondario);
 }
 
 article.game-article {
@@ -100,30 +128,43 @@ article.game-article {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 3px solid rgb(255, 0, 204);
     transition: 700ms ease-in-out;
 }
 section.gamePage article.game-article h1{
+        font-family: 'Bitcount', sans-serif;
     text-align: center;
-    color: rgb(255, 0, 204);
-    font-size: clamp(1.2em, 1.6vw + 0.6em, 2.2em);
-    margin-bottom: 0.5em;
+    color: var(--v);
+    font-size: clamp(1.2em, 1.6vw + 0.8em, 2.2em);
+}
+
+span.desc{
+        font-family: 'Bitcount', sans-serif;
+    color: var(--c);
+    font-weight: bold;
+    font-size: clamp(0.8em, 1.6vw + 0.4em, 1.2em);
 }
 article.game-article p {
-    text-align: center;
-    color: rgb(0, 0, 255);
-    font-size: clamp(0.8em, 1.6vw + 0.4em, 1.2em);
+   
+    color: var(--colore-testo);
+    font-size: clamp(0.8em, 1.6vw + 0.4em, 1.1em);
     margin: 0.3em;
     padding: 0.5em;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
 }
 
+article.game-article p:first-of-type {
+    margin-top: 0;
+    text-decoration: underline;
+    text-decoration-color: var(--colore-secondario);
+    text-decoration-thickness: 2px;
+}
+
+
 article.game-article h2 {
+        font-family: 'Bitcount', sans-serif;
     text-align: center;
-    color: rgb(255, 0, 0);
-    font-size: clamp(1em, 1.6vw + 0.8em, 2em);
-    margin-bottom: 0.5em;
+    color: var(--v);
+    font-size: clamp(1.2em, 1.6vw + 0.8em, 2.2em);
 }
 
 section.game-img {
@@ -131,16 +172,16 @@ section.game-img {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    border: 3px solid rgb(55, 255, 0);
     transition: 700ms ease-in-out;
+    border-right: solid 3px var(--colore-secondario);
 }
 
 section.game-img figure {
+   padding: 0.5em;
     display: flex;
     align-items: center;
-
 }
 
 .contentLoading {

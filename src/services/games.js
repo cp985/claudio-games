@@ -75,6 +75,11 @@ export function previewGameHandlerPage() {
         return;
       }
       const input = hoveredLi.querySelector('input[type="radio"]');
+      const labels = document.querySelectorAll("ul.gamesList label");
+      const label = hoveredLi.querySelector("label");
+      labels.forEach((lbl) => {lbl.classList.remove("label-selected");});
+      if(!label){return;}else{
+        label.classList.add("label-selected");}
       if (input && input.id) {
         console.log(input + " " + input.id);
         const id = input.id;
@@ -93,13 +98,15 @@ export function previewGameHandlerPage() {
             article.innerHTML = `
             <h2>${key.title}</h2>
             <p>${key.description}</p>
-            <p>${key.playDescription}</p>
+            <p><span class="desc"> Descrizione:</span> ${key.playDescription}</p>
             <p>Giocatori: ${key.players}</p>
           `;
             imgGame.src = key.imageUrl;
             imgGame.alt = key.title;
+            
             article.classList.remove("contentLoading");
             sectImgGame.classList.remove("contentLoading");
+
           }, 500);
         } else {
           console.error("Article not found");

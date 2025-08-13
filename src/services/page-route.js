@@ -11,6 +11,7 @@ import { newsApiCall } from "../services/news.js";
 import { gamesHandlerPage, previewGameHandlerPage } from "../services/games.js"
 import { validateForm } from "./contact.js";
 export { page };
+
 // Il contenitore principale dove verranno renderizzate le pagine
 const content = document.querySelector("#content");
 
@@ -23,11 +24,11 @@ const pageList = {
     <div class="logo"><h1 id="animated-logo"></h1></div>
     <main class="swiper">
       <section class="hero-carousel swiper-wrapper">
-        <figure class="slide swiper-slide"><a href="#"><img src="${imgSassoCartaForbice}" alt="Batti il sistema a sasso carta e forbice"><figcaption>...</figcaption></a></figure>
-        <figure class="slide swiper-slide"><a href="#"><img src="${imgComingSoon2}" alt="Nuovi giochi in arrivo"><figcaption>...</figcaption></a></figure>
-        <figure class="slide swiper-slide"><a href="#"><img src="${imgOrdinaLeParole}" alt="Batti il sistema a Ordina la parola"><figcaption>...</figcaption></a></figure>
-        <figure class="slide swiper-slide"><a href="#"><img src="${imgTrovaIlCodice}" alt="Batti il sistema a Trova il codice"><figcaption>...</figcaption></a></figure>
-        <figure class="slide swiper-slide"><a href="#"><img src="${imgComingSoon}" alt="Nuovi giochi in arrivo"><figcaption>...</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="/sasso-carta-forbice"><img src="${imgSassoCartaForbice}" alt="Batti il sistema a sasso carta e forbice"><figcaption>Batti il sistema a sasso carta e forbice</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="/news"><img src="${imgComingSoon2}" alt="Nuovi giochi in arrivo"><figcaption>Nuovi giochi in arrivo</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="/ordina-le-parole"><img src="${imgOrdinaLeParole}" alt="Batti il sistema a Ordina la parola"><figcaption>Batti il sistema a Ordina la parola</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="/trova-il-codice"><img src="${imgTrovaIlCodice}" alt="Batti il sistema a Trova il codice"><figcaption>Batti il sistema a Trova il codice</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="/games"><img src="${imgComingSoon}" alt="Nuovi giochi in arrivo"><figcaption>Nuovi giochi in arrivo</figcaption></a></figure>
       </section>
       <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
@@ -62,11 +63,11 @@ const pageList = {
         <nav class="game-nav">
             <ul class="gamesList">
                 <li class="game"><input type="radio" name="game" id="sasso-carta-forbice"><label
-                        for="sasso-carta-forbice">sassoCartaForbice</label></li>
+                        for="sasso-carta-forbice">S.C.F.</label></li>
                 <li class="game"><input type="radio" name="game" id="trova-il-codice"><label
-                        for="trova-il-codice">risolviCodice</label></li>
+                        for="trova-il-codice">THE CODE</label></li>
                 <li class="game"><input type="radio" name="game" id="ordina-le-parole"><label
-                        for="ordina-le-parole">ordinaLeParole</label></li>
+                        for="ordina-le-parole">WORDS WORDS</label></li>
             </ul>
         </nav>
     </header>
