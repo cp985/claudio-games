@@ -85,16 +85,16 @@ li.game:hover label {
     transform: scale(1.1);
     background-color: var(--colore-accento);
     color: black;
-   animation: none; /* Disattiva l'animazione pulsante */
-    box-shadow: inset 0 0 15px var(--v); /* Applica un'ombra fissa per l'hover */
+   animation: none; 
+    box-shadow: inset 0 0 15px var(--v); 
 
 }
 .label-selected {
     transform: scale(1.1);
     background-color: var(--colore-accento);
     color: black;
-   animation: none; /* Disattiva l'animazione pulsante */
-    box-shadow: inset 0 0 15px var(--v); /* Applica un'ombra fissa per l'hover */
+   animation: none; 
+    box-shadow: inset 0 0 15px var(--v); 
 
 }
 

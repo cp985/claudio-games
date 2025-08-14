@@ -1,31 +1,53 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+
     <title>Document</title>
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content="">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta property="og:url" content="">
     <meta property="og:type" content="website">
-    
+
     <!-- Favicon -->
     <!-- <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> -->
-    
+
     <!-- Theme -->
     <meta name="theme-color" content="#000000">
 </head>
+
 <body>
     <!-- Insert your code -->
 
-    <div>sono sasso carta forbice</div>
+    <div class="sasso-carta-forbice">
+        <h1 id="titolo">Sasso, Carta, Forbice</h1>
+        <div class="scelta">
+            <div class="player-choices">
+                <img src="${sasso}" class="sasso" data-choice="sasso" id="choice-sasso" alt="Sasso">
+                <img src="${carta}" class="carta" data-choice="carta" id="choice-carta" alt="Carta">
+                <img src="${forbice}" class="forbici" data-choice="forbici" id="choice-forbici" alt="Forbici">
+            </div>
+            <img class="imgCpu" src="${interrogativo}" alt="Scelta CPU">
+        </div>
+        <div class="risultato">
+            <h2 id="risultato">Scegli la tua mossa</h2>
+            <button id="resetButton" class="resetButton">Reset</button>
+            <div class="contatore">
+                <p>Player: <span id="contatorePlayer">0</span></p>
+                <p>Cpu: <span id="contatoreCpu">0</span></p>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>

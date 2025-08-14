@@ -8,8 +8,14 @@ import imgOrdinaLeParole from "../../assets/img/ordina-le-parole.webp";
 import imgTrovaIlCodice from "../../assets/img/trovailcodice.webp";
 import imgComingSoon from "../../assets/img/coming-soon.webp";
 import { newsApiCall } from "../services/news.js";
-import { gamesHandlerPage, previewGameHandlerPage } from "../services/games.js"
+import { gamesHandlerPage, previewGameHandlerPage } from "../services/games.js";
 import { validateForm } from "./contact.js";
+import sasso from "../../assets/img/sasso.webp";
+import carta from "../../assets/img/carta.webp";
+import forbice from "../../assets/img/forbice.webp";
+import interrogativo from "../../assets/img/interrogativo.webp";
+import { scf } from "./scf.js";
+
 export { page };
 
 // Il contenitore principale dove verranno renderizzate le pagine
@@ -82,13 +88,31 @@ const pageList = {
 <figure><img src="${imgComingSoon}" alt=""></figure>
 </section>
 </main>  `,
-['sasso-carta-forbice']:`
-<div><h1>SASSO CARTA FORBICE</h1></div>
+["sasso-carta-forbice"]: `
+  <div class="sasso-carta-forbice">
+    <h1 id="titolo">Sasso, Carta, Forbice</h1>
+    <div class="scelta">
+      <div class="player-choices">
+        <img src="${sasso}" class="sasso" data-choice="sasso" id="choice-sasso" alt="Sasso">
+        <img src="${carta}" class="carta" data-choice="carta" id="choice-carta" alt="Carta">
+        <img src="${forbice}" class="forbici" data-choice="forbici" id="choice-forbici" alt="Forbici">
+      </div>
+      <img class="imgCpu" src="${interrogativo}" alt="Scelta CPU">
+    </div>
+    <div class="risultato">
+    <h2 id="risultato">Scegli la tua mossa</h2>
+        <button id="resetButton" class="resetButton">Reset</button>
+    <div class="contatore">
+      <p>Player: <span id="contatorePlayer">0</span></p>
+      <p>Cpu: <span id="contatoreCpu">0</span></p>
+    </div>
+  </div>
+    </div>
 `,
-['trova-il-codice']:`
+  ["trova-il-codice"]: `
 <div><h1>TROVA IL CODICE SEGRETO </h1></div>
 `,
-['ordina-le-parole']:`
+  ["ordina-le-parole"]: `
 <div><h1>ORDINA LE PAROLE</h1></div>
 `,
   contact: `
@@ -238,13 +262,18 @@ export function startRouter() {
   });
 
   page("/news", () => showLoaderAndRender("news", () => newsApiCall()));
-  page("/games", () => showLoaderAndRender("games",()=>{gamesHandlerPage();previewGameHandlerPage()}));
-  page("/contact", () => showLoaderAndRender("contact",validateForm));
+  page("/games", () =>
+    showLoaderAndRender("games", () => {
+      gamesHandlerPage();
+      previewGameHandlerPage();
+    })
+  );
+  page("/contact", () => showLoaderAndRender("contact", validateForm));
   page("/ggg", () => showLoaderAndRender("ggg", () => animateTerminalLines));
 
   // Rotte segnaposto (puoi integrarle in pageList se diventano complesse)
   page("/sasso-carta-forbice", () =>
-    showLoaderAndRender("sasso-carta-forbice")
+    showLoaderAndRender("sasso-carta-forbice", scf)
   );
   page("/ordina-le-parole", () => showLoaderAndRender("ordina-le-parole"));
   page("/trova-il-codice", () => showLoaderAndRender("trova-il-codice"));
