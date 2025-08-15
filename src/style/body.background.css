@@ -1,9 +1,4 @@
-/* body {
-  margin: 0; 
-  min-height: 100vh; 
-  display: flex; 
-  flex-direction: column;
-} */
+
 
 .wrap-background {
   position: fixed;
@@ -15,7 +10,6 @@
 }
 
 .background {
-    will-change: background-position, transform;
   /* Nuove proprietà per un background ruotato e sempre coprente */
   position: absolute; /* Rendi l'elemento posizionabile all'interno di .wrap-background */
   top: 50%;
@@ -29,7 +23,7 @@
   transform: translate(-50%, -50%) rotate(-45deg);
   transform-origin: 50% 50%; /* Torna al centro per una rotazione prevedibile */
 
-  background-repeat: repeat; /* Assicurati che sia corretto: background-repeat: repeat; */
+  background: repeat; /* Assicurati che sia corretto: background-repeat: repeat; */
   z-index: 0; /* Questo è relativo al wrap-background, non al viewport */
 
   --colore-sfondo: #000000;
