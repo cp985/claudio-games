@@ -1,11 +1,11 @@
-html{
-      --c: #009bbe;
-    --v: #ff01ff;
-    --colore-sfondo: #000000;
-    --colore-accento: #00CFFF;
-    --colore-secondario: #ddff00;
-    --colore-testo: #EAEAEA;
-    --colore-blur33: rgba(0, 77, 94, 0.733);
+html {
+  --c: #009bbe;
+  --v: #ff01ff;
+  --colore-sfondo: #000000;
+  --colore-accento: #00CFFF;
+  --colore-secondario: #ddff00;
+  --colore-testo: #EAEAEA;
+  --colore-blur33: rgba(0, 77, 94, 0.733);
 }
 
 
@@ -13,12 +13,12 @@ html{
 div.sasso-carta-forbice {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items:center;     
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
-  gap: 1em; 
-    background-image: url("../../assets/img/backSfc.webp");
+  gap: 1em;
+  background-image: url("../../assets/img/backSfc.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -30,10 +30,10 @@ div.sasso-carta-forbice {
 
 
 #titolo {
-    font-size: clamp(2rem, 2.7vw + 0.7rem, 3rem);
+  font-size: clamp(2rem, 2.7vw + 0.7rem, 3rem);
   font-weight: bold;
   color: var(--colore-secondario);
-  background-color: var(--colore-blur33) ;
+  background-color: var(--colore-blur33);
   text-align: center;
   border-radius: 9999999px;
   padding: 0.2em;
@@ -42,22 +42,22 @@ div.sasso-carta-forbice {
 
 .scelta {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   height: 100%;
-  max-height:50%;
+  max-height: 50%;
   margin-top: auto;
 }
 
 .player-choices {
   display: flex;
-    width: 47%;
+  width: 47%;
   gap: 0.7em;
 }
 
 .player-choices img {
-width: 30%;
+  width: 30%;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -76,52 +76,58 @@ width: 30%;
 }
 
 @keyframes rotate {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
 }
 
 #risultato {
   display: flex;
   justify-content: center;
   align-items: center;
-     font-size: clamp(1rem, 2.3vw + 0.4rem, 2rem);
-min-width: 9em;
+  font-size: clamp(1rem, 2.3vw + 0.4rem, 2rem);
+  min-width: 9em;
   color: var(--colore-secondario);
   font-weight: bolder;
-margin-left: 3em;
+  margin-left: 3em;
   background: var(--colore-blur33);
   border-radius: 99999px;
   padding: 0.2em;
-  
+
 }
 
- .playerC, .cpuC {
-   color: var(--colore-secondario);
+.playerC,
+.cpuC {
+  color: var(--colore-secondario);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-      font-size: clamp(0.7rem, 2.3vw + 0.4rem, 1.5rem);
-      background-color: var(--colore-blur33);
-      /* height: 2em; */
+  font-size: clamp(0.7rem, 2.3vw + 0.4rem, 1.5rem);
+  background-color: var(--colore-blur33);
   width: 4em;
   border-radius: 99999px;
   padding: 0.1em;
-  
+
 }
 
 .contatore span {
   font-weight: bold;
   color: var(--colore-accento);
 }
-.playerC{
+
+.playerC {
   position: absolute;
   top: 3em;
   left: 1em;
   background-color: var(--colore-blur33);
 }
 
-.cpuC{
+.cpuC {
   position: absolute;
   top: 3em;
   right: 1em;
@@ -141,37 +147,38 @@ margin-left: 3em;
   z-index: -3;
   margin: 0 auto;
   font-size: clamp(0.7rem, 2.0vw + 0.3rem, 1.2rem);
-     animation: neon-pulse 1.5s infinite alternate ease-in-out;
+  animation: neon-pulse 1.5s infinite alternate ease-in-out;
 
 }
 
 @keyframes neon-pulse {
   0% {
-    box-shadow:inset 0 0 10px var(--v),inset 0 0 13px var(--v);
+    box-shadow: inset 0 0 10px var(--v), inset 0 0 13px var(--v);
   }
+
   100% {
-    box-shadow:inset 0 0 17px var(--v),inset 0 0 23px var(--colore-accento);
+    box-shadow: inset 0 0 17px var(--v), inset 0 0 23px var(--colore-accento);
   }
 }
 
 .resetButton:hover {
   background-color: var(--colore-accento);
   color: var(--colore-sfondo);
-     animation: none; 
-    box-shadow: inset 0 0 20px var(--v); 
+  animation: none;
+  box-shadow: inset 0 0 20px var(--v);
 }
 
-button.show{
-opacity: 1;
-z-index: 1;
-transition: 0.3s ease-in-out;
+button.show {
+  opacity: 1;
+  z-index: 1;
+  transition: 0.3s ease-in-out;
 }
 
-div.risultato{
+div.risultato {
   display: flex;
   width: 95%;
   margin-bottom: 0.2em;
- margin-top: auto;
+  margin-top: auto;
 }
 
 
@@ -184,16 +191,16 @@ div.risultato{
 }
 
 .dopoClickCpu {
-  animation: none; 
+  animation: none;
   border: 3px solid var(--v);
   border-radius: 50%;
 }
 
-.win{
+.win {
   transform: scale(1.6);
   margin-left: 2em;
 }
 
-.lose{
+.lose {
   transform: scale(0.5);
 }

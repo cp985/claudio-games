@@ -12,7 +12,7 @@ html {
     --colore-testo: #EAEAEA;
     --colore-blur: rgba(0, 207, 255, 0.1);
     --width-max: 1280px;
-    --heigth-max: 128000px;
+    --heigth-max: 800px;
     font-size: 16px;
     color: var(--colore-testo);
     user-select: none;

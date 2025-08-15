@@ -30,11 +30,11 @@ const pageList = {
     <div class="logo"><h1 id="animated-logo"></h1></div>
     <main class="swiper">
       <section class="hero-carousel swiper-wrapper">
-        <figure class="slide swiper-slide"><a href="/sasso-carta-forbice"><img src="${imgSassoCartaForbice}" alt="Batti il sistema a sasso carta e forbice"><figcaption>Batti il sistema a sasso carta e forbice</figcaption></a></figure>
-        <figure class="slide swiper-slide"><a href="/news"><img src="${imgComingSoon2}" alt="Nuovi giochi in arrivo"><figcaption>Nuovi giochi in arrivo</figcaption></a></figure>
-        <figure class="slide swiper-slide"><a href="/ordina-le-parole"><img src="${imgOrdinaLeParole}" alt="Batti il sistema a Ordina la parola"><figcaption>Batti il sistema a Ordina la parola</figcaption></a></figure>
-        <figure class="slide swiper-slide"><a href="/trova-il-codice"><img src="${imgTrovaIlCodice}" alt="Batti il sistema a Trova il codice"><figcaption>Batti il sistema a Trova il codice</figcaption></a></figure>
-        <figure class="slide swiper-slide"><a href="/games"><img src="${imgComingSoon}" alt="Nuovi giochi in arrivo"><figcaption>Nuovi giochi in arrivo</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="/sasso-carta-forbice/"><img src="${imgSassoCartaForbice}" alt="Batti il sistema a sasso carta e forbice"><figcaption>Batti il sistema a sasso carta e forbice</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="/news/"><img src="${imgComingSoon2}" alt="Nuovi giochi in arrivo"><figcaption>Nuovi giochi in arrivo</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="/ordina-le-parole/"><img src="${imgOrdinaLeParole}" alt="Batti il sistema a Ordina la parola"><figcaption>Batti il sistema a Ordina la parola</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="/trova-il-codice/"><img src="${imgTrovaIlCodice}" alt="Batti il sistema a Trova il codice"><figcaption>Batti il sistema a Trova il codice</figcaption></a></figure>
+        <figure class="slide swiper-slide"><a href="/games/"><img src="${imgComingSoon}" alt="Nuovi giochi in arrivo"><figcaption>Nuovi giochi in arrivo</figcaption></a></figure>
       </section>
       <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
