@@ -46,7 +46,7 @@ div.sasso-carta-forbice {
   justify-content:space-around;
   align-items: center;
   width: 100%;
-  height: 1000%;
+  height: 100%;
   max-height:50%;
   margin-top: auto;
 }
@@ -55,7 +55,6 @@ div.sasso-carta-forbice {
 .player-choices {
   display: flex;
     width: 47%;
-
   gap: 0.7em;
 }
 
@@ -73,7 +72,6 @@ width: 30%;
   border-color: var(--v);
 }
 
-/* Immagine della CPU */
 .imgCpu {
   width: 23%;
 
@@ -93,21 +91,20 @@ width: 30%;
 min-width: 9em;
   color: var(--colore-secondario);
   font-weight: bolder;
-margin: 0;
+margin-left: 3em;
   background: var(--colore-blur33);
   border-radius: 99999px;
   padding: 0.2em;
   
 }
 
-/* Contenitore per i punteggi */
-.contatore {
+ .playerC, .cpuC {
    color: var(--colore-secondario);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2em;
-      font-size: clamp(0.5rem, 2.1vw + 0.3rem, 1.2rem);
+      font-size: clamp(0.7rem, 2.3vw + 0.4rem, 1.5rem);
       background-color: var(--colore-blur33);
   border-radius: 99999px;
   padding: 0.2em;
@@ -119,10 +116,24 @@ margin: 0;
   color: var(--colore-accento);
 }
 
+.playerC{
+  position: absolute;
+  top: 3em;
+  left: 1em;
+  background-color: var(--colore-blur33);
+}
+
+.cpuC{
+  position: absolute;
+  top: 3em;
+  right: 1em;
+  background-color: var(--colore-blur33);
+}
+
 .resetButton {
   padding: 0.5em 1.5em;
-  background: var(--colore-testo);
-  color: var(--colore-sfondo);
+  background: var(--colore-sfondo);
+  color: var(--colore-testo);
   font-weight: 900;
   border: 2px solid var(--v);
   border-radius: 10px;
@@ -130,12 +141,26 @@ margin: 0;
   transition: background-color 0.3s ease;
   opacity: 0;
   z-index: -3;
-  transition: 0.3s ease-in-out;
+  margin: 0 auto;
+  font-size: clamp(0.7rem, 2.0vw + 0.3rem, 1.2rem);
+     animation: neon-pulse 1.5s infinite alternate ease-in-out;
+
+}
+
+@keyframes neon-pulse {
+  0% {
+    box-shadow:inset 0 0 10px var(--v),inset 0 0 13px var(--v);
+  }
+  100% {
+    box-shadow:inset 0 0 17px var(--v),inset 0 0 23px var(--colore-accento);
+  }
 }
 
 .resetButton:hover {
   background-color: var(--colore-accento);
   color: var(--colore-sfondo);
+     animation: none; 
+    box-shadow: inset 0 0 20px var(--v); 
 }
 
 button.show{
@@ -146,21 +171,16 @@ transition: 0.3s ease-in-out;
 
 div.risultato{
   display: flex;
-  width: 85%;
-  justify-content:space-around;
-  align-items: center;
-  /* margin: 0 2em; */
+  width: 95%;
+  margin-bottom: 0.2em;
  margin-top: auto;
-
- 
- 
 }
 
 
 /* --- STATI DOPO IL CLICK --- */
 
 .dopoClick {
-  transform: scale(1.7);
+  transform: scale(1);
   border: 3px solid var(--v);
   pointer-events: none;
 }
@@ -169,4 +189,13 @@ div.risultato{
   animation: none; 
   border: 3px solid var(--v);
   border-radius: 50%;
+}
+
+.win{
+  transform: scale(1.6);
+  margin-left: 2em;
+}
+
+.lose{
+  transform: scale(0.5);
 }

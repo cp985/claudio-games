@@ -15,6 +15,7 @@ html {
     --heigth-max: 800px;
     font-size: 16px;
     color: var(--colore-testo);
+    user-select: none;
 }
 
 body {
@@ -43,7 +44,10 @@ input:hover,
 select:hover,
 .swiper span.swiper-pagination-bullet:hover,
 div.swiper-button-prev:hover,
-div.swiper-button-next:hover {
+div.swiper-button-next:hover,
+img#choice-sasso:hover,
+img#choice-carta:hover,
+img#choice-forbici:hover {
     cursor: var(--cursor2);
 }
 
@@ -57,7 +61,10 @@ input,
 select,
 div.swiper-button-prev,
 div.swiper-button-next,
-.swiper span.swiper-pagination-bullet {
+.swiper span.swiper-pagination-bullet,
+img#choice-sasso,
+img#choice-carta,
+img#choice-forbici {
     cursor: var(--cursor2);
 }
 

@@ -103,8 +103,8 @@ const pageList = {
     <h2 id="risultato">Scegli la tua mossa</h2>
         <button id="resetButton" class="resetButton">Reset</button>
     <div class="contatore">
-      <p>Player: <span id="contatorePlayer">0</span></p>
-      <p>Cpu: <span id="contatoreCpu">0</span></p>
+      <p class="playerC">Player: <span id="contatorePlayer">0</span></p>
+      <p class="cpuC">Cpu: <span id="contatoreCpu">0</span></p>
     </div>
   </div>
     </div>
