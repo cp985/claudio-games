@@ -1,36 +1,30 @@
-/* body {
-  margin: 0; 
-  min-height: 100vh; 
-  display: flex; 
-  flex-direction: column;
-} */
-
 .wrap-background {
-  position: fixed;
+ position: fixed;
   width: 100%;
   height: 100%;
-  z-index: -1;
+ z-index: -1;
   pointer-events: none;
-  overflow: hidden; /* Importante: nasconde le parti del background che escono dal contenitore */
+
+
+}
+
+div.cont {
+  inset: 0;
+backdrop-filter: blur(1em) brightness(6);
+ background-image: radial-gradient(circle at 50% 50%,
+      #0000 0,
+      #0000 2px,
+      hsl(0 0 4%) 2px);
+  background-size: 8px 8px;
 }
 
 .background {
-    will-change: background-position, transform;
-  /* Nuove proprietà per un background ruotato e sempre coprente */
-  position: absolute; /* Rendi l'elemento posizionabile all'interno di .wrap-background */
-  top: 50%;
-  left: 50%;
-  /* Assicurati che sia sempre più grande della diagonale del viewport */
-  /* 142vmax è circa 100 * sqrt(2), il minimo per coprire. Usiamo 150-200vmax per sicurezza. */
-  width: 150vmax; /* O 200vmax se vuoi essere super sicuro su aspect ratio estremi */
-  height: 150vmax; /* O 200vmax */
-
-  /* Centra l'elemento e applica la rotazione. L'ordine è importante. */
-  transform: translate(-50%, -50%) rotate(-45deg);
-  transform-origin: 50% 50%; /* Torna al centro per una rotazione prevedibile */
-
-  background: repeat; /* Assicurati che sia corretto: background-repeat: repeat; */
-  z-index: 0; /* Questo è relativo al wrap-background, non al viewport */
+  width: 400%;
+  height: 400%;
+  background:repeat;
+  z-index: 0;
+  transform: rotate(-45deg);
+transform-origin: 20% 200%;
 
   --colore-sfondo: #000000;
   --c: #009bbe;
@@ -112,32 +106,7 @@
   animation: hi 150s linear infinite;
 }
 
-/* Modifiche per gli elementi sopra il background */
-div.cont {
-  position: fixed; /* O absolute, se il body è position: relative; */
-  inset: 0;
-  backdrop-filter: blur(1em) brightness(6);
-  background-image: radial-gradient(circle at 50% 50%,
-      #0000 0,
-      #0000 2px,
-      hsl(0 0 4%) 2px);
-  background-size: 8px 8px;
-  z-index: 1; /* Assicurati che sia sopra il background (-1) */
-}
-
-/* Header e Footer, ecc. */
-#main-header,
-.load,
-footer {
-    position: relative; /* O fixed, a seconda di come vuoi che si comportino nello scroll */
-    z-index: 2; /* Sempre sopra il background e il div.cont */
-}
-
-
 @keyframes hi {
-  /* ... (i valori di background-position rimangono gli stessi, dato che si riferiscono
-           alla posizione del pattern all'interno dell'elemento .background stesso,
-           che ora è solo più grande e centrato) */
   0% {
     background-position:
       0px 220px,
@@ -206,17 +175,17 @@ footer {
       175px 13391px,
       178px 13391px,
       326.5px 13540.5px,
-      200px 121px,
-      203px 121px,
+      200px 14741px,
+      203px 14741px,
       351.5px 14848.5px,
-      225px 224px,
-      228px 224px,
+      225px 18770px,
+      228px 18770px,
       376.5px 18910.5px,
-      250px 26px,
-      253px 26px,
+      250px 5082px,
+      253px 5082px,
       401.5px 5161px,
-      275px 75px,
-      278px 75px,
+      275px 6375px,
+      278px 6375px,
       426.5px 6480px;
   }
 }

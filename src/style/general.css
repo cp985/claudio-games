@@ -160,7 +160,7 @@ h1#animated-logo {
 
 /* #region main */
 div.cont {
-    margin-top: auto;
+    margin: auto auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -239,6 +239,7 @@ div.cont main.swiper div.swiper-pagination {
 
 
 /* #region footer */
+
 footer {
     object-position: bottom;
     display: flex;
@@ -269,3 +270,4 @@ footer p {
 }
 
 /* #endregion footer */
+

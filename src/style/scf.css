@@ -18,7 +18,7 @@ div.sasso-carta-forbice {
   width: 100%;
   height: 100%;
   gap: 1em; 
-    background-image: url("../../assets/img/Lucid_Origin_crea_unoi_sfondo_a_169_di_proporzione__di_1500px__1.jpg");
+    background-image: url("../../assets/img/backSfc.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -40,7 +40,6 @@ div.sasso-carta-forbice {
   margin: 0.3em 0;
 }
 
-/* Contenitore per le scelte del giocatore e della CPU */
 .scelta {
   display: flex;
   justify-content:space-around;
@@ -51,14 +50,12 @@ div.sasso-carta-forbice {
   margin-top: auto;
 }
 
-/* Contenitore per le 3 immagini del giocatore */
 .player-choices {
   display: flex;
     width: 47%;
   gap: 0.7em;
 }
 
-/* Stile base per le immagini del giocatore */
 .player-choices img {
 width: 30%;
   border-radius: 50%;
