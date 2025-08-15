@@ -16,8 +16,8 @@
   left: 50%;
   /* Assicurati che sia sempre più grande della diagonale del viewport */
   /* 142vmax è circa 100 * sqrt(2), il minimo per coprire. Usiamo 150-200vmax per sicurezza. */
-  width: 150vmax; /* O 200vmax se vuoi essere super sicuro su aspect ratio estremi */
-  height: 150vmax; /* O 200vmax */
+  width: 200vmax; /* O 200vmax se vuoi essere super sicuro su aspect ratio estremi */
+  height: 200vmax; /* O 200vmax */
 
   /* Centra l'elemento e applica la rotazione. L'ordine è importante. */
   transform: translate(-50%, -50%) rotate(-45deg);
