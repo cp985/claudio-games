@@ -29,7 +29,7 @@
   transform: translate(-50%, -50%) rotate(-45deg);
   transform-origin: 50% 50%; /* Torna al centro per una rotazione prevedibile */
 
-  background: repeat; /* Assicurati che sia corretto: background-repeat: repeat; */
+  background-repeat: repeat; /* Assicurati che sia corretto: background-repeat: repeat; */
   z-index: 0; /* Questo è relativo al wrap-background, non al viewport */
 
   --colore-sfondo: #000000;
