@@ -110,7 +110,7 @@
 div.cont {
   position: fixed; /* O absolute, se il body è position: relative; */
   inset: 0;
-  backdrop-filter: blur(1em) brightness(6);
+  backdrop-filter: blur(1rem) brightness(6);
   background-image: radial-gradient(circle at 50% 50%,
       #0000 0,
       #0000 2px,

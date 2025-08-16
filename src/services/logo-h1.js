@@ -7,16 +7,19 @@ export function animateLogo() {
   if (logo && logo.querySelectorAll("span").length === 0) { // Esegui solo se non è già stato inizializzato
     console.log("Logo: Initializing and starting animations.");
 
-    const cleanText = "☺.PLAY DIFFERENT.☺";
+    const cleanText = `☺.PLAY DIFFERENT.☺`;
     logo.innerHTML = ""; // Pulisci prima di aggiungere
 
     cleanText.split("").forEach((char) => {
       const span = document.createElement("span");
+    if (char === '☺') {
+    span.classList.add('force-text-font');
+  }
       span.textContent = char;
       span.style.display = "inline-block";
       span.style.position = "relative";
       if (char === " ") {
-        span.style.width = "0.5em";
+        span.style.width = "0.5rem";
       }
       logo.appendChild(span);
     });

@@ -53,7 +53,6 @@ export function scf() {
     for (const choice in choiceImages) {
       if (choice !== playerChoice) {
         choiceImages[choice].style.display = "none";
-        sceltaDiv.style.width = "75%";
       }
     }
     // Modifica lo stile della scelta del giocatore
@@ -66,16 +65,15 @@ export function scf() {
     // Aggiorna punteggio e testo del risultato
     if (result === "vinto") {
       risultatoText.innerHTML = "Hai Vinto!";
-      choiceImages[playerChoice].classList.add("win");
       imgCpu.classList.add("lose");
       contatorePlayer.textContent = Number(contatorePlayer.textContent) + 1;
     } else if (result === "perso") {
       risultatoText.innerHTML = "Hai Perso!";
-     
+      choiceImages[playerChoice].classList.add("lose");
       contatoreCpu.textContent = Number(contatoreCpu.textContent) + 1;
     } else {
-      choiceImages[playerChoice].classList.add("win");
       risultatoText.innerHTML = "Pareggio!";
+      imgCpu.classList.add("pareggioCpu");
     }
 
     // Mostra il pulsante di reset e disabilita ulteriori click
@@ -85,17 +83,15 @@ export function scf() {
 
   // Funzione per resettare il gioco
   function resetGame() {
-        risultatoText.style="position: relative;";
-            sceltaDiv.style = "justify-content: space-around; ";
-
+    risultatoText.classList.remove("ani");
+choicesContainer.classList.remove("player-choicesAfter");
     for (const choice in choiceImages) {
-      sceltaDiv.style.width = "100%";
       choiceImages[choice].style.display = "block";
       choiceImages[choice].classList.remove("dopoClick", "win", "lose");
     }
     imgCpu.src = imagePaths.default;
-    imgCpu.classList.remove("dopoClickCpu", "lose", "win");
-    risultatoText.innerHTML = "Scegli la tua mossa";
+    imgCpu.classList.remove("dopoClickCpu", "lose", "win", "pareggioCpu");
+    risultatoText.innerHTML = "&uarr; Scegli la tua mossa &uarr;";
     resetButton.classList.remove("show");
     choicesContainer.style.pointerEvents = "auto";
   }
@@ -103,11 +99,11 @@ export function scf() {
   // --- Event Listeners ---
   choicesContainer.addEventListener("click", (event) => {
     const playerChoice = event.target.dataset.choice;
-    risultatoText.style="position: absolute; top: 50%; left: 42%; min-width: 0px; margin: 0;";
-    sceltaDiv.style = "justify-content: space-between; ";
     if (playerChoice) {
       playRound(playerChoice);
     }
+        risultatoText.classList.add("ani");
+    choicesContainer.classList.add("player-choicesAfter");
   });
 
   resetButton.addEventListener("click", resetGame);

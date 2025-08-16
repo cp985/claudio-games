@@ -92,20 +92,24 @@ const pageList = {
   <div class="sasso-carta-forbice">
     <h1 id="titolo">Sasso, Carta, Forbice</h1>
     <div class="scelta">
+    <div class="choice">
       <div class="player-choices">
         <img src="${sasso}" class="sasso" data-choice="sasso" id="choice-sasso" alt="Sasso">
         <img src="${carta}" class="carta" data-choice="carta" id="choice-carta" alt="Carta">
         <img src="${forbice}" class="forbici" data-choice="forbici" id="choice-forbici" alt="Forbici">
       </div>
-      <img class="imgCpu" src="${interrogativo}" alt="Scelta CPU">
+      <h2 id="risultato"> &uarr; Scegli la tua mossa &uarr; </h2>
     </div>
-    <div class="risultato">
-    <h2 id="risultato">Scegli la tua mossa</h2>
+          <img class="imgCpu" src="${interrogativo}" alt="Scelta CPU">
+
+    </div>
+    <div class="button">
         <button id="resetButton" class="resetButton">Reset</button>
+        </div>
     <div class="contatore">
       <p class="playerC">Player: <span id="contatorePlayer">0</span></p>
       <p class="cpuC">Cpu: <span id="contatoreCpu">0</span></p>
-    </div>
+    
   </div>
     </div>
 `,

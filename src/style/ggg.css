@@ -3,7 +3,7 @@ html {
     --perT: #4e9b00;
     --colore-blur: rgba(0, 207, 255, 0.1);
     --colore-sfondo: #000000;
- --v: #ff01ff;
+    --v: #ff01ff;
 }
 
 div.contGgg {
@@ -21,7 +21,7 @@ ul.terminalL {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding: 1em;
+    padding: 1rem;
 }
 
 li.terminalM {
@@ -29,29 +29,29 @@ li.terminalM {
     font-weight: 700;
     opacity: 1;
     position: relative;
-    font-size: clamp(0.1em, 1.8vw + 0.4em, 3em);
+    font-size: clamp(0.1rem, 1.8vw + 0.4rem, 3rem);
     color: var(--backT);
-    margin-top: 0.5em;
+    margin-top: 0.5rem;
     padding: 0;
 
 }
 
 ul.terminalL li:last-of-type {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5rem;
 }
 
-div.contGgg ul.terminalL li.terminalM span{
-        position: absolute;
+div.contGgg ul.terminalL li.terminalM span {
+    position: absolute;
     inset: 0;
     background-color: var(--colore-sfondo);
-    
+
 }
 
 /* #region span animation */
 
 div.contGgg ul.terminalL li.terminalM:nth-of-type(1) span:nth-of-type(1) {
 
-    border:none;
+    border: none;
     animation:
         blinkk 0.8s forwards steps(2, jump-none) 7,
         typewraiter1 4s forwards steps(30);
@@ -60,8 +60,8 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(1) span:nth-of-type(1) {
 
 div.contGgg ul.terminalL li.terminalM:nth-of-type(2) span:nth-of-type(1) {
 
-    border:none;
-    
+    border: none;
+
     animation:
         blinkk 0.8s forwards steps(2, jump-none) 7 7s,
         typewraiter1 4s forwards steps(30) 6s;
@@ -69,8 +69,8 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(2) span:nth-of-type(1) {
 
 div.contGgg ul.terminalL li.terminalM:nth-of-type(3) span:nth-of-type(1) {
 
-    border:none;
-    
+    border: none;
+
     animation:
         blinkk 0.8s forwards steps(2, jump-none) 7 12s,
         typewraiter1 4s forwards steps(30) 12s;
@@ -78,40 +78,43 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(3) span:nth-of-type(1) {
 
 div.contGgg ul.terminalL li.terminalM:nth-of-type(4) span:nth-of-type(1) {
 
-    border:none;
-    
+    border: none;
+
     animation:
         blinkk 0.8s forwards steps(2, jump-none) 7 18s,
         typewraiter1 4s forwards steps(30) 18s;
 }
+
 div.contGgg ul.terminalL li.terminalM:nth-of-type(5) span:nth-of-type(1) {
 
-    border:none;
-    
+    border: none;
+
     animation:
         blinkk 0.8s forwards steps(2, jump-none) 7 24s,
         typewraiter1 4s forwards steps(30) 24s;
 }
+
 div.contGgg ul.terminalL li.terminalM:nth-of-type(6) span:nth-of-type(1) {
 
-    border:none;
-    
+    border: none;
+
     animation:
         blinkk 0.8s forwards steps(2, jump-none) 7 30s,
         typewraiter1 4s forwards steps(30) 30s;
 }
+
 div.contGgg ul.terminalL li.terminalM:nth-of-type(7) span:nth-of-type(1) {
 
-    border:none;
-    
+    border: none;
+
     animation:
         blinkk 0.8s forwards steps(2, jump-none) 7 38s,
         typewraiter1 4s forwards steps(30) 36s;
-        
 
-    }
 
-div.contGgg ul.terminalL li.terminalM:nth-of-type(7){
+}
+
+div.contGgg ul.terminalL li.terminalM:nth-of-type(7) {
     animation: changeColor 3s forwards 40s;
 }
 
@@ -119,9 +122,10 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(7){
     0% {
         left: 0%;
     }
+
     100% {
         left: 100%;
-       
+
     }
 }
 
@@ -129,14 +133,14 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(7){
 
 @keyframes blinkk {
     0% {
-        border-left: #4e9b00 solid 0.2em;
+        border-left: #4e9b00 solid 0.2rem;
     }
 
     100% {
         border: none;
     }
 
- 
+
 }
 
 @keyframes changeColor {
@@ -144,9 +148,10 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(7){
         color: var(--backT);
 
     }
+
     100% {
         color: var(--v);
-            font-size: clamp(0.3em, 1.8vw + 0.6em, 4em);
+        font-size: clamp(0.3rem, 1.8vw + 0.6rem, 4rem);
 
         font-weight: 900;
 

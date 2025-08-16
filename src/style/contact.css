@@ -13,8 +13,8 @@ div.cont-contact {
     grid-template-areas:
         "form map";
     color: var(--colore-testo);
-    gap: 1em;
-    padding: 0.3em;
+    gap: 1rem;
+    padding: 0.3rem;
 }
 
 main.contact-page {
@@ -38,8 +38,8 @@ section.form-contact-section {
 section.form-contact-section h2 {
     width: 100%;
     text-align: center;
-    font-size: clamp(1em, 1.6vw + 0.8em, 2em);
-    margin: 0.3em 0 0.3em 0;
+    font-size: clamp(1rem, 1.6vw + 0.8rem, 2rem);
+    margin: 0.3rem 0 0.3rem 0;
 }
 
 section.form-contact-section form {
@@ -57,20 +57,20 @@ form[name="form"] fieldset {
     flex-direction: column;
     caret-color: var(--v);
     border: 1px solid var(--v);
-    margin-bottom: 0.3em;
+    margin-bottom: 0.3rem;
 }
 
 legend {
-    font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em);
+    font-size: clamp(0.8rem, 1.5vw + 0.5rem, 1.2rem);
     font-weight: 500;
     color: var(--colore-testo);
-    margin-left: 0.5em;
+    margin-left: 0.5rem;
 }
 
 div.input-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 0.4em;
+    gap: 0.4rem;
     width: 100%;
 }
 
@@ -83,14 +83,14 @@ margin-left: auto;
 span.invalid {
     display: none;
     color: var(--v);
-    font-size: clamp(0.5em, 1.5vw + 0.5em, 1em);
+    font-size: clamp(0.5rem, 1.5vw + 0.5rem, 1rem);
     margin: 0;
 }
 h3.invalidH3 {
     display: none;
     color: var(--v);
-    font-size: clamp(0.5em, 1.5vw + 0.4em, 1em);
-    margin: 0.1em;
+    font-size: clamp(0.5rem, 1.5vw + 0.4rem, 1rem);
+    margin: 0.1rem;
     text-align: center;
 }
 
@@ -119,11 +119,11 @@ textarea {
     background-color: var(--colore-testo);
     color: var(--colore-sfondo);
     width: 100%;
-    min-height: 6em;
+    min-height: 6rem;
     resize: none;
     white-space: normal;
     overflow-wrap: break-word;
-    margin: 0.2em 0 0.3em 0;
+    margin: 0.2rem 0 0.3rem 0;
 }
 input::placeholder,
 textarea::placeholder {
@@ -138,8 +138,8 @@ section.form-contact-section form button#button-submit {
     color: var(--colore-sfondo);
     min-width: 30%;
     max-height: 15%;
-    padding: 0.1em;
-    font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em);
+    padding: 0.1rem;
+    font-size: clamp(0.8rem, 1.5vw + 0.5rem, 1.2rem);
     border: 2px solid var(--v);
     border-radius: 10px;
     font-weight: 700;
@@ -165,29 +165,29 @@ section.contact-info-section {
     align-items: center;
     width: 100%;
 
-    gap: 0.7em;
+    gap: 0.7rem;
 
 }
 
 section.contact-info-section h2 {
 
     text-align: center;
-    font-size: clamp(1em, 1.6vw + 0.8em, 2em);
-    margin: 0.3em;
+    font-size: clamp(1rem, 1.6vw + 0.8rem, 2rem);
+    margin: 0.3rem;
 }
 
 section.contact-info-section div.map-container {
     width: 100%;
     position: relative;
     min-height: 30%;
-    padding: 0 0.3em 0 0.3em;
+    padding: 0 0.3rem 0 0.3rem;
 }
 
 section.contact-info-section div.address-info {
-    margin-top: 0.3em;
+    margin-top: 0.3rem;
     width: 100%;
     text-align: center;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 div.address-info a:hover {
@@ -223,13 +223,13 @@ div article.artSubmit {
 div article.artSubmit h2 {
     font-family: 'Bitcount', sans-serif;
     max-width: 90%;
-    font-size: clamp(1em, 1.6vw + 0.8em, 2em);
+    font-size: clamp(1rem, 1.6vw + 0.8rem, 2rem);
     color: var(--v);
-    margin: 0.3em;
+    margin: 0.3rem;
     background-color: var(--colore-blur2);
     border: 3px solid var(--colore-accento);
     border-radius: 10px;
-    padding: 0.3em;
+    padding: 0.3rem;
 }
 
 div article.artSubmit p {
@@ -237,23 +237,23 @@ div article.artSubmit p {
     border-radius: 10px;
     border: 3px solid var(--v);
     max-width: 80%;
-    font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em);
+    font-size: clamp(0.8rem, 1.5vw + 0.5rem, 1.2rem);
     color: var(--colore-testo);
-    margin: 0.3em;
+    margin: 0.3rem;
     background-color: var(--colore-blur2);
-    padding: 0.3em;
+    padding: 0.3rem;
 }
 
 div article.artSubmit button {
-    margin-top: 0.5em;
+    margin-top: 0.5rem;
     cursor: pointer;
     text-align: center;
     background-color: var(--colore-accento);
     color: var(--colore-sfondo);
     min-width: 30%;
     max-height: 15%;
-    padding: 0.1em;
-    font-size: clamp(0.8em, 1.5vw + 0.5em, 1.2em);
+    padding: 0.1rem;
+    font-size: clamp(0.8rem, 1.5vw + 0.5rem, 1.2rem);
     border: 2px solid var(--v);
     border-radius: 10px;
     font-weight: 700;
