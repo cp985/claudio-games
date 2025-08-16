@@ -163,11 +163,14 @@ const pageList = {
           
         </div>
         <div class="address-info">
+         <div class="border">
           <h3>Il nostro Quartier Generale (Fittizio)</h3>
-          <p>Monte Everest(in cima!) <br> Nepal </p>
+          <p>Monte Everest(in cima!)</p>
+           <p> Nepal </p>
           <p><strong>Email:</strong> <a href="#">info@claudiogames.com</a></p>
           <p><strong>Telefono:</strong> <a href="#">+977 98 1234 5678</a></p>
-        </div>
+         </div>
+       </div>
       </section>
       
     </div>

@@ -7,11 +7,10 @@ export function scf() {
   // --- Selezione degli elementi del DOM ---
   const choicesContainer = document.querySelector(".player-choices");
   const imgCpu = document.querySelector(".imgCpu");
-  const risultatoText = document.getElementById("risultato");
+  const risultatoText = document.querySelector("h2#risultato");
   const contatorePlayer = document.getElementById("contatorePlayer");
   const contatoreCpu = document.getElementById("contatoreCpu");
   const resetButton = document.getElementById("resetButton");
-  const sceltaDiv = document.querySelector(".scelta");
 
   // --- Logica di gioco ---
   const choices = ["sasso", "carta", "forbici"];
@@ -99,10 +98,11 @@ choicesContainer.classList.remove("player-choicesAfter");
   // --- Event Listeners ---
   choicesContainer.addEventListener("click", (event) => {
     const playerChoice = event.target.dataset.choice;
+     risultatoText.classList.add("ani");
     if (playerChoice) {
       playRound(playerChoice);
     }
-        risultatoText.classList.add("ani");
+       
     choicesContainer.classList.add("player-choicesAfter");
   });
 
