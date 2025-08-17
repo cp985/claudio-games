@@ -80,42 +80,60 @@
 </head>
 
 <body>
+  <!-- =============================================== -->
+  <!-- ===== INIZIO NUOVA STRUTTURA HTML ============= -->
+  <!-- =============================================== -->
+
+  <!-- 1. Lo sfondo rimane qui, da solo, per coprire l'intero body -->
   <div class="wrap-background">
     <div class="background"></div>
   </div>
 
-  <!-- -------------- -->
+  <!-- 2. NUOVO: un contenitore per tutto il layout della pagina che vive SOPRA lo sfondo -->
+  <div class="page-wrapper">
 
-  <div class="load loader-background">
-    <div class="loading-text">
-      <span>L</span>
-      <span>o</span>
-      <span>a</span>
-      <span>d</span>
-      <span>i</span>
-      <span>n</span>
-      <span>g</span>
-      <span>.</span>
-      <span>.</span>
-      <span>.</span>
+    <!-- 3. Tutto il resto del tuo contenuto va QUI DENTRO -->
+    <div class="load loader-background">
+      <div class="loading-text">
+        <span>L</span>
+        <span>o</span>
+        <span>a</span>
+        <span>d</span>
+        <span>i</span>
+        <span>n</span>
+        <span>g</span>
+        <span>.</span>
+        <span>.</span>
+        <span>.</span>
+      </div>
     </div>
-  </div>
 
+    <header id="main-header"></header>
 
-  <!-- ----------------- -->
-  <header id="main-header"></header>
-  <div class="cont" id="content"> </div>
-  <footer>
-    <p><small> &copy; Copyright 2025 ClaudioP and Co All Right Reserved</small></p>
-    <div class="social">
-      <a href="#" class="fb"><i class="fa-brands fa-facebook"></i></a>
-      <a href="#" class="bs"><i class="fa-brands fa-bluesky"></i></a>
-      <a href="#" class="yt"><i class="fa-brands fa-youtube"></i></a>
-      <a href="#" class="x"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="#" class="tt"><i class="fa-brands fa-tiktok"></i></a>
+    <div class="cont" id="content"> 
+        <!-- Il contenuto dinamico delle pagine (logo, carosello, ecc.) verrà iniettato qui da page.js -->
     </div>
-  </footer>
-  
+
+    <footer>
+      <p><small> &copy; Copyright 2025 ClaudioP and Co All Right Reserved</small></p>
+      <div class="social">
+        <a href="#" class="fb"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="bs"><i class="fa-brands fa-bluesky"></i></a>
+        <a href="#" class="yt"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" class="x"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="tt"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </footer>
+
+  </div> <!-- Fine di .page-wrapper -->
+
+  <!-- =============================================== -->
+  <!-- ===== FINE NUOVA STRUTTURA HTML =============== -->
+  <!-- =============================================== -->
+
+  <!-- Script (assicurati che il tuo bundle JS sia caricato qui alla fine) -->
+  <script type="module" src="app.js"></script>
+
 </body>
 
 

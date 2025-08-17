@@ -12,6 +12,8 @@ display: flex;
 width: 100vw;
 height: 100vh;
 transition: vanish 5s ease-in-out;
+
+
 }
 
 @keyframes vanish{

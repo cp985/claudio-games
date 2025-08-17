@@ -124,7 +124,6 @@ div.cont {
 .load,
 footer {
     position: relative; /* O fixed, a seconda di come vuoi che si comportino nello scroll */
-    z-index: 2; /* Sempre sopra il background e il div.cont */
 }
 
 
