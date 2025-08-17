@@ -293,3 +293,5 @@ export function startRouter() {
   // Avvia il router
   page.start();
 }
+
+
