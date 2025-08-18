@@ -1,5 +1,6 @@
 import page from "page";
 
+//main
 import { animateLogo, killLogoAnimations } from "./logo-h1.js";
 import { initCarousel, destroyCarousel } from "./carousel-hero.js";
 import imgSassoCartaForbice from "../../assets/img/sassocartaforbice.webp";
@@ -7,9 +8,16 @@ import imgComingSoon2 from "../../assets/img/coming-soon-2.webp";
 import imgOrdinaLeParole from "../../assets/img/ordina-le-parole.webp";
 import imgTrovaIlCodice from "../../assets/img/trovailcodice.webp";
 import imgComingSoon from "../../assets/img/coming-soon.webp";
-import { newsApiCall } from "./news.js";
+
+//games
 import { previewGameHandlerPage } from "./games.js";
+
+//news
+import { newsApiCall } from "./news.js";
+
+//contact
 import { validateForm } from "./contact.js";
+//sfc
 import sasso from "../../assets/img/sasso.webp";
 import carta from "../../assets/img/carta.webp";
 import forbice from "../../assets/img/forbice.webp";

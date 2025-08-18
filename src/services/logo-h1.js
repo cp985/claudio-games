@@ -7,19 +7,32 @@ export function animateLogo() {
   if (logo && logo.querySelectorAll("span").length === 0) { // Esegui solo se non è già stato inizializzato
     console.log("Logo: Initializing and starting animations.");
 
-    const cleanText = `☺.PLAY DIFFERENT.☺`;
+    const cleanText = `↨★♂ PLAY DIFFERENT ♂★↨`;
     logo.innerHTML = ""; // Pulisci prima di aggiungere
 
     cleanText.split("").forEach((char) => {
       const span = document.createElement("span");
-    if (char === '☺') {
-    span.classList.add('force-text-font');
+    
+
+  if (char === "★") { 
+    // esempio: se nella stringa metti il carattere speciale "★"
+    span.innerHTML = `<i class="fa-regular fa-face-smile"></i>`;
+  } else if (char === "↨") { 
+    // esempio: se nella stringa metti il carattere speciale "★"
+    span.innerHTML = `<i class="fa-solid fa-gamepad"></i>`;
+  }  else if (char === "♂") { 
+    // esempio: se nella stringa metti il carattere speciale "★"
+    span.innerHTML = `<i class="fa-solid fa-headset"></i>`;
   }
-      span.textContent = char;
+  
+  else {
+    span.textContent = char;
+  }
+      // span.textContent = char;
       span.style.display = "inline-block";
       span.style.position = "relative";
       if (char === " ") {
-        span.style.width = "0.5rem";
+        span.style.width = "0.3rem";
       }
       logo.appendChild(span);
     });
