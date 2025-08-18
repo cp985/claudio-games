@@ -3,40 +3,16 @@ import trovailcodice from "../../assets/img/trovailcodice.webp";
 import sassocartaforbice from "../../assets/img/sassocartaforbice.webp";
 import ordinaleparole from "../../assets/img/ordina-le-parole.webp";
 
-//GAME LINK HANDLER
-export function gamesHandlerPage() {
-  const gameUl = document.querySelector("ul.gamesList");
-  if (gameUl) {
-    gameUl.addEventListener("pointerup", (event) => {
-      const clickedLi = event.target.closest("li.game");
-      if (!clickedLi) {
-        return;
-      }
-
-      const input = clickedLi.querySelector('input[type="radio"]');
-      if (input && input.id) {
-        console.log(input.id);
-
-        const id = input.id;
-        const gamePath = `/${id}`;
-        page.show(gamePath);
-      } else {
-        return;
-      }
-    });
-  } else {
-    return;
-  }
-}
 //Game Dictionary
 
 class Game {
-  constructor(title, description, playDescription, imageUrl, players) {
+  constructor(title, description, playDescription, imageUrl, players, link) {
     this.title = title;
     this.description = description;
     this.playDescription = playDescription;
     this.imageUrl = imageUrl;
     this.players = players;
+    this.link = link;
   }
 }
 
@@ -46,7 +22,8 @@ const gamesDatab = {
     "Il classico gioco di sasso, carta e forbice...",
     "Due giocatori si sfidano in un classico gioco di sasso, carta e forbice. Ogni giocatore sceglie una delle tre opzioni e il vincitore viene determinato dalle regole del gioco (Carta batte sasso, sasso batte forbice, forbice batte carta).",
     sassocartaforbice,
-    "vs IA"
+    "vs IA",
+    "sasso-carta-forbice"
   ),
 
   trovailcodice: new Game(
@@ -54,14 +31,16 @@ const gamesDatab = {
     "Un gioco di logica e tanta fortuna...",
     "I giocatori devono indovinare un codice segreto composto da una sequenza di numeri. Avrai un massimo di tentativi per ogni codice,se li esaurirai l'allarme scatterà.",
     trovailcodice,
-    "1"
+    "1",
+    "trova-il-codice"
   ),
   ordinaleparole: new Game(
     "Ordina le Parole",
     "Un gioco di parole e conoscenza...",
     "Il giocatore dovrà ordinare una serie di parole per completare una frase tratta da film,libri,personaggi famosi. Allo scadere del tempo la frase si cancellerà e non sarà più possibile decifrarla...",
     ordinaleparole,
-    "1"
+    "1",
+    "ordina-le-parole"
   ),
 };
 
@@ -77,15 +56,22 @@ export function previewGameHandlerPage() {
       const input = hoveredLi.querySelector('input[type="radio"]');
       const labels = document.querySelectorAll("ul.gamesList label");
       const label = hoveredLi.querySelector("label");
-      labels.forEach((lbl) => {lbl.classList.remove("label-selected");});
-      if(!label){return;}else{
-        label.classList.add("label-selected");}
+      labels.forEach((lbl) => {
+        lbl.classList.remove("label-selected");
+      });
+      if (!label) {
+        return;
+      } else {
+        label.classList.add("label-selected");
+      }
       if (input && input.id) {
         console.log(input + " " + input.id);
         const id = input.id;
         const objGame = id.replaceAll("-", "");
         const article = document.querySelector(`article.game-article`);
-        const imgGame = document.querySelector("section.game-img figure img");
+        const imgGame = document.querySelector(
+          "section.game-img div.figure div.img"
+        );
         const sectImgGame = document.querySelector("section.game-img");
 
         if (article && imgGame) {
@@ -100,13 +86,35 @@ export function previewGameHandlerPage() {
             <p>${key.description}</p>
             <p><span class="desc"> Descrizione:</span> ${key.playDescription}</p>
             <p>Giocatori: ${key.players}</p>
+            <button  class="btn-play">Play</button>
           `;
-            imgGame.src = key.imageUrl;
+            imgGame.style.backgroundImage = `url(${key.imageUrl})`;
             imgGame.alt = key.title;
-            
+            // -----------btn handler
+            const gameSec = document.querySelector("section.gamePage");
+            if (gameSec) {
+              gameSec.addEventListener("pointerup", (event) => {
+                const clickedBtn = event.target.closest("button.btn-play");
+                if (!clickedBtn) {
+                  return;
+                }
+
+                const link = key.link;
+                if (link) {
+                  console.log(key.id);
+
+                  const gamePath = `/${link}`;
+                  page.show(gamePath);
+                } else {
+                  return;
+                }
+              });
+            } else {
+              return;
+            }
+            // ------------
             article.classList.remove("contentLoading");
             sectImgGame.classList.remove("contentLoading");
-
           }, 500);
         } else {
           console.error("Article not found");

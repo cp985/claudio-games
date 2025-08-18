@@ -16,24 +16,24 @@ html {
     font-size: 16px;
     color: var(--colore-testo);
     user-select: none;
-    height: 100%; /* Obbligatorio per il layout a tutta altezza */
+    height: 100%; 
 }
 
-/* --- MODIFICA STRUTTURALE: Body gestisce lo sfondo, non più il layout fisso --- */
 body {
     cursor: var(--cursor1);
     margin: 0;
     width: 100%;
     min-height: 100vh;
-    background-color: var(--colore-sfondo); /* Colore di fallback */
+    background-color: var(--colore-sfondo); 
 }
 
-/* --- NUOVO: Contenitore per il layout che vive sopra lo sfondo --- */
+
 .page-wrapper {
+    
     min-height: 100vh;
     width: 100%;
     max-width: var(--width-max);
-    margin: 0 auto; /* Centra il layout orizzontalmente */
+    margin: 0 auto; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +41,7 @@ body {
     gap:1rem;
 }
 
-/* Regole per il cursore (invariate) */
+/* Regole per il cursore  */
 a:hover,
 li.game:hover,
 button#buttonSubmit:hover,
@@ -77,16 +77,15 @@ img#choice-forbici {
 }
 /* #endregion */
 
-/* #region nav (invariato, aggiunto solo flex-shrink) */
+/* #region nav  */
 header#main-header {
     width: 100%;
-    height: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10;
-    margin-bottom: auto;
-    flex-shrink: 0; /* Impedisce di restringersi */
+    margin: 0.3rem auto;
+    flex-shrink: 0; 
 
 }
 
@@ -106,7 +105,7 @@ ul.list {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 
 li a {
@@ -122,19 +121,19 @@ li.menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
-    margin-right: 0.3rem;
+    padding: 0.1rem;
+    margin-right: 0.2rem;
 }
 
 li a.link:hover {
     color: var(--colore-sfondo);
     background-color: var(--colore-accento);
-    box-shadow: 2px 2px 10px 10px var(--colore-accento);
+    box-shadow: 2px 2px 7px 7px var(--colore-accento);
     font-weight: 700;
 }
 /* #endregion */
 
-/* #region logo (rimossa solo una regola in conflitto) */
+/* #region logo  */
 div.logo {
     width: 100%;
     display: flex;
@@ -149,11 +148,11 @@ h1#animated-logo {
     justify-content: center;
     padding: 0.2rem;
     font-family: 'Bitcount', sans-serif;
-    font-size: clamp(0.9rem, 2.9vw + 1rem, 6rem);
+    font-size: clamp(0.8rem, 2.9vw + 1rem, 5rem);
     color: var(--colore-testo);
     letter-spacing: 0.3rem;
     z-index: 10;
-    max-height: 0.9rem;
+    max-height: 0.8rem;
 }
 
 .force-text-font {
@@ -162,26 +161,23 @@ h1#animated-logo {
 /* #endregion */
 
 /* #region main */
-/* --- MODIFICA STRUTTURALE: .cont ora è il contenuto principale che si espande --- */
 div.cont {
-    flex-grow: 1; /* CRESCE per riempire lo spazio verticale */
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
     width: 90%;
-    margin: 3rem auto 2rem auto; /* Margini verticali per dare aria */
+    margin: 3rem auto 2rem auto; 
     border: 3px solid var(--colore-secondario);
-    padding-bottom: 1rem;
 
-    /* Effetto vetro opzionale (puoi de-commentarlo se ti piace) */
-    /*
-    backdrop-filter: blur(8px) brightness(0.8);
+    /* Effetto vetro */
+    
+    /* backdrop-filter: blur(8px) brightness(0.8);
     -webkit-backdrop-filter: blur(8px) brightness(0.8);
     background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    */
+    border-radius: 10px; */
+   
 }
 
 main.swiper {
@@ -191,6 +187,7 @@ main.swiper {
     align-items: center;
     justify-content: center;
     border: 5px solid var(--colore-secondario);
+    max-height: 70%; /*togliere in caso di media query*/
 }
 
 section.hero-carousel {
@@ -199,7 +196,6 @@ section.hero-carousel {
     min-width: 300px;
 }
 
-/* Stili bottoni (invariati) */
 div.cont main.swiper div.swiper-button-prev::after,
 div.cont main.swiper div.swiper-button-next::after {
     font-size: clamp(1.2rem, 2.5vw + 2rem, 5.5rem);
@@ -238,7 +234,7 @@ div.swiper-button-prev:hover:after,
 div.swiper-button-next:hover:after {
     background-color: var(--colore-accento);
     cursor: pointer;
-    color: var(--colore-sfondo);
+   
     box-shadow: 2px 2px 10px 10px var(--colore-accento);
     color: var(--v);
     text-shadow:
@@ -248,20 +244,34 @@ div.swiper-button-next:hover:after {
         0 0 40px var(--v);
 }
 
-/* Stili paginazione (invariati) */
-.swiper span.swiper-pagination-bullet {
-    background-color: var(--colore-testo);
-    border: 0.08rem solid var(--colore-accento);
-    transform: scale(1.7);
+
+.swiper span.swiper-pagination-bullet-active {
+    color: var(--v);
+     background-color: var(--v);
+    transform: scale(1.4);
+        box-shadow: 
+        0px 1px 1px 1px var(--v),
+        0px 1px 2px 2px var(--colore-accento),
+        0px 2px 1px 1px var(--v)
 }
 
-/* --- MODIFICA: Ripristinata la proporzione corretta con aspect-ratio --- */
+.swiper span.swiper-pagination-bullet:hover {
+    opacity: 1;
+    color: var(--v);
+     background-color: var(--v);
+    transform: scale(1.4);
+        box-shadow: 
+        0px 1px 1px 1px var(--v),
+        0px 1px 2px 2px var(--colore-accento),
+        0px 2px 1px 1px var(--v)
+}
+
 .swiper-slide {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    aspect-ratio: 16 / 9; /* Puoi usare l'immagine 16:9 originale */
+    aspect-ratio: 16 / 9; 
 }
 
 .swiper-slide img {
@@ -282,7 +292,7 @@ div.cont main.swiper div.swiper-pagination {
 }
 /* #endregion */
 
-/* #region footer (invariato, aggiunto solo flex-shrink) */
+/* #region footer  */
 footer {
     object-position: bottom;
     display: flex;
@@ -290,7 +300,7 @@ footer {
     justify-content: space-between;
     width: 100%;
     padding-bottom: 0.2rem;
-    flex-shrink: 0; /* Impedisce di restringersi */
+    flex-shrink: 0; 
     margin-top: auto;
 }
 

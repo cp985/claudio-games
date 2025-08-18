@@ -26,35 +26,26 @@ h1.h1News {
 .pulsating-text {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 4rem;
-    /* Dimensione del testo */
     font-weight: 600;
     color: var(--colore-testo);
-    /* Colore del testo */
 
-    /* Necessario affinché la proprietà transform funzioni correttamente */
     display: inline-block;
 
-    /* 1. Nome dell'animazione (definito sotto in @keyframes)
-               2. Durata (2 secondi per un ciclo completo)
-               3. Timing-function (accelera e decelera dolcemente)
-               4. Conteggio iterazioni (infinita) */
     animation: pulsate 2s ease-in-out infinite;
 }
 
-/* Definizione dell'animazione "pulsate" */
+
 @keyframes pulsate {
     0% {
-        /* Stato iniziale: dimensione normale */
+        
         transform: scale(1);
     }
 
     50% {
-        /* A metà animazione: leggermente più grande */
         transform: scale(1.05);
     }
 
     100% {
-        /* Stato finale: di nuovo a dimensione normale per un loop fluido */
         transform: scale(1);
     }
 }
@@ -164,10 +155,9 @@ h2.h2News {
 /* #region loader news ani  */
 
 .h2News span {
-    /* Fondamentale per applicare transform e animazioni */
+    margin-top: 2rem;;
     display: inline-block;
 
-    /* Assegna l'animazione QUI, alla singola lettera */
     animation-name: bounce;
     animation-duration: 1.4s;
     animation-iteration-count: infinite;

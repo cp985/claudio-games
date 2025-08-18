@@ -41,6 +41,8 @@ export function scf() {
 
   // Funzione principale che gestisce un round di gioco
   function playRound(playerChoice) {
+
+    
     // 1. Scelta della CPU
     const cpuChoice = choices[Math.floor(Math.random() * 3)];
 
@@ -64,6 +66,8 @@ export function scf() {
     // Aggiorna punteggio e testo del risultato
     if (result === "vinto") {
       risultatoText.innerHTML = "Hai Vinto!";
+      choiceImages[playerChoice].classList.add("win");
+      risultatoText.classList.add("h2win")
       imgCpu.classList.add("lose");
       contatorePlayer.textContent = Number(contatorePlayer.textContent) + 1;
     } else if (result === "perso") {
@@ -73,6 +77,8 @@ export function scf() {
     } else {
       risultatoText.innerHTML = "Pareggio!";
       imgCpu.classList.add("pareggioCpu");
+          risultatoText.classList.add("h2par")
+        choiceImages[playerChoice].classList.add("pareggioIo");
     }
 
     // Mostra il pulsante di reset e disabilita ulteriori click
@@ -82,11 +88,11 @@ export function scf() {
 
   // Funzione per resettare il gioco
   function resetGame() {
-    risultatoText.classList.remove("ani");
+    risultatoText.classList.remove("ani","h2par","h2win");
 choicesContainer.classList.remove("player-choicesAfter");
     for (const choice in choiceImages) {
       choiceImages[choice].style.display = "block";
-      choiceImages[choice].classList.remove("dopoClick", "win", "lose");
+      choiceImages[choice].classList.remove("dopoClick", "win", "lose","pareggioIo");
     }
     imgCpu.src = imagePaths.default;
     imgCpu.classList.remove("dopoClickCpu", "lose", "win", "pareggioCpu");

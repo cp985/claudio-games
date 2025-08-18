@@ -8,7 +8,7 @@ import imgOrdinaLeParole from "../../assets/img/ordina-le-parole.webp";
 import imgTrovaIlCodice from "../../assets/img/trovailcodice.webp";
 import imgComingSoon from "../../assets/img/coming-soon.webp";
 import { newsApiCall } from "./news.js";
-import { gamesHandlerPage, previewGameHandlerPage } from "./games.js";
+import { previewGameHandlerPage } from "./games.js";
 import { validateForm } from "./contact.js";
 import sasso from "../../assets/img/sasso.webp";
 import carta from "../../assets/img/carta.webp";
@@ -85,7 +85,7 @@ const pageList = {
         
     </section>
     <section class="game-img">
-<figure><img src="${imgComingSoon}" alt=""></figure>
+<div class="figure"><div  style="background-image=url('${imgComingSoon}')" alt="immagine gioco" class="img"></div></div>
 </section>
 </main>  `,
   ["sasso-carta-forbice"]: `
@@ -271,7 +271,7 @@ export function startRouter() {
   page("/news", () => showLoaderAndRender("news", () => newsApiCall()));
   page("/games", () =>
     showLoaderAndRender("games", () => {
-      gamesHandlerPage();
+      
       previewGameHandlerPage();
     })
   );
