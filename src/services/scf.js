@@ -65,13 +65,13 @@ export function scf() {
     // Aggiorna punteggio e testo del risultato
     if (result === "vinto") {
       risultatoText.innerHTML = "Hai Vinto!";
-      choiceImages[playerChoice].classList.add("dopoIo");
+      choiceImages[playerChoice].classList.add("dopoIo","win");
       // risultatoText.classList.add("h2win")
       imgCpu.classList.add("dopoCpu");
       contatorePlayer.textContent = Number(contatorePlayer.textContent) + 1;
     } else if (result === "perso") {
       risultatoText.innerHTML = "Hai Perso!";
-      imgCpu.classList.add("dopoCpu");
+      imgCpu.classList.add("cpu-wins-style","dopoClickCpu");
       choiceImages[playerChoice].classList.add("dopoIo");
 
       contatoreCpu.textContent = Number(contatoreCpu.textContent) + 1;
@@ -94,10 +94,10 @@ export function scf() {
     choicesContainer.classList.remove("player-choicesAfter");
     for (const choice in choiceImages) {
       choiceImages[choice].style.display = "block";
-      choiceImages[choice].classList.remove("dopoClick", "dopoCpu", "dopoIo");
+      choiceImages[choice].classList.remove("win","dopoClick", "dopoCpu", "dopoIo");
     }
     imgCpu.src = imagePaths.default;
-    imgCpu.classList.remove("dopoClickCpu", "dopoCpu", "dopoIo");
+    imgCpu.classList.remove("dopoClickCpu","cpu-wins-style");
     risultatoText.innerHTML = "&uarr; Scegli la tua mossa &uarr;";
     divBtn.classList.remove("show");
     choicesContainer.style.pointerEvents = "auto";
