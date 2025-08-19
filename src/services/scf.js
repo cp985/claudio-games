@@ -1,7 +1,7 @@
-import sasso from '../../assets/img/sasso.webp';
-import carta from '../../assets/img/carta.webp';
-import forbice from '../../assets/img/forbice.webp';
-import interrogativo from '../../assets/img/interrogativo.webp';
+import sasso from "../../assets/img/sasso.webp";
+import carta from "../../assets/img/carta.webp";
+import forbice from "../../assets/img/forbice.webp";
+import interrogativo from "../../assets/img/interrogativo.webp";
 
 export function scf() {
   // --- Selezione degli elementi del DOM ---
@@ -11,7 +11,8 @@ export function scf() {
   const contatorePlayer = document.getElementById("contatorePlayer");
   const contatoreCpu = document.getElementById("contatoreCpu");
   const resetButton = document.getElementById("resetButton");
-
+  const divBtn = document.querySelector(".button");
+  const titolo = document.querySelector("h1#titolo");
   // --- Logica di gioco ---
   const choices = ["sasso", "carta", "forbici"];
   const choiceImages = {
@@ -41,8 +42,6 @@ export function scf() {
 
   // Funzione principale che gestisce un round di gioco
   function playRound(playerChoice) {
-
-    
     // 1. Scelta della CPU
     const cpuChoice = choices[Math.floor(Math.random() * 3)];
 
@@ -66,49 +65,53 @@ export function scf() {
     // Aggiorna punteggio e testo del risultato
     if (result === "vinto") {
       risultatoText.innerHTML = "Hai Vinto!";
-      choiceImages[playerChoice].classList.add("win");
-      risultatoText.classList.add("h2win")
-      imgCpu.classList.add("lose");
+      choiceImages[playerChoice].classList.add("dopoIo");
+      // risultatoText.classList.add("h2win")
+      imgCpu.classList.add("dopoCpu");
       contatorePlayer.textContent = Number(contatorePlayer.textContent) + 1;
     } else if (result === "perso") {
       risultatoText.innerHTML = "Hai Perso!";
-      choiceImages[playerChoice].classList.add("lose");
+      imgCpu.classList.add("dopoCpu");
+      choiceImages[playerChoice].classList.add("dopoIo");
+
       contatoreCpu.textContent = Number(contatoreCpu.textContent) + 1;
     } else {
       risultatoText.innerHTML = "Pareggio!";
-      imgCpu.classList.add("pareggioCpu");
-          risultatoText.classList.add("h2par")
-        choiceImages[playerChoice].classList.add("pareggioIo");
+      imgCpu.classList.add("dopoCpu");
+      // risultatoText.classList.add("h2par")
+      choiceImages[playerChoice].classList.add("dopoIo");
     }
 
     // Mostra il pulsante di reset e disabilita ulteriori click
-    resetButton.classList.add("show") ;
+    divBtn.classList.add("show");
     choicesContainer.style.pointerEvents = "none";
   }
 
   // Funzione per resettare il gioco
   function resetGame() {
-    risultatoText.classList.remove("ani","h2par","h2win");
-choicesContainer.classList.remove("player-choicesAfter");
+    titolo.classList.remove("titoloPost");
+    risultatoText.classList.remove("ani");
+    choicesContainer.classList.remove("player-choicesAfter");
     for (const choice in choiceImages) {
       choiceImages[choice].style.display = "block";
-      choiceImages[choice].classList.remove("dopoClick", "win", "lose","pareggioIo");
+      choiceImages[choice].classList.remove("dopoClick", "dopoCpu", "dopoIo");
     }
     imgCpu.src = imagePaths.default;
-    imgCpu.classList.remove("dopoClickCpu", "lose", "win", "pareggioCpu");
+    imgCpu.classList.remove("dopoClickCpu", "dopoCpu", "dopoIo");
     risultatoText.innerHTML = "&uarr; Scegli la tua mossa &uarr;";
-    resetButton.classList.remove("show");
+    divBtn.classList.remove("show");
     choicesContainer.style.pointerEvents = "auto";
   }
 
   // --- Event Listeners ---
   choicesContainer.addEventListener("click", (event) => {
     const playerChoice = event.target.dataset.choice;
-     risultatoText.classList.add("ani");
+    titolo.classList.add("titoloPost");
+    risultatoText.classList.add("ani");
     if (playerChoice) {
       playRound(playerChoice);
     }
-       
+
     choicesContainer.classList.add("player-choicesAfter");
   });
 

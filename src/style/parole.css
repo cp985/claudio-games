@@ -1,0 +1,61 @@
+/* #region body html */
+
+
+html {
+    --c: #009bbe;
+    --v: #ff01ff;
+    --colore-sfondo: #000000;
+    --colore-accento: #00CFFF;
+    --colore-secondario: #ddff00;
+    --colore-testo: #EAEAEA;
+    --colore-blur33: rgba(0, 77, 94, 0.733);
+}
+
+div.ordina-le-parole {
+   width: 100%;
+margin: auto;
+    max-height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-direction: column;
+    background-image: url("../../assets/img/ordinaleparole666.webp");
+    aspect-ratio: 16 / 7;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+}
+
+
+
+
+/* #endregion body html */
+
+
+
+/* #region header parole */
+h1.paroleH1 {
+    background-color: var(--colore-blur33);
+    font-family: 'Bitcount', sans-serif;
+    color: var(--colore-secondario);
+    font-size: clamp(0.8rem, 2.9vw + 1rem, 5rem);
+    text-align: center;
+    margin: 1rem auto 1rem auto;
+max-width: fit-content;
+padding: 0.5rem;
+border-radius: 10px;
+}
+
+
+/* #endregion header parole */
+
+
+
+
+/* #region main parole */
+
+main.paroleM {}
+
+
+/* #endregion main */

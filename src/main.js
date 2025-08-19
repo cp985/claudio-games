@@ -1,3 +1,4 @@
+//css imp
 import "./style/general.css";
 import "./style/normalizeCss.css";
 import "./style/resetcss.css";
@@ -9,6 +10,8 @@ import "./style/contact.css";
 import "./style/ggg.css";
 import "./style/games.css";
 import "./style/scf.css";
+import "./style/parole.css";
+//js imp
 import { startRouter } from "./services/page-route.js";
 import { handleInitialLoad } from "./services/initial-loader.js";
 import { createNavigation } from "./services/navigation.js";
@@ -16,6 +19,7 @@ import { newsApiCall } from "./services/news.js";
 import "./services/contact.js";
 import "./services/games.js"
 import "./services/scf.js";
+import "./services/parole.js"
 
 
 createNavigation();

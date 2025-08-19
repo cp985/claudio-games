@@ -20,6 +20,8 @@ html {
 }
 
 body {
+    display: flex;
+   flex-direction: column;
     cursor: var(--cursor1);
     margin: 0;
     width: 100%;
@@ -185,10 +187,11 @@ div.cont {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 95vw;
     margin: 3rem auto 2rem auto;
     border: 3px solid var(--colore-secondario);
-
+    min-height: 0;
+    border-radius: 5px;
     /* Effetto vetro */
 
     /* backdrop-filter: blur(8px) brightness(0.8);
