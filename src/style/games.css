@@ -27,7 +27,7 @@ header.game-header {
     height: 100%;
     grid-area: nav-g;
     border-left: 3px solid var(--colore-secondario);
-   overflow-y:scroll;
+    overflow-y: scroll;
 }
 
 nav.game-nav {
@@ -122,7 +122,7 @@ section.gamePage {
     width: 100%;
     height: 100%;
     border-right: 3px solid var(--colore-secondario);
-    overflow-y:scroll;
+    overflow-y: scroll;
 }
 
 article.game-article {
@@ -199,7 +199,7 @@ section.game-img {
     grid-area: img;
     width: 100%;
     height: 100%;
-    
+
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -224,6 +224,8 @@ section.game-img div.figure div.img {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    margin: 0.2rem;
+    border: 1px solid var(--v);
 }
 
 div.gameCont {
@@ -232,7 +234,7 @@ div.gameCont {
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    
+
 }
 
 div.gameContImg {
@@ -240,30 +242,31 @@ div.gameContImg {
     align-items: center;
     justify-content: center;
     width: 50%;
+
 }
 
 div.gameImg1 {
     aspect-ratio: 16/9;
     width: 100%;
-    background-image: url("../../assets/img/scf1.png");
-        background-size: cover;
+    background-image: url("../../assets/img/scf1.webp");
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-margin: 0.2rem;
-margin-right: 0.1rem;
-border: solid 1px var(--colore-secondario);
+    margin: 0.2rem;
+    margin-right: 0.1rem;
+    border: solid 1px var(--v);
 }
 
 div.gameImg2 {
     aspect-ratio: 16/9;
     width: 100%;
-    background-image: url("../../assets/img/scf4.png");
-        background-size: cover;
+    background-image: url("../../assets/img/scf2.webp");
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     margin: 0.2rem;
     margin-left: 0.1rem;
-border: solid 1px var(--colore-secondario);
+    border: solid 1px var(--v);
 }
 
 

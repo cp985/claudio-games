@@ -2,17 +2,29 @@ import { page } from "./page-route.js";
 import trovailcodice from "../../assets/img/trovailcodice.webp";
 import sassocartaforbice from "../../assets/img/sassocartaforbice.webp";
 import ordinaleparole from "../../assets/img/ordina-le-parole.webp";
-
+import preViewScf1 from "../../assets/img/scf1.webp";
+import preViewScf2 from "../../assets/img/scf2.webp";
 //Game Dictionary
 
 class Game {
-  constructor(title, description, playDescription, imageUrl, players, link) {
+  constructor(
+    title,
+    description,
+    playDescription,
+    imageUrl,
+    players,
+    link,
+    preView1,
+    preView2
+  ) {
     this.title = title;
     this.description = description;
     this.playDescription = playDescription;
     this.imageUrl = imageUrl;
     this.players = players;
     this.link = link;
+    this.preView1 = preView1;
+    this.preView2 = preView2;
   }
 }
 
@@ -23,7 +35,9 @@ const gamesDatab = {
     "Due giocatori si sfidano in un classico gioco di sasso, carta e forbice. Ogni giocatore sceglie una delle tre opzioni e il vincitore viene determinato dalle regole del gioco (Carta batte sasso, sasso batte forbice, forbice batte carta).",
     sassocartaforbice,
     "vs IA",
-    "sasso-carta-forbice"
+    "sasso-carta-forbice",
+    preViewScf1,
+    preViewScf2
   ),
 
   trovailcodice: new Game(
@@ -32,7 +46,9 @@ const gamesDatab = {
     "I giocatori devono indovinare un codice segreto composto da una sequenza di numeri. Avrai un massimo di tentativi per ogni codice,se li esaurirai l'allarme scatterà.",
     trovailcodice,
     "1",
-    "trova-il-codice"
+    "trova-il-codice",
+ "#",
+ "#"
   ),
   ordinaleparole: new Game(
     "Ordina le Parole",
@@ -40,7 +56,9 @@ const gamesDatab = {
     "Il giocatore dovrà ordinare una serie di parole per completare una frase tratta da film,libri,personaggi famosi. Allo scadere del tempo la frase si cancellerà e non sarà più possibile decifrarla...",
     ordinaleparole,
     "1",
-    "ordina-le-parole"
+    "ordina-le-parole",
+ "#",
+ "#"
   ),
 };
 
@@ -90,6 +108,23 @@ export function previewGameHandlerPage() {
           `;
             imgGame.style.backgroundImage = `url(${key.imageUrl})`;
             imgGame.alt = key.title;
+
+            let divCont = sectImgGame.querySelector("div.gameCont");
+            if (!divCont) {
+              divCont = document.createElement("div");
+              divCont.classList.add("gameCont");
+              divCont.innerHTML = `
+             <div class="gameContImg"><div style="background-image:url('${key.preView1}')"; class="gameImg1" ></div></div>
+             <div class="gameContImg"><div style="background-image:url('${key.preView2}')"; class="gameImg2" ></div></div>
+            `;
+              sectImgGame.appendChild(divCont);
+            } else {
+              const img1 = divCont.querySelector("div.gameImg1");
+              const img2 = divCont.querySelector("div.gameImg2");
+              img1.style.backgroundImage = `url(${key.preView1})`;
+              img2.style.backgroundImage = `url(${key.preView2})`;
+            }
+
             // -----------btn handler
             const gameSec = document.querySelector("section.gamePage");
             if (gameSec) {

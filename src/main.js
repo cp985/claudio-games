@@ -22,6 +22,7 @@ import "./services/scf.js";
 import "./services/parole.js"
 
 
+
 createNavigation();
 
 const repoName = "/claudio-games";
@@ -37,6 +38,7 @@ if (redirect) {
 }
 handleInitialLoad();
 startRouter();
+
 
 console.log("Application initialized.");
 
