@@ -94,6 +94,10 @@ const pageList = {
     </section>
     <section class="game-img">
 <div class="figure"><div  style="background-image=url('${imgComingSoon}')" alt="immagine gioco" class="img"></div></div>
+<div class="gameCont">
+<div class="gameContImg"><div style="" class="gameImg1" alt="immagine di gioco"></div></div>
+<div class="gameContImg"><div style="" class="gameImg2" alt="immagine di gioco"></div></div>
+</div>
 </section>
 </main>  `,
   ["sasso-carta-forbice"]: `

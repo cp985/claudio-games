@@ -19,7 +19,6 @@ main.game-main {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    /* overflow-y: scroll; */
 }
 
 /* #region nav game */
@@ -28,7 +27,7 @@ header.game-header {
     height: 100%;
     grid-area: nav-g;
     border-left: 3px solid var(--colore-secondario);
-
+   overflow-y:scroll;
 }
 
 nav.game-nav {
@@ -123,6 +122,7 @@ section.gamePage {
     width: 100%;
     height: 100%;
     border-right: 3px solid var(--colore-secondario);
+    overflow-y:scroll;
 }
 
 article.game-article {
@@ -160,7 +160,7 @@ article.game-article button.btn-play {
     color: var(--colore-testo);
     box-shadow: inset 0 0 15px var(--v);
     font-weight: 700;
-        transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 article.game-article button:hover {
@@ -175,7 +175,7 @@ article.game-article button:hover {
 article.game-article p {
     color: var(--colore-testo);
     font-size: clamp(0.8rem, 1.6vw + 0.4rem, 1.1rem);
-    
+
     padding: 0.5rem;
     border-radius: 10px;
 }
@@ -199,9 +199,11 @@ section.game-img {
     grid-area: img;
     width: 100%;
     height: 100%;
+    
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
     transition: 700ms ease-in-out;
 }
 
@@ -211,6 +213,7 @@ section.game-img div.figure {
     align-items: center;
     justify-content: center;
     width: 100%;
+    /* border-bottom: 3px dotted var(--colore-secondario); */
 
 }
 
@@ -221,10 +224,49 @@ section.game-img div.figure div.img {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-
-
-
 }
+
+div.gameCont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    
+}
+
+div.gameContImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+div.gameImg1 {
+    aspect-ratio: 16/9;
+    width: 100%;
+    background-image: url("../../assets/img/scf1.png");
+        background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+margin: 0.2rem;
+margin-right: 0.1rem;
+border: solid 1px var(--colore-secondario);
+}
+
+div.gameImg2 {
+    aspect-ratio: 16/9;
+    width: 100%;
+    background-image: url("../../assets/img/scf4.png");
+        background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0.2rem;
+    margin-left: 0.1rem;
+border: solid 1px var(--colore-secondario);
+}
+
+
 
 .contentLoading {
     opacity: 0;

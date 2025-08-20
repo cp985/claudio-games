@@ -1,3 +1,6 @@
+/* #region main html */
+
+
 html {
   --c: #009bbe;
   --v: #ff01ff;
@@ -26,7 +29,7 @@ div.sasso-carta-forbice {
 
 }
 
-
+/* #endregion main html */
 
 
 #titolo {
@@ -40,64 +43,7 @@ div.sasso-carta-forbice {
   margin-top: 0.3rem;
 }
 
-.scelta {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  max-height: 50%;
-  margin: 0;
-  gap: 2rem;
-}
 
-.player-choices {
-  gap: 2%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.choice {
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 50%;
- 
- 
-}
-
-.player-choices img {
-
-  width: 25%;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 3px solid var(--colore-accento);
-}
-
-.player-choices img:hover {
-  transform: scale(1);
-  border-color: var(--v);
-}
-
-.imgCpu {
-  margin-right: 2rem;
-  width: 20%;
-  animation: rotate 3s infinite linear;
-}
-
-@keyframes rotate {
-  from {
-    transform: rotateY(0deg);
-  }
-
-  to {
-    transform: rotateY(360deg);
-  }
-}
 
 h2#risultato {
   display: flex;
@@ -110,7 +56,7 @@ h2#risultato {
   background: var(--colore-blur33);
   border-radius: 99999px;
   padding: 0.2rem;
- margin: 0.5rem 0;
+  margin: 0.5rem 0;
   animation: bounce-up 2s ease-in-out infinite;
 }
 
@@ -148,11 +94,80 @@ h2#risultato {
   color: var(--colore-accento);
 }
 
+
+
+/* #region player */
+.scelta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-height: 50%;
+  margin: 0;
+  gap: 2rem;
+}
+
+.player-choices {
+  gap: 2%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.choice {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+
+
+}
+
 .playerC {
   position: absolute;
   top: 3rem;
   left: 1rem;
   background-color: var(--colore-blur33);
+}
+
+.player-choices img {
+
+  width: 25%;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid var(--colore-accento);
+}
+
+.player-choices img:hover {
+  transform: scale(1);
+  border-color: var(--v);
+}
+
+
+/* #endregion player */
+
+
+/* #region cpu */
+
+
+.imgCpu {
+  margin-right: 2rem;
+  width: 20%;
+  animation: rotate 3s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
 }
 
 .cpuC {
@@ -162,14 +177,19 @@ h2#risultato {
   background-color: var(--colore-blur33);
 }
 
-.button{
+/* #endregion cpu */
+
+
+/* #region button */
+
+.button {
 
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
- height: 0;
- z-index: -2;
+  height: 0;
+  z-index: -2;
 }
 
 .resetButton {
@@ -210,13 +230,13 @@ div.button button#resetButton:hover {
   height: fit-content;
   opacity: 1;
   z-index: 1;
- 
- 
+
+
 }
 
+/* #endregion button */
 
-
-/* --- STATI DOPO IL CLICK --- */
+/* #region dopoclik */
 
 
 
@@ -238,8 +258,9 @@ div.button button#resetButton:hover {
 .dopoCpu {
   transform: scale(0.65) translateY(-2.5rem) translateX(-2rem);
 }
-.dopoIo{
-  transform: scale(1.1) translateY(-0.3rem) ;
+
+.dopoIo {
+  transform: scale(1.1) translateY(-0.3rem);
 
   margin: 0;
 }
@@ -249,9 +270,10 @@ h2#risultato.ani {
   transition: none;
 }
 
-.win{
+.win {
   animation: win 1s infinite ease-in-out;
 }
+
 @keyframes win {
 
   0%,
@@ -265,22 +287,27 @@ h2#risultato.ani {
     border-color: var(--v);
   }
 }
+
 @keyframes win-cpu-pulse {
-  0%, 100% {
-    /* Stato base: ridimensionato e spostato */
+
+  0%,
+  100% {
     transform: scale(0.65) translateY(-2.5rem) translateX(-2rem);
     border-color: var(--colore-accento);
   }
+
   50% {
-    /* Stato pulsante: leggermente più grande, ma sempre spostato */
     transform: scale(0.75) translateY(-2.5rem) translateX(-2rem);
     border-color: var(--v);
   }
 }
 
-/* NUOVA CLASSE UNIFICATA per lo stile della CPU quando vince */
 .cpu-wins-style {
   animation: win-cpu-pulse 1s infinite ease-in-out;
-  border: 3px solid var(--v); /* Prende lo stile da dopoClickCpu */
+  border: 3px solid var(--v);
   border-radius: 50%;
 }
+
+
+/* #endregion dopoclik */
+
