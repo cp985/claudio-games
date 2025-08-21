@@ -23,7 +23,8 @@ import carta from "../../assets/img/carta.webp";
 import forbice from "../../assets/img/forbice.webp";
 import interrogativo from "../../assets/img/interrogativo.webp";
 import { scf } from "./scf.js";
-
+//parole
+import { textArray } from "./parole.js";
 export { page };
 
 // Il contenitore principale dove verranno renderizzate le pagine
@@ -131,8 +132,15 @@ const pageList = {
     <h1 class="paroleH1">Ordina le parole</h1>
   </header>
   <main class="paroleM">
-
-  </main>
+<article class="paroleA">
+<p class="parolePtesto" data-text="nel mezzo del cammin di nostra vita, mi ritrovai per una selva oscura, ch'era piu' oscura di tutte, perche' la diritta via era smarrita da un fiume di seda, e la selva era piena di rossi polveri di latte e di nocciole"></p>
+<footer>
+<p class="parolePcit">
+<cite>il libro pinus</cite><span class="paroleSpanCit"> di</span> Pino Pinos
+</p>
+</footer>
+</article>
+</main>
 
 </div>
 
@@ -300,7 +308,7 @@ export function startRouter() {
   page("/sasso-carta-forbice", () =>
     showLoaderAndRender("sasso-carta-forbice", scf)
   );
-  page("/ordina-le-parole", () => showLoaderAndRender("ordina-le-parole"));
+  page("/ordina-le-parole", () => showLoaderAndRender("ordina-le-parole",textArray));
   page("/trova-il-codice", () => showLoaderAndRender("trova-il-codice"));
   // (Dovrai aggiungere "sasso-carta-forbice" etc. all'oggetto pageList)
 
