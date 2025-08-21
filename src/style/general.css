@@ -17,6 +17,7 @@ html {
     color: var(--colore-testo);
     user-select: none;
     height: 100%;
+    /* overscroll-behavior:none; */
 }
 
 body {
@@ -27,7 +28,7 @@ body {
     width: 100%;
     min-height: 100vh;
     background-color: var(--colore-sfondo);
-    overscroll-behavior-y:none;
+    overscroll-behavior:none;
     
 }
 
