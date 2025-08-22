@@ -47,6 +47,7 @@ body {
 }
 
 /* Regole per il cursore  */
+span.testo:hover,
 a:hover,
 li.game:hover,
 button#buttonSubmit:hover,
@@ -64,6 +65,7 @@ img#choice-forbici:hover {
     cursor: var(--cursor2);
 }
 
+span.testo,
 a,
 button,
 li.game,

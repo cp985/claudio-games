@@ -5,6 +5,7 @@ html {
     --c: #009bbe;
     --v: #ff01ff;
     --colore-sfondo: #000000;
+     --colore-sfondo33:rgba(0, 0, 0, 0.503);
     --colore-accento: #00CFFF;
     --colore-secondario: #ddff00;
     --colore-testo: #EAEAEA;
@@ -43,7 +44,7 @@ h1.paroleH1 {
     text-align: center;
     margin: 0.5rem auto 0.5rem auto;
  max-width: max-content;
-    padding: 0.5rem;
+    padding: 0.1rem 0.5rem;
     border-radius: 10px;
 }
 
@@ -62,6 +63,7 @@ main.paroleM {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: clamp(0.07rem, 2.0vw + 0.3rem, 4rem);
 
 }
 article.paroleA{
@@ -79,15 +81,42 @@ article.paroleA{
 
 p.parolePtesto, span.testo {
     text-align: left;
-    font-size: clamp(0.8rem, 2.0vw + 0.4rem, 5rem);
+    font-size: clamp(0.7rem, 2.0vw + 0.4rem, 5rem);
     font-family: 'Aladin', sans-serif;
     color: #000000;
-    width: 80%;
+    width: 85%;
+}
+
+p.parolePtesto{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+   flex-wrap: wrap;
+
+gap : clamp(0.1rem, 2vw + 0.5rem, 0.3rem);
+}
+
+
+span.testo{
+    width: fit-content;
+    border-radius:  3px;
+border : 1px solid #000000;
+padding: 0;
+letter-spacing: 0.1rem;
+cursor: pointer;
+
+
+}
+
+span.testo:hover{
+background-color:var(--colore-blur33);
+color:var(--colore-testo)
+
 }
 
 p.parolePcit {
     text-align: right;
-     font-size: clamp(0.8rem, 2.0vw + 0.3rem, 3.5rem);
+     font-size: clamp(0.8rem, 2.0vw + 0.5rem, 3.5rem);
 text-decoration: underline;
     color: goldenrod;
     font-family:'Aladin', sans-serif;
@@ -97,7 +126,7 @@ text-decoration: underline;
 
 cite {
     text-align: right;
-       font-size: clamp(0.8rem, 2.0vw + 0.3rem, 3.5rem);
+       font-size: clamp(0.8rem, 2.0vw + 0.5rem, 3.5rem);
 
     color: goldenrod;
     font-family:'Aladin', sans-serif;
@@ -106,7 +135,7 @@ cite {
 
 span.paroleSpanCit {
     text-align: right;
-       font-size: clamp(0.8rem, 2.0vw + 0.3rem, 3.5rem);
+       font-size: clamp(0.8rem, 2.0vw + 0.5rem, 3.5rem);
 
     color: rgb(0, 0, 0);
     font-family: 'Times New Roman', Times, serif;
@@ -115,3 +144,19 @@ span.paroleSpanCit {
 
 
 /* #endregion main */
+
+
+/* #region drag/drop */
+
+.dragStart{
+background-color: var(--v);
+color:  var(--colore-testo);
+
+
+}
+
+
+
+
+/* #endregion drag/drop */
+
