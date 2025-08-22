@@ -1,4 +1,39 @@
 
+class Words{
+constructor(id,testo,fonte,autore){
+this.id=id;
+this.testo=testo;
+this.fonte=fonte;
+this.autore=autore;
+}
+};
+
+const wordsDb={
+frase1: new Words(
+  1,
+  "Nel mezzo del cammin di nostra vita, mi ritrovai per una selva oscura, ch'era piu' oscura di tutte, perche' la diritta via era smarrita da un fiume di seda, e la selva era piena di rossi polveri di latte e di nocciole",
+"Divina Commedia",
+"Dante Alighieri"
+),
+
+frase2: new Words(
+  2,
+  "Quel ramo del lago di Como, che volge a mezzogiorno, tra due catene non interrotte di monti, tutto a seni e a golfi, a seconda dello sporgere e del rientrare di quelli, vien, quasi a un tratto, a ristringersi, e a prender corso e figura di fiume, tra un promontorio a destra, e un’ampia costiera dall’altra parte.",
+  "I Promessi Sposi",
+  "Alessandro Manzoni"
+),
+
+frase3: new Words(
+  3,
+  "Ho visto cose che voi umani non potreste immaginare: navi da combattimento in fiamme al largo dei bastioni di Orione, e ho visto i raggi B balenare nel buio vicino alle porte di Tannhäuser. E tutti quei momenti andranno perduti nel tempo, come lacrime nella pioggia. È tempo di morire.",
+"Blade Runner",
+"Ridley Scott"
+)
+}
+
+
+
+
 
 function shuffleArr(array){  
     let arr = [...array];
@@ -9,55 +44,6 @@ function shuffleArr(array){
 return arr;
 }
 
-export function textArray(){
-    const pTesto = document.querySelector("p.parolePtesto");
-const frase = pTesto.dataset.text;
-const arr1=frase.split(" ");
-const arr2=[...arr1];
-const arrShuffled = shuffleArr(arr2);
-console.log(arrShuffled);
-const spanTesto = document.createElement("span");
-  if (!pTesto) {
-    console.error("Il paragrafo con classe 'parolePtesto' non è stato trovato!");
-    return;
-  }
-spanTesto.classList.add("testo");
-if (pTesto.children.length > 0) {
-      return;
-  }else{
-arrShuffled.forEach(element => {
-    const span = document.createElement("span");
-    span.draggable = true;
-    span.classList.add("testo");
-    span.textContent=element;
-    pTesto.appendChild(span);
-})
-}
-}
-
-// export function textValidator(el){
-//       const pTesto = document.querySelector("p.parolePtesto");
-// const spanT = document.querySelector("span.testo");
-// pTesto.addEventListener("dragstart", (e) => {
-//   if(!e.target.matches("span.testo")){return;}
-//   e.dataTransfer.setData("text", e.target.textContent);
-// e.dataTransfer.effectAllowed = "move";
-// el.parentElement.classList.add("dragStart");
-// })
-
-// el.addEventListener("dragend", (e) => {
-//   el.parentElement.classList.remove("dragStart");
-  
-// })
-// }
-
-// function dragOverHandler(){
-
-
-
-// }
- 
-// L'UNICA funzione che esporteremo. Si occupa di tutto il setup del gioco.
 export function initOrdinaLeParole() {
   
   // 1. Selezioniamo il container principale del gioco
@@ -75,7 +61,7 @@ export function initOrdinaLeParole() {
   }
 
   // 2. Prendiamo la frase, la dividiamo e la mescoliamo
-  const frase = pTesto.dataset.text;
+  const frase = wordsDb.frase1.testo;
   const parole = frase.split(" ");
   const paroleMescolate = shuffleArr(parole);
 
@@ -116,16 +102,53 @@ export function initOrdinaLeParole() {
     e.preventDefault(); // Fondamentale per far funzionare l'evento 'drop'
     const target = e.target;
     if (target.matches("span.testo") && target !== draggedElement) {
-        // Logica per spostare le parole mentre trasciniamo (opzionale ma carino)
-        // pTesto.insertBefore(draggedElement, target);
-    }
+      target.classList.add("dragging");}
   });
   
-   pTesto.addEventListener('drop', (e) => {
+  pTesto.addEventListener('dragleave', (e) => {
     e.preventDefault();
-    if (e.target.matches('span.testo') && e.target !== draggedElement) {
-      // Inserisci l'elemento trascinato prima dell'elemento di destinazione
-      pTesto.insertBefore(draggedElement, e.target);
+    const target = e.target;
+    target.classList.remove("dragging");
+  })
+  pTesto.addEventListener('drop', (e) => {
+    e.preventDefault();
+    
+    const dropTarget = e.target;
+dropTarget.classList.remove("dragging");
+    // Assicurati che stiamo rilasciando su un altro span valido
+    if (dropTarget.matches('span.testo') && dropTarget !== draggedElement) {
+      
+      // Salviamo le posizioni di riferimento PRIMA di spostare qualsiasi cosa
+      const draggedNextSibling = draggedElement.nextSibling;
+      const dropTargetNextSibling = dropTarget.nextSibling;
+
+      // 1. Sposta l'elemento trascinato al posto del target
+      //    Se il target è l'ultimo, nextSibling sarà null, e insertBefore si comporterà come appendChild
+      pTesto.insertBefore(draggedElement, dropTargetNextSibling);
+
+      // 2. Sposta il target al posto originale dell'elemento trascinato
+      pTesto.insertBefore(dropTarget, draggedNextSibling);
     }
-   });
+  
+  
+  const fraseX=  pTesto.querySelectorAll("span.testo");
+  const arrX=[];
+  console.log(fraseX.forEach(parola => {
+  arrX.push(parola.textContent);
+  
+}))
+if(!arrX.length===0){
+  console.log("array risposta vuoto");
+  }else{
+
+  arrX.join(" ") === frase 
+      console.log("Hai vinto!");
+  }
+
+
+
+  });
 }
+
+
+

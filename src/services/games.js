@@ -53,7 +53,7 @@ const gamesDatab = {
   ordinaleparole: new Game(
     "Ordina le Parole",
     "Un gioco di parole e conoscenza...",
-    "Il giocatore dovrà ordinare una serie di parole per completare una frase tratta da film,libri,personaggi famosi. Allo scadere del tempo la frase si cancellerà e non sarà più possibile decifrarla...",
+    "Il giocatore dovrà ordinare una serie di parole per completare una frase tratta da film,libri e citazioni personaggi famosi.Scambia la posizione di ogni singola parola per arrivare alla soluzione..",
     ordinaleparole,
     "1",
     "ordina-le-parole",

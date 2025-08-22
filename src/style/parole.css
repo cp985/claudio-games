@@ -104,7 +104,8 @@ border : 1px solid #000000;
 padding: 0;
 letter-spacing: 0.1rem;
 cursor: pointer;
-
+  cursor: move; 
+    transition: all 0.2s ease-in-out; 
 
 }
 
@@ -127,7 +128,6 @@ text-decoration: underline;
 cite {
     text-align: right;
        font-size: clamp(0.8rem, 2.0vw + 0.5rem, 3.5rem);
-
     color: goldenrod;
     font-family:'Aladin', sans-serif;
     font-style: italic;
@@ -135,8 +135,7 @@ cite {
 
 span.paroleSpanCit {
     text-align: right;
-       font-size: clamp(0.8rem, 2.0vw + 0.5rem, 3.5rem);
-
+ font-size: clamp(0.7rem, 1.8vw + 0.2rem, 1.5rem);
     color: rgb(0, 0, 0);
     font-family: 'Times New Roman', Times, serif;
 }
@@ -148,11 +147,12 @@ span.paroleSpanCit {
 
 /* #region drag/drop */
 
-.dragStart{
-background-color: var(--v);
-color:  var(--colore-testo);
 
 
+article.paroleA p.parolePtesto span.dragging{
+    opacity: 0.5;
+    background-color: var(--v) ;
+    color:  var(--colore-testo);
 }
 
 
