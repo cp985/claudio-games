@@ -8,10 +8,17 @@ this.autore=autore;
 }
 };
 
+
 const wordsDb={
+  frase4: new Words(
+  4,
+  "Ciao sono io.",
+"Blade Runner",
+"Ridley Scott"
+),
 frase1: new Words(
   1,
-  "Nel mezzo del cammin di nostra vita, mi ritrovai per una selva oscura, ch'era piu' oscura di tutte, perche' la diritta via era smarrita da un fiume di seda, e la selva era piena di rossi polveri di latte e di nocciole",
+"Nel mezzo del cammin di nostra vita, mi ritrovai per una selva oscura, ch'era piu' oscura di tutte, perche' la diritta via era smarrita da un fiume di seda, e la selva era piena di rossi polveri di latte e di nocciole",
 "Divina Commedia",
 "Dante Alighieri"
 ),
@@ -28,11 +35,11 @@ frase3: new Words(
   "Ho visto cose che voi umani non potreste immaginare: navi da combattimento in fiamme al largo dei bastioni di Orione, e ho visto i raggi B balenare nel buio vicino alle porte di Tannhäuser. E tutti quei momenti andranno perduti nel tempo, come lacrime nella pioggia. È tempo di morire.",
 "Blade Runner",
 "Ridley Scott"
-)
+),
+
 }
 
-
-
+let countFrase=1;
 
 
 function shuffleArr(array){  
@@ -43,6 +50,7 @@ function shuffleArr(array){
   }
 return arr;
 }
+
 
 export function initOrdinaLeParole() {
   
@@ -61,8 +69,8 @@ export function initOrdinaLeParole() {
   }
 
   // 2. Prendiamo la frase, la dividiamo e la mescoliamo
-  const frase = wordsDb.frase1.testo;
-  const parole = frase.split(" ");
+  const fraseOriginale = `${wordsDb[Object.keys(wordsDb)[countFrase-1]].testo}`; // Rinomino per chiarezza
+  const parole = fraseOriginale.split(" ");
   const paroleMescolate = shuffleArr(parole);
 
   // 3. Creiamo gli elementi <span> e li aggiungiamo al DOM
@@ -75,80 +83,96 @@ export function initOrdinaLeParole() {
   });
 
   // 4. Aggiungiamo i listener UNA SOLA VOLTA al container genitore (Event Delegation)
-  // Questo è molto più efficiente che aggiungere un listener a ogni singola parola!
-  
-  let draggedElement = null; // Teniamo traccia dell'elemento trascinato
+  let draggedElement = null;
 
   pTesto.addEventListener("dragstart", (e) => {
-    // L'evento si attiva solo se stiamo trascinando una parola
     if (e.target.matches("span.testo")) {
-      draggedElement = e.target; // Salviamo l'elemento che stiamo trascinando
+      draggedElement = e.target;
       e.dataTransfer.effectAllowed = "move";
-      // Aggiungiamo un feedback visivo leggero
       setTimeout(() => e.target.classList.add("dragging"), 0);
     }
   });
 
   pTesto.addEventListener("dragend", (e) => {
-    // Pulizia: rimuoviamo la classe di feedback visivo
     if (draggedElement) {
         draggedElement.classList.remove("dragging");
         draggedElement = null;
     }
   });
 
-  // Permettiamo agli elementi di essere "rilasciati" sopra il container
   pTesto.addEventListener("dragover", (e) => {
-    e.preventDefault(); // Fondamentale per far funzionare l'evento 'drop'
+    e.preventDefault();
     const target = e.target;
     if (target.matches("span.testo") && target !== draggedElement) {
-      target.classList.add("dragging");}
+      // Potresti voler aggiungere qui una classe per l'hover, se vuoi
+    target.classList.add("dragging")
+    }
   });
   
   pTesto.addEventListener('dragleave', (e) => {
-    e.preventDefault();
-    const target = e.target;
-    target.classList.remove("dragging");
-  })
+    // Non strettamente necessario, ma pulisce l'effetto hover se lo implementi
+      const target = e.target;
+    target.classList.remove("dragging")
+
+  });
+  
   pTesto.addEventListener('drop', (e) => {
     e.preventDefault();
     
     const dropTarget = e.target;
-dropTarget.classList.remove("dragging");
-    // Assicurati che stiamo rilasciando su un altro span valido
-    if (dropTarget.matches('span.testo') && dropTarget !== draggedElement) {
+    const target= e.target;
+        target.classList.remove("dragging")
+
+    if (dropTarget.matches('span.testo') && draggedElement && dropTarget !== draggedElement) {
       
-      // Salviamo le posizioni di riferimento PRIMA di spostare qualsiasi cosa
-      const draggedNextSibling = draggedElement.nextSibling;
-      const dropTargetNextSibling = dropTarget.nextSibling;
+      const draggedIndex = [...pTesto.children].indexOf(draggedElement);
+      const targetIndex = [...pTesto.children].indexOf(dropTarget);
 
-      // 1. Sposta l'elemento trascinato al posto del target
-      //    Se il target è l'ultimo, nextSibling sarà null, e insertBefore si comporterà come appendChild
-      pTesto.insertBefore(draggedElement, dropTargetNextSibling);
-
-      // 2. Sposta il target al posto originale dell'elemento trascinato
-      pTesto.insertBefore(dropTarget, draggedNextSibling);
+      // Logica di spostamento più semplice e robusta
+      if (draggedIndex < targetIndex) {
+        pTesto.insertBefore(draggedElement, dropTarget.nextSibling);
+      } else {
+        pTesto.insertBefore(draggedElement, dropTarget);
+      }
     }
   
-  
-  const fraseX=  pTesto.querySelectorAll("span.testo");
-  const arrX=[];
-  console.log(fraseX.forEach(parola => {
-  arrX.push(parola.textContent);
-  
-}))
-if(!arrX.length===0){
-  console.log("array risposta vuoto");
-  }else{
+    // --- ECCO LA CORREZIONE ---
+    // Dopo ogni mossa, controlliamo se la frase è corretta.
 
-  arrX.join(" ") === frase 
-      console.log("Hai vinto!");
-  }
+    // 1. Raccogliamo tutte le parole nell'ordine attuale in modo pulito
+    const paroleAttuali = Array.from(pTesto.querySelectorAll("span.testo"));
+    const fraseRicostruita = paroleAttuali.map(span => span.textContent).join(" ");
+
+    // 2. Confrontiamo la frase ricostruita con quella originale
+    //    e mostriamo il log SOLO SE sono uguali.
+    if (fraseRicostruita === fraseOriginale) {
+      console.log("VITTORIA! Hai ricostruito la frase correttamente.");
+      const main = document.querySelector("main.paroleM");
+      const article = document.querySelector('article.paroleA');
+      const divWinner = document.createElement('div');
+      divWinner.classList.add('divWinner','view');
+
+      divWinner.innerHTML = `
+      <h2 class="h2Winner">HAI VINTO!</h2>
+      <p class="pWinner">Hai ricostruito la frase correttamente.Premi il pulsante per la prossima frase..</p>
+      <button class="buttonNext" id="buttonNext">Prossima frase</button>
+      `;
+      
+      article.appendChild(divWinner);
+      const buttnoWinner = document.getElementById('buttonNext');
+      buttnoWinner.addEventListener('click',()=>{
+
+if(countFrase > Object.keys(wordsDb).length){countFrase=1;}
+  countFrase++;
+divWinner.classList.remove('view');
 
 
-
+      })
+            
+      // Bonus: una volta vinto, puoi disabilitare il drag and drop
+      paroleAttuali.forEach(span => span.draggable = false);
+      pTesto.classList.add('completed'); // Aggiungi una classe per lo stile
+    }
   });
 }
-
-
 
