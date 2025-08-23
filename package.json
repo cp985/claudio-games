@@ -8,7 +8,10 @@
     "build": "cross-env BASE_URL=/claudio-games webpack --config webpack.prod.js"
   },
   "browserslist": [
-   "> 0.5%", "last 2 versions", "Firefox ESR", "not dead"
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead"
   ],
   "author": "ClaudioP",
   "license": "ISC",
@@ -37,6 +40,7 @@
     "core-js": "^3.36.0",
     "gsap": "^3.13.0",
     "page": "^1.11.6",
+    "sortablejs": "^1.15.6",
     "swiper": "^11.2.10",
     "webpack-cli": "^6.0.1"
   }
