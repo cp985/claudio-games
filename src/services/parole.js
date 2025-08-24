@@ -50,7 +50,7 @@ const article = document.querySelector("article.paroleA");
     sortableInstance = new Sortable(pTesto, {
 delay:50,
 delayOnTouchOnly: true,
-animation:50,
+animation:150,
 swapThreshold: 0.5,
 invertSwap: false,
 forceFallback: true,
