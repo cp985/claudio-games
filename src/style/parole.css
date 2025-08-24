@@ -211,7 +211,8 @@ span.testo.sortable-choose{
     /* transition: all 0.2s ease-in-out; */
 }
 span.testo.sortable-fallback {
-    opacity: 1;
+     opacity: 0.8;
+    transform: translateZ(0);
     background-color: var(--v);
 }
 
