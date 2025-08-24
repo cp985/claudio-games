@@ -126,7 +126,20 @@ const pageList = {
     </div>
 `,
   ["trova-il-codice"]: `
-<div><h1>TROVA IL CODICE SEGRETO </h1></div>
+<div class="trova-il-codice">
+<header>
+    <h1 class="codiceH1">Trova il codice</h1>
+</header>
+<main>
+<section class="codiceS">
+<div class="codiceCont">
+<ul class="codiceL">
+</ul>
+</div>
+<footer><div class="codiceTime"></div></footer>
+</section>
+</main>
+</div>
 `,
   ["ordina-le-parole"]: `
 <div class="ordina-le-parole">

@@ -1,9 +1,13 @@
 import { page } from "./page-route.js";
 import trovailcodice from "../../assets/img/trovailcodice.webp";
 import sassocartaforbice from "../../assets/img/sassocartaforbice.webp";
-import ordinaleparole from "../../assets/img/ordina-le-parole.webp";
 import preViewScf1 from "../../assets/img/scf1.webp";
 import preViewScf2 from "../../assets/img/scf2.webp";
+import ordinaleparole from "../../assets/img/ordina-le-parole.webp";
+import words1 from "../../assets/img/words1.webp";
+import words2 from "../../assets/img/words2.webp";
+
+
 //Game Dictionary
 
 class Game {
@@ -53,12 +57,12 @@ const gamesDatab = {
   ordinaleparole: new Game(
     "Ordina le Parole",
     "Un gioco di parole e conoscenza...",
-    "Il giocatore dovrà ordinare una serie di parole per completare una frase tratta da film,libri e citazioni personaggi famosi.Scambia la posizione di ogni singola parola per arrivare alla soluzione..",
+    "Il giocatore dovrà ordinare una serie di parole per completare una frase tratta da film,libri e citazioni personaggi famosi.Trova la posizione di ogni singola parola per arrivare alla soluzione..",
     ordinaleparole,
     "1",
     "ordina-le-parole",
- "#",
- "#"
+ words1,
+ words2
   ),
 };
 

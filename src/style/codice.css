@@ -1,0 +1,92 @@
+html {
+    --c: #009bbe;
+    --v: #ff01ff;
+    --v33: hsla(300, 100%, 50%, 0.206);
+    --colore-sfondo: #000000;
+    --colore-sfondo33: rgba(0, 0, 0, 0.503);
+    --colore-accento: #00CFFF;
+    --colore-secondario: #ddff00;
+    --colore-testo: #EAEAEA;
+    --colore-blur33: rgba(0, 77, 94, 0.733);
+    --colore-blur44: rgba(0, 77, 94, 0.495);
+}
+
+
+div.trova-il-codice{
+    border: 1px solid var(--colore-secondario);
+    width: 100%;
+max-height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-direction: column;
+    background-image: url("../../assets/img/bomb1Bck.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+     aspect-ratio: 16 / 7;
+}
+
+
+/* #region header */
+h1.codiceH1{
+   background-color: var(--colore-blur33);
+    font-family: 'Bitcount', sans-serif;
+    color: var(--colore-secondario);
+    font-size: clamp(0.8rem, 2.9vw + 0.8rem, 5rem);
+    text-align: center;
+    margin: 0.5rem auto 0.5rem auto;
+    max-width: max-content;
+    padding: 0.1rem 0.5rem;
+    border-radius: 10px;}
+
+/* #endregion header */
+
+
+/* #region main */
+section.codiceS{
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+div.codiceCont{
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+}
+
+ul.codiceL{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+li.codiceLi{
+    border: 1px solid var(--colore-secondario);
+width: 5%;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+/* #endregion header */
+
+
+/* #region footer */
+
+
+/* #endregion header */
+
