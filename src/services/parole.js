@@ -48,9 +48,9 @@ export function initWordsGame() {
 const article = document.querySelector("article.paroleA");
 
     sortableInstance = new Sortable(pTesto, {
-delay:100,
+delay:50,
 delayOnTouchOnly: true,
-animation:300,
+animation:50,
 swapThreshold: 0.5,
 invertSwap: false,
 forceFallback: true,

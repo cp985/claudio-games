@@ -128,8 +128,12 @@ span.testo {
 }
 
 span.testo:hover {
+
     background-color: var(--v);
     color: var(--colore-sfondo);
+  
+    /* transform: scale(1.1) rotate(2deg); */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2)
     /* transition: all 0.2s ease-in-out; */
 }
 
@@ -201,17 +205,19 @@ span.testo.sortable-ghost {
 
 span.testo.sortable-drag {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    opacity: 0.5 ;
+    
   
 }
 
 span.testo.sortable-choose{
+    
         /* transform: scale(1.1) rotate(2deg); */
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     /* transition: all 0.2s ease-in-out; */
 }
 span.testo.sortable-fallback {
-     opacity: 0.8;
+    
+     opacity: 0.5;
     transform: translateZ(0);
     background-color: var(--v);
 }
