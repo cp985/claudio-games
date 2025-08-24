@@ -117,9 +117,9 @@ span.testo {
     border-radius: 3px;
     padding: 0.01rem;
     letter-spacing: clamp(0.01rem, 1vw + 0.05rem, 0.1rem);
-    cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
+     cursor: grab;
     border: 1px solid var(--colore-blur33);
 
 }
@@ -189,10 +189,7 @@ span.paroleSpanCit {
 
 /* #region drag/drop */
 
-span.testo.sortable-ghost{
-    opacity: 1;
-    background-color: var(--v);
-}
+
 
 span.testo.sortable-ghost {
 
@@ -210,7 +207,10 @@ span.testo.sortable-choose{
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     transition: all 0.2s ease-in-out;
 }
-
+span.testo.sortable-fallback {
+    opacity: 1;
+    background-color: var(--v);
+}
 
 /* #endregion drag/drop */
 

@@ -50,15 +50,16 @@ const article = document.querySelector("article.paroleA");
     sortableInstance = new Sortable(pTesto, {
 delay:100,
 animation:400,
+swapThreshold: 0.5,
+invertSwap: false,
+forceFallback: true,
 easing: "ease-in-out",
 draggable: ".testo",
 ghostClass: "sortable-ghost",
 dragClass: "sortable-drag",
 chosenClass: "sortable-choose",
 fallbackClass: "sortable-fallback",
-swapThreshold: 0.5,
-invertSwap: false,
-forceFallback: false,
+
 
         onEnd: function(evt) {
             const paroleAttuali = Array.from(pTesto.querySelectorAll("span.testo"));
