@@ -189,7 +189,10 @@ span.paroleSpanCit {
 
 /* #region drag/drop */
 
-
+span.testo.sortable-ghost{
+    opacity: 1;
+    background-color: var(--v);
+}
 
 span.testo.sortable-ghost {
 

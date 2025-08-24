@@ -87,7 +87,7 @@ export function previewGameHandlerPage() {
         label.classList.add("label-selected");
       }
       if (input && input.id) {
-        console.log(input + " " + input.id);
+        
         const id = input.id;
         const objGame = id.replaceAll("-", "");
         const article = document.querySelector(`article.game-article`);

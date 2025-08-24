@@ -7,9 +7,13 @@
   z-index: -1;
   pointer-events: none;
   overflow: hidden; /* Importante: nasconde le parti del background che escono dal contenitore */
+overscroll-behavior: none;
+-webkit-overflow-scrolling:none;
 }
 
 .background {
+  overscroll-behavior: none;
+-webkit-overflow-scrolling:none;
   /* Nuove proprietà per un background ruotato e sempre coprente */
   position: absolute; /* Rendi l'elemento posizionabile all'interno di .wrap-background */
   top: 50%;
