@@ -46,14 +46,14 @@ function shuffleArr(array) {
 export function initWordsGame() {
   const pTesto = document.querySelector("p.parolePtesto");
 const article = document.querySelector("article.paroleA");
-
-    sortableInstance = new Sortable(pTesto, {
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+sortableInstance = new Sortable(pTesto, {
 delay:50,
 delayOnTouchOnly: true,
 animation:150,
 swapThreshold: 0.5,
 invertSwap: false,
-forceFallback: true,
+forceFallback: isTouchDevice,
 easing: "ease-in-out",
 draggable: ".testo",
 ghostClass: "sortable-ghost",

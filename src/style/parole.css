@@ -43,7 +43,6 @@ div.ordina-le-parole {
 /* #endregion body html */
 
 
-
 /* #region header parole */
 h1.paroleH1 {
     background-color: var(--colore-blur33);
@@ -59,8 +58,6 @@ h1.paroleH1 {
 
 
 /* #endregion header parole */
-
-
 
 
 /* #region main parole */
@@ -207,24 +204,24 @@ span.testo.sortable-ghost {
 
 span.testo.sortable-drag {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    
+    opacity: 0.8;
+    background-color: var(--v)
   
 }
 
 span.testo.sortable-choose{
-    
-        /* transform: scale(1.1) rotate(2deg); */
+  
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    /* transition: all 0.2s ease-in-out; */
 }
 span.testo.sortable-fallback {
     
-     opacity: 0.5;
+     opacity: 0.8;
     transform: translateZ(0);
     background-color: var(--v);
 }
 
 /* #endregion drag/drop */
+
 
 /* #region win/next */
 
