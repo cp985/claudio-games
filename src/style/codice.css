@@ -100,8 +100,9 @@ ul.codiceL{
 
 li.codiceLi{
     border: 1px solid var(--colore-secondario);
-    width: 10%;
-    height: 2rem;
+    border-radius: 5px;
+    width: 15%;
+    height: 3rem;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -122,8 +123,8 @@ li.codiceLi:nth-of-type(4){
 li.codiceLi:nth-of-type(5){
    align-self:flex-end ;
 }
-div.switch{
 
+div.switch{
     width: 100%;
     height: 100%;
     display: flex;
@@ -143,14 +144,49 @@ position: relative;
 
 
  div.switch div.form label{
+    text-align: center;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 1rem;
     position: absolute;
-    
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
+    font-family:'Bitcount Single', sans-serif;
+    font-size: 2rem;
+    border: 1px solid var(--colore-accento);
+    border-radius: 99999px;
+    padding: 0.3rem;
+    color: var(--v);
+
 
 }
+
+div.form label:nth-of-type(1){
+    opacity: 0;
+height: 0;
+}
+div.form label:nth-of-type(2){
+/* opacity: 0;
+height: 0; */
+}
+div.form label:nth-of-type(3){
+opacity: 0;
+height: 0;
+}
+div.form label:nth-of-type(4){
+opacity: 0;
+height: 0;
+}
+div.form label:nth-of-type(5){
+opacity: 0;
+height: 0;
+}
+
+div.form label:nth-of-type(6){
+opacity: 0;
+height: 0;
+}
+
 div.switch form label input{
 display: none;
 }
@@ -163,7 +199,7 @@ display: none;
 
 section.codiceS footer{
 
-width: 30%;
+width: 35%;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -180,9 +216,10 @@ justify-content: center;
 align-items: center;
 width: 80%;
 border-radius: 5px;
-font-size: larger;
+font-size: 4rem;
 font-weight: bolder;
 font-family: 'Segment', sans-serif;
+color: var(--v);
 
 }
 

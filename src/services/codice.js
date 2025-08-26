@@ -62,6 +62,9 @@ li.innerHTML = `
 
 <div class="switch">
 <div class="form  form${i}">
+<label for="placeholder${i}">00:00
+<input type="radio" name="codice${i}" id="placeholder${i}" value="${dictionaryCode[i].code[0]}">
+</label>
 <label for="codice${i}-0">${dictionaryCode[i].code[0]}
 <input type="radio" name="codice${i}" id="codice${i}-0" value="${dictionaryCode[i].code[0]}">
 </label>
