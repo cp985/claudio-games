@@ -134,8 +134,11 @@ const pageList = {
 <main>
 <section class="codiceS">
 <div class="codiceCont">
+ <div class="codice-wrapper">
 <ul class="codiceL">
 </ul>
+<svg id="svg-connectors" class="connector-canvas"></svg>
+</div>
 </div>
 <footer><div class="codiceTime">00:59</div></footer>
 </section>
