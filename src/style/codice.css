@@ -19,10 +19,10 @@ html {
 }
 
 
-div.trova-il-codice{
+div.trova-il-codice {
     border: 1px solid var(--colore-secondario);
     width: 100%;
-max-height: 100%;
+    max-height: 100%;
     margin: auto;
     display: flex;
     justify-content: flex-start;
@@ -32,15 +32,15 @@ max-height: 100%;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-     aspect-ratio: 16 / 7;
+    aspect-ratio: 16 / 7;
 }
 
 /* #endregion body/html */
 
 
 /* #region header */
-h1.codiceH1{
-   background-color: var(--colore-blur33);
+h1.codiceH1 {
+    background-color: var(--colore-blur33);
     font-family: 'Bitcount', sans-serif;
     color: var(--colore-secondario);
     font-size: clamp(0.8rem, 2.9vw + 0.8rem, 5rem);
@@ -48,14 +48,15 @@ h1.codiceH1{
     margin: 0.5rem auto 0.5rem auto;
     max-width: max-content;
     padding: 0.1rem 0.5rem;
-    border-radius: 10px;}
+    border-radius: 10px;
+}
 
 /* #endregion header */
 
 
 /* #region main */
 
-div.trova-il-codice main{
+div.trova-il-codice main {
     width: 100%;
     height: 100%;
     display: flex;
@@ -65,7 +66,7 @@ div.trova-il-codice main{
 }
 
 
-section.codiceS{
+section.codiceS {
     width: 95%;
     height: 100%;
     display: flex;
@@ -75,20 +76,21 @@ section.codiceS{
 
 }
 
-div.codiceCont{
-    
-width: 100%;
-height: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
+div.codiceCont {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 div.codice-wrapper {
     position: relative;
     width: 100%;
     height: 100%;
-    display: flex;       /* Mantiene il flexbox per l'UL al suo interno */
+    display: flex;
+    /* Mantiene il flexbox per l'UL al suo interno */
     justify-content: center;
     align-items: center;
 }
@@ -99,19 +101,35 @@ svg.connector-canvas {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Metti l'SVG dietro l'UL */
-    pointer-events: none; /* Rende l'SVG "trasparente" ai click */
+    z-index: 1;
+    /* Metti l'SVG dietro l'UL */
+    pointer-events: none;
+    /* Rende l'SVG "trasparente" ai click */
 }
 
-.connector-line {
-    stroke: var(--v, #AAA); /* Colore della linea */
-    stroke-width: 5; /* Spessore della linea */
-    stroke-dasharray: 5 5; /* Opzionale: per creare una linea tratteggiata */
+.connectorLi-line {
+    stroke: var(--v, #AAA);
+    /* Colore della linea */
+    stroke-width: 5;
+    /* Spessore della linea */
+    stroke-dasharray: 5 5;
+    /* Opzionale: per creare una linea tratteggiata */
+}
+
+.connectorFooter-line {
+    stroke: var(--colore-accento, #AAA);
+    /* Colore della linea */
+    stroke-width: 5;
+    /* Spessore della linea */
+    stroke-dasharray: 5 5;
+    /* Opzionale: per creare una linea tratteggiata */
+
+
 }
 
 
-ul.codiceL{
-    position: relative;     
+ul.codiceL {
+    position: relative;
     z-index: 2;
     width: 100%;
     height: 50%;
@@ -123,33 +141,37 @@ ul.codiceL{
 }
 
 
-li.codiceLi{
+li.codiceLi {
     border: 1px solid var(--colore-secondario);
     border-radius: 5px;
     width: 15%;
     height: 3rem;
-display: flex;
-justify-content: center;
-align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-li.codiceLi:nth-of-type(1){
-  align-self:flex-start ;
-}
-li.codiceLi:nth-of-type(2){
-align-self:flex-end ;
-}
-li.codiceLi:nth-of-type(3){
- align-self:center ;
-}
-li.codiceLi:nth-of-type(4){
- align-self: flex-start;
-}
-li.codiceLi:nth-of-type(5){
-   align-self:flex-end ;
+li.codiceLi:nth-of-type(1) {
+    align-self: flex-end;
 }
 
-div.switch{
+li.codiceLi:nth-of-type(2) {
+    align-self: flex-start;
+}
+
+li.codiceLi:nth-of-type(3) {
+    align-self: center;
+}
+
+li.codiceLi:nth-of-type(4) {
+    align-self: flex-start;
+}
+
+li.codiceLi:nth-of-type(5) {
+    align-self: flex-end;
+}
+
+div.switch {
     width: 100%;
     height: 100%;
     display: flex;
@@ -157,8 +179,8 @@ div.switch{
     align-items: center;
 }
 
-li.codiceLi div.form{
-position: relative;
+li.codiceLi div.form {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
@@ -168,7 +190,7 @@ position: relative;
 }
 
 
- div.switch div.form label{
+div.switch div.form label {
     text-align: center;
     cursor: pointer;
     font-size: 1rem;
@@ -176,7 +198,7 @@ position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family:'Bitcount Single', sans-serif;
+    font-family: 'Bitcount Single', sans-serif;
     font-size: 2rem;
     border: 1px solid var(--colore-accento);
     border-radius: 99999px;
@@ -186,34 +208,38 @@ position: relative;
 
 }
 
-div.form label:nth-of-type(1){
+div.form label:nth-of-type(1) {
+    /* opacity: 0;
+    height: 0; */
+}
+
+div.form label:nth-of-type(2) {
     opacity: 0;
 height: 0;
 }
-div.form label:nth-of-type(2){
-/* opacity: 0;
-height: 0; */
-}
-div.form label:nth-of-type(3){
-opacity: 0;
-height: 0;
-}
-div.form label:nth-of-type(4){
-opacity: 0;
-height: 0;
-}
-div.form label:nth-of-type(5){
-opacity: 0;
-height: 0;
+
+div.form label:nth-of-type(3) {
+    opacity: 0;
+    height: 0;
 }
 
-div.form label:nth-of-type(6){
-opacity: 0;
-height: 0;
+div.form label:nth-of-type(4) {
+    opacity: 0;
+    height: 0;
 }
 
-div.switch form label input{
-display: none;
+div.form label:nth-of-type(5) {
+    opacity: 0;
+    height: 0;
+}
+
+div.form label:nth-of-type(6) {
+    opacity: 0;
+    height: 0;
+}
+
+div.switch form label input {
+    display: none;
 }
 
 
@@ -222,29 +248,29 @@ display: none;
 
 /* #region footer */
 
-section.codiceS footer{
+section.codiceS footer {
 
-width: 35%;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-border: 1px solid var(--v);
-border-radius: 9999999px;
-padding: 0.3rem;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid var(--v);
+    border-radius: 9999999px;
+    padding: 0.3rem;
 }
 
-div.codiceTime{
+div.codiceTime {
     border: 1px solid var(--colore-secondario);
-display: flex;
-justify-content: center;
-align-items: center;
-width: 80%;
-border-radius: 5px;
-font-size: 4rem;
-font-weight: bolder;
-font-family: 'Segment', sans-serif;
-color: var(--v);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    border-radius: 5px;
+    font-size: 4rem;
+    font-weight: bolder;
+    font-family: 'Segment', sans-serif;
+    color: var(--v);
 
 }
 
@@ -253,4 +279,3 @@ color: var(--v);
 
 
 /* #endregion header */
-

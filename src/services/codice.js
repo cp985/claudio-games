@@ -62,7 +62,7 @@ li.innerHTML = `
 
 <div class="switch">
 <div class="form  form${i}">
-<label for="placeholder${i}">00:00
+<label for="placeholder${i}">&#9746;&#9746;&#9746;&#9746;
 <input type="radio" name="codice${i}" id="placeholder${i}" value="${dictionaryCode[i].code[0]}">
 </label>
 <label for="codice${i}-0">${dictionaryCode[i].code[0]}
@@ -88,63 +88,74 @@ ul.appendChild(li);
 
 }
 
-// Esegui questa funzione quando la pagina è completamente caricata,
-// così siamo sicuri che tutti gli elementi abbiano le loro dimensioni finali.
-window.addEventListener('load',()=>{
-setTimeout(drawConnectingLines, 500);
-});
-// Opzionale: ridisegna le linee se la finestra viene ridimensionata
-window.addEventListener('resize', drawConnectingLines);
+// --- INIZIO SCRIPT PER DISEGNARE LE LINEE (VERSIONE CON RESIZEOBSERVER) ---
 
-function drawConnectingLines() {
-    // 1. Seleziona gli elementi necessari
-    const switches = document.querySelectorAll('li.codiceLi');
-    const svg = document.getElementById('svg-connectors');
-    const container = document.querySelector('.codice-wrapper');
+function drawAllLines() {
+  const svg = document.getElementById('svg-connectors');
+  const container = document.querySelector('.codice-wrapper');
+  const footer = document.querySelector('footer');
+  const switches = document.querySelectorAll('li.codiceLi');
 
-    // Pulisci l'SVG da linee precedenti (utile per il resize)
-    svg.innerHTML = '';
+  if (!svg || !container || switches.length < 2 || !footer) return;
 
-    if (switches.length < 2) {
-        return; // Non c'è niente da collegare
-    }
+  svg.innerHTML = ''; // Pulisce UNA volta sola
+  const containerRect = container.getBoundingClientRect();
+  const svgRect = svg.getBoundingClientRect();
+  const footerRect = footer.getBoundingClientRect();
 
-    // Ottieni le coordinate del contenitore per calcolare le posizioni relative
-    const containerRect = container.getBoundingClientRect();
+  // --- Disegna linee tra i li ---
+  for (let i = 0; i < switches.length - 1; i++) {
+    const startRect = switches[i].getBoundingClientRect();
+    const endRect = switches[i + 1].getBoundingClientRect();
 
-    // 2. Itera su tutti gli switch tranne l'ultimo
-    for (let i = 0; i < switches.length - 1; i++) {
-        const startElement = switches[i];
-        const endElement = switches[i + 1];
+    if (startRect.width === 0 || endRect.width === 0) continue;
 
-        // Ottieni le dimensioni e posizioni degli elementi
-        const startRect = startElement.getBoundingClientRect();
-        const endRect = endElement.getBoundingClientRect();
+    const startX = startRect.right - containerRect.left;
+    const startY = startRect.top + (startRect.height / 2) - containerRect.top;
+    const endX = endRect.left - containerRect.left;
+    const endY = endRect.top + (endRect.height / 2) - containerRect.top;
 
-        // 3. Calcola i punti di inizio e fine della linea
-        // Le coordinate sono relative all'angolo in alto a sinistra del `container`
-        
-        // Punto di partenza: centro del bordo destro del primo elemento
-        const startX = startRect.right - containerRect.left;
-        const startY = startRect.top + (startRect.height / 2) - containerRect.top;
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', startX);
+    line.setAttribute('y1', startY);
+    line.setAttribute('x2', endX);
+    line.setAttribute('y2', endY);
+    line.setAttribute('class', 'connectorLi-line');
+    svg.appendChild(line);
+  }
 
-        // Punto di arrivo: centro del bordo sinistro del secondo elemento
-        const endX = endRect.left - containerRect.left;
-        const endY = endRect.top + (endRect.height / 2) - containerRect.top;
+  // --- Disegna linee dal footer a ciascun li ---
+  const xFooter = footerRect.left + footerRect.width / 2 - svgRect.left;
+  const yFooter = footerRect.top - svgRect.top;
 
-        // 4. Crea un elemento <line> SVG
-        // Nota: per SVG si usa `createElementNS`
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  switches.forEach(li => {
+    const liRect = li.getBoundingClientRect();
+    const xLi = liRect.left + liRect.width / 2 - svgRect.left;
+    const yLi = liRect.bottom - svgRect.top;
 
-        // Imposta gli attributi della linea
-        line.setAttribute('x1', startX);
-        line.setAttribute('y1', startY);
-        line.setAttribute('x2', endX);
-        line.setAttribute('y2', endY);
-        line.setAttribute('class', 'connector-line'); // Applica lo stile CSS
-
-        // 5. Aggiungi la linea all'SVG
-        svg.appendChild(line);
-    }
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', xFooter);
+    line.setAttribute('y1', yFooter);
+    line.setAttribute('x2', xLi);
+    line.setAttribute('y2', yLi);
+    line.setAttribute('class', 'connectorFooter-line');
+    svg.appendChild(line);
+  });
 }
+// Seleziona il contenitore che racchiude UL + SVG
+const containerToObserve = document.querySelector('.codice-wrapper');
+
+if (containerToObserve) {
+  const resizeObserver = new ResizeObserver(() => {
+    // piccolo ritardo per dare tempo a layout/transizioni
+    setTimeout(drawAllLines, 50);
+  });
+
+  resizeObserver.observe(containerToObserve);
+} else {
+  console.error("'.codice-wrapper' non trovato");
+}
+
+
+
 }
