@@ -137,7 +137,7 @@ const pageList = {
 <ul class="codiceL">
 </ul>
 </div>
-<footer><div class="codiceTime"></div></footer>
+<footer><div class="codiceTime">00:59</div></footer>
 </section>
 </main>
 </div>

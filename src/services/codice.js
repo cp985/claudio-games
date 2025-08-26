@@ -59,9 +59,9 @@ const ul = container.querySelector("ul.codiceL");
 for(let i =0; i<dictionaryCode.length; i++){
 const li =document.createElement("li");
 li.innerHTML = `
-<div class="codiceId">${dictionaryCode[i].id}</div>
+
 <div class="switch">
-<form>
+<div class="form  form${i}">
 <label for="codice${i}-0">${dictionaryCode[i].code[0]}
 <input type="radio" name="codice${i}" id="codice${i}-0" value="${dictionaryCode[i].code[0]}">
 </label>
@@ -77,7 +77,7 @@ li.innerHTML = `
 <label for="codice${i}-4">${dictionaryCode[i].code[4]}
 <input type="radio" name="codice${i}" id="codice${i}-4" value="${dictionaryCode[i].code[4]}">
 </label>
-</form>
+</div>
 </div>
 `
 li.classList.add("codiceLi");

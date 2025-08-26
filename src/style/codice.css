@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Segment';
+    src: url(../../assets/fonts/segment/Segment7-4Gml.otf);
+}
+
+/* #region body/html */
+
 html {
     --c: #009bbe;
     --v: #ff01ff;
@@ -28,6 +35,8 @@ max-height: 100%;
      aspect-ratio: 16 / 7;
 }
 
+/* #endregion body/html */
+
 
 /* #region header */
 h1.codiceH1{
@@ -45,8 +54,20 @@ h1.codiceH1{
 
 
 /* #region main */
+
+div.trova-il-codice main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
 section.codiceS{
     width: 95%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,7 +76,9 @@ section.codiceS{
 }
 
 div.codiceCont{
+    
 width: 100%;
+height: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -66,26 +89,105 @@ align-items: center;
 ul.codiceL{
 
     width: 100%;
+    height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     gap: 3rem;
 }
 
+
 li.codiceLi{
     border: 1px solid var(--colore-secondario);
-width: 5%;
+    width: 10%;
+    height: 2rem;
 display: flex;
 justify-content: center;
 align-items: center;
-
 }
 
-/* #endregion header */
+li.codiceLi:nth-of-type(1){
+  align-self:flex-start ;
+}
+li.codiceLi:nth-of-type(2){
+align-self:flex-end ;
+}
+li.codiceLi:nth-of-type(3){
+ align-self:center ;
+}
+li.codiceLi:nth-of-type(4){
+ align-self: flex-start;
+}
+li.codiceLi:nth-of-type(5){
+   align-self:flex-end ;
+}
+div.switch{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li.codiceLi div.form{
+position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+ div.switch div.form label{
+    cursor: pointer;
+    font-size: 0.8rem;
+    position: absolute;
+    
+    top: 50%;
+    left: 50%;
+
+}
+div.switch form label input{
+display: none;
+}
+
+
+/* #endregion main */
 
 
 /* #region footer */
+
+section.codiceS footer{
+
+width: 30%;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+border: 1px solid var(--v);
+border-radius: 9999999px;
+padding: 0.3rem;
+}
+
+div.codiceTime{
+    border: 1px solid var(--colore-secondario);
+display: flex;
+justify-content: center;
+align-items: center;
+width: 80%;
+border-radius: 5px;
+font-size: larger;
+font-weight: bolder;
+font-family: 'Segment', sans-serif;
+
+}
+
+
+
 
 
 /* #endregion header */

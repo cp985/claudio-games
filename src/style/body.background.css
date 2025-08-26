@@ -9,9 +9,11 @@
   overflow: hidden; /* Importante: nasconde le parti del background che escono dal contenitore */
 overscroll-behavior: none;
 -webkit-overflow-scrolling:none;
+touch-action: none;
 }
 
 .background {
+  touch-action: none;
   overscroll-behavior: none;
 -webkit-overflow-scrolling:none;
   /* Nuove proprietà per un background ruotato e sempre coprente */
