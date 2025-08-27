@@ -16,21 +16,16 @@ touch-action: none;
   touch-action: none;
   overscroll-behavior: none;
 -webkit-overflow-scrolling:none;
-  /* Nuove proprietà per un background ruotato e sempre coprente */
-  position: absolute; /* Rendi l'elemento posizionabile all'interno di .wrap-background */
-  top: 50%;
+  position: absolute; 
+    top: 50%;
   left: 50%;
-  /* Assicurati che sia sempre più grande della diagonale del viewport */
-  /* 142vmax è circa 100 * sqrt(2), il minimo per coprire. Usiamo 150-200vmax per sicurezza. */
-  width: 200vmax; /* O 200vmax se vuoi essere super sicuro su aspect ratio estremi */
-  height: 200vmax; /* O 200vmax */
-
-  /* Centra l'elemento e applica la rotazione. L'ordine è importante. */
+  width: 200vmax; 
+  height: 200vmax; 
   transform: translate(-50%, -50%) rotate(-45deg);
-  transform-origin: 50% 50%; /* Torna al centro per una rotazione prevedibile */
+  transform-origin: 50% 50%;
 
-  background: repeat; /* Assicurati che sia corretto: background-repeat: repeat; */
-  z-index: 0; /* Questo è relativo al wrap-background, non al viewport */
+  background: repeat;
+  z-index: 0; 
 
   --colore-sfondo: #000000;
   --c: #009bbe;

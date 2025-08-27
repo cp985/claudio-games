@@ -48,6 +48,9 @@ body {
 }
 
 /* Regole per il cursore  */
+
+div.switch div.form,
+label.codiceSwitch:hover,
 span.testo:hover,
 a:hover,
 li.game:hover,
@@ -66,6 +69,9 @@ img#choice-forbici:hover {
     cursor: var(--cursor2);
 }
 
+
+div.switch div.form,
+label.codiceSwitch,
 span.testo,
 a,
 button,

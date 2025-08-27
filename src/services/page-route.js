@@ -25,8 +25,8 @@ import interrogativo from "../../assets/img/interrogativo.webp";
 import { scf } from "./scf.js";
 //parole
 import { initWordsGame } from "./parole.js";
- //code
- import { createCode } from "./codice.js";
+//code
+import { createCode } from "./codice.js";
 
 export { page };
 
@@ -316,7 +316,6 @@ export function startRouter() {
   page("/news", () => showLoaderAndRender("news", () => newsApiCall()));
   page("/games", () =>
     showLoaderAndRender("games", () => {
-      
       previewGameHandlerPage();
     })
   );
@@ -327,8 +326,12 @@ export function startRouter() {
   page("/sasso-carta-forbice", () =>
     showLoaderAndRender("sasso-carta-forbice", scf)
   );
-  page("/ordina-le-parole", () => showLoaderAndRender("ordina-le-parole",initWordsGame))
-  page("/trova-il-codice", () => showLoaderAndRender("trova-il-codice",createCode));
+  page("/ordina-le-parole", () =>
+    showLoaderAndRender("ordina-le-parole", initWordsGame)
+  );
+  page("/trova-il-codice", () =>
+    showLoaderAndRender("trova-il-codice", createCode)
+  );
   // (Dovrai aggiungere "sasso-carta-forbice" etc. all'oggetto pageList)
 
   // Rotta catch-all per le pagine non trovate (404)
@@ -338,5 +341,3 @@ export function startRouter() {
   // Avvia il router
   page.start();
 }
-
-

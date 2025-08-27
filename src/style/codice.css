@@ -192,55 +192,38 @@ li.codiceLi div.form {
 
 div.switch div.form label {
     text-align: center;
-    cursor: pointer;
-    font-size: 1rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Bitcount Single', sans-serif;
-    font-size: 2rem;
     border: 1px solid var(--colore-accento);
     border-radius: 99999px;
     padding: 0.3rem;
     color: var(--v);
-
-
 }
 
-div.form label:nth-of-type(1) {
-    /* opacity: 0;
-    height: 0; */
+div.form label.placeholder {
+    font-size: clamp(1rem, 1.7vw + 0.4rem, 4rem);
 }
 
-div.form label:nth-of-type(2) {
-    opacity: 0;
-height: 0;
-}
 
-div.form label:nth-of-type(3) {
+div.form label:nth-of-type(2),
+div.form label:nth-of-type(3),
+div.form label:nth-of-type(4),
+div.form label:nth-of-type(5),
+div.form label:nth-of-type(6),
+div.form label:nth-of-type(7) {
     opacity: 0;
     height: 0;
+    font-size: clamp(1.2rem, 2vw + 0.6rem, 6rem);
 }
 
-div.form label:nth-of-type(4) {
-    opacity: 0;
-    height: 0;
-}
-
-div.form label:nth-of-type(5) {
-    opacity: 0;
-    height: 0;
-}
-
-div.form label:nth-of-type(6) {
-    opacity: 0;
-    height: 0;
-}
-
-div.switch form label input {
+div.switch div.form label input {
     display: none;
 }
+
+
 
 
 /* #endregion main */
@@ -260,16 +243,17 @@ section.codiceS footer {
     padding: 0.3rem;
 }
 
-div.codiceTime {
+main section.codiceS footer div.codiceTime {
     border: 1px solid var(--colore-secondario);
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 80%;
-    border-radius: 5px;
-    font-size: 4rem;
+    text-align: center;
     font-weight: bolder;
     font-family: 'Segment', sans-serif;
+    width: 80%;
+    border-radius: 5px;
+    font-size: clamp(1.8rem, 2vw + 1.7rem, 6rem);
+
     color: var(--v);
 
 }
@@ -278,4 +262,37 @@ div.codiceTime {
 
 
 
-/* #endregion header */
+/* #endregion footer */
+
+/* #region dopo click */
+
+.placeHolderNone {
+    height: 0;
+    opacity: 0;
+}
+
+
+div.form label.codiceSwitchActive {
+    opacity: 1;
+    height: 100%;
+}
+
+div.form label:nth-of-type(2) {
+    transform: translate(-200px, 0);
+}
+
+div.form label:nth-of-type(3) {
+
+    transform: translate(+200px, 0);
+}
+
+div.form label:nth-of-type(4) {}
+
+div.form label:nth-of-type(5) {}
+
+div.form label:nth-of-type(6) {}
+
+div.form label:nth-of-type(7) {}
+
+
+/* #endregion dopo click */
