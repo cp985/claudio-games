@@ -61,7 +61,7 @@ export function createCode() {
 
 <div class="switch">
 <div class="form  form${i}">
-<label class="placeholder" for="placeholder${i}">&#9746;&#9746;&#9746;&#9746;
+<label class="placeholder" for="placeholder${i}">&#9746;&#9746;&#9746;
 <input type="radio" name="codice${i}" id="placeholder${i}" value="${dictionaryCode[i].code[0]}">
 </label>
 <label class="codiceSwitch" for="codice${i}-0">${dictionaryCode[i].code[0]}
@@ -83,23 +83,54 @@ export function createCode() {
 </div>
 `;
 
-    li.classList.add("codiceLi");
+    li.classList.add("codiceLi", "circuito-minimalista");
     ul.appendChild(li);
 
+    // ... (il tuo codice che definisce le variabili va bene)
     const divForm = li.querySelector("div.form");
-    const divSwitch = li.querySelector("div.switch");
     const labelPlaceholder = li.querySelector("label.placeholder");
     const codici = li.querySelectorAll("label.codiceSwitch");
-    const liCodice = document.querySelector("li.codiceLi");
+
+    // RIMUOVI il precedente addEventListener e SOSTITUISCILO con questo:
 
     divForm.addEventListener("click", (e) => {
-      e.preventDefault();
-      let target = e.target;
-      if (divSwitch) {
+      // L'elemento esatto che è stato cliccato
+      const target = e.target;
+
+      // --- CASO 1: Apertura iniziale ---
+      // Se il placeholder è ancora visibile, lo nascondiamo e mostriamo tutte le opzioni.
+      if (!labelPlaceholder.classList.contains("placeHolderNone")) {
         labelPlaceholder.classList.add("placeHolderNone");
         codici.forEach((label) => {
-          label.classList.toggle("codiceSwitchActive");
+          label.classList.add("codiceSwitchActive");
         });
+        return; // Usciamo, il lavoro per questo click è finito.
+      }
+
+      // --- CASO 2: Riaprire le opzioni ---
+      // Se clicchiamo sull'elemento che è GIÀ selezionato (ha la classe 'codiceSelect').
+      if (target.classList.contains("codiceSelect")) {
+        // Rimuoviamo lo stato di "selezionato".
+        target.classList.remove("codiceSelect");
+        // E mostriamo di nuovo tutte le opzioni.
+        codici.forEach((label) => {
+          label.classList.add("codiceSwitchActive");
+        });
+        return; // Usciamo.
+      }
+
+      // --- CASO 3: Selezionare una nuova opzione ---
+      // Se clicchiamo su uno dei label visibili (che non è già selezionato).
+      if (target.classList.contains("codiceSwitchActive")) {
+        // 1. "Resettiamo" tutti i label nascondendoli.
+        codici.forEach((label) => {
+          label.classList.remove("codiceSwitchActive");
+          label.classList.remove("codiceSelect"); // Rimuoviamo per pulizia
+        });
+
+        // 2. Mostriamo e marchiamo come "selezionato" solo quello cliccato.
+        target.classList.add("codiceSwitchActive");
+        target.classList.add("codiceSelect");
       }
     });
   }

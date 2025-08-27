@@ -49,7 +49,7 @@ body {
 
 /* Regole per il cursore  */
 
-div.switch div.form,
+label.placeholder:hover,
 label.codiceSwitch:hover,
 span.testo:hover,
 a:hover,
@@ -70,7 +70,7 @@ img#choice-forbici:hover {
 }
 
 
-div.switch div.form,
+label.placeholder,
 label.codiceSwitch,
 span.testo,
 a,
@@ -79,8 +79,8 @@ li.game,
 button#buttonSubmit,
 main.contact-page section.contact-info-section div.map-container div.glass,
 main.contact-page section.form-contact-section form#form button#button-submit,
-input,
-select,
+input, 
+ select,
 div.swiper-button-prev,
 div.swiper-button-next,
 .swiper span.swiper-pagination-bullet,
