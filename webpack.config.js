@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "App.js",
-    publicPath: "/",
+    publicPath: BASE_URL || '/',
     clean: true,
   },
   devServer: {
@@ -98,7 +98,7 @@ module.exports = {
     //   ],
     // }),
     new webpack.DefinePlugin({
-      __BASE_URL__: JSON.stringify(BASE_URL),
+      __BASE_URL__: JSON.stringify(BASE_URL || '/'),
     }),
   ],
   resolve: {
