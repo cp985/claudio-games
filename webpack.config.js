@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "App.js",
-    publicPath: BASE_URL || '/',
+    publicPath: '/',
     clean: true,
   },
   devServer: {
@@ -84,11 +84,9 @@ module.exports = {
       template: "./public/index.html",
     }),
     new CopyWebpackPlugin({
-      // <-- MODIFICA: AGGIUN
       patterns: [
         { from: "assets/img", to: "img" }, // Copia le immagini anche in sviluppo
         { from: "assets/cursor", to: "cursor" }, // Copia i favicon anche in sviluppo
-        { from: "public/manifest.json", to: "manifest.json" },
       ],
     }),
     // new CopyWebpackPlugin({ // <-- MODIFICA: AGGIUNTO COPYWEBPACKPLUGIN QUI PER LO SVILUPPO
@@ -98,7 +96,7 @@ module.exports = {
     //   ],
     // }),
     new webpack.DefinePlugin({
-      __BASE_URL__: JSON.stringify(BASE_URL || '/'),
+      __BASE_URL__: JSON.stringify(BASE_URL),
     }),
   ],
   resolve: {

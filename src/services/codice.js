@@ -37,11 +37,7 @@ export function createCode() {
 
   //creo i 5 obj per i li
   const [arr1, arr2, arr3, arr4, arr5] = codice();
-  console.log(arr1);
-  console.log(arr2);
-  console.log(arr3);
-  console.log(arr4);
-  console.log(arr5);
+
 
   const dictionaryCode = [
     new TheCode(1, arr1),
@@ -61,22 +57,22 @@ export function createCode() {
 
 <div class="switch">
 <div class="form  form${i}">
-<label class="placeholder" for="placeholder${i}">&#9746;&#9746;&#9746;
-<input type="radio" name="codice${i}" id="placeholder${i}" value="${dictionaryCode[i].code[0]}">
+<label class="placeholder" for="placeholder${i}"><span>&#9746;&#9746;&#9746;</span>
+<input type="radio" name="codice${i}" id="placeholder${i}" value="">
 </label>
-<label class="codiceSwitch" for="codice${i}-0">${dictionaryCode[i].code[0]}
+<label class="codiceSwitch" for="codice${i}-0"><span>${dictionaryCode[i].code[0]}</span>
 <input type="radio" name="codice${i}" id="codice${i}-0" value="${dictionaryCode[i].code[0]}">
 </label>
-<label class="codiceSwitch" for="codice${i}-1">${dictionaryCode[i].code[1]}
+<label class="codiceSwitch" for="codice${i}-1"><span>${dictionaryCode[i].code[1]}</span>
 <input type="radio" name="codice${i}" id="codice${i}-1" value="${dictionaryCode[i].code[1]}">
 </label>
-<label class="codiceSwitch" for="codice${i}-2">${dictionaryCode[i].code[2]}
+<label class="codiceSwitch" for="codice${i}-2"><span>${dictionaryCode[i].code[2]}</span>
 <input type="radio" name="codice${i}" id="codice${i}-2" value="${dictionaryCode[i].code[2]}">
 </label>
-<label class="codiceSwitch" for="codice${i}-3">${dictionaryCode[i].code[3]}
+<label class="codiceSwitch" for="codice${i}-3"><span>${dictionaryCode[i].code[3]}</span>
 <input type="radio" name="codice${i}" id="codice${i}-3" value="${dictionaryCode[i].code[3]}">
 </label>
-<label class="codiceSwitch" for="codice${i}-4">${dictionaryCode[i].code[4]}
+<label class="codiceSwitch" for="codice${i}-4"><span>${dictionaryCode[i].code[4]}</span>
 <input type="radio" name="codice${i}" id="codice${i}-4" value="${dictionaryCode[i].code[4]}">
 </label>
 </div>
