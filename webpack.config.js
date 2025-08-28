@@ -2,9 +2,9 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-const webpack = require('webpack'); 
+const webpack = require("webpack");
 
-const BASE_URL = process.env.BASE_URL || ''; // Legge la variabile o usa '/'
+const BASE_URL = process.env.BASE_URL || ""; // Legge la variabile o usa '/'
 
 module.exports = {
   mode: "development",
@@ -50,10 +50,10 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: 'img/[name].[hash][ext]'
-        }
+          filename: "img/[name].[hash][ext]",
+        },
       },
       {
         test: /\.(mp3|wav|ogg)$/i,
@@ -83,10 +83,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
-        new CopyWebpackPlugin({ // <-- MODIFICA: AGGIUN
+    new CopyWebpackPlugin({
+      // <-- MODIFICA: AGGIUN
       patterns: [
         { from: "assets/img", to: "img" }, // Copia le immagini anche in sviluppo
         { from: "assets/cursor", to: "cursor" }, // Copia i favicon anche in sviluppo
+        { from: "public/manifest.json", to: "manifest.json" },
       ],
     }),
     // new CopyWebpackPlugin({ // <-- MODIFICA: AGGIUNTO COPYWEBPACKPLUGIN QUI PER LO SVILUPPO
@@ -95,10 +97,9 @@ module.exports = {
     //     { from: "assets/favicon", to: "favicon" }, // Copia i favicon anche in sviluppo
     //   ],
     // }),
-      new webpack.DefinePlugin({
-    '__BASE_URL__': JSON.stringify(BASE_URL)
-  })
-  
+    new webpack.DefinePlugin({
+      __BASE_URL__: JSON.stringify(BASE_URL),
+    }),
   ],
   resolve: {
     extensions: [".js"],
