@@ -1,0 +1,20 @@
+{
+  "short_name": "claudio-games",
+  "name": "Claudio Games - Il Portale dei Giochi",
+  "icons": [
+    {
+      "src": "./assets/img/web-app-manifest-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./assets/img/web-app-manifest-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#000000"
+}
