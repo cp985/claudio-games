@@ -86,8 +86,6 @@ export function createCode() {
     const labelPlaceholder = li.querySelector("label.placeholder");
     const codici = li.querySelectorAll("label.codiceSwitch");
 
-    // RIMUOVI il precedente addEventListener e SOSTITUISCILO con questo:
-
     divForm.addEventListener("click", (e) => {
       // L'elemento esatto che è stato cliccato1
       const target = e.target;
@@ -140,7 +138,7 @@ export function createCode() {
 
     if (!svg || !container || switches.length < 2 || !footer) return;
 
-    svg.innerHTML = ""; // Pulisce UNA volta sola
+    svg.innerHTML = ""; // Pulisce l'SVG a ogni ridisegno
     const containerRect = container.getBoundingClientRect();
     const svgRect = svg.getBoundingClientRect();
     const footerRect = footer.getBoundingClientRect();
@@ -157,16 +155,33 @@ export function createCode() {
       const endX = endRect.left - containerRect.left;
       const endY = endRect.top + endRect.height / 2 - containerRect.top;
 
-      const line = document.createElementNS(
+      // --- MODIFICA INIZIA QUI ---
+      // 1. Crea la linea esterna (guaina/casing)
+      const lineCasing = document.createElementNS(
         "http://www.w3.org/2000/svg",
         "line"
       );
-      line.setAttribute("x1", startX);
-      line.setAttribute("y1", startY);
-      line.setAttribute("x2", endX);
-      line.setAttribute("y2", endY);
-      line.setAttribute("class", "connectorLi-line");
-      svg.appendChild(line);
+      lineCasing.setAttribute("x1", startX);
+      lineCasing.setAttribute("y1", startY);
+      lineCasing.setAttribute("x2", endX);
+      lineCasing.setAttribute("y2", endY);
+      lineCasing.setAttribute("class", "connectorLi-casing"); // Classe per la guaina
+
+      // 2. Crea la linea interna (nucleo/core)
+      const lineCore = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "line"
+      );
+      lineCore.setAttribute("x1", startX);
+      lineCore.setAttribute("y1", startY);
+      lineCore.setAttribute("x2", endX);
+      lineCore.setAttribute("y2", endY);
+      lineCore.setAttribute("class", "connectorLi-core"); // Classe per il nucleo
+
+      // 3. Aggiungile all'SVG (prima la guaina, così sta sotto)
+      svg.appendChild(lineCasing);
+      svg.appendChild(lineCore);
+      // --- MODIFICA FINISCE QUI ---
     }
 
     // --- Disegna linee dal footer a ciascun li ---
@@ -178,19 +193,37 @@ export function createCode() {
       const xLi = liRect.left + liRect.width / 2 - svgRect.left;
       const yLi = liRect.bottom - svgRect.top;
 
-      const line = document.createElementNS(
+      // --- MODIFICA INIZIA QUI ---
+      // 1. Crea la linea esterna (guaina)
+      const footerLineCasing = document.createElementNS(
         "http://www.w3.org/2000/svg",
         "line"
       );
-      line.setAttribute("x1", xFooter);
-      line.setAttribute("y1", yFooter);
-      line.setAttribute("x2", xLi);
-      line.setAttribute("y2", yLi);
-      line.setAttribute("class", "connectorFooter-line");
-      svg.appendChild(line);
+      footerLineCasing.setAttribute("x1", xFooter);
+      footerLineCasing.setAttribute("y1", yFooter);
+      footerLineCasing.setAttribute("x2", xLi);
+      footerLineCasing.setAttribute("y2", yLi);
+      footerLineCasing.setAttribute("class", "connectorFooter-casing");
+
+      // 2. Crea la linea interna (nucleo)
+      const footerLineCore = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "line"
+      );
+      footerLineCore.setAttribute("x1", xFooter);
+      footerLineCore.setAttribute("y1", yFooter);
+      footerLineCore.setAttribute("x2", xLi);
+      footerLineCore.setAttribute("y2", yLi);
+      footerLineCore.setAttribute("class", "connectorFooter-core");
+
+      // 3. Aggiungile all'SVG (sempre la guaina prima)
+      svg.appendChild(footerLineCasing);
+      svg.appendChild(footerLineCore);
+      // --- MODIFICA FINISCE QUI ---
     });
   }
-  // Seleziona il contenitore che racchiude UL + SVG
+
+  // Questa parte resta IDENTICA
   const containerToObserve = document.querySelector(".codice-wrapper");
 
   if (containerToObserve) {
@@ -203,4 +236,88 @@ export function createCode() {
   } else {
     console.error("'.codice-wrapper' non trovato");
   }
+
+  // --- INIZIO LOGICA TIMER ---
+
+  let timerIntervalId = null; // Variabile per tenere traccia dell'intervallo del timer
+
+  // Funzione per formattare il tempo (es: 5 -> "05")
+  const formatTime = (num) => num.toString().padStart(2, "0");
+
+  // Funzione principale che gestisce il timer
+  function startTimer() {
+    const timerDisplay = document.querySelector(".codiceTime span");
+    const allSwitches = document.querySelectorAll("li.codiceLi");
+    if (!timerDisplay) {
+      console.error("Elemento display del timer non trovato!");
+      return;
+    }
+
+  if (!timerDisplay || allSwitches.length === 0) {
+    console.error("Elemento del timer o switch del gioco non trovati!");
+    return;
+  }
+  
+  // <<< MODIFICA QUI: Applica la classe a OGNI switch >>>
+  allSwitches.forEach(sw => sw.classList.add("placeHolderPreCaunt"));
+
+
+    // --- FASE 1: Countdown di preparazione ---
+    let preStartSeconds = 5; // 3 secondi di preavviso
+    timerDisplay.classList.add("codiceFpre");
+    timerDisplay.textContent = `Inizio tra ${preStartSeconds}...`;
+    timerDisplay.style.color = "#ffc107"; // Un colore per l'avviso
+
+    const preStartInterval = setInterval(() => {
+      preStartSeconds--;
+      if (preStartSeconds > 0) {
+        timerDisplay.textContent = `Inizio tra ${preStartSeconds}...`;
+      } else {
+        clearInterval(preStartInterval); // Ferma il countdown di preparazione
+        runMainCountdown(timerDisplay, allSwitches); // Avvia il timer principale
+      }
+    }, 1000);
+  }
+
+  // Funzione che gestisce il countdown principale da 1 minuto
+  function runMainCountdown(timerDisplay, allSwitches) {
+allSwitches.forEach(sw => sw.classList.remove("placeHolderPreCaunt"));    
+timerDisplay.classList.remove("codiceFpre");
+
+    let totalSeconds = 60; // 1 minuto
+    timerDisplay.textContent = "01-00";
+    timerDisplay.style.color = ""; // Ripristina il colore originale
+    // Avvia il timer e salva il suo ID per poterlo fermare dopo
+    timerIntervalId = setInterval(() => {
+      totalSeconds--;
+
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      timerDisplay.textContent = `${formatTime(minutes)}-${formatTime(
+        seconds
+      )}`;
+
+      if (totalSeconds <= 0) {
+        clearInterval(timerIntervalId); // Ferma il timer
+        timerDisplay.textContent = "00-00";
+        timerDisplay.style.color = "red";
+        // Qui puoi aggiungere la logica di "Game Over"
+        alert("Tempo scaduto!");
+      }
+    }, 1000);
+  }
+
+  // Avvia tutto il processo del timer
+  startTimer();
+
+  // --- RESTITUISCI LA FUNZIONE DI CLEANUP ---
+  // Questa è la parte cruciale per una SPA.
+  // Restituiamo una funzione che page.js potrà chiamare
+  // per fermare il nostro setInterval quando l'utente cambia pagina.
+  return () => {
+    if (timerIntervalId) {
+      clearInterval(timerIntervalId);
+      console.log("Timer del gioco fermato a causa del cambio pagina.");
+    }
+  };
 }

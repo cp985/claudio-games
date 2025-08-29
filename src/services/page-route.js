@@ -137,10 +137,10 @@ const pageList = {
  <div class="codice-wrapper">
 <ul class="codiceL">
 </ul>
-<svg id="svg-connectors" class="connector-canvas"></svg>
+<svg id="svg-connectors" class="connector-canvas" shape-rendering="crispEdges"></svg>
 </div>
 </div>
-<footer><div class="codiceTime">00:59</div></footer>
+<footer class="codiceF"><div class="codiceTime"><span>01-00</span></div></footer>
 </section>
 </main>
 </div>

@@ -85,48 +85,6 @@ div.codiceCont {
     align-items: center;
 }
 
-div.codice-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    /* Mantiene il flexbox per l'UL al suo interno */
-    justify-content: center;
-    align-items: center;
-}
-
-svg.connector-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    /* Metti l'SVG dietro l'UL */
-    pointer-events: none;
-    /* Rende l'SVG "trasparente" ai click */
-}
-
-.connectorLi-line {
-    stroke: var(--v, #AAA);
-    /* Colore della linea */
-    stroke-width: 5;
-    /* Spessore della linea */
-    stroke-dasharray: 5 5;
-    /* Opzionale: per creare una linea tratteggiata */
-}
-
-.connectorFooter-line {
-    stroke: var(--colore-accento, #AAA);
-    /* Colore della linea */
-    stroke-width: 5;
-    /* Spessore della linea */
-    stroke-dasharray: 5 5;
-    /* Opzionale: per creare una linea tratteggiata */
-
-
-}
-
 
 ul.codiceL {
     position: relative;
@@ -213,6 +171,16 @@ div.switch div.form label.placeholder {
     color: var(--v);
     font-size: clamp(0.5rem, 1.5vw + 0.3rem, 3rem);
     pointer-events: auto;
+    animation: neon-pulse 2s linear infinite;
+}
+
+@keyframes neon-pulse {
+    0% {
+        box-shadow:inset 0 0 7px var(--v),inset 0 0 10px var(--v);
+    }
+    100% {
+        box-shadow:inset 0 0 14px var(--v),inset 0 0 20px var(--colore-accento);
+    }
 }
 
 
@@ -237,6 +205,86 @@ div.switch div.form label input {
 /* #endregion main */
 
 
+/* #region svg cavi */
+
+div.codice-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* Mantiene il flexbox per l'UL al suo interno */
+    justify-content: center;
+    align-items: center;
+}
+
+svg.connector-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Metti l'SVG dietro l'UL */
+    pointer-events: none;
+    /* Rende l'SVG "trasparente" ai click */
+}
+
+.connectorLi-line {
+    stroke: var(--v, #AAA);
+    /* Colore della linea */
+    stroke-width: 5;
+    /* Spessore della linea */
+    stroke-dasharray: 5 5;
+    /* Opzionale: per creare una linea tratteggiata */
+}
+
+.connectorFooter-line {
+    stroke: var(--colore-accento, #AAA);
+    /* Colore della linea */
+    stroke-width: 5;
+    /* Spessore della linea */
+    stroke-dasharray: 5 5;
+    /* Opzionale: per creare una linea tratteggiata */
+
+
+}
+
+/* Stile per i cavi che collegano i vari 'li' */
+.connectorLi-casing {
+    stroke: #222;
+    /* Grigio scuro/nero per la guaina */
+    stroke-width: 5px;
+    /* Spessore della guaina */
+}
+
+.connectorLi-core {
+    stroke: #ffcc00;
+    /* Un giallo "elettrico" per il nucleo */
+    stroke-width: 1px;
+    /* Il nucleo è un singolo "pixel" */
+    stroke-dasharray: 2 2;
+    /* Tratteggio: 2px di colore, 2px di spazio. Crea l'effetto pixel! */
+}
+
+/* Stile per i cavi che collegano il footer */
+/* Puoi usare stili diversi se vuoi */
+.connectorFooter-casing {
+    stroke: #1a1a1a;
+    stroke-width: 7px;
+    /* Magari i cavi principali sono più spessi */
+}
+
+.connectorFooter-core {
+    stroke: #00ffcc;
+    /* Un colore diverso, ciano */
+    stroke-width: 1px;
+    stroke-dasharray: 2 3;
+    /* Un tratteggio leggermente diverso */
+}
+
+/* #endregion svg cavi */
+
+
 /* #region footer */
 
 section.codiceS footer {
@@ -246,13 +294,43 @@ section.codiceS footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid var(--v);
-    border-radius: 9999999px;
+    border: 1px solid var(--colore-sfondo);
+    border-radius: 9999px;
     padding: 0.3rem;
 }
 
+.codiceF{
+
+  width: 90%; /* O la larghezza che preferisci */
+  max-width: 1200px;
+  padding: 2rem; /* Spazio interno tra bordo e contenuto */
+  
+  /* --- IL CUORE DELLO STILE --- */
+  
+  /* 1. Colore e texture della plastica */
+  background-color: #e0d8c0;
+  background-image: 
+    /* Simula una leggera illuminazione dall'alto */
+    linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(0,0,0,0.2)),
+    /* Simula una texture granulosa (noise) */
+    url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="10" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100" height="100" filter="url(%23n)" opacity="0.07"/%3E%3C/svg%3E');
+
+  /* 2. Bordi arrotondati e smussati */
+  border-radius: 15px;
+  border: 1px solid #797468;
+
+  /* 3. Effetto 3D con ombre multiple (la parte più importante) */
+  box-shadow:
+    /* Ombra interna per creare l'effetto "incassato" dello schermo */
+    inset 5px 5px 15px rgba(0, 0, 0, 0.4),
+    inset -3px -3px 10px rgba(255, 255, 255, 0.5),
+    /* Ombra esterna per sollevare l'oggetto dalla pagina */
+    10px 10px 25px rgba(0, 0, 0, 0.7);
+}
+
 main section.codiceS footer div.codiceTime {
-    border: 1px solid var(--colore-secondario);
+
+    border: 1px solid rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     text-align: center;
@@ -261,15 +339,39 @@ main section.codiceS footer div.codiceTime {
     width: 80%;
     border-radius: 5px;
     font-size: clamp(1.8rem, 2vw + 1.7rem, 6rem);
-    color: var(--v);
+  background-color: #1a1a1a;
+  background-image:
+    linear-gradient(rgba(52, 199, 89, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52, 199, 89, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px; /* Dimensione della griglia "pixel" */
+  color: #ff0000; /* Testo chiaro per contrasto */
+}
+
+
+main section.codiceS footer div.codiceTime span {
+              animation: advanced-glitch 8s ease-out infinite;
+    animation-play-state: running;  
+}
+
+.codiceFpre{
+font-family: 'Bitcount', sans-serif;
+text-align: center;
+font-weight: 500;
+font-size: clamp(1.3rem, 1.8vw + 0.75rem, 4rem);
 
 }
 
 
-
-
+div.codiceCont ul.codiceL li.codiceLi.placeHolderPreCaunt * {
+pointer-events: none;
+animation: none;
+cursor:not-allowed;
+opacity: 0;
+transition: all 0.3s ease-in-out;
+}
 
 /* #endregion footer */
+
 
 /* #region dopo click */
 
@@ -289,25 +391,70 @@ section.codiceS div.form label.codiceSwitchActive {
     border: 1px solid var(--v);
     border-radius: 0px;
     pointer-events: auto;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.3s ease-in-out;
     box-shadow:
-        /* Ombra chiara in alto a sinistra (simula la luce) */
         -2px -2px 5px rgba(255, 255, 255, 0.4),
-        /* Ombra scura in basso a destra (simula l'ombra) */
         2px 2px 5px rgba(0, 0, 0, 0.6);
-    /* Rimuovi box-shadow: inset 0 0 15px var(--v); da :hover */
-    /* transition: box-shadow 0.4s ease-in-out; */
 
 }
 
 div.switch div.form label.placeholder span,
 section.codiceS div.form label.codiceSwitchActive span {
-
+    pointer-events: none;
     animation: advanced-glitch 8s ease-out infinite;
     animation-play-state: running;
 }
 
-/* Definisci l'animazione del glitch */
+
+section.codiceS div.form label.codiceSwitchActive:hover {
+    background-color: var(--colore-accento);
+    color: black;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.4);
+
+
+}
+
+section.codiceS div.form label.codiceSwitchActive:hover span {
+    animation-name: none;
+    animation-play-state: paused;
+}
+
+
+
+div.form label.codiceSwitchActive:nth-of-type(2) {
+    transform: translate(-50%, -250%);
+
+
+}
+
+div.form label.codiceSwitchActive:nth-of-type(3) {
+
+    transform: translate(-50%, -150%)
+}
+
+div.form label.codiceSwitchActive:nth-of-type(4) {}
+
+div.form label.codiceSwitchActive:nth-of-type(5) {
+    transform: translate(-50%, +50%)
+}
+
+div.form label.codiceSwitchActive:nth-of-type(6) {
+    transform: translate(-50%, +150%)
+}
+
+section.codiceS div.form label.codiceSelect {
+    width: 60%;
+    opacity: 1;
+    height: auto;
+    background-color: var(--colore-sfondo);
+    color: var(--colore-testo);
+    border: 1px solid var(--v);
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+
+
+}
 
 @keyframes advanced-glitch {
 
@@ -379,60 +526,10 @@ section.codiceS div.form label.codiceSwitchActive span {
 }
 
 
-section.codiceS div.form label.codiceSwitchActive:hover {
-    background-color: var(--colore-accento);
-    color: black;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.4);
-
-
-}
-
-section.codiceS div.form label.codiceSwitchActive:hover span {
-    animation-name: none;
-    animation-play-state: paused;
-}
-
-
-
-div.form label.codiceSwitchActive:nth-of-type(2) {
-    transform: translate(-50%, -250%);
-
-
-}
-
-div.form label.codiceSwitchActive:nth-of-type(3) {
-
-    transform: translate(-50%, -150%)
-}
-
-div.form label.codiceSwitchActive:nth-of-type(4) {}
-
-div.form label.codiceSwitchActive:nth-of-type(5) {
-    transform: translate(-50%, +50%)
-}
-
-div.form label.codiceSwitchActive:nth-of-type(6) {
-    transform: translate(-50%, +150%)
-}
-
-section.codiceS div.form label.codiceSelect {
-    width: 60%;
-    opacity: 1;
-    height: auto;
-    background-color: var(--colore-sfondo);
-    color: var(--colore-testo);
-    border: 1px solid var(--v);
-    border-radius: 5px;
-    transform: translate(-50%, -50%);
-
-
-}
-
-
 /* #endregion dopo click */
 
 
+/* #region sfondo circuito codici  */
 
 .circuito-minimalista {
     --colore-sfondo: #0b0e15;
@@ -465,3 +562,5 @@ section.codiceS div.form label.codiceSelect {
         var(--dimensione-griglia) var(--dimensione-griglia),
         var(--dimensione-griglia) var(--dimensione-griglia);
 }
+
+/* #endregion sfondo circuito codici  */
