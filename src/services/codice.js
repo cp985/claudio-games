@@ -38,7 +38,6 @@ export function createCode() {
   //creo i 5 obj per i li
   const [arr1, arr2, arr3, arr4, arr5] = codice();
 
-
   const dictionaryCode = [
     new TheCode(1, arr1),
     new TheCode(2, arr2),
@@ -90,7 +89,7 @@ export function createCode() {
     // RIMUOVI il precedente addEventListener e SOSTITUISCILO con questo:
 
     divForm.addEventListener("click", (e) => {
-      // L'elemento esatto che è stato cliccato
+      // L'elemento esatto che è stato cliccato1
       const target = e.target;
 
       // --- CASO 1: Apertura iniziale ---
