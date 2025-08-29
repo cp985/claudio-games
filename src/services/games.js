@@ -47,9 +47,9 @@ const gamesDatab = {
   trovailcodice: new Game(
     "Trova il Codice",
     "Un gioco di logica e tanta fortuna...",
-    "I giocatori devono indovinare un codice segreto composto da una sequenza di numeri. Avrai un massimo di tentativi per ogni codice,se li esaurirai l'allarme scatterà.",
+    "Il giocatore deve indovinare una serie di codici per disinnescare la bomba.Ad ogni codice errato il timer diminuirà....sceglili con attenzione!.",
     trovailcodice,
-    "1",
+    "1 o più",
     "trova-il-codice",
  "#",
  "#"
@@ -118,9 +118,12 @@ export function previewGameHandlerPage() {
               divCont = document.createElement("div");
               divCont.classList.add("gameCont");
               divCont.innerHTML = `
+              <h3 class="gameH3">Preview:</h3>
+              <div class="gameContImages">
              <div class="gameContImg"><div style="background-image:url('${key.preView1}')"; class="gameImg1" ></div></div>
              <div class="gameContImg"><div style="background-image:url('${key.preView2}')"; class="gameImg2" ></div></div>
-            `;
+            </div>
+             `;
               sectImgGame.appendChild(divCont);
             } else {
               const img1 = divCont.querySelector("div.gameImg1");

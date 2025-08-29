@@ -2,6 +2,8 @@
 html {
     --colore-blur1: rgba(0, 33, 41, 0.511);
     --colore-blur2: rgba(0, 106, 133, 0.586);
+        --colore-accento: #00CFFF;
+    --colore-secondario: #ddff00;
 }
 
 
@@ -16,6 +18,8 @@ div.cont-contact {
     gap: 1rem;
     padding: 0.3rem;
 }
+
+
 
 main.contact-page {
     width: 100%;
@@ -37,8 +41,10 @@ section.form-contact-section {
 
 section.form-contact-section h2 {
     width: 100%;
+    font-family: 'Bitcount', sans-serif;
+    color: var(--colore-secondario);
     text-align: center;
-    font-size: clamp(1rem, 1.6vw + 0.8rem, 2rem);
+    font-size: clamp(1.6rem, 1.6vw + 0.8rem, 2.3rem);
     margin: 0.3rem 0 0.3rem 0;
 }
 
@@ -78,14 +84,22 @@ section.form-contact-section form input {
     background-color: var(--colore-testo);
     color: var(--colore-sfondo);
     border: 1px solid var(--v);
-margin-left: auto;
+    margin-left: auto;
 }
+
+section.form-contact-section form textarea:focus,
+section.form-contact-section form input:focus {
+
+    border: 2px solid var(--v);
+}
+
 span.invalid {
     display: none;
     color: var(--v);
     font-size: clamp(0.5rem, 1.5vw + 0.5rem, 1rem);
     margin: 0;
 }
+
 h3.invalidH3 {
     display: none;
     color: var(--v);
@@ -94,14 +108,14 @@ h3.invalidH3 {
     text-align: center;
 }
 
-.submitted{}
+.submitted {}
 
 form.submitted textarea:invalid,
-form.submitted input:invalid{
+form.submitted input:invalid {
     background-color: var(--v);
-   
+
     color: var(--colore-sfondo);
-     caret-color: var(--colore-sfondo);
+    caret-color: var(--colore-sfondo);
 }
 
 
@@ -124,6 +138,7 @@ textarea {
     overflow-wrap: break-word;
     margin: 0.2rem 0 0.3rem 0;
 }
+
 input::placeholder,
 textarea::placeholder {
     color: var(--colore-testo);
@@ -141,17 +156,18 @@ section.form-contact-section form button#button-submit {
     border: 2px solid var(--v);
     border-radius: 10px;
     font-weight: 700;
-    animation: neon-pulse 0.9s infinite alternate  ease-in-out;
-transition: all 0.4s ease-in-out;
+    animation: neon-pulse 0.9s infinite alternate ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 @keyframes neon-pulse {
-  0% {
-    box-shadow:inset 0 0 7px var(--v),inset 0 0 10px var(--v);
-  }
-  100% {
-    box-shadow:inset 0 0 14px var(--v),inset 0 0 20px var(--colore-accento);
-  }
+    0% {
+        box-shadow: inset 0 0 7px var(--v), inset 0 0 10px var(--v);
+    }
+
+    100% {
+        box-shadow: inset 0 0 14px var(--v), inset 0 0 20px var(--colore-accento);
+    }
 }
 
 
@@ -160,7 +176,7 @@ section.form-contact-section form button#button-submit:hover {
     color: var(--colore-sfondo);
     border: 2px solid var(--v);
     animation: none;
-      box-shadow: inset 0 0 15px var(--v); 
+    box-shadow: inset 0 0 15px var(--v);
 }
 
 
@@ -179,9 +195,10 @@ section.contact-info-section {
 }
 
 section.contact-info-section h2 {
-
+    font-family: 'Bitcount', sans-serif;
+    color: var(--colore-secondario);
     text-align: center;
-    font-size: clamp(1rem, 1.6vw + 0.8rem, 2rem);
+    font-size: clamp(1.6rem, 1.6vw + 0.8rem, 2.3rem);
     margin: 0.3rem;
 }
 
@@ -203,11 +220,11 @@ section.contact-info-section div.address-info {
 
 }
 
-div.border{
+div.border {
     width: fit-content;
     max-height: 100%;
-border: 1px solid var(--v);
-padding: 0.7rem;
+    border: 1px solid var(--v);
+    padding: 0.7rem;
 
 }
 
@@ -222,6 +239,7 @@ div.address-info a:hover {
 
 
 /* #endregion contact info map */
+
 
 /* #region submitted  div */
 
@@ -298,3 +316,44 @@ div article.artSubmit button {
 }
 
 /* #endregion submitted  div */
+
+
+/* #region media-query <550px */
+
+@media screen and (max-width: 550px) {
+    div.cont-contact {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "map"
+            "form";
+        overflow-y: scroll;
+    }
+
+    section.contact-info-section div.map-container {
+        width: 90%;
+    }
+
+    .address-info div.border {
+        width: 85%;
+    }
+
+    form#form {
+        width: 90%;
+
+    }
+
+    form#form fieldset {
+        width: 85%;
+    }
+
+    form#form label[for="textarea"] {
+        width: 95%;
+    }
+
+    form#form button#button-submit {
+        font-size: 1.3rem;
+    }
+
+}
+
+/* #endregion media-query <500px */

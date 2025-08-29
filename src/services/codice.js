@@ -1,3 +1,5 @@
+import { page } from "./page-route.js";
+
 class TheCode {
   constructor(id, code) {
     this.id = id;
@@ -223,7 +225,6 @@ export function createCode() {
     });
   }
 
-  // Questa parte resta IDENTICA
   const containerToObserve = document.querySelector(".codice-wrapper");
 
   if (containerToObserve) {
@@ -253,17 +254,16 @@ export function createCode() {
       return;
     }
 
-  if (!timerDisplay || allSwitches.length === 0) {
-    console.error("Elemento del timer o switch del gioco non trovati!");
-    return;
-  }
-  
-  // <<< MODIFICA QUI: Applica la classe a OGNI switch >>>
-  allSwitches.forEach(sw => sw.classList.add("placeHolderPreCaunt"));
+    if (!timerDisplay || allSwitches.length === 0) {
+      console.error("Elemento del timer o switch del gioco non trovati!");
+      return;
+    }
 
+    // <<< MODIFICA QUI: Applica la classe a OGNI switch >>>
+    allSwitches.forEach((sw) => sw.classList.add("placeHolderPreCaunt"));
 
     // --- FASE 1: Countdown di preparazione ---
-    let preStartSeconds = 5; // 3 secondi di preavviso
+    let preStartSeconds = 5; //  secondi di preavviso
     timerDisplay.classList.add("codiceFpre");
     timerDisplay.textContent = `Inizio tra ${preStartSeconds}...`;
     timerDisplay.style.color = "#ffc107"; // Un colore per l'avviso
@@ -281,8 +281,8 @@ export function createCode() {
 
   // Funzione che gestisce il countdown principale da 1 minuto
   function runMainCountdown(timerDisplay, allSwitches) {
-allSwitches.forEach(sw => sw.classList.remove("placeHolderPreCaunt"));    
-timerDisplay.classList.remove("codiceFpre");
+    allSwitches.forEach((sw) => sw.classList.remove("placeHolderPreCaunt"));
+    timerDisplay.classList.remove("codiceFpre");
 
     let totalSeconds = 60; // 1 minuto
     timerDisplay.textContent = "01-00";
@@ -302,7 +302,21 @@ timerDisplay.classList.remove("codiceFpre");
         timerDisplay.textContent = "00-00";
         timerDisplay.style.color = "red";
         // Qui puoi aggiungere la logica di "Game Over"
-        alert("Tempo scaduto!");
+        const section = document.querySelector("section.codiceS");
+        const gameOverDiv = document.createElement("div");
+        gameOverDiv.classList.add("game-over");
+        gameOverDiv.innerHTML = `
+         <article class="artSubmit boom">
+          <h2 class="boomH2">YOU LOSE</h2>
+          <p>Riprova a disinnescare la bomba .</p>
+          <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
+         </article>
+
+
+     `;
+        const buttonSubmit = gameOverDiv.querySelector("#buttonSubmit");
+        buttonSubmit.addEventListener("click", () => page.show("/games"));
+        section.appendChild(gameOverDiv);
       }
     }, 1000);
   }

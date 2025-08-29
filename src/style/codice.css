@@ -168,7 +168,7 @@ div.switch div.form label {
 div.switch div.form label.placeholder {
     text-align: center;
     background-color: var(--colore-sfondo);
-    color: var(--v);
+    color: red;
     font-size: clamp(0.5rem, 1.5vw + 0.3rem, 3rem);
     pointer-events: auto;
     animation: neon-pulse 2s linear infinite;
@@ -305,7 +305,7 @@ section.codiceS footer {
   max-width: 1200px;
   padding: 2rem; /* Spazio interno tra bordo e contenuto */
   
-  /* --- IL CUORE DELLO STILE --- */
+
   
   /* 1. Colore e texture della plastica */
   background-color: #e0d8c0;
@@ -525,6 +525,22 @@ section.codiceS div.form label.codiceSelect {
     }
 }
 
+
+.boom{
+    background-image: url("../../assets/img/backBoomF.webp");
+    background-size:cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    aspect-ratio: 16/7;
+}
+
+.boomH2{
+font-size: clamp(2rem, 1.8vw + 1.7rem, 6rem);
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Bitcount', sans-serif;
+    color: var(--v);
+}
 
 /* #endregion dopo click */
 
