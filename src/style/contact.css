@@ -2,7 +2,7 @@
 html {
     --colore-blur1: rgba(0, 33, 41, 0.511);
     --colore-blur2: rgba(0, 106, 133, 0.586);
-        --colore-accento: #00CFFF;
+    --colore-accento: #00CFFF;
     --colore-secondario: #ddff00;
 }
 
@@ -17,6 +17,7 @@ div.cont-contact {
     color: var(--colore-testo);
     gap: 1rem;
     padding: 0.3rem;
+
 }
 
 
@@ -35,7 +36,7 @@ section.form-contact-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 99%;
     height: 100%;
 }
 
@@ -58,12 +59,12 @@ section.form-contact-section form {
 }
 
 form[name="form"] fieldset {
-    width: 100%;
+    width: 95%;
     /* display: flex; */
     flex-direction: column;
     caret-color: var(--v);
     border: 1px solid var(--v);
-    margin-bottom: 0.3rem;
+    margin-bottom: 10%;
 }
 
 legend {
@@ -122,7 +123,7 @@ form.submitted input:invalid {
 
 section.form-contact-section form label {
     display: flex;
-    width: 100%;
+    width: 95%;
     flex-wrap: wrap;
 }
 
@@ -190,7 +191,7 @@ section.contact-info-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 99%;
     gap: 0.7rem;
 }
 
@@ -254,7 +255,7 @@ div article.artSubmit {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 10;
     backdrop-filter: blur(10px);
 
 
@@ -330,20 +331,21 @@ div article.artSubmit button {
     }
 
     section.contact-info-section div.map-container {
-        width: 90%;
+        width: 95%;
     }
 
     .address-info div.border {
-        width: 85%;
+        width: 95%;
     }
 
     form#form {
-        width: 90%;
+        width: 100%;
+
 
     }
 
     form#form fieldset {
-        width: 85%;
+        width: 95%;
     }
 
     form#form label[for="textarea"] {

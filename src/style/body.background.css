@@ -107,18 +107,6 @@ touch-action: none;
   animation: hi 150s linear infinite;
 }
 
-/* Modifiche per gli elementi sopra il background */
-div.cont {
-  position: fixed; /* O absolute, se il body è position: relative; */
-  inset: 0;
-  backdrop-filter: blur(1rem) brightness(6);
-  background-image: radial-gradient(circle at 50% 50%,
-      #0000 0,
-      #0000 2px,
-      hsl(0 0 4%) 2px);
-  background-size: 8px 8px;
-  z-index: 1; /* Assicurati che sia sopra il background (-1) */
-}
 
 /* Header e Footer, ecc. */
 #main-header,

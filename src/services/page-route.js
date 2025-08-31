@@ -27,6 +27,7 @@ import { scf } from "./scf.js";
 import { initWordsGame } from "./parole.js";
 //code
 import { createCode } from "./codice.js";
+import { cleanupCodice } from "./codice.js";
 
 export { page };
 
@@ -195,7 +196,6 @@ const pageList = {
       <section class="contact-info-section">
         <h2>Dove Siamo</h2>
         <div class="map-container">
-        <div id="glass" class="glass"></div>
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28185.491249175324!2d86.90476692418683!3d27.98819281230523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e854a215bd9ebd%3A0x576dcf806abbab2!2sMonte%20Everest!5e0!3m2!1sit!2sit!4v1754488279983!5m2!1sit!2sit" 
             style="border:0;" 
@@ -255,6 +255,7 @@ function cleanup(context, next) {
     activeSwiper = null;
     isHomePage = false;
   }
+  // cleanupCodice();
   next(); // Prosegui alla prossima funzione middleware o alla rotta
 }
 

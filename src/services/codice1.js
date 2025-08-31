@@ -1,5 +1,21 @@
 import { page } from "./page-route.js";
 
+let preStartIntervalId = null;
+let timerIntervalId = null;
+
+export function cleanupCodice() {
+  if (preStartIntervalId) {
+    clearInterval(preStartIntervalId);
+    preStartIntervalId = null;
+    console.log("Timer di pre-countdown fermato.");
+  }
+  if (timerIntervalId) {
+    clearInterval(timerIntervalId);
+    timerIntervalId = null;
+    console.log("Timer principale del codice fermato.");
+  }
+}
+
 class TheCode {
   constructor(id, code) {
     this.id = id;
@@ -8,38 +24,32 @@ class TheCode {
 }
 
 export function createCode() {
-  //genera lettera casuale da associare al numero
+  cleanupCodice();
+
   let lettera = () => {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const alphabetArr = alphabet.split("");
     const n = Math.floor(Math.random() * 26);
-    let lettera = alphabetArr[n];
-    return lettera;
+    return alphabetArr[n];
   };
 
-  //genera numero casuale da associare alla lettera
   let numero = () => {
-    let n = Math.floor(Math.random() * 100);
-    let numero = n;
-    return numero;
+    return Math.floor(Math.random() * 100);
   };
-  //genera in codice (..quasi..) univoco sommando lettera e numero
+
   let codice = () => {
     const codes = [];
     for (let i = 0; i < 5; i++) {
       let codeX = [];
       for (let k = 0; k < 5; k++) {
-        let codeY = lettera() + numero();
-        codeX.push(codeY);
+        codeX.push(lettera() + numero());
       }
       codes.push(codeX);
     }
     return codes;
   };
 
-  //creo i 5 obj per i li
   const [arr1, arr2, arr3, arr4, arr5] = codice();
-
   const dictionaryCode = [
     new TheCode(1, arr1),
     new TheCode(2, arr2),
@@ -48,91 +58,67 @@ export function createCode() {
     new TheCode(5, arr5),
   ];
 
-  //render li
-
   const container = document.querySelector("div.codiceCont");
   const ul = container.querySelector("ul.codiceL");
+
   for (let i = 0; i < dictionaryCode.length; i++) {
     const li = document.createElement("li");
     li.innerHTML = `
-    <div class="switch">
-<div class="form  form${i}">
-<label class="placeholder" for="placeholder${i}"><span>&#9746;&#9746;&#9746;</span>
-<input type="radio" name="codice${i}" id="placeholder${i}" value="">
-</label>
-<label class="codiceSwitch" for="codice${i}-0"><span>${dictionaryCode[i].code[0]}</span>
-<input type="radio" name="codice${i}" id="codice${i}-0" value="${dictionaryCode[i].code[0]}">
-</label>
-<label class="codiceSwitch" for="codice${i}-1"><span>${dictionaryCode[i].code[1]}</span>
-<input type="radio" name="codice${i}" id="codice${i}-1" value="${dictionaryCode[i].code[1]}">
-</label>
-<label class="codiceSwitch" for="codice${i}-2"><span>${dictionaryCode[i].code[2]}</span>
-<input type="radio" name="codice${i}" id="codice${i}-2" value="${dictionaryCode[i].code[2]}">
-</label>
-<label class="codiceSwitch" for="codice${i}-3"><span>${dictionaryCode[i].code[3]}</span>
-<input type="radio" name="codice${i}" id="codice${i}-3" value="${dictionaryCode[i].code[3]}">
-</label>
-<label class="codiceSwitch" for="codice${i}-4"><span>${dictionaryCode[i].code[4]}</span>
-<input type="radio" name="codice${i}" id="codice${i}-4" value="${dictionaryCode[i].code[4]}">
-</label>
-</div>
-</div>
-`;
-
+      <div class="switch">
+        <div class="form form${i}">
+          <label class="placeholder" for="placeholder${i}"><span>&#9746;&#9746;&#9746;</span>
+            <input type="radio" name="codice${i}" id="placeholder${i}" value="">
+          </label>
+          <label class="codiceSwitch" for="codice${i}-0"><span>${dictionaryCode[i].code[0]}</span>
+            <input type="radio" name="codice${i}" id="codice${i}-0" value="${dictionaryCode[i].code[0]}">
+          </label>
+          <label class="codiceSwitch" for="codice${i}-1"><span>${dictionaryCode[i].code[1]}</span>
+            <input type="radio" name="codice${i}" id="codice${i}-1" value="${dictionaryCode[i].code[1]}">
+          </label>
+          <label class="codiceSwitch" for="codice${i}-2"><span>${dictionaryCode[i].code[2]}</span>
+            <input type="radio" name="codice${i}" id="codice${i}-2" value="${dictionaryCode[i].code[2]}">
+          </label>
+          <label class="codiceSwitch" for="codice${i}-3"><span>${dictionaryCode[i].code[3]}</span>
+            <input type="radio" name="codice${i}" id="codice${i}-3" value="${dictionaryCode[i].code[3]}">
+          </label>
+          <label class="codiceSwitch" for="codice${i}-4"><span>${dictionaryCode[i].code[4]}</span>
+            <input type="radio" name="codice${i}" id="codice${i}-4" value="${dictionaryCode[i].code[4]}">
+          </label>
+        </div>
+      </div>
+    `;
     li.classList.add("codiceLi", "circuito-minimalista");
     ul.appendChild(li);
 
-    // ... (il tuo codice che definisce le variabili va bene)
     const divForm = li.querySelector("div.form");
     const labelPlaceholder = li.querySelector("label.placeholder");
     const codici = li.querySelectorAll("label.codiceSwitch");
 
     divForm.addEventListener("click", (e) => {
-      // L'elemento esatto che è stato cliccato1
       const target = e.target;
-
-      // --- CASO 1: Apertura iniziale ---
-      // Se il placeholder è ancora visibile, lo nascondiamo e mostriamo tutte le opzioni.
       if (!labelPlaceholder.classList.contains("placeHolderNone")) {
         labelPlaceholder.classList.add("placeHolderNone");
-        codici.forEach((label) => {
-          label.classList.add("codiceSwitchActive");
-        });
-        return; // Usciamo, il lavoro per questo click è finito.
+        codici.forEach((label) => label.classList.add("codiceSwitchActive"));
+        return;
       }
-
-      // --- CASO 2: Riaprire le opzioni ---
-      // Se clicchiamo sull'elemento che è GIÀ selezionato (ha la classe 'codiceSelect').
       if (target.classList.contains("codiceSelect")) {
-        // Rimuoviamo lo stato di "selezionato".
         target.classList.remove("codiceSelect");
-        // E mostriamo di nuovo tutte le opzioni.
-        codici.forEach((label) => {
-          label.classList.add("codiceSwitchActive");
-        });
-        return; // Usciamo.
+        codici.forEach((label) => label.classList.add("codiceSwitchActive"));
+        return;
       }
-
-      // --- CASO 3: Selezionare una nuova opzione ---
-      // Se clicchiamo su uno dei label visibili (che non è già selezionato).
       if (target.classList.contains("codiceSwitchActive")) {
-        // 1. "Resettiamo" tutti i label nascondendoli.
         codici.forEach((label) => {
           label.classList.remove("codiceSwitchActive");
-          label.classList.remove("codiceSelect"); // Rimuoviamo per pulizia
+          label.classList.remove("codiceSelect");
         });
-
-        // 2. Mostriamo e marchiamo come "selezionato" solo quello cliccato.
         target.classList.add("codiceSwitchActive");
         target.classList.add("codiceSelect");
       }
     });
   }
 
-  // --- INIZIO SCRIPT PER DISEGNARE LE LINEE (VERSIONE CON RESIZEOBSERVER) ---
-
   function drawAllLines() {
-    const svg = document.getElementById("svg-connectors");
+        const svg = document.getElementById("svg-connectors");
     const container = document.querySelector(".codice-wrapper");
     const footer = document.querySelector("footer");
     const switches = document.querySelectorAll("li.codiceLi");
@@ -222,74 +208,66 @@ export function createCode() {
       svg.appendChild(footerLineCore);
       // --- MODIFICA FINISCE QUI ---
     });
+
+
+
   }
-
   const containerToObserve = document.querySelector(".codice-wrapper");
-
   if (containerToObserve) {
-    const resizeObserver = new ResizeObserver(() => {
-      // piccolo ritardo per dare tempo a layout/transizioni
-      setTimeout(drawAllLines, 50);
-    });
-
+    const resizeObserver = new ResizeObserver(() =>
+      setTimeout(drawAllLines, 50)
+    );
     resizeObserver.observe(containerToObserve);
   } else {
     console.error("'.codice-wrapper' non trovato");
   }
 
-  // --- INIZIO LOGICA TIMER ---
-
-  let timerIntervalId = null; // Variabile per tenere traccia dell'intervallo del timer
-
-  // Funzione per formattare il tempo (es: 5 -> "05")
   const formatTime = (num) => num.toString().padStart(2, "0");
 
-  // Funzione principale che gestisce il timer
   function startTimer() {
     const timerDisplay = document.querySelector(".codiceTime span");
     const allSwitches = document.querySelectorAll("li.codiceLi");
-    if (!timerDisplay) {
-      console.error("Elemento display del timer non trovato!");
-      return;
-    }
+    if (!timerDisplay || allSwitches.length === 0) return;
 
-    if (!timerDisplay || allSwitches.length === 0) {
-      console.error("Elemento del timer o switch del gioco non trovati!");
-      return;
-    }
-
-    // <<< MODIFICA QUI: Applica la classe a OGNI switch >>>
     allSwitches.forEach((sw) => sw.classList.add("placeHolderPreCaunt"));
-
-    // --- FASE 1: Countdown di preparazione ---
-    let preStartSeconds = 5; //  secondi di preavviso
+    let preStartSeconds = 5;
     timerDisplay.classList.add("codiceFpre");
     timerDisplay.textContent = `Inizio tra ${preStartSeconds}...`;
-    timerDisplay.style.color = "#ffc107"; // Un colore per l'avviso
+    timerDisplay.style.color = "#ffc107";
 
-    const preStartInterval = setInterval(() => {
+    preStartIntervalId = setInterval(() => {
+      // Aggiungiamo un controllo per fermare il timer se la pagina viene cambiata
+      if (!document.querySelector("section.codiceS")) {
+        cleanupCodice();
+        return;
+      }
+
       preStartSeconds--;
       if (preStartSeconds > 0) {
         timerDisplay.textContent = `Inizio tra ${preStartSeconds}...`;
       } else {
-        clearInterval(preStartInterval); // Ferma il countdown di preparazione
-        runMainCountdown(timerDisplay, allSwitches); // Avvia il timer principale
+        clearInterval(preStartIntervalId);
+        preStartIntervalId = null;
+        runMainCountdown(timerDisplay, allSwitches);
       }
     }, 1000);
   }
 
-  // Funzione che gestisce il countdown principale da 1 minuto
   function runMainCountdown(timerDisplay, allSwitches) {
     allSwitches.forEach((sw) => sw.classList.remove("placeHolderPreCaunt"));
     timerDisplay.classList.remove("codiceFpre");
 
-    let totalSeconds = 60; // 1 minuto
+    let totalSeconds = 60;
     timerDisplay.textContent = "01-00";
-    timerDisplay.style.color = ""; // Ripristina il colore originale
-    // Avvia il timer e salva il suo ID per poterlo fermare dopo
-    timerIntervalId = setInterval(() => {
-      totalSeconds--;
+    timerDisplay.style.color = "";
 
+    timerIntervalId = setInterval(() => {
+      const currentSection = document.querySelector("section.codiceS"); // ★ MODIFICA CHIAVE: Controlla la presenza dell'elemento PRIMA di procedere. // Se la sezione non esiste, significa che la pagina è stata distrutta. // Ferma il timer e esci dalla funzione.
+      if (!currentSection) {
+        cleanupCodice(); // Ferma il timer
+        return; // Esci per non eseguire il resto del codice
+      }
+      totalSeconds--;
       const minutes = Math.floor(totalSeconds / 60);
       const seconds = totalSeconds % 60;
       timerDisplay.textContent = `${formatTime(minutes)}-${formatTime(
@@ -297,36 +275,31 @@ export function createCode() {
       )}`;
 
       if (totalSeconds <= 0) {
-        clearInterval(timerIntervalId); // Ferma il timer
+        cleanupCodice();
         timerDisplay.textContent = "00-00";
         timerDisplay.style.color = "red";
-        // Qui puoi aggiungere la logica di "Game Over"
-        const section = document.querySelector("section.codiceS");
-        const gameOverArt = document.createElement("article");
-        gameOverArt.classList.add("artSubmit","boom");
-        gameOverArt.innerHTML = `
-        <h2 class="boomH2">YOU LOSE</h2>
-          <p>Riprova a disinnescare la bomba .</p>
-          <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
-          `;
-        const buttonSubmit = gameOverArt.querySelector("#buttonSubmit");
-        buttonSubmit.addEventListener("click", () => page.show("/games"));
-        section.appendChild(gameOverArt);
+        const gameOverDiv = document.createElement("div");
+        gameOverDiv.classList.add("game-over");
+        gameOverDiv.innerHTML = `
+          <article class="artSubmit boom">
+            <h2 class="boomH2">YOU LOSE</h2>
+            <p>Riprova a disinnescare la bomba.</p>
+            <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
+          </article>
+        `;
+        const buttonSubmit = gameOverDiv.querySelector("#buttonSubmit");
+        buttonSubmit.addEventListener("click", () => page.show("/games")); // Aggiungi un'ulteriore protezione prima di appendere
+        const finalSectionCheck = document.querySelector("section.codiceS");
+        if (finalSectionCheck) {
+          finalSectionCheck.appendChild(gameOverDiv);
+        } else {
+          console.warn(
+            "Tentativo di appendChild fallito: la sezione non esiste più."
+          );
+        }
       }
     }, 1000);
   }
 
-  // Avvia tutto il processo del timer
   startTimer();
-
-  // --- RESTITUISCI LA FUNZIONE DI CLEANUP ---
-  // Questa è la parte cruciale per una SPA.
-  // Restituiamo una funzione che page.js potrà chiamare
-  // per fermare il nostro setInterval quando l'utente cambia pagina.
-  return () => {
-    if (timerIntervalId) {
-      clearInterval(timerIntervalId);
-      console.log("Timer del gioco fermato a causa del cambio pagina.");
-    }
-  };
 }
