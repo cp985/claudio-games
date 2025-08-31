@@ -16,25 +16,26 @@ html {
     font-size: 16px;
     color: var(--colore-testo);
     user-select: none;
-    height: 100vh;
     overflow: hidden;
+    
+    
 }
 
 body {
     display: flex;
-   flex-direction: column;
+    flex-direction: column;
     cursor: var(--cursor1);
     margin: 0;
     width: 100%;
     background-color: var(--colore-sfondo);
-        height: 100vh;
+    height: 100dvh;
     overflow: hidden;
 }
 
 
 .page-wrapper {
 
-    min-height: 100vh;
+    min-height: 100dvh;
     width: 100%;
     max-width: var(--width-max);
     margin: 0 auto;
@@ -75,8 +76,8 @@ button,
 li.game,
 button#buttonSubmit,
 main.contact-page section.form-contact-section form#form button#button-submit,
-input, 
- select,
+input,
+select,
 div.swiper-button-prev,
 div.swiper-button-next,
 .swiper span.swiper-pagination-bullet,
@@ -151,7 +152,8 @@ div.logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0.2rem auto;
+    margin: 0.5% auto;
+    
 }
 
 h1#animated-logo {
@@ -188,41 +190,41 @@ i.fa-headset {
 
 /* #endregion */
 
-/* #region main */
+/* #region sweeper carousel */
 div.cont {
+    /* padding-top: 5rem; */
     flex-grow: 1;
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 95vw;
-    margin: 0.5% auto; 
+    width: 95%;
+    margin: 0.5% auto;
     border: 3px solid var(--colore-secondario);
     min-height: 0;
-    border-radius: 5px; 
+    border-radius: 5px;
     z-index: 5;
     overflow-y: auto;
     overflow-x: hidden;
 
-  backdrop-filter: blur(1rem) brightness(6);
-  background-image: radial-gradient(circle at 50% 50%,
-      #0000 0,
-      #0000 2px,
-      hsl(0 0 4%) 2px);
-  background-size: 8px 8px;
-    
+    backdrop-filter: blur(1rem) brightness(6);
+    background-image: radial-gradient(circle at 50% 50%,
+            #0000 0,
+            #0000 2px,
+            hsl(0 0 4%) 2px);
+    background-size: 8px 8px;
+
 
 
 }
 
 main.swiper {
     width: 90%;
-    margin: 0.5rem auto;
+    margin: 0.8rem auto;
     display: flex;
     align-items: center;
-    justify-content: center;
     border: 5px solid var(--colore-secondario);
-    max-height: 70%;
+    min-height: 72%;
     /*togliere in caso di media query*/
 }
 
@@ -343,7 +345,40 @@ div.cont main.swiper div.swiper-pagination {
     border-radius: 10px;
 }
 
-/* #endregion */
+/* #endregion sweeper carousel */
+
+/* #region section about us */
+
+section.homeS{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  
+    padding: 1rem
+}
+
+article.homeA{}
+
+h2.homeH2{
+    font-family: 'Bitcount', sans-serif;
+font-size: clamp(1.5rem, 1.8vw + 0.4rem, 1.2rem);
+color: var(--colore-testo);
+margin: 0.5rem;
+color: var(--colore-secondario);
+}
+
+p.homeP{
+font-size: clamp(1rem, 1.8vw + 0.4rem, 1.2rem);
+color: var(--colore-testo);
+margin: 0.5rem;
+
+}
+
+
+/* #endregion section about us */
 
 /* #region footer  */
 footer {
@@ -389,3 +424,14 @@ footer p small {
 }
 
 /* #endregion */
+
+
+
+
+/* #region media query <550px */
+
+@media screen and (max-width: 550px) {
+   
+}
+/* #endregion media query <550px */
+

@@ -18,7 +18,7 @@ main.game-main {
     justify-content: center;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+
 }
 
 /* #region nav game */
@@ -27,7 +27,7 @@ header.game-header {
     height: 100%;
     grid-area: nav-g;
     border-left: 3px solid var(--colore-secondario);
-    overflow-y: scroll;
+    
 }
 
 nav.game-nav {
@@ -113,6 +113,7 @@ li.game:hover label {
 
 /* #endregion nav game */
 
+
 /* #region text/img game */
 section.gamePage {
     grid-area: desc;
@@ -122,7 +123,7 @@ section.gamePage {
     width: 100%;
     height: 100%;
     border-right: 3px solid var(--colore-secondario);
-    overflow-y: scroll;
+    
 }
 
 article.game-article {
@@ -146,7 +147,7 @@ span.desc {
     font-family: 'Bitcount', sans-serif;
     color: var(--c);
     font-weight: bold;
-    font-size: clamp(0.8rem, 1.6vw + 0.4rem, 1.2rem);
+    font-size: clamp(1rem, 1.6vw + 0.4rem, 1.2rem);
 }
 
 article.game-article button.btn-play {
@@ -174,7 +175,7 @@ article.game-article button:hover {
 
 article.game-article p {
     color: var(--colore-testo);
-    font-size: clamp(0.8rem, 1.6vw + 0.4rem, 1.1rem);
+    font-size: clamp(1rem, 1.6vw + 0.4rem, 1.2rem);
 
     padding: 0.5rem;
     border-radius: 10px;
@@ -204,6 +205,7 @@ section.game-img {
     justify-content: flex-start;
     flex-direction: column;
     transition: 700ms ease-in-out;
+    
 }
 
 section.game-img div.figure {
@@ -212,7 +214,7 @@ section.game-img div.figure {
     align-items: center;
     justify-content: center;
     width: 100%;
-    
+
 }
 
 section.game-img div.figure div.img {
@@ -236,13 +238,13 @@ div.gameCont {
 
 }
 
-div.gameContImages{
+div.gameContImages {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-  
+
 }
 
 
@@ -278,14 +280,14 @@ div.gameImg2 {
     border: solid 1px var(--v);
 }
 
-h3.gameH3{
+h3.gameH3 {
     margin: 0;
     padding: 0;
     font-family: 'Bitcount', sans-serif;
     text-align: center;
     color: var(--v);
     font-size: clamp(1rem, 1.6vw + 0.8rem, 2rem);
-    
+
 }
 
 .contentLoading {
@@ -294,3 +296,103 @@ h3.gameH3{
 }
 
 /* #endregion text/img game */
+
+
+/* #region media queri <550px */
+
+@media screen and (max-width: 550px) {
+
+ main.game-main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "nav-g"
+            "img"
+            "desc"
+            ;
+        overflow-y: scroll;
+        flex-direction: column;
+        padding-top: 3%;
+
+    }
+
+    header.game-header{
+margin: 3% auto;
+border: none;
+}
+
+    ul.gamesList{
+        padding: 0;
+      
+        width: 97%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+         gap: 2%;
+         border: none;
+    }
+
+nav.game-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+   
+
+
+}
+
+li.game{
+width: 31%;
+margin: 0;
+
+}
+
+section.game-img{
+width: 97%;
+border: none;
+padding: 0;
+margin: 3% auto;
+}
+
+
+
+section.gamePage{
+
+    flex-direction: column;
+    border: none;
+    width: 97%;
+    padding: 0;
+
+    margin: 3% auto;
+}
+
+article.game-article button.btn-play{
+font-size: clamp(2rem, 1.5vw + 0.4rem, 3rem);
+    width: 50%;
+}
+
+h3.gameH3{
+    font-size: clamp(1.6rem, 1.5vw + 0.4rem, 2.5rem);
+    font-weight: 500;
+}
+
+article.game-article h2{
+    font-size: clamp(1.6rem, 1.5vw + 0.4rem, 2.5rem);
+    font-weight: 500;
+}
+
+article.game-article p{
+
+    font-size: clamp(1rem, 1.5vw + 0.4rem, 1.5rem);
+}
+
+span.desc{
+
+    font-size: clamp(1.1rem, 1.5vw + 0.4rem, 1.5rem);
+}
+
+}
+/* #endregion media queri <550px */

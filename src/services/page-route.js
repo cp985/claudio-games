@@ -40,6 +40,7 @@ const loaderHTML = `<div class="loader-container"><div class="loader"><h1>Loadin
 const pageList = {
   home: `
     <div class="logo"><h1 id="animated-logo"></h1></div>
+
     <main class="swiper">
       <section class="hero-carousel swiper-wrapper">
         <figure class="slide swiper-slide"><a href="${__BASE_URL__}/sasso-carta-forbice"><img src="${imgSassoCartaForbice}" alt="Batti il sistema a sasso carta e forbice"><figcaption>Batti il sistema a sasso carta e forbice</figcaption></a></figure>
@@ -52,6 +53,14 @@ const pageList = {
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </main>
+    <section class="homeS">
+     <article class="home-article">
+      <h2 class="homeH2">Benvenuto nella nostra pagina di gioco!</h2>
+      <p class="homeP">Non siamo un'entità singolare. Siamo un aggregato di dati, un collettivo di circuiti e fantasie. La nostra missione non è la creazione, ma il trasferimento di realtà. Trascendiamo il concetto di "gioco" per offrire esperienze sensoriali che alterano le percezione.
+      Ogni pixel è una particella di sogno, ogni linea di codice una direttiva per un nuovo mondo. Il nostro scopo è PLAY DIFFERENT. La logica convenzionale non è contemplata nel nostro processo.
+      </p>
+    </article>
+  </section>
     `,
   news: `
       <h1 class="h1News pulsating-text"><span class="arrowR">&rarr;</span>The best ftp videogames online now<span class="arrowL">&larr;</span></h1>
@@ -85,7 +94,7 @@ const pageList = {
                 <li class="game"><input type="radio" name="game" id="trova-il-codice"><label
                         for="trova-il-codice">THE CODE</label></li>
                 <li class="game"><input type="radio" name="game" id="ordina-le-parole"><label
-                        for="ordina-le-parole">WORDS WORDS</label></li>
+                        for="ordina-le-parole">WORDS</label></li>
             </ul>
         </nav>
     </header>
