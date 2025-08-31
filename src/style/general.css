@@ -95,8 +95,8 @@ header#main-header {
     justify-content: center;
     align-items: center;
     z-index: 10;
-    margin: 0.3rem auto;
-    flex-shrink: 0;
+    margin: 0.3% auto;
+    flex-shrink: 1;
 
 }
 
@@ -201,7 +201,8 @@ div.cont {
     min-height: 0;
     border-radius: 5px; 
     z-index: 5;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 
   backdrop-filter: blur(1rem) brightness(6);
   background-image: radial-gradient(circle at 50% 50%,

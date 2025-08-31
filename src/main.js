@@ -16,7 +16,6 @@ import "./style/codice.css";
 import { startRouter } from "./services/page-route.js";
 import { handleInitialLoad } from "./services/initial-loader.js";
 import { createNavigation } from "./services/navigation.js";
-import { newsApiCall } from "./services/news.js";
 import "./services/contact.js";
 import "./services/games.js"
 import "./services/scf.js";
@@ -43,11 +42,6 @@ startRouter();
 
 
 console.log("Application initialized.");
-
-
- 
-// newsApiCall();
-
 
 
 if (module.hot) {

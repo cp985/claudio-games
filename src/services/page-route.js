@@ -27,7 +27,6 @@ import { scf } from "./scf.js";
 import { initWordsGame } from "./parole.js";
 //code
 import { createCode } from "./codice.js";
-import { cleanupCodice } from "./codice.js";
 
 export { page };
 
@@ -255,7 +254,7 @@ function cleanup(context, next) {
     activeSwiper = null;
     isHomePage = false;
   }
-  // cleanupCodice();
+  
   next(); // Prosegui alla prossima funzione middleware o alla rotta
 }
 

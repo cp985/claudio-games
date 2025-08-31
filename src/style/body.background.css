@@ -23,10 +23,8 @@ touch-action: none;
   height: 200vmax; 
   transform: translate(-50%, -50%) rotate(-45deg);
   transform-origin: 50% 50%;
-
   background: repeat;
   z-index: 0; 
-
   --colore-sfondo: #000000;
   --c: #009bbe;
   --v: #ff01ff;
