@@ -325,17 +325,34 @@ div article.artSubmit button {
     div.cont-contact {
         grid-template-columns: 1fr;
         grid-template-areas:
-            "map"
-            "form";
-        overflow-y: scroll;
+            "form"
+            "map";
+
     }
+
+    section.contact-info-section {
+        width: 100%;
+        border-top: 1px solid var(--colore-secondario);
+    }
+
+section.form-contact-section h2,
+section.contact-info-section h2.homeH2c {
+    width: 100%;
+
+padding-left: 0.7rem;
+text-align: left;
+
+}
+
 
     section.contact-info-section div.map-container {
         width: 95%;
+
     }
 
     .address-info div.border {
-        width: 95%;
+        width: 90%;
+        margin-bottom: 0.5rem;
     }
 
     form#form {

@@ -17,8 +17,8 @@ html {
     color: var(--colore-testo);
     user-select: none;
     overflow: hidden;
-    
-    
+
+
 }
 
 body {
@@ -153,7 +153,7 @@ div.logo {
     justify-content: center;
     align-items: center;
     margin: 0.5% auto;
-    
+
 }
 
 h1#animated-logo {
@@ -192,7 +192,6 @@ i.fa-headset {
 
 /* #region sweeper carousel */
 div.cont {
-    /* padding-top: 5rem; */
     flex-grow: 1;
     display: flex;
     justify-content: flex-start;
@@ -224,7 +223,7 @@ main.swiper {
     display: flex;
     align-items: center;
     border: 5px solid var(--colore-secondario);
-    min-height: 72%;
+    min-height: 18rem;
     /*togliere in caso di media query*/
 }
 
@@ -349,34 +348,80 @@ div.cont main.swiper div.swiper-pagination {
 
 /* #region section about us */
 
-section.homeS{
+section.homeS {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-  
-    padding: 1rem
+    margin-bottom: 0.5rem;
 }
 
-article.homeA{}
+article.homeA {}
 
-h2.homeH2{
+h2.homeH2 {
     font-family: 'Bitcount', sans-serif;
-font-size: clamp(1.5rem, 1.8vw + 0.4rem, 1.2rem);
-color: var(--colore-testo);
-margin: 0.5rem;
-color: var(--colore-secondario);
+    font-size: clamp(1.8rem, 1.8vw + 0.4rem, 2.3rem);
+
+    margin: 0.5rem;
+    color: var(--colore-secondario);
 }
 
-p.homeP{
-font-size: clamp(1rem, 1.8vw + 0.4rem, 1.2rem);
-color: var(--colore-testo);
-margin: 0.5rem;
+p.homeP {
+    font-size: clamp(1rem, 1.8vw + 0.4rem, 1.2rem);
+    color: var(--colore-testo);
+    margin: 0.5rem;
 
 }
 
+p.homeP::first-letter {
+  font-size: 2.7em; /* Rende la lettera 3 volte più grande rispetto al testo base */
+  color: var(--colore-accento); /* Cambia il colore della lettera in blu */
+  /* font-weight: bold; Rende la lettera in grassetto */
+  float: left; /* Sposta la lettera a sinistra, creando un effetto di "drop cap" */
+  margin-right: 0.1em; /* Aggiunge uno spazio a destra per separare la lettera dal resto del testo */
+font-family: 'Bitcount', sans-serif;
+
+}
+
+
+div.homeCard{
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+
+}
+
+div.card{
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   flex-direction: column;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+border: 1px solid var(--colore-secondario);
+border-radius: 5px;
+
+}
+
+section.homeS.cardS{
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+
+padding: 0.5rem;
+border: 1px solid var(--colore-secondario);
+
+}
+
+section.homeS.contatt{
+    width: 100%;
+    height: auto; 
+}
 
 /* #endregion section about us */
 
@@ -430,8 +475,6 @@ footer p small {
 
 /* #region media query <550px */
 
-@media screen and (max-width: 550px) {
-   
-}
-/* #endregion media query <550px */
+@media screen and (max-width: 550px) {}
 
+/* #endregion media query <550px */
