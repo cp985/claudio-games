@@ -48,6 +48,7 @@ body {
 
 /* Regole per il cursore  */
 
+div.card:hover,
 label.placeholder:hover,
 label.codiceSwitch:hover,
 span.testo:hover,
@@ -67,7 +68,7 @@ img#choice-forbici:hover {
     cursor: var(--cursor2);
 }
 
-
+div.card:hover,
 label.placeholder,
 label.codiceSwitch,
 span.testo,
@@ -363,12 +364,21 @@ section.homeS {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.5rem;
+    
+    padding: 0.5rem;
 }
 
-article.homeA {}
+article.homeA {
+    width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+}
 
 h2.homeH2 {
+    width: 100%;
     font-family: 'Bitcount', sans-serif;
     font-size: clamp(1.8rem, 1.8vw + 0.4rem, 2.3rem);
 
@@ -377,9 +387,12 @@ h2.homeH2 {
 }
 
 p.homeP {
+   
+    width: 100%;
     font-size: clamp(1rem, 1.8vw + 0.4rem, 1.2rem);
     color: var(--colore-testo);
-    margin: 0.5rem;
+    margin: 0.5rem 0.8rem;
+   
 
 }
 
@@ -391,9 +404,18 @@ p.homeP::first-letter {
     /* font-weight: bold; Rende la lettera in grassetto */
     float: left;
     /* Sposta la lettera a sinistra, creando un effetto di "drop cap" */
-    margin-right: 0.1em;
+    margin-right: 0 0.2em 0 0.1rem;
     /* Aggiunge uno spazio a destra per separare la lettera dal resto del testo */
     font-family: 'Bitcount', sans-serif;
+
+}
+
+section.homeS.cardS {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid var(--colore-secondario);
 
 }
 
@@ -405,9 +427,12 @@ div.homeCard {
     width: 100%;
 
 }
-
+div.homeCard a{
+    width: 100%;
+    height: 100%;
+}
 div.card {
-    width: 33%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -420,16 +445,88 @@ div.card {
 
 }
 
-section.homeS.cardS {
+div.card figure{
+    position: relative;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+    aspect-ratio: 4 / 3;
+    margin: 0.5rem;
+    border-radius: 5px;
+}
 
+div.card:hover figure figcaption{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    justify-content: flex-start;
+    font-size: clamp(1rem, 1.8vw + 0.4rem, 1.2rem);
+    color: var(--colore-testo);
+    background-color: rgba(0, 0, 0, 0.4);
     padding: 0.5rem;
-    border: 1px solid var(--colore-secondario);
+}
+
+span.spanCard{
+    position: absolute;
+    top: 70%;
+    right: 0;
+    border-radius: 50%;
+    border: 2px solid var(--colore-secondario);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.2rem, 1.8vw + 0.4rem, 2.5rem);
+    color: var(--v);
+    padding: 0.3rem;
+    font-family: 'Bitcount', sans-serif;
 
 }
+
+.card:nth-of-type(1) .gamePreviewImg{
+
+    background-image: url("../../assets/img/sassocartaforbice.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--colore-secondario);
+    border-radius: 5px;
+}
+
+
+
+.card:nth-of-type(2) .gamePreviewImg{
+
+    background-image: url("../../assets/img/ordina-le-parole.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--colore-secondario);
+    border-radius: 5px;
+}
+
+.card:nth-of-type(3) .gamePreviewImg{
+
+    background-image: url("../../assets/img/trovailcodice.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--colore-secondario);
+    border-radius: 5px;
+}
+
 
 
 
@@ -485,6 +582,12 @@ footer p small {
 
 /* #region media query <550px */
 
-@media screen and (max-width: 550px) {}
+@media screen and (max-width: 550px) {
+div.homeCard{
+    flex-wrap: wrap;
+}
+
+
+}
 
 /* #endregion media query <550px */

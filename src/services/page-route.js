@@ -70,9 +70,9 @@ const pageList = {
   <article class="home-article">
       <h2 class="homeH2">Le Nostre ultime Creazioni!</h2>
       <div class="homeCard">
-       <div class="card"><figure><img src="" alt="Batti il sistema a sasso carta e forbice"><figcaption>Batti il sistema a sasso carta e forbice</figcaption></figure><p class="homeP">Batti il sistema a sasso carta e forbice</div>
-       <div class="card"><figure><img src="" alt="Batti il sistema a sasso carta e forbice"><figcaption>Batti il sistema a sasso carta e forbice</figcaption></figure><p class="homeP">Batti il sistema a sasso carta e forbice</div>
-       <div class="card"><figure><img src="" alt="Batti il sistema a sasso carta e forbice"><figcaption>Batti il sistema a sasso carta e forbice</figcaption></figure><p class="homeP">Batti il sistema a sasso carta e forbice</div>
+       <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Batti il sistema a sasso carta e forbice.</figcaption></a></figure><p class="homeP">Gioca a SCF!</div>
+       <div class="card"><figure><div class="gamePreviewImg"></div><figcaption>Ordina le parole per formare la frase esatta! Gioca a WORDS</figcaption></figure><p class="homeP">Batti il sistema a sasso carta e forbice</div>
+       <div class="card"><figure><div class="gamePreviewImg"></div><figcaption>Trova il codice e disinnesca la bomba!<span class="spanCard">NEW!</span></figcaption></figure><p class="homeP">Batti il sistema a sasso carta e forbice</div>
      </div>
     </article>
   </section>

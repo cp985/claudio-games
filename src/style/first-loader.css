@@ -4,15 +4,15 @@
             --colore-sfondo: #000000;
             --colore-accento: #00CFFF;
             --colore-secondario: #ddff00;
-            --colore-testo: #EAEAEA; 
-            --stripe-thickness: 5px; 
-            --stripe-gap: 30px; 
+            --colore-testo: #EAEAEA;
+            --stripe-thickness: 5px;
+            --stripe-gap: 30px;
         }
 
 
 
         .loader-background {
-          overflow:auto;
+            overflow: auto;
             position: fixed;
             top: 0;
             left: 0;
@@ -20,29 +20,32 @@
             height: 100vh;
             z-index: 9999;
             background-color: var(--colore-sfondo);
-            background-image: repeating-linear-gradient(
-                45deg,
-                var(--c) 0, var(--c) var(--stripe-thickness),
-                var(--colore-sfondo) var(--stripe-thickness), var(--colore-sfondo) calc(var(--stripe-thickness) + var(--stripe-gap)),
-                var(--v) calc(var(--stripe-thickness) + var(--stripe-gap)), var(--v) calc(var(--stripe-thickness) * 2 + var(--stripe-gap)),
-                var(--colore-sfondo) calc(var(--stripe-thickness) * 2 + var(--stripe-gap)), var(--colore-sfondo) calc(var(--stripe-thickness) * 2 + var(--stripe-gap) * 2),
-                var(--colore-accento) calc(var(--stripe-thickness) * 2 + var(--stripe-gap) * 2), var(--colore-accento) calc(var(--stripe-thickness) * 3 + var(--stripe-gap) * 2),
-                var(--colore-sfondo) calc(var(--stripe-thickness) * 3 + var(--stripe-gap) * 2), var(--colore-sfondo) calc(var(--stripe-thickness) * 3 + var(--stripe-gap) * 3),
-                var(--colore-secondario) calc(var(--stripe-thickness) * 3 + var(--stripe-gap) * 3), var(--colore-secondario) calc(var(--stripe-thickness) * 4 + var(--stripe-gap) * 3),
-                var(--colore-sfondo) calc(var(--stripe-thickness) * 4 + var(--stripe-gap) * 3), var(--colore-sfondo) calc(var(--stripe-thickness) * 4 + var(--stripe-gap) * 4)
-            );
-            background-size: 198px 198px; 
+            background-image: repeating-linear-gradient(45deg,
+                    var(--c) 0, var(--c) var(--stripe-thickness),
+                    var(--colore-sfondo) var(--stripe-thickness), var(--colore-sfondo) calc(var(--stripe-thickness) + var(--stripe-gap)),
+                    var(--v) calc(var(--stripe-thickness) + var(--stripe-gap)), var(--v) calc(var(--stripe-thickness) * 2 + var(--stripe-gap)),
+                    var(--colore-sfondo) calc(var(--stripe-thickness) * 2 + var(--stripe-gap)), var(--colore-sfondo) calc(var(--stripe-thickness) * 2 + var(--stripe-gap) * 2),
+                    var(--colore-accento) calc(var(--stripe-thickness) * 2 + var(--stripe-gap) * 2), var(--colore-accento) calc(var(--stripe-thickness) * 3 + var(--stripe-gap) * 2),
+                    var(--colore-sfondo) calc(var(--stripe-thickness) * 3 + var(--stripe-gap) * 2), var(--colore-sfondo) calc(var(--stripe-thickness) * 3 + var(--stripe-gap) * 3),
+                    var(--colore-secondario) calc(var(--stripe-thickness) * 3 + var(--stripe-gap) * 3), var(--colore-secondario) calc(var(--stripe-thickness) * 4 + var(--stripe-gap) * 3),
+                    var(--colore-sfondo) calc(var(--stripe-thickness) * 4 + var(--stripe-gap) * 3), var(--colore-sfondo) calc(var(--stripe-thickness) * 4 + var(--stripe-gap) * 4));
+            background-size: 198px 198px;
             animation: moveStripes 3s linear infinite;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow-y: hidden;
-           
+
         }
 
         @keyframes moveStripes {
-            from { background-position: 0 0; }
-            to { background-position: 198px 0; }
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 198px 0;
+            }
         }
 
         .loading-text {
@@ -52,41 +55,78 @@
         .loading-text span {
             color: var(--colore-testo);
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(1rem, 2.7vw + 0.7rem, 6rem); 
-  
+            font-size: clamp(2rem, 2vw + 1.5rem, 6rem);
             font-weight: 700;
             text-transform: uppercase;
             margin: 0 5px;
-            
-            display: inline-block; 
-
+            display: inline-block;
+            text-shadow:
+                -1px -1px 0 var(--colore-sfondo),
+                1px -1px 0 var(--colore-sfondo),
+                -1px 1px 0 var(--colore-sfondo),
+                1px 1px 0 var(--colore-sfondo);
             animation: bounce 1.4s infinite ease-in-out;
         }
 
         @keyframes bounce {
-            0%, 60%, 100% {
+
+            0%,
+            60%,
+            100% {
                 transform: translateY(0);
             }
+
             30% {
                 transform: translateY(-40px);
             }
         }
 
         /* Ritardi per l'effetto a onda */
-        .loading-text span:nth-child(2) { animation-delay: 0.1s; }
-        .loading-text span:nth-child(3) { animation-delay: 0.2s; }
-        .loading-text span:nth-child(4) { animation-delay: 0.3s; }
-        .loading-text span:nth-child(5) { animation-delay: 0.4s; }
-        .loading-text span:nth-child(6) { animation-delay: 0.5s; }
-        .loading-text span:nth-child(7) { animation-delay: 0.6s; }
-        .loading-text span:nth-child(8) { animation-delay: 0.7s; }
-        .loading-text span:nth-child(9) { animation-delay: 0.8s; }
-        .loading-text span:nth-child(10){ animation-delay: 0.9s; }
-        .loading-text span:nth-child(11) { animation-delay: 1s; }
-        .loading-text span:nth-child(12){ animation-delay: 1.1s; }
+        .loading-text span:nth-child(2) {
+            animation-delay: 0.1s;
+        }
 
-div.load.hidden{
-  opacity: 0;
-  visibility: hidden;
-} 
-  
+        .loading-text span:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .loading-text span:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .loading-text span:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .loading-text span:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+
+        .loading-text span:nth-child(7) {
+            animation-delay: 0.6s;
+        }
+
+        .loading-text span:nth-child(8) {
+            animation-delay: 0.7s;
+        }
+
+        .loading-text span:nth-child(9) {
+            animation-delay: 0.8s;
+        }
+
+        .loading-text span:nth-child(10) {
+            animation-delay: 0.9s;
+        }
+
+        .loading-text span:nth-child(11) {
+            animation-delay: 1s;
+        }
+
+        .loading-text span:nth-child(12) {
+            animation-delay: 1.1s;
+        }
+
+        div.load.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
