@@ -348,31 +348,33 @@ div.cont .swiper div.swiper-pagination {
 /* #endregion sweeper carousel */
 
 /* #region section about us */
-main.homeM{
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-width: 100%;
+main.homeM {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
 
 }
 
 
 section.homeS {
+    border-top: 1px solid var(--colore-secondario);
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     padding: 0.5rem;
 }
 
 article.homeA {
     width: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
 
 
 }
@@ -380,23 +382,23 @@ justify-content: center;
 h2.homeH2 {
     width: 100%;
     font-family: 'Bitcount', sans-serif;
-    font-size: clamp(1.8rem, 1.8vw + 0.4rem, 2.3rem);
+    font-size: clamp(2rem, 1.8vw + 0.5rem, 2.5rem);
 
     margin: 0.5rem;
     color: var(--colore-secondario);
 }
 
 p.homeP {
-   
+
     width: 100%;
     font-size: clamp(1rem, 1.8vw + 0.4rem, 1.2rem);
     color: var(--colore-testo);
     margin: 0.5rem 0.8rem;
-   
+
 
 }
 
-p.homeP::first-letter {
+.homeAbout p.homeP::first-letter {
     font-size: 2.7em;
     /* Rende la lettera 3 volte più grande rispetto al testo base */
     color: var(--colore-accento);
@@ -407,6 +409,11 @@ p.homeP::first-letter {
     margin-right: 0 0.2em 0 0.1rem;
     /* Aggiunge uno spazio a destra per separare la lettera dal resto del testo */
     font-family: 'Bitcount', sans-serif;
+
+}
+
+section.homeS.homeAbout {
+    border: none;
 
 }
 
@@ -427,10 +434,12 @@ div.homeCard {
     width: 100%;
 
 }
-div.homeCard a{
+
+div.homeCard a {
     width: 100%;
     height: 100%;
 }
+
 div.card {
     width: 90%;
     display: flex;
@@ -445,7 +454,7 @@ div.card {
 
 }
 
-div.card figure{
+div.card figure {
     position: relative;
     position: relative;
     display: flex;
@@ -457,7 +466,7 @@ div.card figure{
     border-radius: 5px;
 }
 
-div.card:hover figure figcaption{
+div.card:hover figure figcaption {
     position: absolute;
     top: 0;
     left: 0;
@@ -467,13 +476,21 @@ div.card:hover figure figcaption{
     align-items: center;
     text-align: left;
     justify-content: flex-start;
-    font-size: clamp(1rem, 1.8vw + 0.4rem, 1.2rem);
+    font-size: clamp(1.5rem, 1.8vw + 0.4rem, 2rem);
     color: var(--colore-testo);
     background-color: rgba(0, 0, 0, 0.4);
     padding: 0.5rem;
 }
 
-span.spanCard{
+p.cardP {
+    text-align: center;
+    font-family: 'Bitcount', sans-serif;
+    font-size: clamp(2rem, 1.8vw + 0.5rem, 3.3rem);
+    color: var(--colore-accento);
+    margin: 0.3rem;
+}
+
+span.spanCard {
     position: absolute;
     top: 70%;
     right: 0;
@@ -482,14 +499,14 @@ span.spanCard{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(1.2rem, 1.8vw + 0.4rem, 2.5rem);
+    font-size: clamp(2rem, 1.8vw + 0.4rem, 2.5rem);
     color: var(--v);
     padding: 0.3rem;
     font-family: 'Bitcount', sans-serif;
 
 }
 
-.card:nth-of-type(1) .gamePreviewImg{
+.card:nth-of-type(1) .gamePreviewImg {
 
     background-image: url("../../assets/img/sassocartaforbice.webp");
     background-size: cover;
@@ -503,7 +520,7 @@ span.spanCard{
 
 
 
-.card:nth-of-type(2) .gamePreviewImg{
+.card:nth-of-type(2) .gamePreviewImg {
 
     background-image: url("../../assets/img/ordina-le-parole.webp");
     background-size: cover;
@@ -515,7 +532,7 @@ span.spanCard{
     border-radius: 5px;
 }
 
-.card:nth-of-type(3) .gamePreviewImg{
+.card:nth-of-type(3) .gamePreviewImg {
 
     background-image: url("../../assets/img/trovailcodice.webp");
     background-size: cover;
@@ -527,7 +544,166 @@ span.spanCard{
     border-radius: 5px;
 }
 
+.team {
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.homeTeam {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+
+}
+
+article.homeA.teamA {
+    border: 1px solid var(--v);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+div.homeImgTeam {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+article.teamA:nth-of-type(2) div.homeImgTeam {
+    flex-direction: row-reverse;
+
+
+}
+
+.teamCard {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+
+}
+
+.teamCard h3 {
+    text-align: center;
+    font-family: 'Bitcount', sans-serif;
+    font-size: clamp(2rem, 1.8vw + 0.5rem, 3.3rem);
+    color: var(--colore-accento);
+    margin: 0.3rem;
+}
+
+.teamCard h4 {
+
+    text-align: center;
+    font-family: 'Bitcount', sans-serif;
+    font-size: clamp(1.2rem, 1.8vw + 0.4rem, 2.5rem);
+    color: var(--v);
+    margin: 0.3rem;
+
+}
+
+.teamCard p {
+
+    text-align: center;
+    font-size: clamp(1rem, 1.8vw + 0.4rem, 1.2rem);
+    color: var(--colore-testo);
+    margin: 0.3rem;
+}
+
+figure.figureTeam {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    margin: 0.5rem;
+    border-radius: 5px;
+}
+
+article.teamA:nth-of-type(1) .teamImg {
+    background-image: url("../../assets/img/ceo.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+article.teamA:nth-of-type(2) .teamImg {
+    background-image: url("../../assets/img/cto.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+article.teamA:nth-of-type(3) .teamImg {
+    background-image: url("../../assets/img/director.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.officeS {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.officeA {
+    background-image: url("../../assets/img/office.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+  
+   
+ 
+
+}
+
+.officeA h2{
+
+    width:fit-content;
+    background-color: var(--colore-blur33);
+    padding: 0.5rem;
+    border-radius: 99px;
+    color: var(--colore-secondario);
+}
+
+.officeA p{
+text-align: center;
+    background-color: var(--colore-blur33);
+    padding: 0.5rem;
+    color: var(--colore-testo)
+}
 
 
 /* #endregion section about us */
@@ -583,10 +759,19 @@ footer p small {
 /* #region media query <550px */
 
 @media screen and (max-width: 550px) {
-div.homeCard{
-    flex-wrap: wrap;
-}
+    div.homeCard {
+        flex-wrap: wrap;
+    }
 
+    .homeImgTeam {
+        flex-direction: column;
+    }
+
+    .homeA.teamA .homeImgTeam:nth-of-type(1),
+    .homeA.teamA .homeImgTeam:nth-of-type(2),
+    .homeA.teamA .homeImgTeam:nth-of-type(3) {
+        flex-direction: column-reverse;
+    }
 
 }
 

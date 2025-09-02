@@ -54,8 +54,8 @@ const pageList = {
       <div class="swiper-button-next"></div>
     </div>
     <main class="homeM">
-    <section class="homeS">
-     <article class="home-article">
+    <section class="homeS homeAbout">
+     <article class="homeA">
       <h2 class="homeH2">Chi siamo noi?!</h2>
       <p class="homeP">Non siamo un'entità singolare. Siamo un aggregato di dati, un collettivo di circuiti e fantasie. La nostra missione non è la creazione, ma il trasferimento di realtà. 
       </p>
@@ -66,16 +66,48 @@ const pageList = {
       </p>
     </article>
   </section>
+<section class="homeS team">
+<h2 class="homeH2">Il Nostro Team</h2>
+<div class="homeTeam">
+<article class="homeA teamA">
+<div class="homeImgTeam">
+<figure class="figureTeam"><div class="teamImg"></div></figure>
+<div class="teamCard"><h3 class="homeH3">C.E.O</h3><h4>Elonio Muskio</h4><p class="homeP">trgtery rthrthr rtyrty r6yrtyu yy 7 </p></div>
+</div>
+</article>
+<article class="homeA teamA">
+<div class="homeImgTeam">
+<figure class="figureTeam"><div class="teamImg"></div></figure>
+<div class="teamCard"><h3 class="homeH3">C.T.O</h3><h4>Tayloria Swiftia</h4><p class="homeP">trgtery rthrthr rtyrty r6yrtyu yy 7 </p></div>
+</div>
+</article>
+<article class="homeA teamA">
+<div class="homeImgTeam">
+<figure class="figureTeam"><div class="teamImg"></div></figure>
+<div class="teamCard"><h3 class="homeH3">Director</h3><h4>Marco Zuckenbergo</h4><p class="homeP">trgtery rthrthr rtyrty r6yrtyu yy 7 </p></div>
+</div>
+</article>
+</div>
+</section>
   <section class="homeS cardS">
-  <article class="home-article">
+  <article class="homeA">
       <h2 class="homeH2">Le Nostre ultime Creazioni!</h2>
       <div class="homeCard">
-       <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Batti il sistema a sasso carta e forbice.</figcaption></a></figure><p class="homeP">Gioca a SCF!</div>
-       <div class="card"><figure><div class="gamePreviewImg"></div><figcaption>Ordina le parole per formare la frase esatta! Gioca a WORDS</figcaption></figure><p class="homeP">Batti il sistema a sasso carta e forbice</div>
-       <div class="card"><figure><div class="gamePreviewImg"></div><figcaption>Trova il codice e disinnesca la bomba!<span class="spanCard">NEW!</span></figcaption></figure><p class="homeP">Batti il sistema a sasso carta e forbice</div>
+       <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Batti il sistema a sasso carta e forbice.</figcaption></a></figure><p class="homeP cardP">SCF</div>
+       <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Ordina le parole per formare la frase esatta! Gioca a WORDS</figcaption></a></figure><p class="homeP cardP">WORDS</div>
+       <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Trova il codice e disinnesca la bomba!<span class="spanCard">NEW!</span></figcaption></a></figure><p class="homeP cardP">CODE</div>
      </div>
     </article>
   </section>
+
+<section class="homeS officeS">
+<article class="homeA officeA">
+<h2 class="homeH2">Il Nostro Futuro!</h2>
+<p class="homeP">Seleziona il modo di contatto preferito e scrivici a: <a href="mailto:6o5V3@example.com">6o5V3@example.com</a></p>
+
+</article>
+</section>
+
   </main>
     `,
   news: `
