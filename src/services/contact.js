@@ -3,7 +3,7 @@ import { page } from "./page-route.js";
 export function validateForm() {
   const form = document.getElementById("form");
   const submitButton = document.getElementById("button-submit");
-const invalidH3 = form.querySelector("h3.invalidH3");
+  const invalidH3 = form.querySelector("h3.invalidH3");
   if (!form || !submitButton) return;
 
   submitButton.addEventListener("click", function () {
@@ -11,19 +11,21 @@ const invalidH3 = form.querySelector("h3.invalidH3");
 
     let isFormValid = true;
 
-    form.querySelectorAll("span.invalid").forEach(span => {
-      span.style.display = 'none';
+    form.querySelectorAll("span.invalid").forEach((span) => {
+      span.style.display = "none";
     });
 
     const inputs = form.querySelectorAll("input[required], textarea[required]");
-    inputs.forEach(input => {
+    inputs.forEach((input) => {
       if (!input.checkValidity()) {
         isFormValid = false;
-        const spanId = `span${input.id.charAt(0).toUpperCase() + input.id.slice(1)}`;
+        const spanId = `span${
+          input.id.charAt(0).toUpperCase() + input.id.slice(1)
+        }`;
         const errorSpan = document.getElementById(spanId);
         if (errorSpan) {
-          errorSpan.style.display = 'inline'; 
-        invalidH3.style.display = 'block'; 
+          errorSpan.style.display = "inline";
+          invalidH3.style.display = "block";
         }
       }
     });
@@ -42,8 +44,8 @@ const invalidH3 = form.querySelector("h3.invalidH3");
     showSuccessMessage();
     form.reset();
     form.classList.remove("submitted");
-    form.querySelectorAll("span.invalid").forEach(span => {
-        span.style.display = 'none';
+    form.querySelectorAll("span.invalid").forEach((span) => {
+      span.style.display = "none";
     });
   });
 }

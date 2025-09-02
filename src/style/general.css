@@ -217,7 +217,7 @@ div.cont {
 
 }
 
-main.swiper {
+.swiper {
     width: 90%;
     margin: 0.8rem auto;
     display: flex;
@@ -233,8 +233,8 @@ section.hero-carousel {
     min-width: 300px;
 }
 
-div.cont main.swiper div.swiper-button-prev::after,
-div.cont main.swiper div.swiper-button-next::after {
+div.cont .swiper div.swiper-button-prev::after,
+div.cont .swiper div.swiper-button-next::after {
     font-size: clamp(1.2rem, 2.5vw + 2rem, 5.5rem);
     font-weight: bolder;
 }
@@ -249,11 +249,11 @@ div.swiper-button-next {
         0 0 40px var(--v);
 }
 
-div.cont main.swiper div.swiper-button-next::after {
+div.cont .swiper div.swiper-button-next::after {
     animation: bouncerR 1.4s infinite ease-in-out;
 }
 
-div.cont main.swiper div.swiper-button-prev::after {
+div.cont .swiper div.swiper-button-prev::after {
     animation: bouncerL 1.4s infinite ease-in-out;
 }
 
@@ -337,7 +337,7 @@ figcaption {
     display: none;
 }
 
-div.cont main.swiper div.swiper-pagination {
+div.cont .swiper div.swiper-pagination {
     width: 15%;
     margin: 0 41%;
     background-color: rgba(253, 253, 253, 0.2);
@@ -347,6 +347,15 @@ div.cont main.swiper div.swiper-pagination {
 /* #endregion sweeper carousel */
 
 /* #region section about us */
+main.homeM{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+width: 100%;
+
+}
+
 
 section.homeS {
     width: 100%;
@@ -375,53 +384,54 @@ p.homeP {
 }
 
 p.homeP::first-letter {
-  font-size: 2.7em; /* Rende la lettera 3 volte più grande rispetto al testo base */
-  color: var(--colore-accento); /* Cambia il colore della lettera in blu */
-  /* font-weight: bold; Rende la lettera in grassetto */
-  float: left; /* Sposta la lettera a sinistra, creando un effetto di "drop cap" */
-  margin-right: 0.1em; /* Aggiunge uno spazio a destra per separare la lettera dal resto del testo */
-font-family: 'Bitcount', sans-serif;
+    font-size: 2.7em;
+    /* Rende la lettera 3 volte più grande rispetto al testo base */
+    color: var(--colore-accento);
+    /* Cambia il colore della lettera in blu */
+    /* font-weight: bold; Rende la lettera in grassetto */
+    float: left;
+    /* Sposta la lettera a sinistra, creando un effetto di "drop cap" */
+    margin-right: 0.1em;
+    /* Aggiunge uno spazio a destra per separare la lettera dal resto del testo */
+    font-family: 'Bitcount', sans-serif;
 
 }
 
 
-div.homeCard{
-display: flex;
-align-items: center;
-justify-content: center;
-width: 100%;
+div.homeCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 
 }
 
-div.card{
+div.card {
     width: 33%;
     display: flex;
     align-items: center;
     justify-content: center;
-   flex-direction: column;
+    flex-direction: column;
     margin: 0.5rem;
     padding: 0.5rem;
     border-radius: 10px;
-border: 1px solid var(--colore-secondario);
-border-radius: 5px;
+    border: 1px solid var(--colore-secondario);
+    border-radius: 5px;
 
 }
 
-section.homeS.cardS{
-display: flex;
-align-items: center;
-justify-content: center;
-width: 100%;
-
-padding: 0.5rem;
-border: 1px solid var(--colore-secondario);
-
-}
-
-section.homeS.contatt{
+section.homeS.cardS {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: auto; 
+
+    padding: 0.5rem;
+    border: 1px solid var(--colore-secondario);
+
 }
+
+
 
 /* #endregion section about us */
 

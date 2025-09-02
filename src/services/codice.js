@@ -303,7 +303,7 @@ export function createCode() {
         // Qui puoi aggiungere la logica di "Game Over"
         const section = document.querySelector("section.codiceS");
         const gameOverArt = document.createElement("article");
-        gameOverArt.classList.add("artSubmit","boom");
+        gameOverArt.classList.add("artSubmit", "boom");
         gameOverArt.innerHTML = `
         <h2 class="boomH2">YOU LOSE</h2>
           <p>Riprova a disinnescare la bomba .</p>

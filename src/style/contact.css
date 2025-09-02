@@ -64,7 +64,7 @@ form[name="form"] fieldset {
     flex-direction: column;
     caret-color: var(--v);
     border: 1px solid var(--v);
-    margin-bottom: 10%;
+    margin-bottom: 1.5rem;
 }
 
 legend {
@@ -340,7 +340,7 @@ section.contact-info-section h2.homeH2c {
     width: 100%;
 
 padding-left: 0.7rem;
-text-align: left;
+
 
 }
 

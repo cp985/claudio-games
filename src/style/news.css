@@ -16,7 +16,7 @@ main.mNews {
 
 h1.h1News {
     padding: 0;
-    font-size: clamp(0.4rem, 2.5vw + 0.5rem, 1.7rem);
+    font-size: clamp(1rem, 1.6vw + 0.4rem, 2rem);
     font-weight: 500;
     color: var(--colore-testo);
     margin: 0.2rem 0;
@@ -52,7 +52,7 @@ h1.h1News {
 
 span.arrowR,
 span.arrowL {
-    font-size: clamp(2rem, 2.5vw + 0.8rem, 3rem);
+    font-size: clamp(1.5rem, 1.6vw + 0.6rem, 3rem);
     ;
     font-weight: 1000;
     color: var(--v);
@@ -68,6 +68,8 @@ article.aNews {
     margin-bottom: 1.5rem;
     border-top: 3px solid var(--v);
 }
+
+
 
 main article.aNews:last-child {
     margin-bottom: 0;
@@ -91,7 +93,6 @@ main article.aNews:first-child {
 
 main div.divNews {
     padding: 1%;
-    ;
     width: 50%;
     height: 100%;
     display: flex;
@@ -101,18 +102,19 @@ main div.divNews {
 }
 
 h3.h3News {
-    font-size: clamp(0.6rem, 2.5vw + 0.7rem, 1.7rem);
+    font-family: 'Bitcount', sans-serif;
+    font-size: clamp(1.5rem, 1.6vw + 0.6rem, 2.5rem);
     font-weight: 500;
-    color: var(--colore-testo);
+    color: var(--colore-secondario);
 }
 
 main article p.pNews {
     width: 90%;
     height: 100%;
-    padding: 0 0.5rrem 0 0.5em;
+    padding: 0 0.5rem 0 0.5em;
     display: inline-block;
     margin-top: 4%;
-    font-size: clamp(0.1rem, 2.0vw + 0.3rem, 1.2rem);
+    font-size: clamp(1rem, 1.5vw + 0.4rem, 1.8rem);
 }
 
 main article figure.figNews {
@@ -285,4 +287,19 @@ h2.h2News {
     font-size: clamp(1rem, 2.7vw + 0.7rem, 6rem);
     margin: 1rem;
     color: var(--v);
+}
+
+@media screen and (max-width: 550px) {
+    article.aNews {
+        flex-direction: column;
+    }
+    h3.h3News,
+    main article p.pNews,
+    main div.divNews{
+        width: 100%;
+    }
+    h3.h3News,
+    main article figure.figNews{
+        padding: 0.3rem 0.5rem;
+    }
 }

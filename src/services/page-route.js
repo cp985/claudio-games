@@ -41,7 +41,7 @@ const pageList = {
   home: `
     <div class="logo"><h1 id="animated-logo"></h1></div>
 
-    <main class="swiper">
+    <div class="swiper">
       <section class="hero-carousel swiper-wrapper">
         <figure class="slide swiper-slide"><a href="${__BASE_URL__}/sasso-carta-forbice"><img src="${imgSassoCartaForbice}" alt="Batti il sistema a sasso carta e forbice"><figcaption>Batti il sistema a sasso carta e forbice</figcaption></a></figure>
         <figure class="slide swiper-slide"><a href="${__BASE_URL__}/news"><img src="${imgComingSoon2}" alt="Nuovi giochi in arrivo"><figcaption>Nuovi giochi in arrivo</figcaption></a></figure>
@@ -52,7 +52,8 @@ const pageList = {
       <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
-    </main>
+    </div>
+    <main class="homeM">
     <section class="homeS">
      <article class="home-article">
       <h2 class="homeH2">Chi siamo noi?!</h2>
@@ -75,61 +76,7 @@ const pageList = {
      </div>
     </article>
   </section>
-  <section class="homeS contatt">
-      <div class="cont-contact">
-     <section class="form-contact-section">
-       <h2 >Scrivici Per Darci Una Tua Opinione!</h2>
-       <form name="form" id="form" action="/" no-validate>
-         <fieldset>
-           <legend>Compila il modulo</legend>
-           <h3 class="invalidH3" >Per favore, correggi tutti i campi evidenziati.</h3>
-           <div class="input-wrapper">
-       <label for="name">Nome:
-          <span id="spanName" class="invalid">*</span><input name="name" id="name" type="text" pattern="^[a-zA-Z\\s]+$" required placeholder="Inserisci un dato valido">
-          </label>
-          <label for="last-name">Cognome:<span id="spanLast-name" class="invalid">*</span>
-         <input name="last-name" id="last-name" type="text" pattern="^[a-zA-Z\\s]+$" placeholder="Inserisci un dato valido" required>
-          </label>
-          <label for="email">E-mail:<span id="spanEmail" class="invalid">*</span>
-         <input name="email" type="email" id="email" pattern="^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$" placeholder="Inserisci un dato valida" required >
-          </label>
-          </div>
-          </fieldset>
-        <label for="textarea" >Inserisci il tuo messaggio:
-          <textarea name="textarea" id="textarea" placeholder="Scrivi qui..." required></textarea>
-        </label>
-          <button type="button" id="button-submit">Invia</button>
-       </form>
-      </section>
-       
-      <section class="contact-info-section">
-        <h2 class="homeH2c">Dove Ci Troviamo Ora:</h2>
-        <div class="map-container">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28185.491249175324!2d86.90476692418683!3d27.98819281230523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e854a215bd9ebd%3A0x576dcf806abbab2!2sMonte%20Everest!5e0!3m2!1sit!2sit!4v1754488279983!5m2!1sit!2sit" 
-            style="border:0;" 
-            width="100%"
-            height="100%"
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          
-        </div>
-        <div class="address-info">
-         <div class="border">
-          <h3>Il nostro Quartier Generale (Fittizio)</h3>
-          <p>Monte Everest(in cima!)</p>
-           <p> Nepal </p>
-          <p><strong>Email:</strong> <a href="#">info@claudiogames.com</a></p>
-          <p><strong>Telefono:</strong> <a href="#">+977 98 1234 5678</a></p>
-         </div>
-       </div>
-      </section>
-      
-    </div>
-
-  </section>
+  </main>
     `,
   news: `
       <h1 class="h1News pulsating-text"><span class="arrowR">&rarr;</span>The best ftp videogames online now<span class="arrowL">&larr;</span></h1>

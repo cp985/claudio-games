@@ -7,7 +7,6 @@ import ordinaleparole from "../../assets/img/ordina-le-parole.webp";
 import words1 from "../../assets/img/words1.webp";
 import words2 from "../../assets/img/words2.webp";
 
-
 //Game Dictionary
 
 class Game {
@@ -51,8 +50,8 @@ const gamesDatab = {
     trovailcodice,
     "1 o più",
     "trova-il-codice",
- "#",
- "#"
+    "#",
+    "#"
   ),
   ordinaleparole: new Game(
     "Ordina le Parole",
@@ -61,8 +60,8 @@ const gamesDatab = {
     ordinaleparole,
     "1",
     "ordina-le-parole",
- words1,
- words2
+    words1,
+    words2
   ),
 };
 
@@ -87,7 +86,6 @@ export function previewGameHandlerPage() {
         label.classList.add("label-selected");
       }
       if (input && input.id) {
-        
         const id = input.id;
         const objGame = id.replaceAll("-", "");
         const article = document.querySelector(`article.game-article`);
