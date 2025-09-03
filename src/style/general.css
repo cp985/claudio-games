@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&display=swap');
 
-/* #region html/body */
+/* #region html/body e cursor */
 html {
     --cursor1: url('../../assets/cursor/cursor1.cur'), auto;
     --cursor2: url('../../assets/cursor/cursor2.cur'), pointer;
     --c: #009bbe;
     --v: #ff01ff;
     --colore-sfondo: #000000;
+     --colore-sfondo33: hsla(0, 0%, 0%, 0.990);
     --colore-accento: #00CFFF;
     --colore-secondario: #ddff00;
     --colore-testo: #EAEAEA;
@@ -48,7 +49,7 @@ body {
 
 /* Regole per il cursore  */
 
-div.card:hover,
+div.card:hover figure figcaption,
 label.placeholder:hover,
 label.codiceSwitch:hover,
 span.testo:hover,
@@ -68,7 +69,7 @@ img#choice-forbici:hover {
     cursor: var(--cursor2);
 }
 
-div.card:hover,
+div.card figure figcaption,
 label.placeholder,
 label.codiceSwitch,
 span.testo,
@@ -89,6 +90,7 @@ img#choice-forbici {
 }
 
 /* #endregion */
+
 
 /* #region nav  */
 header#main-header {
@@ -144,8 +146,19 @@ li a.link:hover {
     box-shadow: 2px 2px 7px 7px var(--colore-accento);
     font-weight: 700;
 }
+label[for="box"],
+input#box {
+    display: none;
+}
+
+
+input#box:checked~ul.list {
+    display: flex;
+}
+
 
 /* #endregion */
+
 
 /* #region logo  */
 div.logo {
@@ -190,6 +203,7 @@ i.fa-headset {
 }
 
 /* #endregion */
+
 
 /* #region sweeper carousel */
 div.cont {
@@ -347,6 +361,7 @@ div.cont .swiper div.swiper-pagination {
 
 /* #endregion sweeper carousel */
 
+
 /* #region section about us */
 main.homeM {
     display: flex;
@@ -391,9 +406,9 @@ h2.homeH2 {
 p.homeP {
 
     width: 100%;
-    font-size: clamp(1rem, 1.8vw + 0.4rem, 1.2rem);
+    font-size: clamp(1rem, 1.8vw + 0.4rem, 1.5rem);
     color: var(--colore-testo);
-    margin: 0.5rem 0.8rem;
+    margin: 0.5rem 0.5rem;
 
 
 }
@@ -417,129 +432,10 @@ section.homeS.homeAbout {
 
 }
 
-section.homeS.cardS {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    border: 1px solid var(--colore-secondario);
-
-}
+/* #endregion section about us */
 
 
-div.homeCard {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-
-}
-
-div.homeCard a {
-    width: 100%;
-    height: 100%;
-}
-
-div.card {
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 10px;
-    border: 1px solid var(--colore-secondario);
-    border-radius: 5px;
-
-}
-
-div.card figure {
-    position: relative;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    margin: 0.5rem;
-    border-radius: 5px;
-}
-
-div.card:hover figure figcaption {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    text-align: left;
-    justify-content: flex-start;
-    font-size: clamp(1.5rem, 1.8vw + 0.4rem, 2rem);
-    color: var(--colore-testo);
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 0.5rem;
-}
-
-h2.cardH2 {
-    color: var(--colore-accento);
-    
-}
-
-span.spanCard {
-    position: absolute;
-    top: 70%;
-    right: 0;
-    border-radius: 50%;
-    border: 2px solid var(--colore-secondario);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: clamp(2rem, 1.8vw + 0.4rem, 2.5rem);
-    color: var(--v);
-    padding: 0.3rem;
-    font-family: 'Bitcount', sans-serif;
-
-}
-
-.card:nth-of-type(1) .gamePreviewImg {
-
-    background-image: url("../../assets/img/sassocartaforbice.webp");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    border: 1px solid var(--colore-secondario);
-    border-radius: 5px;
-}
-
-
-
-.card:nth-of-type(2) .gamePreviewImg {
-
-    background-image: url("../../assets/img/ordina-le-parole.webp");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    border: 1px solid var(--colore-secondario);
-    border-radius: 5px;
-}
-
-.card:nth-of-type(3) .gamePreviewImg {
-
-    background-image: url("../../assets/img/trovailcodice.webp");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    border: 1px solid var(--colore-secondario);
-    border-radius: 5px;
-}
+/* #region team */
 
 .team {
 
@@ -670,6 +566,165 @@ article.teamA:nth-of-type(3) .teamImg {
     transition: all 0.7s ease-in-out;
 }
 
+/* #endregion team */
+
+
+/* #region card */
+
+section.homeS.cardS {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid var(--colore-secondario);
+
+}
+
+
+div.homeCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+div.homeCard a {
+    width: 100%;
+    height: 100%;
+}
+
+div.card {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--colore-secondario);
+    border-radius: 5px;
+
+}
+
+div.card figure {
+    position: relative;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    border-radius: 5px;
+}
+
+div.card figure:hover figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    justify-content: flex-start;
+    font-size: clamp(1rem, 1.8vw + 0.4rem, 1.7rem);
+    color: var(--colore-testo);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0.5rem;
+
+}
+
+h2.cardH2 {
+    color: var(--colore-accento);
+    text-align: center;
+
+}
+
+
+
+
+div.descPrew {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
+
+span.spanCard {
+    position: absolute;
+    top: 60%;
+    right: 0;
+    border-radius: 50%;
+    border: 2px solid var(--colore-secondario);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.2rem, 1.8vw + 0.6rem, 3.5rem);
+    color: var(--v);
+    padding: 0.2rem;
+    font-family: 'Bitcount', sans-serif;
+    background-color: var(--colore-accento);
+    font-weight: 800;
+    box-shadow: 2px 2px 4px 4px var(--colore-sfondo);
+    text-shadow:
+        -1px -1px 0 var(--colore-sfondo),
+        1px -1px 0 var(--colore-sfondo),
+        -1px 1px 0 var(--colore-sfondo),
+        1px 1px 0 var(--colore-sfondo);
+
+}
+
+.card:nth-of-type(1) .gamePreviewImg {
+
+    background-image: url("../../assets/img/sassocartaforbice.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--colore-secondario);
+    border-radius: 5px;
+}
+
+
+
+.card:nth-of-type(2) .gamePreviewImg {
+
+    background-image: url("../../assets/img/ordina-le-parole.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--colore-secondario);
+    border-radius: 5px;
+}
+
+.card:nth-of-type(3) .gamePreviewImg {
+
+    background-image: url("../../assets/img/trovailcodice.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--colore-secondario);
+    border-radius: 5px;
+}
+
+
+/* #endregion card */
+
+
+/* #region office */
 
 .officeS {
 
@@ -718,8 +773,8 @@ article.teamA:nth-of-type(3) .teamImg {
 
 }
 
+/* #endregion office */
 
-/* #endregion section about us */
 
 /* #region footer  */
 footer {
@@ -772,13 +827,50 @@ footer p small {
 /* #region media query <550px */
 
 @media screen and (max-width: 550px) {
+    label[for="box"] {
+        display: block;
+        z-index: 9999;
+
+    }
+   nav.main-nav{
+    position: relative;
+width: 100%;
+
+   }
+
+
+
+    ul.list{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100dvh;
+        background-color: var(--colore-sfondo33);
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
+        z-index: 999;
+
+    }
+
+    li.menu{}
+
     div.homeCard {
         flex-wrap: wrap;
     }
 
-div.card{
-flex-direction: row-reverse;
-}
+    div.card {
+        flex-direction: row-reverse;
+    }
+
+    div.card:hover figure figcaption {
+        color: #0000;
+        cursor: var(--cursor2);
+
+    }
+
 
 
     .homeImgTeam {

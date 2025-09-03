@@ -94,9 +94,9 @@ const pageList = {
   <article class="homeA">
       <h2 class="homeH2">Le Nostre ultime Creazioni!</h2>
       <div class="homeCard">
-       <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Batti il sistema a sasso carta e forbice.</figcaption></a></figure><div class="descPrew"><h2 class="homeH2 cardH2">SCF</h2><p class="homeP">Batti il sistema a sasso carta e forbice.</p></div></div>
-       <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Ordina le parole per formare la frase esatta! Gioca a WORDS</figcaption></a></figure><p class="homeP cardP">WORDS</div>
-       <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Trova il codice e disinnesca la bomba!<span class="spanCard">NEW!</span></figcaption></a></figure><p class="homeP cardP">CODE</div>
+       <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Batti il sistema a sasso carta e forbice.</figcaption></a></figure><div class="descPrew"><h2 class="homeH2 cardH2">SCF</h2><p class="homeP descP">Batti il sistema a sasso carta e forbice.</p></div></div>
+      <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Ordina le parole per formare la frase esatta!</figcaption></a></figure><div class="descPrew"><h2 class="homeH2 cardH2">WORDS</h2><p class="homeP descP">Ordina le parole per formare la frase esatta!</p></div></div>
+      <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Trova il codice e disinnesca la bomba!</figcaption></a><span class="spanCard">NEW!</span></figure><div class="descPrew"><h2 class="homeH2 cardH2">CODE</h2><p class="homeP descP">Trova il codice e disinnesca la bomba!</div></div>
      </div>
     </article>
   </section>

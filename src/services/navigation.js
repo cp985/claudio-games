@@ -26,8 +26,11 @@ export function createNavigation() {
         return `<li class="menu"><a class="nav-link link" href="${baseUrl || '/'}">${link.text}</a></li>`;
     }
 
-    return `<li class=" menu"><a class="nav-link link" href="${baseUrl}${path}">${link.text}</a></li>`;
+    return `<li class="menu"><a class="nav-link link" href="${baseUrl}${path}">${link.text}</a></li>`;
   }).join('');
 
-  header.innerHTML = `<nav class="main-nav"><ul class="list">${linksHTML}</ul></nav>`;
+const hamburgerBox = `<input type="checkbox" name="box" id="box"><label for="box">666</label>`;
+
+
+  header.innerHTML = `<nav class="main-nav">${hamburgerBox}<ul class="list">${linksHTML}</ul></nav>`;
 }
