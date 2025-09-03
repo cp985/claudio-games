@@ -97,7 +97,7 @@ header#main-header {
     justify-content: center;
     align-items: center;
     z-index: 10;
-    margin: 0.3% auto;
+    margin: 0.3rem auto;
     flex-shrink: 1;
 
 }
@@ -482,12 +482,9 @@ div.card:hover figure figcaption {
     padding: 0.5rem;
 }
 
-p.cardP {
-    text-align: center;
-    font-family: 'Bitcount', sans-serif;
-    font-size: clamp(2rem, 1.8vw + 0.5rem, 3.3rem);
+h2.cardH2 {
     color: var(--colore-accento);
-    margin: 0.3rem;
+    
 }
 
 span.spanCard {
@@ -641,9 +638,11 @@ article.teamA:nth-of-type(1) .teamImg {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
     border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    opacity: 0;
+    transition: all 0.7s ease-in-out;
 }
 
 article.teamA:nth-of-type(2) .teamImg {
@@ -651,9 +650,12 @@ article.teamA:nth-of-type(2) .teamImg {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    width: 100%;
+
     height: 100%;
     border-radius: 5px;
+    width: 0%;
+    opacity: 0;
+    transition: all 0.7s ease-in-out;
 }
 
 article.teamA:nth-of-type(3) .teamImg {
@@ -661,10 +663,13 @@ article.teamA:nth-of-type(3) .teamImg {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    width: 100%;
     height: 100%;
     border-radius: 5px;
+    width: 0%;
+    opacity: 0;
+    transition: all 0.7s ease-in-out;
 }
+
 
 .officeS {
 
@@ -683,26 +688,34 @@ article.teamA:nth-of-type(3) .teamImg {
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-  
-   
- 
+
+
+
 
 }
 
-.officeA h2{
+.officeA h2 {
 
-    width:fit-content;
+    width: fit-content;
     background-color: var(--colore-blur33);
     padding: 0.5rem;
     border-radius: 99px;
     color: var(--colore-secondario);
 }
 
-.officeA p{
-text-align: center;
+.officeA p {
+    text-align: center;
     background-color: var(--colore-blur33);
     padding: 0.5rem;
-    color: var(--colore-testo)
+    color: var(--colore-testo);
+    line-height: 2;
+    font-weight: 500;
+    text-shadow:
+        -1px -1px 0 var(--colore-sfondo),
+        1px -1px 0 var(--colore-sfondo),
+        -1px 1px 0 var(--colore-sfondo),
+        1px 1px 0 var(--colore-sfondo);
+
 }
 
 
@@ -762,6 +775,11 @@ footer p small {
     div.homeCard {
         flex-wrap: wrap;
     }
+
+div.card{
+flex-direction: row-reverse;
+}
+
 
     .homeImgTeam {
         flex-direction: column;

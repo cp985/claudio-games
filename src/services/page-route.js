@@ -8,6 +8,7 @@ import imgComingSoon2 from "../../assets/img/coming-soon-2.webp";
 import imgOrdinaLeParole from "../../assets/img/ordina-le-parole.webp";
 import imgTrovaIlCodice from "../../assets/img/trovailcodice.webp";
 import imgComingSoon from "../../assets/img/coming-soon.webp";
+import { imgTranslationX} from "./home.js";
 
 //games
 import { previewGameHandlerPage } from "./games.js";
@@ -71,20 +72,20 @@ const pageList = {
 <div class="homeTeam">
 <article class="homeA teamA">
 <div class="homeImgTeam">
-<figure class="figureTeam"><div class="teamImg"></div></figure>
-<div class="teamCard"><h3 class="homeH3">C.E.O</h3><h4>Elonio Muskio</h4><p class="homeP">trgtery rthrthr rtyrty r6yrtyu yy 7 </p></div>
+<figure class="figureTeam"><div class="teamImg imgCeo"></div></figure>
+<div class="teamCard"><h3 class="homeH3">C.E.O</h3><h4>Elonio Muskio</h4><p class="homeP">Il nostro CEO naviga tra fogli di calcolo e mondi fantastici, con la stessa abilità di un barbaro che fa trading in borsa. Non si sa mai se sta chiudendo un affare milionario o cercando il suo prossimo personaggio preferito, ma il risultato è sempre un'avventura.</p></div>
 </div>
 </article>
 <article class="homeA teamA">
 <div class="homeImgTeam">
-<figure class="figureTeam"><div class="teamImg"></div></figure>
-<div class="teamCard"><h3 class="homeH3">C.T.O</h3><h4>Tayloria Swiftia</h4><p class="homeP">trgtery rthrthr rtyrty r6yrtyu yy 7 </p></div>
+<figure class="figureTeam"><div class="teamImg imgCto"></div></figure>
+<div class="teamCard"><h3 class="homeH3">C.T.O</h3><h4>Tayloria Swiftia</h4><p class="homeP">La nostra CTO è un maga del codice. Trasforma bug in funzionalità e caffè in algoritmi, il tutto in un'unica notte. Veste casual, ma i suoi neuroni lavorano in smoking.</p></div>
 </div>
 </article>
 <article class="homeA teamA">
 <div class="homeImgTeam">
-<figure class="figureTeam"><div class="teamImg"></div></figure>
-<div class="teamCard"><h3 class="homeH3">Director</h3><h4>Marco Zuckenbergo</h4><p class="homeP">trgtery rthrthr rtyrty r6yrtyu yy 7 </p></div>
+<figure class="figureTeam"><div class="teamImg imgDirector"></div></figure>
+<div class="teamCard"><h3 class="homeH3">Director</h3><h4>Marco Zuckenbergo</h4><p class="homeP">Il nostro Director è il sognatore con i piedi per terra. Vede il quadro completo, e il suo quadro è sempre un capolavoro. Trasforma idee folli in realtà, e il suo unico limite è la gravità, ma solo perché non ha ancora trovato il codice per aggirarla.</p></div>
 </div>
 </article>
 </div>
@@ -93,7 +94,7 @@ const pageList = {
   <article class="homeA">
       <h2 class="homeH2">Le Nostre ultime Creazioni!</h2>
       <div class="homeCard">
-       <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Batti il sistema a sasso carta e forbice.</figcaption></a></figure><p class="homeP cardP">SCF</div>
+       <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Batti il sistema a sasso carta e forbice.</figcaption></a></figure><div class="descPrew"><h2 class="homeH2 cardH2">SCF</h2><p class="homeP">Batti il sistema a sasso carta e forbice.</p></div></div>
        <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Ordina le parole per formare la frase esatta! Gioca a WORDS</figcaption></a></figure><p class="homeP cardP">WORDS</div>
        <div class="card"><figure><a href="${__BASE_URL__}/games"><div class="gamePreviewImg"></div><figcaption>Trova il codice e disinnesca la bomba!<span class="spanCard">NEW!</span></figcaption></a></figure><p class="homeP cardP">CODE</div>
      </div>
@@ -103,7 +104,7 @@ const pageList = {
 <section class="homeS officeS">
 <article class="homeA officeA">
 <h2 class="homeH2">Il Nostro Futuro!</h2>
-<p class="homeP">Seleziona il modo di contatto preferito e scrivici a: <a href="mailto:6o5V3@example.com">6o5V3@example.com</a></p>
+<p class="homeP">Il nostro futuro non è scritto, è disegnato, pixel per pixel, con un'ambizione che va oltre ogni limite. Non ci accontentiamo di creare giochi, vogliamo costruire universi che un giorno potrebbero espandersi oltre lo schermo, magari inghiottendo il nostro mondo reale in un'ondata di nostalgia a 8-bit. Dopotutto, chi ha bisogno di un metaverso fotorealistico quando puoi avere un labirinto di dungeon, dove il boss finale è la tua stessa voglia di premere il tasto "continua"?</p>
 
 </article>
 </section>
@@ -367,6 +368,7 @@ export function startRouter() {
       isHomePage = true;
       animateLogo();
       activeSwiper = initCarousel();
+      imgTranslationX();
     });
   });
 
@@ -389,7 +391,6 @@ export function startRouter() {
   page("/trova-il-codice", () =>
     showLoaderAndRender("trova-il-codice", createCode)
   );
-  // (Dovrai aggiungere "sasso-carta-forbice" etc. all'oggetto pageList)
 
   // Rotta catch-all per le pagine non trovate (404)
   // Non usa il loader, mostra subito l'errore.
