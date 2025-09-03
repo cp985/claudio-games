@@ -85,7 +85,7 @@ const pageList = {
 <article class="homeA teamA">
 <div class="homeImgTeam">
 <figure class="figureTeam"><div class="teamImg imgDirector"></div></figure>
-<div class="teamCard"><h3 class="homeH3">Director</h3><h4>Marco Zuckenbergo</h4><p class="homeP">Il nostro Director è il sognatore con i piedi per terra. Vede il quadro completo, e il suo quadro è sempre un capolavoro. Trasforma idee folli in realtà, e il suo unico limite è la gravità, ma solo perché non ha ancora trovato il codice per aggirarla.</p></div>
+<div class="teamCard"><h3 class="homeH3">Director</h3><h4>Marco Zuckenbergo</h4><p class="homeP">Il nostro Director è un visionario che trasforma idee folli in realtà pixelate, con un passato così misterioso che si sospetta abbia lavorato per i servizi segreti(SISMI), decifrando codici segreti con gli schemi di colore di vecchi videogiochi.</p></div>
 </div>
 </article>
 </div>

@@ -7,7 +7,7 @@ html {
     --c: #009bbe;
     --v: #ff01ff;
     --colore-sfondo: #000000;
-     --colore-sfondo33: hsla(0, 0%, 0%, 0.990);
+    --colore-sfondo33: hsla(0, 0%, 0%, 0.990);
     --colore-accento: #00CFFF;
     --colore-secondario: #ddff00;
     --colore-testo: #EAEAEA;
@@ -104,6 +104,11 @@ header#main-header {
 
 }
 
+header#main-header div.logo {
+    display: none;
+}
+
+
 nav.main-nav {
     width: 60%;
     height: 100%;
@@ -120,7 +125,6 @@ ul.list {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* flex-wrap: wrap; */
 }
 
 li a {
@@ -146,6 +150,7 @@ li a.link:hover {
     box-shadow: 2px 2px 7px 7px var(--colore-accento);
     font-weight: 700;
 }
+
 label[for="box"],
 input#box {
     display: none;
@@ -828,34 +833,80 @@ footer p small {
 
 @media screen and (max-width: 550px) {
     label[for="box"] {
-        display: block;
+      
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--colore-sfondo33);
         z-index: 9999;
 
     }
-   nav.main-nav{
-    position: relative;
-width: 100%;
 
-   }
+    header#main-header div.logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.2rem auto;
+    }
+
+    div.logo img {
+        width: 50%;
+    }
+
+    nav.main-nav {
+        position: relative;
+        width: 100%;
+
+    }
 
 
 
-    ul.list{
+    ul.list {
         display: none;
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 50%;
-        height: 100dvh;
+        top: calc(100% + 8px);
+        right: 0;
+        width: 200%;
+        height: calc(100dvh - 56px);
         background-color: var(--colore-sfondo33);
+        backdrop-filter: blur(5px);
         flex-direction: column;
-        align-items: flex-end;
+        align-items: center;
         justify-content: flex-start;
+        gap:1rem;
+        padding-top: 1rem;
         z-index: 999;
 
     }
 
-    li.menu{}
+ul.list li{
+    font-size: clamp(1.5rem, 1.8vw + 0.5rem, 2rem);
+
+
+}
+ul.list li:hover{
+            background-color: #00CFFF;
+
+    box-shadow: 0 0 5px 10px var(--colore-accento);
+
+}
+
+    i.fa-solid.fa-bars {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        font-size: clamp(1.5rem, 1.8vw + 0.4rem, 2rem)
+    }
+
+    i.fa-solid.fa-bars:hover {
+        background-color: #00CFFF;
+        box-shadow: 0 0 5px 10px var(--colore-accento);
+        cursor: pointer
+    }
 
     div.homeCard {
         flex-wrap: wrap;
