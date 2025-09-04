@@ -240,7 +240,7 @@ export function createCode() {
   // --- INIZIO LOGICA TIMER ---
 
   let timerIntervalId = null; // Variabile per tenere traccia dell'intervallo del timer
-
+  let preStartIntervalId = null; // Variabile per tenere traccia dell'intervallo di preavviso
   // Funzione per formattare il tempo (es: 5 -> "05")
   const formatTime = (num) => num.toString().padStart(2, "0");
 
@@ -267,12 +267,17 @@ export function createCode() {
     timerDisplay.textContent = `Inizio tra ${preStartSeconds}...`;
     timerDisplay.style.color = "#ffc107"; // Un colore per l'avviso
 
-    const preStartInterval = setInterval(() => {
+    preStartIntervalId = setInterval(() => {
+      const timerDisplay = document.querySelector(".codiceTime span");
+      if (!timerDisplay) {
+        clearInterval(preStartIntervalId);
+        return; // Se il display non c'è più, ferma tutto e esci.
+      }
       preStartSeconds--;
       if (preStartSeconds > 0) {
         timerDisplay.textContent = `Inizio tra ${preStartSeconds}...`;
       } else {
-        clearInterval(preStartInterval); // Ferma il countdown di preparazione
+        clearInterval(preStartIntervalId); // Ferma il countdown di preparazione
         runMainCountdown(timerDisplay, allSwitches); // Avvia il timer principale
       }
     }, 1000);
@@ -302,6 +307,7 @@ export function createCode() {
         timerDisplay.style.color = "red";
         // Qui puoi aggiungere la logica di "Game Over"
         const section = document.querySelector("section.codiceS");
+        if(section){
         const gameOverArt = document.createElement("article");
         gameOverArt.classList.add("artSubmit", "boom");
         gameOverArt.innerHTML = `
@@ -313,6 +319,7 @@ export function createCode() {
         buttonSubmit.addEventListener("click", () => page.show("/games"));
         section.appendChild(gameOverArt);
       }
+    }
     }, 1000);
   }
 
@@ -324,9 +331,13 @@ export function createCode() {
   // Restituiamo una funzione che page.js potrà chiamare
   // per fermare il nostro setInterval quando l'utente cambia pagina.
   return () => {
+    if (preStartIntervalId) {
+      clearInterval(preStartIntervalId);
+      console.log("Timer di pre-start fermato.");
+    }
     if (timerIntervalId) {
       clearInterval(timerIntervalId);
-      console.log("Timer del gioco fermato a causa del cambio pagina.");
+      console.log("Timer del gioco fermato.");
     }
   };
 }

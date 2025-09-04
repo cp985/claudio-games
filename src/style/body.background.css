@@ -6,8 +6,8 @@
   height: 100%;
   z-index: -1;
   pointer-events: none;
-  overflow: hidden; /* Importante: nasconde le parti del background che escono dal contenitore */
-overscroll-behavior: none;
+  overflow: hidden; 
+  overscroll-behavior: none;
 -webkit-overflow-scrolling:none;
 touch-action: none;
 }
@@ -107,9 +107,6 @@ touch-action: none;
 
 
 @keyframes hi {
-  /* ... (i valori di background-position rimangono gli stessi, dato che si riferiscono
-           alla posizione del pattern all'interno dell'elemento .background stesso,
-           che ora è solo più grande e centrato) */
   0% {
     background-position:
       0px 220px,
@@ -193,9 +190,9 @@ touch-action: none;
   }
 }
 
-/* #region media query <600px */
+/* #region media query <650px */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
 .background {
   position: fixed;
   top: 0;

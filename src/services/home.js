@@ -17,17 +17,17 @@ export function imgTranslationX() {
 
     let startScroll = 280;
     let endScroll = 620;
-    let startScroll2 = 600;
-    let endScroll2 = 940;
-    let startScroll3 = 920;
-    let endScroll3 = 1100;
+    let startScroll2 = 620;
+    let endScroll2 = 970;
+    let startScroll3 = 1080;
+    let endScroll3 = 1200;
     if (window.innerWidth < 600) {
       startScroll = 510;
       endScroll = 700;
       startScroll2 = 940;
       endScroll2 = 1250;
-      startScroll3 = 1520;
-      endScroll3 = 1770;
+      startScroll3 = 1470;
+      endScroll3 = 1750;
     }
     const scrollRange = endScroll - startScroll;
     const scrollRange2 = endScroll2 - startScroll2;

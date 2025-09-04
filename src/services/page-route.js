@@ -104,7 +104,7 @@ const pageList = {
 <section class="homeS officeS">
 <article class="homeA officeA">
 <h2 class="homeH2">Il Nostro Futuro!</h2>
-<p class="homeP">Il nostro futuro non è scritto, è disegnato, pixel per pixel, con un'ambizione che va oltre ogni limite. Non ci accontentiamo di creare giochi, vogliamo costruire universi che un giorno potrebbero espandersi oltre lo schermo, magari inghiottendo il nostro mondo reale in un'ondata di nostalgia a 8-bit. Dopotutto, chi ha bisogno di un metaverso fotorealistico quando puoi avere un labirinto di dungeon, dove il boss finale è la tua stessa voglia di premere il tasto "continua"?</p>
+<p class="homeP">Il nostro futuro non è scritto, è disegnato, pixel per pixel, con un'ambizione che va oltre ogni limite. Non ci accontentiamo di creare giochi, vogliamo costruire universi che un giorno potrebbero espandersi oltre lo schermo. Dopotutto, chi ha bisogno di un metaverso fotorealistico quando puoi avere un labirinto di dungeon, dove il boss finale è la tua stessa voglia di premere il tasto "continua"?</p>
 
 </article>
 </section>
