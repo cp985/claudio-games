@@ -149,38 +149,6 @@ console.log(winningCombination);
       }
     });
 
-      function checkResult() {
-  const userChoices = [];
-  
-  // 1. Raccogli tutte le scelte dell'utente
-  const selectedRadios = document.querySelectorAll('input[type="radio"]:checked');
-  selectedRadios.forEach(radio => {
-    // Aggiungiamo solo i valori reali, non quello del placeholder se fosse selezionabile
-    if (radio.value) { 
-      userChoices.push(radio.value);
-    }
-  });
-
-  // 2. Assicurati che l'utente abbia fatto 5 scelte
-  if (userChoices.length !== 5) {
-    console.log("Devi selezionare un codice per ogni riga!");
-    return; // Esce dalla funzione
-  }
-
-  // 3. Confronta le scelte con la combinazione vincente
-  // N.B.: Confrontare due array in JS si fa meglio convertendoli in stringhe
-  const userWon = JSON.stringify(userChoices) === JSON.stringify(winningCombination);
-
-  // 4. Mostra il risultato
-  if (userWon) {
-    console.log("HAI VINTO! Bomba disinnescata!");
-    // Qui mostri la schermata di vittoria
-  } else {
-    console.log("HAI PERSO! La combinazione è sbagliata.");
-    // Qui mostri la schermata di sconfitta
-  }
-}
-checkResult();
   }
 
   // --- INIZIO SCRIPT PER DISEGNARE LE LINEE (VERSIONE CON RESIZEOBSERVER) ---
@@ -356,21 +324,80 @@ checkResult();
       )}`;
 
       if (totalSeconds <= 0) {
-        
         clearInterval(timerIntervalId); // Ferma il timer
-     
         timerDisplay.textContent = "00-00";
         timerDisplay.style.color = "red";
-        // Qui puoi aggiungere la logica di "Game Over"
-        const section = document.querySelector("section.codiceS");
-        if(section){
-        const gameOverArt = document.createElement("article");
-        gameOverArt.classList.add("artSubmit", "boom");
-        gameOverArt.innerHTML = `
+// ------------------------------
+
+let gameOverInnerHtml = null;
+let classGameOver = null;
+      function checkResult() {
+  const userChoices = [];
+  
+  // 1. Raccogli tutte le scelte dell'utente
+  const selectedRadios = document.querySelectorAll('input[type="radio"]:checked');
+  selectedRadios.forEach(radio => {
+    // Aggiungiamo solo i valori reali, non quello del placeholder se fosse selezionabile
+    if (radio.value) { 
+      userChoices.push(radio.value);
+    }
+  });
+
+  // 2. Assicurati che l'utente abbia fatto 5 scelte
+  if (userChoices.length !== 5) {
+    console.log("Devi selezionare un codice per ogni riga!");
+    classGameOver = "boom";
+    gameOverInnerHtml = `
+        <h2 class="boomH2">YOU LOSE</h2>
+          <p>Riprova a disinnescare la bomba selezionando i codici! .</p>
+          <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
+          `;
+   
+  }
+
+  // 3. Confronta le scelte con la combinazione vincente
+  // N.B.: Confrontare due array in JS si fa meglio convertendoli in stringhe
+  const userWon = JSON.stringify(userChoices) === JSON.stringify(winningCombination);
+
+  // 4. Mostra il risultato
+  if (userWon) {
+    console.log("HAI VINTO! Bomba disinnescata!");
+   classGameOver = "winner";
+    gameOverInnerHtml = `
+        <h2 class="boomH2">YOU WIN!!</h2>
+          <p>Congratulazioni hai disinnescato la bomba! .</p>
+          <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
+          `;
+    
+    // Qui mostri la schermata di vittoria
+  } else {
+    console.log("HAI PERSO! La combinazione è sbagliata.");
+    // Qui mostri la schermata di sconfitta
+     classGameOver = "boom";
+    gameOverInnerHtml = `
         <h2 class="boomH2">YOU LOSE</h2>
           <p>Riprova a disinnescare la bomba .</p>
           <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
           `;
+  }
+}
+checkResult();
+
+
+// ----------------------------
+        // Qui puoi aggiungere la logica di "Game Over"
+        const section = document.querySelector("section.codiceS");
+        if(section){
+        const gameOverArt = document.createElement("article");
+        gameOverArt.classList.add("artSubmit");
+        gameOverArt.classList.add(classGameOver);
+       gameOverArt.innerHTML = gameOverInnerHtml;
+       
+        // gameOverArt.innerHTML = `
+        // <h2 class="boomH2">YOU LOSE</h2>
+        //   <p>Riprova a disinnescare la bomba .</p>
+        //   <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
+        //   `;
         const buttonSubmit = gameOverArt.querySelector("#buttonSubmit");
         buttonSubmit.addEventListener("click", () => page.show("/games"));
         section.appendChild(gameOverArt);

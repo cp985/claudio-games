@@ -151,14 +151,17 @@ li.codiceLi div.form {
 
 
 div.switch div.form label {
- 
+
     width: 60%;
-  
+
     text-align: center;
     position: absolute;
-     display: flex; /* Trasforma il label in un container flexbox */
-    justify-content: center; /* Centra il contenuto orizzontalmente */
-    align-items: center; /* Centra il contenuto verticalmente */
+    display: flex;
+    /* Trasforma il label in un container flexbox */
+    justify-content: center;
+    /* Centra il contenuto orizzontalmente */
+    align-items: center;
+    /* Centra il contenuto verticalmente */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -172,7 +175,7 @@ div.switch div.form label {
 }
 
 div.switch div.form label.placeholder {
-   
+
     text-align: center;
     background-color: var(--colore-sfondo);
     color: red;
@@ -183,10 +186,11 @@ div.switch div.form label.placeholder {
 
 @keyframes neon-pulse {
     0% {
-        box-shadow:inset 0 0 7px var(--v),inset 0 0 10px var(--v);
+        box-shadow: inset 0 0 7px var(--v), inset 0 0 10px var(--v);
     }
+
     100% {
-        box-shadow:inset 0 0 14px var(--v),inset 0 0 20px var(--colore-accento);
+        box-shadow: inset 0 0 14px var(--v), inset 0 0 20px var(--colore-accento);
     }
 }
 
@@ -306,33 +310,35 @@ section.codiceS footer {
     padding: 0.3rem;
 }
 
-.codiceF{
+.codiceF {
 
-  width: 90%; /* O la larghezza che preferisci */
-  max-width: 1200px;
-  padding: 2rem; /* Spazio interno tra bordo e contenuto */
-  
+    width: 90%;
+    /* O la larghezza che preferisci */
+    max-width: 1200px;
+    padding: 2rem;
+    /* Spazio interno tra bordo e contenuto */
 
-  
-  /* 1. Colore e texture della plastica */
-  background-color: #e0d8c0;
-  background-image: 
-    /* Simula una leggera illuminazione dall'alto */
-    linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(0,0,0,0.2)),
-    /* Simula una texture granulosa (noise) */
-    url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="10" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100" height="100" filter="url(%23n)" opacity="0.07"/%3E%3C/svg%3E');
 
-  /* 2. Bordi arrotondati e smussati */
-  border-radius: 15px;
-  border: 1px solid #797468;
 
-  /* 3. Effetto 3D con ombre multiple (la parte più importante) */
-  box-shadow:
-    /* Ombra interna per creare l'effetto "incassato" dello schermo */
-    inset 5px 5px 15px rgba(0, 0, 0, 0.4),
-    inset -3px -3px 10px rgba(255, 255, 255, 0.5),
-    /* Ombra esterna per sollevare l'oggetto dalla pagina */
-    10px 10px 25px rgba(0, 0, 0, 0.7);
+    /* 1. Colore e texture della plastica */
+    background-color: #e0d8c0;
+    background-image:
+        /* Simula una leggera illuminazione dall'alto */
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.2)),
+        /* Simula una texture granulosa (noise) */
+        url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="10" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100" height="100" filter="url(%23n)" opacity="0.07"/%3E%3C/svg%3E');
+
+    /* 2. Bordi arrotondati e smussati */
+    border-radius: 15px;
+    border: 1px solid #797468;
+
+    /* 3. Effetto 3D con ombre multiple (la parte più importante) */
+    box-shadow:
+        /* Ombra interna per creare l'effetto "incassato" dello schermo */
+        inset 5px 5px 15px rgba(0, 0, 0, 0.4),
+        inset -3px -3px 10px rgba(255, 255, 255, 0.5),
+        /* Ombra esterna per sollevare l'oggetto dalla pagina */
+        10px 10px 25px rgba(0, 0, 0, 0.7);
 }
 
 main section.codiceS footer div.codiceTime {
@@ -346,35 +352,37 @@ main section.codiceS footer div.codiceTime {
     width: 80%;
     border-radius: 5px;
     font-size: clamp(1.8rem, 2vw + 1.7rem, 6rem);
-  background-color: #1a1a1a;
-  background-image:
-    linear-gradient(rgba(52, 199, 89, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(52, 199, 89, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px; /* Dimensione della griglia "pixel" */
-  color: #ff0000; /* Testo chiaro per contrasto */
+    background-color: #1a1a1a;
+    background-image:
+        linear-gradient(rgba(52, 199, 89, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(52, 199, 89, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    /* Dimensione della griglia "pixel" */
+    color: #ff0000;
+    /* Testo chiaro per contrasto */
 }
 
 
 main section.codiceS footer div.codiceTime span {
-              animation: advanced-glitch 8s ease-out infinite;
-    animation-play-state: running;  
+    animation: advanced-glitch 8s ease-out infinite;
+    animation-play-state: running;
 }
 
-.codiceFpre{
-font-family: 'Bitcount', sans-serif;
-text-align: center;
-font-weight: 500;
-font-size: clamp(1.3rem, 1.8vw + 0.75rem, 4rem);
+.codiceFpre {
+    font-family: 'Bitcount', sans-serif;
+    text-align: center;
+    font-weight: 500;
+    font-size: clamp(1.3rem, 1.8vw + 0.75rem, 4rem);
 
 }
 
 
 div.codiceCont ul.codiceL li.codiceLi.placeHolderPreCaunt * {
-pointer-events: none;
-animation: none;
-cursor:not-allowed;
-opacity: 0;
-transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    animation: none;
+    cursor: not-allowed;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
 }
 
 /* #endregion footer */
@@ -391,7 +399,7 @@ transition: all 0.3s ease-in-out;
 
 section.codiceS div.form label.codiceSwitchActive {
     width: 100%;
-     align-self: center;
+    align-self: center;
     opacity: 1;
     height: auto;
     background-color: var(--colore-sfondo);
@@ -537,17 +545,28 @@ section.codiceS div.form label.codiceSelect {
 
 
 
-.boom{
+.boom {
 
     background-image: url("../../assets/img/backBoomF.webp");
-    background-size:cover;
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     aspect-ratio: 16/7;
 }
 
-.boomH2{
-font-size: clamp(2rem, 1.8vw + 1.7rem, 6rem);
+article.artSubmit.winner {
+ justify-content: flex-start;
+    background-image: url("../../assets/img/codeWinnerBck.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    aspect-ratio: 16/7;
+
+}
+
+
+.boomH2 {
+    font-size: clamp(2rem, 1.8vw + 1.7rem, 6rem);
     text-align: center;
     font-weight: bolder;
     font-family: 'Bitcount', sans-serif;
