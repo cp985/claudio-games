@@ -65,4 +65,5 @@ function checkResult() {
     console.log("HAI PERSO! La combinazione è sbagliata.");
     // Qui mostri la schermata di sconfitta
   }
+  checkResult();
 }
