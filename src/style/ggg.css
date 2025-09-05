@@ -30,7 +30,7 @@ li.terminalM {
     font-weight: 700;
     opacity: 1;
     position: relative;
-    font-size: clamp(0.5rem, 1.8vw + 0.4rem, 3rem);
+    font-size: clamp(1rem, 1.8vw + 0.5rem, 3rem);
     color: var(--backT);
     margin-top: 0.5rem;
     padding: 0;
@@ -100,23 +100,24 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(6) span:nth-of-type(1) {
     border: none;
 
     animation:
-        blinkk 0.8s forwards steps(2, jump-none) 7 30s,
+        blinkk 0.8s forwards steps(2, jump-none) 6 30s,
         typewraiter1 4s forwards steps(30) 30s;
-}
+    
+    }
 
 div.contGgg ul.terminalL li.terminalM:nth-of-type(7) span:nth-of-type(1) {
 
     border: none;
 
     animation:
-        blinkk 0.8s forwards steps(2, jump-none) 7 38s,
-        typewraiter1 4s forwards steps(30) 36s;
+        blinkk 0.8s forwards steps(2, jump-none) 6 35s,
+        typewraiter1 4s forwards steps(30) 35s;
 
 
 }
 
 div.contGgg ul.terminalL li.terminalM:nth-of-type(7) {
-    animation: changeColor 3s forwards 40s;
+    animation: changeColor 3s forwards 39s;
 }
 
 @keyframes typewraiter1 {
@@ -152,7 +153,7 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(7) {
 
     100% {
         color: var(--v);
-        font-size: clamp(0.5rem, 1.5vw + 0.6rem, 3rem);
+        font-size: clamp(1.2rem, 1.5vw + 1rem, 6rem);
 
         font-weight: 900;
 
@@ -165,14 +166,38 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(7) {
 
 @media screen and (max-width: 550px){
 
+ul.terminalL{
+    
+    padding: 0.15rem;
+    width: 93%;
+}
+
+
     div.contGgg {
         width: 100%;
         
     }
 
     li.terminalM{
-    font-size: clamp(0.4rem, 1.5vw + 0.3rem, 3rem);
-
+    font-size: clamp(0.8rem, 1.2vw + 0.4rem, 1.5rem);
+letter-spacing: -0.05rem;
 
     }
+
+    @keyframes changeColor {
+    0% {
+        color: var(--backT);
+
+    }
+
+    100% {
+        color: var(--v);
+        font-size: clamp(1rem, 1.3vw + 0.7rem, 3rem);
+
+        font-weight: 800;
+
+    }
+
+}
+
 }

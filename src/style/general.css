@@ -181,7 +181,7 @@ h1#animated-logo {
     justify-content: center;
     padding: 0.2rem;
     font-family: 'Bitcount', sans-serif;
-    font-size: clamp(0.8rem, 2.9vw + 1rem, 5rem);
+    font-size: clamp(1.7rem, 2vw + 1rem, 5.5rem);
     color: var(--colore-testo);
     letter-spacing: 0.05rem;
     z-index: 10;
@@ -909,6 +909,10 @@ ul.list li:hover{
         cursor: pointer
     }
 
+    .swiper span.swiper-pagination-bullet{
+        display: none;
+    }
+
     div.homeCard {
         flex-wrap: wrap;
     }
@@ -938,9 +942,35 @@ ul.list li:hover{
 .officeS{
     aspect-ratio: 9/16;}
 
-}
-.officeA {
+
+    .officeA {
     background-image: url("../../assets/img/office9-16.webp");
 }
+.officeA p{
+font-size: 1.2rem;
+margin-top: 4rem;
+}
+
+}
+
 
 /* #endregion media query <550px */
+
+
+
+
+/* #region media query <450px */
+@media screen and (max-width: 450px) {
+i.fa-face-smile,i.fa-headset{
+    display: none;
+  
+}
+
+h1#animated-logo{
+    letter-spacing: 0.2rem;
+}
+}
+
+
+
+/* #endregion media query <450px */
