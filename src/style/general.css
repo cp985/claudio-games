@@ -44,6 +44,7 @@ body {
     align-items: center;
     flex-direction: column;
     overflow-y: auto;
+      scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
@@ -210,7 +211,7 @@ i.fa-headset {
 /* #endregion */
 
 
-/* #region sweeper carousel */
+/* #region cont, sweeper carousel */
 div.cont {
     flex-grow: 1;
     display: flex;
@@ -225,7 +226,7 @@ div.cont {
     z-index: 5;
     overflow-y: auto;
     overflow-x: hidden;
-
+    scroll-behavior: smooth;
     backdrop-filter: blur(1rem) brightness(6);
     background-image: radial-gradient(circle at 50% 50%,
             #0000 0,
@@ -767,7 +768,7 @@ span.spanCard {
     background-color: var(--colore-blur33);
     padding: 0.5rem;
     color: var(--colore-testo);
-    line-height: 2;
+    line-height: 1.5;
     font-weight: 500;
     text-shadow:
         -1px -1px 0 var(--colore-sfondo),
@@ -831,10 +832,10 @@ footer p small {
 /* #region media query <550px */
 
 @media screen and (max-width: 550px) {
-  
-    
+
+
     label[for="box"] {
-      
+
         position: relative;
         display: flex;
         align-items: center;
@@ -876,23 +877,24 @@ footer p small {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        gap:1rem;
+        gap: 1rem;
         padding-top: 1rem;
         z-index: 999;
 
     }
 
-ul.list li{
-    font-size: clamp(1.5rem, 1.8vw + 0.5rem, 2rem);
+    ul.list li {
+        font-size: clamp(1.5rem, 1.8vw + 0.5rem, 2rem);
 
 
-}
-ul.list li:hover{
-            background-color: #00CFFF;
+    }
 
-    box-shadow: 0 0 5px 10px var(--colore-accento);
+    ul.list li:hover {
+        background-color: #00CFFF;
 
-}
+        box-shadow: 0 0 5px 10px var(--colore-accento);
+
+    }
 
     i.fa-solid.fa-bars {
         display: flex;
@@ -909,7 +911,7 @@ ul.list li:hover{
         cursor: pointer
     }
 
-    .swiper span.swiper-pagination-bullet{
+    .swiper span.swiper-pagination-bullet {
         display: none;
     }
 
@@ -939,17 +941,19 @@ ul.list li:hover{
         flex-direction: column-reverse;
     }
 
-.officeS{
-    aspect-ratio: 9/16;}
+    .officeS {
+        aspect-ratio: 9/16;
+    }
 
 
     .officeA {
-    background-image: url("../../assets/img/office9-16.webp");
-}
-.officeA p{
-font-size: 1.2rem;
-margin-top: 4rem;
-}
+        background-image: url("../../assets/img/office9-16.webp");
+    }
+
+    .officeA p {
+        font-size: 1.2rem;
+        margin-top: 4rem;
+    }
 
 }
 
@@ -961,14 +965,16 @@ margin-top: 4rem;
 
 /* #region media query <450px */
 @media screen and (max-width: 450px) {
-i.fa-face-smile,i.fa-headset{
-    display: none;
-  
-}
 
-h1#animated-logo{
-    letter-spacing: 0.2rem;
-}
+    i.fa-face-smile,
+    i.fa-headset {
+        display: none;
+
+    }
+
+    h1#animated-logo {
+        letter-spacing: 0.2rem;
+    }
 }
 
 

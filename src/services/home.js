@@ -19,8 +19,8 @@ export function imgTranslationX() {
     let endScroll = 620;
     let startScroll2 = 620;
     let endScroll2 = 970;
-    let startScroll3 = 1080;
-    let endScroll3 = 1200;
+    let startScroll3 = 1140;
+    let endScroll3 = 1400;
     if (window.innerWidth < 600) {
       startScroll = 510;
       endScroll = 700;

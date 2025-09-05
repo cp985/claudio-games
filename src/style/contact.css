@@ -268,7 +268,6 @@ div article.artSubmit h2 {
     max-width: 90%;
     font-size: clamp(1.9rem, 1.6vw + 0.6rem, 2.7rem);
     color: var(--v);
-    margin-top: 2rem;
     margin: 0.3rem;
     background-color: var(--colore-blur2);
     border: 3px solid var(--colore-accento);
@@ -283,13 +282,13 @@ div article.artSubmit p {
     max-width: 80%;
     font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.8rem);
     color: var(--colore-testo);
-    margin: 0.3rem;
+    margin: 0.2rem;
     background-color: var(--colore-blur2);
     padding: 0.3rem;
 }
 
 div article.artSubmit button {
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
     cursor: pointer;
     text-align: center;
     background-color: var(--colore-sfondo);
