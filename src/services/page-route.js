@@ -101,6 +101,17 @@ const pageList = {
     </article>
   </section>
 
+<section class="homeS newsS">
+<article class="homeA newsA">
+<h2 class="homeH2">Le nostre news</h2>
+<p class="homeP">Nelle nostre news potrai trovare la lista dei giochi gratis online più giocati al momento.</p>
+<figure class="figN"><a href="${__BASE_URL__}/news"><div class="newsImg"></div><figcaption>Le nostre news</a></figure>
+<p class="homeP">Corri a provarli tutti, clicca <a href="${__BASE_URL__}/news" class="link">qui</a></p>
+</article>
+</section>
+
+
+
 <section class="homeS officeS">
 <article class="homeA officeA">
 <h2 class="homeH2">Il Nostro Futuro!</h2>

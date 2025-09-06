@@ -729,6 +729,64 @@ span.spanCard {
 /* #endregion card */
 
 
+/* #region news */
+.newsS{}
+.newsA{}
+figure.figN{
+    aspect-ratio: 16 / 4;
+    width: 100%;
+}
+div.newsImg{
+background-image: url("../../assets/img/newsImg.webp");
+background-size: cover;
+background-position: center bottom;
+background-repeat: no-repeat;
+width: 100%;
+height: 100%
+
+}
+
+.newsS p:last-of-type{
+
+    text-align: center;
+}
+
+section.newsS p.homeP:last-of-type a{
+    margin-left: 0.2rem;
+    font-weight: 700;
+    font-size: clamp(1.3rem, 1.8vw + 0.4rem, 2rem);
+   color: var(--v);
+   text-decoration: underline var(--colore-accento);
+   animation: pulsate 1.5s infinite; /* Applica l'animazione, durata 1.5s, infinita */
+  display: inline-block; /* Necessario per l'effetto transform */
+}
+
+section.newsS p.homeP:last-of-type a:hover{
+    color: var(--v);
+    border-radius: 50%;
+  box-shadow: 0 0 5px 3px  var(--colore-accento), /* Sfumatura bianca/chiara interna */
+              0 0 10px 6px var(--colore-accento); /* Sfumatura bianca/chiara esterna */ 
+ background-color: var(--colore-accento);
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    color: var(--colore-testo); /* Colore iniziale del testo */
+  }
+  50% {
+    transform: scale(1.1); /* Aumenta leggermente le dimensioni */
+    color: #ff01ff; /* Cambia colore a rosso */
+  }
+  100% {
+    transform: scale(1);
+    color: var(--colore-testo); /* Torna al colore iniziale */
+  }
+}
+/* #endregion news */
+
+
+
 /* #region office */
 
 .officeS {
