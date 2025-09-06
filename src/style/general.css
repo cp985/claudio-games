@@ -14,7 +14,7 @@ html {
     --colore-blur: rgba(0, 207, 255, 0.1);
     --width-max: 1280px;
     --heigth-max: 900px;
-    font-size: 16px;
+    font-size: 17px;
     color: var(--colore-testo);
     user-select: none;
     overflow: hidden;

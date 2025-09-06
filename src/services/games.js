@@ -15,7 +15,7 @@ class Game {
     description,
     playDescription,
     imageUrl,
-    players,
+    modeScreen,
     link,
     preView1,
     preView2
@@ -24,7 +24,7 @@ class Game {
     this.description = description;
     this.playDescription = playDescription;
     this.imageUrl = imageUrl;
-    this.players = players;
+    this.modeScreen = modeScreen;
     this.link = link;
     this.preView1 = preView1;
     this.preView2 = preView2;
@@ -37,7 +37,7 @@ const gamesDatab = {
     "Il classico gioco di sasso, carta e forbice...",
     "Due giocatori si sfidano in un classico gioco di sasso, carta e forbice. Ogni giocatore sceglie una delle tre opzioni e il vincitore viene determinato dalle regole del gioco (Carta batte sasso, sasso batte forbice, forbice batte carta).",
     sassocartaforbice,
-    "vs IA",
+    "Per ottenere un'esperienza ottimale, gioca in modalità orizzontale.",
     "sasso-carta-forbice",
     preViewScf1,
     preViewScf2
@@ -48,7 +48,7 @@ const gamesDatab = {
     "Un gioco di logica e tanta fortuna...",
     "Il giocatore deve indovinare una serie di codici per disinnescare la bomba.Ad ogni codice errato il timer diminuirà....sceglili con attenzione!.",
     trovailcodice,
-    "1 o più",
+    "Per ottenere un'esperienza ottimale, gioca in modalità orizzontale.",
     "trova-il-codice",
     "#",
     "#"
@@ -58,7 +58,7 @@ const gamesDatab = {
     "Un gioco di parole e conoscenza...",
     "Il giocatore dovrà ordinare una serie di parole per completare una frase tratta da film,libri e citazioni personaggi famosi.Trova la posizione di ogni singola parola per arrivare alla soluzione..",
     ordinaleparole,
-    "1",
+    "Per ottenere un'esperienza ottimale, gioca in modalità orizzontale.",
     "ordina-le-parole",
     words1,
     words2
@@ -105,7 +105,7 @@ export function previewGameHandlerPage() {
             <h2>${key.title}</h2>
             <p>${key.description}</p>
             <p><span class="desc"> Descrizione:</span> ${key.playDescription}</p>
-            <p>Giocatori: ${key.players}</p>
+            <p style="color: var(--v);text-decoration: underline var(--colore-accento);">${key.modeScreen}</p>
             <button  class="btn-play">Play</button>
           `;
             imgGame.style.backgroundImage = `url(${key.imageUrl})`;
