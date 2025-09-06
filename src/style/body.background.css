@@ -244,7 +244,7 @@ touch-action: none;
     radial-gradient(4px 100px at 90% 80%, var(--v), #0000);
   background-size: 400px 400px; /* Size diversa per variare il pattern */
   animation-duration: 25s; /* Durata più lunga = più lento */
-  animation-delay: -5s; /* Inizia l'animazione da un punto diverso per non sincronizzarsi */
+  animation-delay: -2s; /* Inizia l'animazione da un punto diverso per non sincronizzarsi */
 }
 
 
