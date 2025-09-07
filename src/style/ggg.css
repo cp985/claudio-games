@@ -169,7 +169,7 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(7) {
 
 ul.terminalL{
     
-
+width: 95%;
    
 }
 
@@ -181,7 +181,7 @@ ul.terminalL{
 
     li.terminalM{
         padding: 0 0.1rem;
-    font-size: clamp(0.8rem, 3vw, 1.5rem); 
+    font-size: clamp(0.9rem, 3vw, 1.5rem); 
 letter-spacing: -0.05rem;
 
     }
