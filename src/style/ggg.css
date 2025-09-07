@@ -23,7 +23,7 @@ ul.terminalL {
     align-items: flex-start;
     justify-content: center;
     margin: 1rem 0;
-    padding: 0.5rem;
+    padding: 0 0.5rem;
 }
 
 li.terminalM {
@@ -180,7 +180,8 @@ ul.terminalL{
     }
 
     li.terminalM{
-    font-size: 0.8rem;
+        padding: 0 0.1rem;
+    font-size: clamp(0.8rem, 3vw, 1.5rem); 
 letter-spacing: -0.05rem;
 
     }
