@@ -105,7 +105,7 @@ export function previewGameHandlerPage() {
             <h2>${key.title}</h2>
             <p>${key.description}</p>
             <p><span class="desc"> Descrizione:</span> ${key.playDescription}</p>
-            <p style="color: var(--v);text-decoration: underline var(--colore-accento); font-weight: 700">${key.modeScreen}</p>
+            <p style="color: var(--v); text-decoration: underline var(--colore-accento); font-weight: 700">${key.modeScreen}</p>
             <button  class="btn-play">Play</button>
           `;
             imgGame.style.backgroundImage = `url(${key.imageUrl})`;

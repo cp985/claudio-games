@@ -26,10 +26,9 @@ div.loadbarGgg {
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
     width: 100%;
-    /* margin-top: 0.5rem; */
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column-reverse;
     color: var(--backT);
 }
@@ -41,16 +40,18 @@ ul.barGgg {
     height: 1.5rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 0.7rem;
     border: 1px solid var(--backT);
+    gap: 0.05rem;
 
 }
 
 li.loadbar {
     border: 1px solid var(--backT);
+    width: 9%;
     height: 1rem;
-    margin: 0 0.08rem;
+    
     background-color: var(--backT);
     color: var(--colore-sfondo);
     text-align: center;
@@ -87,7 +88,7 @@ ul.terminalL {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    margin: 0.5rem 0;
+    margin: 1rem auto;
     padding: 0 0.5rem;
 }
 
@@ -235,7 +236,7 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(7) {
     div.loadbarGgg {
 opacity: 1;
 visibility: visible;
-height: 100%;
+height: 20%;
 margin-top: 0.5rem;
 
     }
@@ -244,12 +245,13 @@ margin-top: 0.5rem;
 
         width: 95%;
 
+margin: 0.2rem auto;
     }
 
 
     div.contGgg {
         width: 100%;
-
+justify-content: flex-start;
     }
 
     li.terminalM {
