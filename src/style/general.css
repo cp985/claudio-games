@@ -581,7 +581,7 @@ section.homeS.cardS {
     align-items: center;
     justify-content: center;
     width: 100%;
-    border: 1px solid var(--colore-secondario);
+    border-top: 1px solid var(--colore-secondario);
 
 }
 

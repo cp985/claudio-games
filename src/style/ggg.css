@@ -181,8 +181,8 @@ width: 95%;
 
     li.terminalM{
         padding: 0 0.1rem;
-    font-size: clamp(0.9rem, 3vw, 1.5rem); 
-letter-spacing: -0.05rem;
+    font-size: clamp(1rem, 3vw, 1.5rem); 
+/* letter-spacing: -0.05rem; */
 
     }
 
