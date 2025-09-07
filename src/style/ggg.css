@@ -7,11 +7,76 @@ html {
 }
 
 div.contGgg {
-width: 100%;
-   height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    color: var(--backT);
+
+}
+
+div.loadbarGgg {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    width: 100%;
+    /* margin-top: 0.5rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    color: var(--backT);
+}
+
+
+ul.barGgg {
+    position: relative;
+    width: 90%;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.7rem;
+    border: 1px solid var(--backT);
+
+}
+
+li.loadbar {
+    border: 1px solid var(--backT);
+    height: 1rem;
+    margin: 0 0.08rem;
+    background-color: var(--backT);
+    color: var(--colore-sfondo);
+    text-align: center;
+    font-size: clamp(0.7rem, 1.5vw + 0.5rem, 1rem);
+
+}
+
+li.spanbarGgg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--colore-sfondo);
+    animation: loadbar 40s ease-in-out forwards;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+}
+
+@keyframes loadbar {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 35%;
+    }
 
 }
 
@@ -22,7 +87,7 @@ ul.terminalL {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     padding: 0 0.5rem;
 }
 
@@ -103,8 +168,8 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(6) span:nth-of-type(1) {
     animation:
         blinkk 0.8s forwards steps(2, jump-none) 6 30s,
         typewraiter1 4s forwards steps(30) 30s;
-    
-    }
+
+}
 
 div.contGgg ul.terminalL li.terminalM:nth-of-type(7) span:nth-of-type(1) {
 
@@ -154,7 +219,7 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(7) {
 
     100% {
         color: var(--v);
-    font-size: clamp(2rem, 1.8vw + 0.5rem, 4rem);
+        font-size: clamp(2rem, 1.8vw + 0.5rem, 4rem);
 
         font-weight: 900;
 
@@ -165,24 +230,32 @@ div.contGgg ul.terminalL li.terminalM:nth-of-type(7) {
 /* #endregion span animation */
 
 
-@media screen and (max-width: 550px){
+@media screen and (max-width: 550px) {
 
-ul.terminalL{
-    
-width: 95%;
-   
-}
+    div.loadbarGgg {
+opacity: 1;
+visibility: visible;
+height: 100%;
+margin-top: 0.5rem;
+
+    }
+
+    ul.terminalL {
+
+        width: 95%;
+
+    }
 
 
     div.contGgg {
         width: 100%;
-        
+
     }
 
-    li.terminalM{
+    li.terminalM {
         padding: 0 0.1rem;
-    font-size: clamp(1.1rem, 3vw, 1.6rem); 
-letter-spacing: -0.05rem;
+        font-size: clamp(1.1rem, 3vw, 1.6rem);
+        letter-spacing: -0.05rem;
 
     }
 
@@ -191,19 +264,19 @@ letter-spacing: -0.05rem;
     }
 
     @keyframes changeColor {
-    0% {
-        color: var(--backT);
+        0% {
+            color: var(--backT);
+
+        }
+
+        100% {
+            color: var(--v);
+            font-size: 1.3rem;
+
+            font-weight: 800;
+
+        }
 
     }
-
-    100% {
-        color: var(--v);
-        font-size: 1.3rem;
-
-        font-weight: 800;
-
-    }
-
-}
 
 }

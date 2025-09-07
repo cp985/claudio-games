@@ -291,6 +291,21 @@ const pageList = {
   `,
   ggg: `
   <div class="contGgg">
+  <div class="loadbarGgg">Loading...  
+<ul class="barGgg">
+    <li class="loadbar">10%</li>
+    <li class="loadbar">20%</li>
+    <li class="loadbar">30%</li>
+    <li class="loadbar">40%</li>
+    <li class="loadbar">50%</li>
+    <li class="loadbar">60%</li>
+    <li class="loadbar">70%</li>
+    <li class="loadbar">80%</li>
+    <li class="loadbar">90%</li>
+    <li class="loadbar">100%</li>
+    <li class="spanbarGgg"></li>
+</ul>
+  </div>
     <ul class="terminalL">
         <li class="terminalM">> Inizializzazione sistema... OK<span></span></li>
         <li class="terminalM">> Caricamento moduli... 99%<span></span></li>
