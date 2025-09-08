@@ -105,7 +105,7 @@ export function previewGameHandlerPage() {
             <h2>${key.title}</h2>
             <p>${key.description}</p>
             <p><span class="desc"> Descrizione:</span> ${key.playDescription}</p>
-            <p style="color: var(--v); text-decoration: underline var(--colore-accento); font-weight: 700">${key.modeScreen}</p>
+            <p class="mode">${key.modeScreen}</p>
             <button  class="btn-play">Play</button>
           `;
             imgGame.style.backgroundImage = `url(${key.imageUrl})`;
@@ -129,6 +129,28 @@ export function previewGameHandlerPage() {
               img1.style.backgroundImage = `url(${key.preView1})`;
               img2.style.backgroundImage = `url(${key.preView2})`;
             }
+            const section = document.querySelector("section.game-img");
+            section.addEventListener("pointerover", (e) => {
+              if (!section) {
+                return;
+              }
+              const target = e.target;
+              const img1 = divCont.querySelector("div.gameImg1");
+              const img2 = divCont.querySelector("div.gameImg2");
+              const imgGame = document.querySelector(
+                "section.game-img div.img"
+              );
+
+              if (target.classList.contains("gameImg1")) {
+                imgGame.style.backgroundImage = `url(${key.preView1})`;
+                img1.style.backgroundImage = `url(${key.imageUrl})`;
+              img2.style.backgroundImage = `url(${key.preView2})`;
+              } else if (target.classList.contains("gameImg2")) {
+                img2.style.backgroundImage = `url(${key.imageUrl})`;
+                imgGame.style.backgroundImage = `url(${key.preView2})`;
+              img1.style.backgroundImage = `url(${key.preView1})`;
+              }
+            });
 
             // -----------btn handler
             const gameSec = document.querySelector("section.gamePage");
