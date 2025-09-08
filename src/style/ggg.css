@@ -16,6 +16,7 @@ div.contGgg {
     justify-content: center;
     flex-direction: column;
     color: var(--backT);
+    /* overflow-y: hidden; */
 
 }
 
@@ -114,6 +115,117 @@ div.contGgg ul.terminalL li.terminalM span {
     background-color: var(--colore-sfondo);
 
 }
+
+
+
+
+.contConstructionGgg{
+   opacity: 0;
+   visibility: hidden;
+   height: 0;
+    font-family: 'Bitcount', sans-serif;
+    position: relative;
+    margin-bottom: 1rem ; /* Spostato più in basso per lasciare spazio al chiodo */
+    display: flex;
+    flex-direction: column; /* Colonna per allineare chiodo/corde sopra il cartello */
+    align-items: flex-start;
+    transform-origin: top center; /* Punto di rotazione per l'oscillazione */
+    animation: pixel-swing 3s ease-in-out infinite alternate; /* Animazione di oscillazione */
+
+
+}
+
+/* Il Chiodo */
+.nail {
+    position: absolute;
+    width: 8px; /* Dimensione del chiodo */
+    height: 8px;
+    background-color: #bdc3c7; /* Colore grigio chiaro */
+    border-radius: 50%; /* Forma rotonda */
+    top: -20px; /* Posizionato sopra il punto di incontro delle corde */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20; /* Sopra le corde */
+    box-shadow: inset 1px 1px 0px #7f8c8d; /* Ombra interna per effetto 3D */
+    border: 1px solid #7f8c8d; /* Bordo più scuro */
+}
+
+/* Le Corde */
+.string-left, .string-right {
+    position: absolute;
+    height: 2px; /* Spessore della corda */
+    background-color: var(--backT); /* Colore nero delle corde */
+    top: -10px; /* Altezza di partenza dalla parte superiore del contenitore */
+    z-index: 15; /* Tra chiodo e cartello */
+    transform-origin: center right; /* Per la corda sinistra */
+}
+
+.string-left {
+    width: 55px; /* Lunghezza approssimativa */
+    left: calc(50% - 60px); /* Posiziona a sinistra del centro */
+    transform: rotate(-30deg); /* Inclinazione verso il chiodo */
+    box-shadow: 1px 1px 0px rgba(0,0,0,0.5); /* Ombra pixel */
+}
+
+.string-right {
+    width: 55px; /* Lunghezza approssimativa */
+   top: 16px;
+    left: 49%; /* Posiziona a destra del centro */
+    transform: rotate(30deg); /* Inclinazione verso il chiodo */
+    box-shadow: 1px 1px 0px rgba(0,0,0,0.5); /* Ombra pixel */
+}
+
+/* Il Cartello Principale */
+.pixel-sign-board {
+    width: 280px; /* Larghezza fissa */
+    min-height: 100px; /* Altezza minima per le due righe */
+    background-color: var(--colore-sfondo); /* Sfondo nero principale */
+    border: 4px solid var(--backT); /* Bordo giallo spesso */
+    box-shadow: 6px 6px 0px #333; /* Ombra netta pixel art */
+    text-align: center;
+    padding: 15px 10px; /* Spaziatura interna */
+    position: relative;
+    z-index: 10;
+    margin-top: 20px; /* Spazio tra corde e cartello */
+
+    /* Strisce oblique (nero su giallo, come nell'immagine di riferimento) */
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--backT) 0px,
+        var(--backT) 20px,
+        var(--colore-sfondo) 20px,
+        var(--colore-sfondo) 40px
+    );
+    background-size: 100% 100%; /* Copre tutto il fondo */
+    
+    /* Il contenuto del testo è sopra le strisce, quindi lo sfondo del testo sarà nero */
+    /* Per ottenere l'effetto dell'immagine di riferimento, sovrapponiamo un "background" nero
+       all'interno del padding per il testo, o più semplicemente usiamo un div interno
+       oppure semplicemente lo sfondo generale del cartello è nero e le strisce sono sopra */
+    /* Approccio più semplice: il background principale è giallo a strisce,
+       il testo ha un suo sfondo nero */
+}
+
+.pixel-sign-board .sign-text {
+    font-size: 1.4em; /* Dimensione del testo */
+    color: var(--backT); /* Colore giallo del testo */
+    margin: 5px 0; /* Spaziatura tra le righe */
+    line-height: 1; /* Rimuove lo spazio eccessivo */
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.7); /* Ombra pixelata per il testo */
+    /* Sfondo nero per il testo per contrastare le strisce,
+       simulando la zona centrale nera dell'immagine */
+    background-color: var(--colore-sfondo);
+    padding: 2px 5px; /* Piccolo padding per lo sfondo del testo */
+    display: inline-block; /* Per applicare background-color solo al testo */
+}
+
+/* Animazione di oscillazione */
+@keyframes pixel-swing {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+
 
 /* #region span animation */
 
@@ -248,7 +360,12 @@ margin-top: 0.5rem;
 margin: 0.2rem auto;
     }
 
+.contConstructionGgg{
+opacity: 1;
+visibility: visible;
+height: 100%;
 
+}
     div.contGgg {
         width: 100%;
 justify-content: flex-start;

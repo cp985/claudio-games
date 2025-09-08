@@ -316,6 +316,19 @@ const pageList = {
         <li class="terminalM">> .(^_^) STAY TUNED (^_^).<span></span></li>
 
     </ul>
+
+    <div class="contConstructionGgg">
+      <div class="pixel-construction-container">
+        <div class="nail"></div>
+        <div class="string-left"></div>
+        <div class="string-right"></div>
+        
+        <div class="pixel-sign-board">
+            <p class="sign-text">UNDER</p>
+            <p class="sign-text">CONSTRUCTION</p>
+        </div>
+    </div>
+    </div>
 </div>
 `,
   404: `<h1>404 - Pagina non trovata</h1>`,
