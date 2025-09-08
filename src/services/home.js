@@ -13,7 +13,7 @@ export function imgTranslationX() {
     }
     // Calcola la posizione di scroll rispetto all'altezza della pagina
     const scrollPosition = documentScrolling.scrollTop;
-    console.log(scrollPosition + "px" + " di scroll");
+    // console.log(scrollPosition + "px" + " di scroll");
 
     let startScroll = 280;
     let endScroll = 620;

@@ -164,7 +164,7 @@ export function previewGameHandlerPage() {
 
                 const link = key.link;
                 if (link) {
-                  console.log(key.id);
+                  // console.log(key.id);
 
                   const gamePath = `/${link}`;
                   page.show(gamePath);

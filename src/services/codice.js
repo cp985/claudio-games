@@ -1,5 +1,10 @@
 import { page } from "./page-route.js";
 
+// <-- SOLUZIONE 1: Spostiamo gli ID degli intervalli qui, fuori dalla funzione.
+// In questo modo, mantengono il loro valore tra le diverse chiamate a createCode.
+let activeTimerIntervalId = null;
+let activePreStartIntervalId = null;
+
 class TheCode {
   constructor(id, code) {
     this.id = id;
@@ -8,71 +13,113 @@ class TheCode {
 }
 
 export function createCode() {
-  //genera lettera casuale da associare al numero
+  // <-- SOLUZIONE 2: Blocco di pulizia all'inizio della funzione.
+  // Ferma qualsiasi timer "zombie" delle esecuzioni precedenti.
+  if (activePreStartIntervalId) {
+    clearInterval(activePreStartIntervalId);
+  }
+  if (activeTimerIntervalId) {
+    clearInterval(activeTimerIntervalId);
+  }
+
+  // È anche una buona pratica svuotare il contenitore prima di riempirlo di nuovo,
+  // per evitare di duplicare gli elementi <li> se la funzione viene chiamata più volte.
+  const container = document.querySelector("div.codiceCont");
+  if (container) {
+      const ul = container.querySelector("ul.codiceL");
+      if (ul) ul.innerHTML = ''; // Svuota la lista precedente!
+  }
+  // --- Fine del blocco di pulizia ---
+
+
+  // ----- (Tutta la parte di generazione dei codici rimane invariata) -----
   let lettera = () => {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const alphabetArr = alphabet.split("");
     const n = Math.floor(Math.random() * 26);
-    let lettera = alphabetArr[n];
-    return lettera;
+    return alphabetArr[n];
   };
-
-  //genera numero casuale da associare alla lettera
   let numero = () => {
-    let n = Math.floor(Math.random() * 100);
-    let numero = n;
-    return numero;
+    return Math.floor(Math.random() * 100);
   };
-  //genera in codice (..quasi..) univoco sommando lettera e numero
   let codice = () => {
     const codes = [];
     for (let i = 0; i < 5; i++) {
       let codeX = [];
       for (let k = 0; k < 5; k++) {
-        let codeY = lettera() + numero();
-        codeX.push(codeY);
+        codeX.push(lettera() + numero());
       }
       codes.push(codeX);
     }
     return codes;
   };
-
-  //creo i 5 obj per i li
   const [arr1, arr2, arr3, arr4, arr5] = codice();
-
   const dictionaryCode = [
-    new TheCode(1, arr1),
-    new TheCode(2, arr2),
-    new TheCode(3, arr3),
-    new TheCode(4, arr4),
-    new TheCode(5, arr5),
+    new TheCode(1, arr1), new TheCode(2, arr2), new TheCode(3, arr3),
+    new TheCode(4, arr4), new TheCode(5, arr5)
   ];
-
-  // --- INIZIO LOGICA CODICI VINCENTI --- ✨
   const winningCombination = [];
-
-  // Scorro ogni oggetto nel dictionaryCode (che corrisponde a un <li>)
   dictionaryCode.forEach((item) => {
-    // item.code è l'array di 5 codici per quel <li> (es: ["A12", "B34", "C56", "D78", "E90"])
-
-    // Genero un indice casuale da 0 a 4
     const randomIndex = Math.floor(Math.random() * item.code.length);
-
-    // Seleziono il codice a quell'indice come codice vincente per questo <li>
-    const winningCode = item.code[randomIndex];
-
-    // Aggiungo il codice vincente al nostro array della combinazione corretta
-    winningCombination.push(winningCode);
+    winningCombination.push(item.code[randomIndex]);
   });
-  console.log(winningCombination);
+  // ----- (Fine parte invariata) -----
 
-  //render li
 
-  const container = document.querySelector("div.codiceCont");
+  let totalSeconds;
+  let gameIsOver = false;
+
+  function triggerWin() {
+    if (gameIsOver) return;
+    gameIsOver = true;
+    clearInterval(activeTimerIntervalId); // <-- SOLUZIONE 3: Usa il nuovo nome della variabile
+    const section = document.querySelector("section.codiceS");
+    // ... (resto della funzione triggerWin invariato)
+    if (section) {
+      const gameOverArt = document.createElement("article");
+      gameOverArt.classList.add("artSubmit", "winner");
+      gameOverArt.innerHTML = `
+        <h2 class="boomH2">YOU WIN!!</h2>
+        <p>Congratulazioni hai disinnescato la bomba!</p>
+        <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
+      `;
+      const buttonSubmit = gameOverArt.querySelector("#buttonSubmit");
+      buttonSubmit.addEventListener("click", () => page.show("/games"));
+      section.appendChild(gameOverArt);
+    }
+  }
+
+  function triggerLoss() {
+    if (gameIsOver) return;
+    gameIsOver = true;
+    const timerDisplay = document.querySelector(".codiceTime span");
+    if(timerDisplay) {
+        timerDisplay.textContent = "00-00";
+        timerDisplay.style.color = "red";
+    }
+    const section = document.querySelector("section.codiceS");
+    // ... (resto della funzione triggerLoss invariato)
+     if (section) {
+      const gameOverArt = document.createElement("article");
+      gameOverArt.classList.add("artSubmit", "boom");
+      gameOverArt.innerHTML = `
+        <h2 class="boomH2">YOU LOSE</h2>
+        <p>Il tempo è scaduto! Riprova a disinnescare la bomba.</p>
+        <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
+      `;
+      const buttonSubmit = gameOverArt.querySelector("#buttonSubmit");
+      buttonSubmit.addEventListener("click", () => page.show("/games"));
+      section.appendChild(gameOverArt);
+    }
+  }
+
+  // --- Render e logica dei click ---
+  //const container = document.querySelector("div.codiceCont"); // già dichiarato sopra
   const ul = container.querySelector("ul.codiceL");
   for (let i = 0; i < dictionaryCode.length; i++) {
+    // ... (tutta la logica di creazione li e gestione click rimane invariata)
     const li = document.createElement("li");
-    li.innerHTML = `
+        li.innerHTML = `
     <div class="switch">
 <div class="form  form${i}">
 <label class="placeholder" for="placeholder${i}"><span>&#9746;&#9746;&#9746;</span>
@@ -96,377 +143,177 @@ export function createCode() {
 </div>
 </div>
 `;
-
     li.classList.add("codiceLi", "circuito-minimalista");
     ul.appendChild(li);
 
-    // ... (il tuo codice che definisce le variabili va bene)
     const divForm = li.querySelector("div.form");
     const labelPlaceholder = li.querySelector("label.placeholder");
     const codici = li.querySelectorAll("label.codiceSwitch");
 
     divForm.addEventListener("click", (e) => {
-      // L'elemento esatto che è stato cliccato1
       const target = e.target;
-
-      // --- CASO 1: Apertura iniziale ---
-      // Se il placeholder è ancora visibile, lo nascondiamo e mostriamo tutte le opzioni.
       if (!labelPlaceholder.classList.contains("placeHolderNone")) {
         labelPlaceholder.classList.add("placeHolderNone");
-        codici.forEach((label) => {
-          label.classList.add("codiceSwitchActive");
-        });
-        return; // Usciamo, il lavoro per questo click è finito.
+        codici.forEach((label) => label.classList.add("codiceSwitchActive"));
+        return;
       }
-
-      // --- CASO 2: Riaprire le opzioni ---
-      // Se clicchiamo sull'elemento che è GIÀ selezionato (ha la classe 'codiceSelect').
       if (target.classList.contains("codiceSelect")) {
-        // Rimuoviamo lo stato di "selezionato".
         target.classList.remove("codiceSelect");
-        // E mostriamo di nuovo tutte le opzioni.
-        codici.forEach((label) => {
-          label.classList.add("codiceSwitchActive");
-        });
-        return; // Usciamo.
-
-
+        codici.forEach((label) => label.classList.add("codiceSwitchActive"));
+        return;
       }
-
-      // --- CASO 3: Selezionare una nuova opzione ---
-      // Se clicchiamo su uno dei label visibili (che non è già selezionato).
       if (target.classList.contains("codiceSwitchActive")) {
-        // 1. "Resettiamo" tutti i label nascondendoli.
         codici.forEach((label) => {
           label.classList.remove("codiceSwitchActive");
-          label.classList.remove("codiceSelect"); // Rimuoviamo per pulizia
+          label.classList.remove("codiceSelect");
         });
-
-        // 2. Mostriamo e marchiamo come "selezionato" solo quello cliccato.
-        target.classList.add("codiceSwitchActive");
-        target.classList.add("codiceSelect");
+        target.classList.add("codiceSwitchActive", "codiceSelect");
       }
 
+      const clickedLabel = e.target.closest('label.codiceSwitch');
+      if (clickedLabel) {
+        const inputElement = clickedLabel.querySelector('input');
+        if (inputElement) {
+          const sceltaUtente = inputElement.value;
+          const codiceVincenteRiga = winningCombination[i];
 
-       // --- INIZIO LOGICA DI CONTROLLO (VERSIONE CORRETTA) --- ✨
+          if (sceltaUtente === codiceVincenteRiga) {
+            clickedLabel.classList.add("codiceCorretto");
+            divForm.style.pointerEvents = 'none';
 
-// 1. Usa .closest() per trovare il label genitore, indipendentemente da cosa hai cliccato (span o label).
-const clickedLabel = e.target.closest('label.codiceSwitch');
-
-// 2. Esegui la logica solo se abbiamo effettivamente cliccato su un'opzione valida.
-if (clickedLabel) {
-    const inputElement = clickedLabel.querySelector('input');
-    
-    // Sicurezza aggiuntiva: assicurati che l'input esista
-    if (inputElement) {
-        const sceltaUtente = inputElement.value;
-        const codiceVincenteRiga = winningCombination[i]; // 'i' viene dal ciclo 'for'
-
-        if (sceltaUtente === codiceVincenteRiga) {
-            // SCELTA CORRETTA
-            console.log(`Corretto per la riga ${i}!`);
-            clickedLabel.classList.add("codiceCorretto"); // Usa clickedLabel, non target
-            
-            // Opzionale: impedisci ulteriori click su questa riga
-            divForm.style.pointerEvents = 'none'; 
-
-        } else {
-            // SCELTA ERRATA
-            console.log(`Errato per la riga ${i}! Penalità di 3 secondi.`);
-            totalSeconds -= 1; // Sottrai 3 secondi
-            clickedLabel.classList.add("codiceErrato"); // Usa clickedLabel, non target
-            // Assicurati che il timer non vada sotto zero
-            if (totalSeconds < 0) {
-              totalSeconds = 0;
+            const codiciCorretti = document.querySelectorAll('.codiceCorretto').length;
+            if (codiciCorretti === 5) {
+              triggerWin();
             }
-            
-            updateTimerDisplay(); // Aggiorna subito il display del timer
+          } else {
+            totalSeconds -= 1; 
+            clickedLabel.classList.add("codiceErrato");
+            if (totalSeconds < 0) totalSeconds = 0;
+            updateTimerDisplay();
+          }
         }
-    }
-}
-// --- FINE NUOVA LOGICA ---
-      
-
+      }
     });
   }
 
-  // --- INIZIO SCRIPT PER DISEGNARE LE LINEE (VERSIONE CON RESIZEOBSERVER) ---
-
+  // --- (La parte delle linee SVG rimane invariata) ---
+  // ... il tuo codice per drawAllLines() va qui ...
   function drawAllLines() {
     const svg = document.getElementById("svg-connectors");
     const container = document.querySelector(".codice-wrapper");
     const footer = document.querySelector("footer");
     const switches = document.querySelectorAll("li.codiceLi");
-
     if (!svg || !container || switches.length < 2 || !footer) return;
-
-    svg.innerHTML = ""; // Pulisce l'SVG a ogni ridisegno
+    svg.innerHTML = ""; 
     const containerRect = container.getBoundingClientRect();
     const svgRect = svg.getBoundingClientRect();
     const footerRect = footer.getBoundingClientRect();
-
-    // --- Disegna linee tra i li ---
     for (let i = 0; i < switches.length - 1; i++) {
       const startRect = switches[i].getBoundingClientRect();
       const endRect = switches[i + 1].getBoundingClientRect();
-
       if (startRect.width === 0 || endRect.width === 0) continue;
-
       const startX = startRect.right - containerRect.left;
       const startY = startRect.top + startRect.height / 2 - containerRect.top;
       const endX = endRect.left - containerRect.left;
       const endY = endRect.top + endRect.height / 2 - containerRect.top;
-
-      // --- MODIFICA INIZIA QUI ---
-      // 1. Crea la linea esterna (guaina/casing)
-      const lineCasing = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "line"
-      );
-      lineCasing.setAttribute("x1", startX);
-      lineCasing.setAttribute("y1", startY);
-      lineCasing.setAttribute("x2", endX);
-      lineCasing.setAttribute("y2", endY);
-      lineCasing.setAttribute("class", "connectorLi-casing"); // Classe per la guaina
-
-      // 2. Crea la linea interna (nucleo/core)
-      const lineCore = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "line"
-      );
-      lineCore.setAttribute("x1", startX);
-      lineCore.setAttribute("y1", startY);
-      lineCore.setAttribute("x2", endX);
-      lineCore.setAttribute("y2", endY);
-      lineCore.setAttribute("class", "connectorLi-core"); // Classe per il nucleo
-
-      // 3. Aggiungile all'SVG (prima la guaina, così sta sotto)
-      svg.appendChild(lineCasing);
-      svg.appendChild(lineCore);
-      // --- MODIFICA FINISCE QUI ---
+      const lineCasing = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      lineCasing.setAttribute("x1", startX); lineCasing.setAttribute("y1", startY); lineCasing.setAttribute("x2", endX); lineCasing.setAttribute("y2", endY); lineCasing.setAttribute("class", "connectorLi-casing");
+      const lineCore = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      lineCore.setAttribute("x1", startX); lineCore.setAttribute("y1", startY); lineCore.setAttribute("x2", endX); lineCore.setAttribute("y2", endY); lineCore.setAttribute("class", "connectorLi-core"); 
+      svg.appendChild(lineCasing); svg.appendChild(lineCore);
     }
-
-    // --- Disegna linee dal footer a ciascun li ---
     const xFooter = footerRect.left + footerRect.width / 2 - svgRect.left;
     const yFooter = footerRect.top - svgRect.top;
-
     switches.forEach((li) => {
       const liRect = li.getBoundingClientRect();
       const xLi = liRect.left + liRect.width / 2 - svgRect.left;
       const yLi = liRect.bottom - svgRect.top;
-
-      // --- MODIFICA INIZIA QUI ---
-      // 1. Crea la linea esterna (guaina)
-      const footerLineCasing = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "line"
-      );
-      footerLineCasing.setAttribute("x1", xFooter);
-      footerLineCasing.setAttribute("y1", yFooter);
-      footerLineCasing.setAttribute("x2", xLi);
-      footerLineCasing.setAttribute("y2", yLi);
-      footerLineCasing.setAttribute("class", "connectorFooter-casing");
-
-      // 2. Crea la linea interna (nucleo)
-      const footerLineCore = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "line"
-      );
-      footerLineCore.setAttribute("x1", xFooter);
-      footerLineCore.setAttribute("y1", yFooter);
-      footerLineCore.setAttribute("x2", xLi);
-      footerLineCore.setAttribute("y2", yLi);
-      footerLineCore.setAttribute("class", "connectorFooter-core");
-
-      // 3. Aggiungile all'SVG (sempre la guaina prima)
-      svg.appendChild(footerLineCasing);
-      svg.appendChild(footerLineCore);
-      // --- MODIFICA FINISCE QUI ---
+      const footerLineCasing = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      footerLineCasing.setAttribute("x1", xFooter); footerLineCasing.setAttribute("y1", yFooter); footerLineCasing.setAttribute("x2", xLi); footerLineCasing.setAttribute("y2", yLi); footerLineCasing.setAttribute("class", "connectorFooter-casing");
+      const footerLineCore = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      footerLineCore.setAttribute("x1", xFooter); footerLineCore.setAttribute("y1", yFooter); footerLineCore.setAttribute("x2", xLi); footerLineCore.setAttribute("y2", yLi); footerLineCore.setAttribute("class", "connectorFooter-core");
+      svg.appendChild(footerLineCasing); svg.appendChild(footerLineCore);
     });
   }
-
   const containerToObserve = document.querySelector(".codice-wrapper");
-
   if (containerToObserve) {
     const resizeObserver = new ResizeObserver(() => {
-      // piccolo ritardo per dare tempo a layout/transizioni
       setTimeout(drawAllLines, 50);
     });
-
     resizeObserver.observe(containerToObserve);
-  } else {
-    console.error("'.codice-wrapper' non trovato");
   }
-
-  // --- INIZIO LOGICA TIMER ---
-
-  let timerIntervalId = null; // Variabile per tenere traccia dell'intervallo del timer
-  let preStartIntervalId = null; // Variabile per tenere traccia dell'intervallo di preavviso
-  let totalSeconds;
-
-  // Funzione per aggiornare il display del timer (per non ripetere codice)
-  function updateTimerDisplay() {
-    const timerDisplay = document.querySelector(".codiceTime span");
-    if (!timerDisplay) return;
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-    timerDisplay.textContent = `${formatTime(minutes)}-${formatTime(seconds)}`;
+  
+  // --- LOGICA TIMER ---
+  function updateTimerDisplay() { /* ... invariato ... */ 
+      const timerDisplay = document.querySelector(".codiceTime span");
+      if (!timerDisplay) return;
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      timerDisplay.textContent = `${formatTime(minutes)}-${formatTime(seconds)}`;
   }
-  // Funzione per formattare il tempo (es: 5 -> "05")
   const formatTime = (num) => num.toString().padStart(2, "0");
 
-  // Funzione principale che gestisce il timer
   function startTimer() {
     const timerDisplay = document.querySelector(".codiceTime span");
     const allSwitches = document.querySelectorAll("li.codiceLi");
-    if (!timerDisplay) {
-      console.error("Elemento display del timer non trovato!");
-      return;
-    }
-
-    if (!timerDisplay || allSwitches.length === 0) {
-      console.error("Elemento del timer o switch del gioco non trovati!");
-      return;
-    }
-
-    // <<< MODIFICA QUI: Applica la classe a OGNI switch >>>
+    if (!timerDisplay || allSwitches.length === 0) return;
     allSwitches.forEach((sw) => sw.classList.add("placeHolderPreCaunt"));
-
-    // --- FASE 1: Countdown di preparazione ---
-    let preStartSeconds = 5; //  secondi di preavviso
+    let preStartSeconds = 5;
     timerDisplay.classList.add("codiceFpre");
     timerDisplay.textContent = `Inizio tra ${preStartSeconds}...`;
-    timerDisplay.style.color = "#ffc107"; // Un colore per l'avviso
-
-    preStartIntervalId = setInterval(() => {
+    timerDisplay.style.color = "#ffc107";
+    
+    // <-- SOLUZIONE 3: Usa il nuovo nome della variabile
+    activePreStartIntervalId = setInterval(() => {
       const timerDisplay = document.querySelector(".codiceTime span");
       if (!timerDisplay) {
-        clearInterval(preStartIntervalId);
-        return; // Se il display non c'è più, ferma tutto e esci.
+        clearInterval(activePreStartIntervalId);
+        return;
       }
       preStartSeconds--;
       if (preStartSeconds > 0) {
         timerDisplay.textContent = `Inizio tra ${preStartSeconds}...`;
       } else {
-        clearInterval(preStartIntervalId); // Ferma il countdown di preparazione
-        runMainCountdown(timerDisplay, allSwitches); // Avvia il timer principale
+        clearInterval(activePreStartIntervalId);
+        runMainCountdown();
       }
     }, 1000);
   }
 
-  // Funzione che gestisce il countdown principale da 1 minuto
-  function runMainCountdown(timerDisplay, allSwitches) {
+  function runMainCountdown() {
+    const timerDisplay = document.querySelector(".codiceTime span");
+    const allSwitches = document.querySelectorAll("li.codiceLi");
     allSwitches.forEach((sw) => sw.classList.remove("placeHolderPreCaunt"));
     timerDisplay.classList.remove("codiceFpre");
-
     totalSeconds = 60;
     updateTimerDisplay();
-    // timerDisplay.textContent = "01-00";
-    timerDisplay.style.color = ""; // Ripristina il colore originale
-    // Avvia il timer e salva il suo ID per poterlo fermare dopo
-    timerIntervalId = setInterval(() => {
+    timerDisplay.style.color = "";
+    
+    // <-- SOLUZIONE 3: Usa il nuovo nome della variabile
+    activeTimerIntervalId = setInterval(() => {
+      if (gameIsOver) {
+          clearInterval(activeTimerIntervalId);
+          return;
+      }
       totalSeconds--;
       updateTimerDisplay();
-      const minutes = Math.floor(totalSeconds / 60);
-      const seconds = totalSeconds % 60;
-      timerDisplay.textContent = `${formatTime(minutes)}-${formatTime(
-        seconds
-      )}`;
-
       if (totalSeconds <= 0) {
-        clearInterval(timerIntervalId); // Ferma il timer
-        timerDisplay.textContent = "00-00";
-        timerDisplay.style.color = "red";
-        // ------------------------------
-
-        let gameOverInnerHtml = null;
-        let classGameOver = null;
-        function checkResult() {
-          const userChoices = [];
-
-          // 1. Raccogli tutte le scelte dell'utente
-          const selectedRadios = document.querySelectorAll(
-            'input[type="radio"]:checked'
-          );
-          selectedRadios.forEach((radio) => {
-            // Aggiungiamo solo i valori reali, non quello del placeholder se fosse selezionabile
-            if (radio.value) {
-              userChoices.push(radio.value);
-            }
-          });
-
-          // 2. Assicurati che l'utente abbia fatto 5 scelte
-          if (userChoices.length !== 5) {
-            console.log("Devi selezionare un codice per ogni riga!");
-            classGameOver = "boom";
-            gameOverInnerHtml = `
-        <h2 class="boomH2">YOU LOSE</h2>
-          <p>Riprova a disinnescare la bomba selezionando i codici! .</p>
-          <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
-          `;
-          }
-
-          // 3. Confronta le scelte con la combinazione vincente
-          // N.B.: Confrontare due array in JS si fa meglio convertendoli in stringhe
-          const userWon =
-            JSON.stringify(userChoices) === JSON.stringify(winningCombination);
-
-          // 4. Mostra il risultato
-          if (userWon) {
-            console.log("HAI VINTO! Bomba disinnescata!");
-            classGameOver = "winner";
-            gameOverInnerHtml = `
-        <h2 class="boomH2">YOU WIN!!</h2>
-          <p>Congratulazioni hai disinnescato la bomba! .</p>
-          <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
-          `;
-
-            // Qui mostri la schermata di vittoria
-          } else {
-            console.log("HAI PERSO! La combinazione è sbagliata.");
-            // Qui mostri la schermata di sconfitta
-            classGameOver = "boom";
-            gameOverInnerHtml = `
-        <h2 class="boomH2">YOU LOSE</h2>
-          <p>Riprova a disinnescare la bomba .</p>
-          <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
-          `;
-          }
-        }
-        checkResult();
-
-        // ----------------------------
-        // Qui puoi aggiungere la logica di "Game Over"
-        const section = document.querySelector("section.codiceS");
-        if (section) {
-          const gameOverArt = document.createElement("article");
-          gameOverArt.classList.add("artSubmit");
-          gameOverArt.classList.add(classGameOver);
-          gameOverArt.innerHTML = gameOverInnerHtml;
-
-          const buttonSubmit = gameOverArt.querySelector("#buttonSubmit");
-          buttonSubmit.addEventListener("click", () => page.show("/games"));
-          section.appendChild(gameOverArt);
-        }
+        clearInterval(activeTimerIntervalId);
+        triggerLoss();
       }
     }, 1000);
   }
 
-  // Avvia tutto il processo del timer
   startTimer();
 
-  // --- RESTITUISCI LA FUNZIONE DI CLEANUP ---
-  // Questa è la parte cruciale per una SPA.
-  // Restituiamo una funzione che page.js potrà chiamare
-  // per fermare il nostro setInterval quando l'utente cambia pagina.
+  // --- Funzione di cleanup ---
+  // Questa funzione è chiamata da page.js quando cambi pagina. Ora pulirà i timer corretti.
   return () => {
-    if (preStartIntervalId) {
-      clearInterval(preStartIntervalId);
-      console.log("Timer di pre-start fermato.");
+    if (activePreStartIntervalId) {
+      clearInterval(activePreStartIntervalId);
     }
-    if (timerIntervalId) {
-      clearInterval(timerIntervalId);
-      console.log("Timer del gioco fermato.");
+    if (activeTimerIntervalId) {
+      clearInterval(activeTimerIntervalId);
     }
   };
 }
