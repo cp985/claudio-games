@@ -49,22 +49,25 @@ export function createCode() {
   ];
 
   // --- INIZIO LOGICA CODICI VINCENTI --- ✨
-  const winningCombination = [];
+const winningCombination = [];
 
-  // Scorro ogni oggetto nel dictionaryCode (che corrisponde a un <li>)
-  dictionaryCode.forEach((item) => {
-    // item.code è l'array di 5 codici per quel <li> (es: ["A12", "B34", "C56", "D78", "E90"])
+// Scorro ogni oggetto nel dictionaryCode (che corrisponde a un <li>)
+dictionaryCode.forEach(item => {
+  // item.code è l'array di 5 codici per quel <li> (es: ["A12", "B34", "C56", "D78", "E90"])
+  
+  // Genero un indice casuale da 0 a 4
+  const randomIndex = Math.floor(Math.random() * item.code.length); 
+  
+  // Seleziono il codice a quell'indice come codice vincente per questo <li>
+  const winningCode = item.code[randomIndex];
+  
+  // Aggiungo il codice vincente al nostro array della combinazione corretta
+  winningCombination.push(winningCode);
+  
+  
+});
+console.log(winningCombination);
 
-    // Genero un indice casuale da 0 a 4
-    const randomIndex = Math.floor(Math.random() * item.code.length);
-
-    // Seleziono il codice a quell'indice come codice vincente per questo <li>
-    const winningCode = item.code[randomIndex];
-
-    // Aggiungo il codice vincente al nostro array della combinazione corretta
-    winningCombination.push(winningCode);
-  });
-  console.log(winningCombination);
 
   //render li
 
@@ -129,8 +132,6 @@ export function createCode() {
           label.classList.add("codiceSwitchActive");
         });
         return; // Usciamo.
-
-
       }
 
       // --- CASO 3: Selezionare una nuova opzione ---
@@ -146,48 +147,8 @@ export function createCode() {
         target.classList.add("codiceSwitchActive");
         target.classList.add("codiceSelect");
       }
-
-
-       // --- INIZIO LOGICA DI CONTROLLO (VERSIONE CORRETTA) --- ✨
-
-// 1. Usa .closest() per trovare il label genitore, indipendentemente da cosa hai cliccato (span o label).
-const clickedLabel = e.target.closest('label.codiceSwitch');
-
-// 2. Esegui la logica solo se abbiamo effettivamente cliccato su un'opzione valida.
-if (clickedLabel) {
-    const inputElement = clickedLabel.querySelector('input');
-    
-    // Sicurezza aggiuntiva: assicurati che l'input esista
-    if (inputElement) {
-        const sceltaUtente = inputElement.value;
-        const codiceVincenteRiga = winningCombination[i]; // 'i' viene dal ciclo 'for'
-
-        if (sceltaUtente === codiceVincenteRiga) {
-            // SCELTA CORRETTA
-            console.log(`Corretto per la riga ${i}!`);
-            clickedLabel.classList.add("codiceCorretto"); // Usa clickedLabel, non target
-            
-            // Opzionale: impedisci ulteriori click su questa riga
-            divForm.style.pointerEvents = 'none'; 
-
-        } else {
-            // SCELTA ERRATA
-            console.log(`Errato per la riga ${i}! Penalità di 3 secondi.`);
-            totalSeconds -= 1; // Sottrai 3 secondi
-            clickedLabel.classList.add("codiceErrato"); // Usa clickedLabel, non target
-            // Assicurati che il timer non vada sotto zero
-            if (totalSeconds < 0) {
-              totalSeconds = 0;
-            }
-            
-            updateTimerDisplay(); // Aggiorna subito il display del timer
-        }
-    }
-}
-// --- FINE NUOVA LOGICA ---
-      
-
     });
+
   }
 
   // --- INIZIO SCRIPT PER DISEGNARE LE LINEE (VERSIONE CON RESIZEOBSERVER) ---
@@ -302,16 +263,6 @@ if (clickedLabel) {
 
   let timerIntervalId = null; // Variabile per tenere traccia dell'intervallo del timer
   let preStartIntervalId = null; // Variabile per tenere traccia dell'intervallo di preavviso
-  let totalSeconds;
-
-  // Funzione per aggiornare il display del timer (per non ripetere codice)
-  function updateTimerDisplay() {
-    const timerDisplay = document.querySelector(".codiceTime span");
-    if (!timerDisplay) return;
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-    timerDisplay.textContent = `${formatTime(minutes)}-${formatTime(seconds)}`;
-  }
   // Funzione per formattare il tempo (es: 5 -> "05")
   const formatTime = (num) => num.toString().padStart(2, "0");
 
@@ -359,14 +310,13 @@ if (clickedLabel) {
     allSwitches.forEach((sw) => sw.classList.remove("placeHolderPreCaunt"));
     timerDisplay.classList.remove("codiceFpre");
 
-    totalSeconds = 60;
-    updateTimerDisplay();
-    // timerDisplay.textContent = "01-00";
+    let totalSeconds = 60; // 1 minuto
+    timerDisplay.textContent = "01-00";
     timerDisplay.style.color = ""; // Ripristina il colore originale
     // Avvia il timer e salva il suo ID per poterlo fermare dopo
     timerIntervalId = setInterval(() => {
       totalSeconds--;
-      updateTimerDisplay();
+
       const minutes = Math.floor(totalSeconds / 60);
       const seconds = totalSeconds % 60;
       timerDisplay.textContent = `${formatTime(minutes)}-${formatTime(
@@ -377,78 +327,82 @@ if (clickedLabel) {
         clearInterval(timerIntervalId); // Ferma il timer
         timerDisplay.textContent = "00-00";
         timerDisplay.style.color = "red";
-        // ------------------------------
+// ------------------------------
 
-        let gameOverInnerHtml = null;
-        let classGameOver = null;
-        function checkResult() {
-          const userChoices = [];
+let gameOverInnerHtml = null;
+let classGameOver = null;
+      function checkResult() {
+  const userChoices = [];
+  
+  // 1. Raccogli tutte le scelte dell'utente
+  const selectedRadios = document.querySelectorAll('input[type="radio"]:checked');
+  selectedRadios.forEach(radio => {
+    // Aggiungiamo solo i valori reali, non quello del placeholder se fosse selezionabile
+    if (radio.value) { 
+      userChoices.push(radio.value);
+    }
+  });
 
-          // 1. Raccogli tutte le scelte dell'utente
-          const selectedRadios = document.querySelectorAll(
-            'input[type="radio"]:checked'
-          );
-          selectedRadios.forEach((radio) => {
-            // Aggiungiamo solo i valori reali, non quello del placeholder se fosse selezionabile
-            if (radio.value) {
-              userChoices.push(radio.value);
-            }
-          });
-
-          // 2. Assicurati che l'utente abbia fatto 5 scelte
-          if (userChoices.length !== 5) {
-            console.log("Devi selezionare un codice per ogni riga!");
-            classGameOver = "boom";
-            gameOverInnerHtml = `
+  // 2. Assicurati che l'utente abbia fatto 5 scelte
+  if (userChoices.length !== 5) {
+    console.log("Devi selezionare un codice per ogni riga!");
+    classGameOver = "boom";
+    gameOverInnerHtml = `
         <h2 class="boomH2">YOU LOSE</h2>
           <p>Riprova a disinnescare la bomba selezionando i codici! .</p>
           <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
           `;
-          }
+   
+  }
 
-          // 3. Confronta le scelte con la combinazione vincente
-          // N.B.: Confrontare due array in JS si fa meglio convertendoli in stringhe
-          const userWon =
-            JSON.stringify(userChoices) === JSON.stringify(winningCombination);
+  // 3. Confronta le scelte con la combinazione vincente
+  // N.B.: Confrontare due array in JS si fa meglio convertendoli in stringhe
+  const userWon = JSON.stringify(userChoices) === JSON.stringify(winningCombination);
 
-          // 4. Mostra il risultato
-          if (userWon) {
-            console.log("HAI VINTO! Bomba disinnescata!");
-            classGameOver = "winner";
-            gameOverInnerHtml = `
+  // 4. Mostra il risultato
+  if (userWon) {
+    console.log("HAI VINTO! Bomba disinnescata!");
+   classGameOver = "winner";
+    gameOverInnerHtml = `
         <h2 class="boomH2">YOU WIN!!</h2>
           <p>Congratulazioni hai disinnescato la bomba! .</p>
           <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
           `;
-
-            // Qui mostri la schermata di vittoria
-          } else {
-            console.log("HAI PERSO! La combinazione è sbagliata.");
-            // Qui mostri la schermata di sconfitta
-            classGameOver = "boom";
-            gameOverInnerHtml = `
+    
+    // Qui mostri la schermata di vittoria
+  } else {
+    console.log("HAI PERSO! La combinazione è sbagliata.");
+    // Qui mostri la schermata di sconfitta
+     classGameOver = "boom";
+    gameOverInnerHtml = `
         <h2 class="boomH2">YOU LOSE</h2>
           <p>Riprova a disinnescare la bomba .</p>
           <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
           `;
-          }
-        }
-        checkResult();
+  }
+}
+checkResult();
 
-        // ----------------------------
+
+// ----------------------------
         // Qui puoi aggiungere la logica di "Game Over"
         const section = document.querySelector("section.codiceS");
-        if (section) {
-          const gameOverArt = document.createElement("article");
-          gameOverArt.classList.add("artSubmit");
-          gameOverArt.classList.add(classGameOver);
-          gameOverArt.innerHTML = gameOverInnerHtml;
-
-          const buttonSubmit = gameOverArt.querySelector("#buttonSubmit");
-          buttonSubmit.addEventListener("click", () => page.show("/games"));
-          section.appendChild(gameOverArt);
-        }
+        if(section){
+        const gameOverArt = document.createElement("article");
+        gameOverArt.classList.add("artSubmit");
+        gameOverArt.classList.add(classGameOver);
+       gameOverArt.innerHTML = gameOverInnerHtml;
+       
+        // gameOverArt.innerHTML = `
+        // <h2 class="boomH2">YOU LOSE</h2>
+        //   <p>Riprova a disinnescare la bomba .</p>
+        //   <button class="buttonSubmit" id="buttonSubmit">Torna a Games</button>
+        //   `;
+        const buttonSubmit = gameOverArt.querySelector("#buttonSubmit");
+        buttonSubmit.addEventListener("click", () => page.show("/games"));
+        section.appendChild(gameOverArt);
       }
+    }
     }, 1000);
   }
 
@@ -469,4 +423,6 @@ if (clickedLabel) {
       console.log("Timer del gioco fermato.");
     }
   };
+
+
 }

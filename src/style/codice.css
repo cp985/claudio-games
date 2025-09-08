@@ -151,9 +151,7 @@ li.codiceLi div.form {
 
 
 div.switch div.form label {
-
     width: 60%;
-
     text-align: center;
     position: absolute;
     display: flex;
@@ -469,8 +467,25 @@ section.codiceS div.form label.codiceSelect {
     border-radius: 5px;
     transform: translate(-50%, -50%);
 
+}
 
+/* Stile per il codice selezionato correttamente */
+section.codiceS div.form label.codiceCorretto,
+section.codiceS div.form label.codiceCorretto:hover {
+    color: #00ff40; /* Un verde brillante */
+    background-color: #051e0c; /* Sfondo scuro per far risaltare il verde */
+    border-color: #00ff40;
+    text-shadow: 0 0 5px #00ff40, 0 0 10px #00ff40; /* Effetto neon verde */
+    box-shadow: inset 0 0 8px rgba(0, 255, 64, 0.5);
+}
 
+section.codiceS div.form label.codiceErrato,
+section.codiceS div.form label.codiceErrato:hover {
+    color: #ff0000; /* Un verde brillante */
+    background-color: #051e0c; /* Sfondo scuro per far risaltare il verde */
+    border-color: #ff0000;
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000; /* Effetto neon verde */
+    box-shadow: inset 0 0 8px rgba(255, 0, 0, 0.5);
 }
 
 @keyframes advanced-glitch {
