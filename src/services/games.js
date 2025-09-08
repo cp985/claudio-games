@@ -6,7 +6,8 @@ import preViewScf2 from "../../assets/img/scf2.webp";
 import ordinaleparole from "../../assets/img/ordina-le-parole.webp";
 import words1 from "../../assets/img/words1.webp";
 import words2 from "../../assets/img/words2.webp";
-
+import code1 from "../../assets/img/code1.webp";
+import code2 from "../../assets/img/code2.webp";
 //Game Dictionary
 
 class Game {
@@ -50,8 +51,8 @@ const gamesDatab = {
     trovailcodice,
     "Per ottenere un'esperienza ottimale, gioca in modalità orizzontale.",
     "trova-il-codice",
-    "#",
-    "#"
+    code1,
+    code2
   ),
   ordinaleparole: new Game(
     "Ordina le Parole",
