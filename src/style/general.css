@@ -756,7 +756,8 @@ section.newsS p.homeP:last-of-type a{
     font-weight: 700;
     font-size: clamp(1.3rem, 1.8vw + 0.4rem, 2rem);
    color: var(--v);
-   text-decoration: underline var(--colore-accento);
+   text-decoration: underline ;
+   text-decoration-color: var(--colore-accento);
    animation: pulsate 1.5s infinite; /* Applica l'animazione, durata 1.5s, infinita */
   display: inline-block; /* Necessario per l'effetto transform */
 }
