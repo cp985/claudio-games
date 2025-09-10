@@ -299,7 +299,8 @@ h3.gameH3 {
 
 article.game-article p.mode {
     color: var(--colore-secondario);
-    text-decoration: underline var(--colore-accento);
+    text-decoration: underline;
+    text-decoration-color: var(--colore-accento); 
     font-weight: 700;
 }
 

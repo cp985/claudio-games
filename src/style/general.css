@@ -891,6 +891,10 @@ footer p small {
 
 @media screen and (max-width: 550px) {
 
+    html{
+         font-size: 18px;
+    }
+
 
     label[for="box"] {
 
